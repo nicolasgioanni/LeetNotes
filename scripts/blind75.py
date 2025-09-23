@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build markdown notes and a problem index from a Google Sheets CSV export."""
+"""Build markdown notes and a problem index from a Google Sheets CSV export.""" 
 from __future__ import annotations
 
 import csv
@@ -8,10 +8,12 @@ import os
 import re
 import sys
 import urllib.request
-from linkify_leetcode import lookup_problem
 from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import quote
+
+from linkify_leetcode import lookup_problem
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 NOTES_OUTPUT_PATH = REPO_ROOT / "Notes" / "blind75.md"
@@ -45,6 +47,7 @@ CATEGORY_ALIASES = {
     "Binary Trees": "Trees",
 }
 DEFAULT_CATEGORY = "Uncategorized"
+INVALID_FOLDER_CHARS = '<>:"/\\|?*'
 
 
 def main() -> int:
@@ -73,32 +76,72 @@ def main() -> int:
     rows = list(reader)
     fieldnames = reader.fieldnames or []
 
-    ensure_problem_folders(rows)
+    folder_lookup = ensure_problem_folders(rows)
 
-    notes_markdown = build_notes_markdown(fieldnames, rows, url)
-    index_markdown = build_problem_index(rows)
+    notes_markdown = build_notes_markdown(fieldnames, rows, url, folder_lookup)
+    index_markdown = build_problem_index(rows, folder_lookup)
 
     write_if_changed(NOTES_OUTPUT_PATH, notes_markdown)
     write_if_changed(PROBLEMS_OUTPUT_PATH, index_markdown)
     return 0
 
 
-def ensure_problem_folders(rows: list[dict[str, str]]) -> None:
+def ensure_problem_folders(rows: list[dict[str, str]]) -> dict[str, str]:
+    mapping: dict[str, str] = {}
     for row in rows:
         problem = (row.get("Problem") or "").strip()
         if not problem:
             continue
+        folder_name = folder_name_from_title(problem)
         slug = slugify(problem)
-        if not slug:
-            continue
-        folder = PROBLEMS_DIR / slug
+        legacy_folder = PROBLEMS_DIR / slug
+        folder = PROBLEMS_DIR / folder_name
+
+        if legacy_folder.exists() and legacy_folder != folder:
+            if folder.exists():
+                migrate_folder_contents(legacy_folder, folder)
+            else:
+                legacy_folder.rename(folder)
         folder.mkdir(parents=True, exist_ok=True)
+
         solution_path = folder / "solution.py"
         if not solution_path.exists():
             placeholder = f"# TODO: implement solution for {problem}\n"
             solution_path.write_text(placeholder, encoding="utf-8")
 
-def build_notes_markdown(fieldnames: list[str], rows: list[dict[str, str]], source_url: str) -> str:
+        mapping[problem] = folder_name
+    return mapping
+
+
+def migrate_folder_contents(source: Path, target: Path) -> None:
+    target.mkdir(parents=True, exist_ok=True)
+    for item in source.iterdir():
+        destination = target / item.name
+        if destination.exists():
+            continue
+        item.rename(destination)
+    try:
+        source.rmdir()
+    except OSError:
+        pass
+
+
+def folder_name_from_title(title: str) -> str:
+    name = title.strip()
+    if not name:
+        return "Untitled Problem"
+    for char in INVALID_FOLDER_CHARS:
+        name = name.replace(char, " ")
+    name = re.sub(r"\s+", " ", name)
+    return name.strip()
+
+
+def build_notes_markdown(
+    fieldnames: list[str],
+    rows: list[dict[str, str]],
+    source_url: str,
+    folder_lookup: dict[str, str],
+) -> str:
     timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
     lines: list[str] = [
         "# Blind 75 Notes",
@@ -121,9 +164,10 @@ def build_notes_markdown(fieldnames: list[str], rows: list[dict[str, str]], sour
 
     for row in rows:
         problem = (row.get("Problem") or "Untitled Problem").strip() or "Untitled Problem"
-        slug = slugify(problem)
+        folder_name = folder_lookup.get(problem, folder_name_from_title(problem))
+        folder_href = quote(folder_name)
+        solution_rel_path = f"../Problems/{folder_href}/solution.py"
         problem_link = lookup_problem(problem)
-        solution_rel_path = f"../Problems/{slug}/solution.py"
         if problem_link:
             links_text = f"*([Problem]({problem_link.url}) | [Solution]({solution_rel_path}))*"
         else:
@@ -162,7 +206,10 @@ def build_notes_markdown(fieldnames: list[str], rows: list[dict[str, str]], sour
     return "\n".join(lines)
 
 
-def build_problem_index(rows: list[dict[str, str]]) -> str:
+def build_problem_index(
+    rows: list[dict[str, str]],
+    folder_lookup: dict[str, str],
+) -> str:
     timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
     lines: list[str] = [
         "# Problem Index",
@@ -170,8 +217,8 @@ def build_problem_index(rows: list[dict[str, str]]) -> str:
         "<!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->",
         f"*Last updated: {timestamp}*",
         "",
-        "This index shows every problem folder grouped by category. Make sure the folder",
-        "names match the generated links (lowercase with dashes).",
+        "This index shows every problem folder grouped by category using the",
+        "exact problem titles.",
         "",
     ]
 
@@ -183,10 +230,11 @@ def build_problem_index(rows: list[dict[str, str]]) -> str:
         categories = split_categories(category_raw)
         if not categories:
             categories = [DEFAULT_CATEGORY]
-        slug = slugify(problem)
+        folder_name = folder_lookup.get(problem, folder_name_from_title(problem))
+        folder_href = quote(folder_name)
         for category in categories:
             canonical = CATEGORY_ALIASES.get(category, category) or DEFAULT_CATEGORY
-            category_map[canonical].append((problem, slug))
+            category_map[canonical].append((problem, folder_href))
 
     ordered_categories = CATEGORY_ORDER + [
         category
@@ -199,18 +247,18 @@ def build_problem_index(rows: list[dict[str, str]]) -> str:
         if not problems:
             continue
         lines.append(f"## {category}")
-        for problem, slug in sorted(problems, key=lambda item: item[0].lower()):
-            lines.append(f"- [{problem}](./{slug}/)")
+        for problem, folder_href in sorted(problems, key=lambda item: item[0].lower()):
+            lines.append(f"- [{problem}](./{folder_href}/)")
         lines.append("")
 
     uncategorized = category_map.get(DEFAULT_CATEGORY, [])
     if uncategorized:
         lines.append(f"## {DEFAULT_CATEGORY}")
-        for problem, slug in sorted(uncategorized, key=lambda item: item[0].lower()):
-            lines.append(f"- [{problem}](./{slug}/)")
+        for problem, folder_href in sorted(uncategorized, key=lambda item: item[0].lower()):
+            lines.append(f"- [{problem}](./{folder_href}/)")
         lines.append("")
 
-    if len(lines) == 7:  # Only header content, no problems
+    if len(lines) == 7:
         lines.append("_No problems found in the spreadsheet._")
         lines.append("")
 
@@ -274,12 +322,3 @@ def write_if_changed(path: Path, content: str) -> None:
 
 if __name__ == "__main__":
     sys.exit(main())
-
-
-
-
-
-
-
-
-
