@@ -9,8 +9,6 @@ This repo records my Blind 75 grind: problems solved, lessons learned, and code 
 - Keep every solution in `Problems/<Problem Title>/solution.py` so implementations stay organized.
 - Let automation rebuild notes each morning, then skim the diff to stay accountable.
 
-MIT license applies (see `LICENSE`).
-
 ## Repository Layout
 
 - `Notes/blind75.md` — auto-generated study notes with direct links back to LeetCode and the local solution file.
