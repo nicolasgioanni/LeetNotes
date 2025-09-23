@@ -13,11 +13,11 @@ MIT license applies (see `LICENSE`).
 
 ## Repository Layout
 
-- `Notes/blind75.md` — auto-generated study notes with direct links back to LeetCode and the local solution file.
-- `Problems/` — one directory per problem (for example `Two Sum/solution.py`) where I store code, follow-up notes, or tests.
-- `Scripts/` — automation helpers (`blind75.py`, `linkify_leetcode.py`).
-- `.github/workflows/notes.yml` — scheduled workflow that updates notes at 5 AM Pacific.
-- `README.md` — this overview.
+- `Notes/blind75.md` â€” auto-generated study notes with direct links back to LeetCode and the local solution file.
+- `Problems/` â€” one directory per problem (for example `Two Sum/solution.py`) where I store code, follow-up notes, or tests.
+- `Scripts/` â€” automation helpers (`blind75.py`, `linkify_leetcode.py`).
+- `.github/workflows/notes.yml` â€” scheduled workflow that updates notes at 5 AM Pacific.
+- `README.md` â€” this overview.
 
 ## Navigation Tips
 
@@ -40,3 +40,6 @@ SHEET_CSV_URL="<csv-url>" python Scripts/blind75.py
 ```
 
 Update the sheet, run the script (or wait for the workflow), and everything stays current.
+
+## License
+This project is licensed under the MIT License. see the LICENSE file for details.
