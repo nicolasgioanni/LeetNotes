@@ -20,7 +20,7 @@ jobs:
           python-version: "3.x"
 
       - name: Regenerate Blind 75 notes
-        run: python "scripts/blind75.py"
+        run: python "Scripts/blind75.py"
 
       - name: Commit and push if changed
         run: |
@@ -33,3 +33,4 @@ jobs:
           else
             echo "No changes to commit."
           fi
+

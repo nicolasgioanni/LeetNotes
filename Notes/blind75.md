@@ -1,16 +1,20 @@
 # Blind 75 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-09-23 05:57 UTC*
+*Last updated: 2025-09-23 06:47 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?output=csv)
 
 ## Contains Duplicate *([Problem](https://leetcode.com/problems/contains-duplicate/) | [Solution](../Problems/Contains%20Duplicate/solution.py))*
 - **Category:** Array & Hashing
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
 - **Notes:** Hashset, check if the value is in seen otherwise, add it to seen
 
 ## Valid Anagram *([Problem](https://leetcode.com/problems/valid-anagram/) | [Solution](../Problems/Valid%20Anagram/solution.py))*
 - **Category:** Array & Hashing
+- **Time Complexity:** O(n + m)
+- **Space Complexity:** O(1)
 - **Notes:**
   - Two ways to solve this:
   - 1) Hashmaps to keep track of char count and then compare
@@ -18,6 +22,8 @@
 
 ## Two Sum *([Problem](https://leetcode.com/problems/two-sum/) | [Solution](../Problems/Two%20Sum/solution.py))*
 - **Category:** Array & Hashing
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
 - **Notes:**
   - Loop through every value
   - If our target - the value we are looking at is in our hashmap of seen values, return them
@@ -25,6 +31,7 @@
 
 ## Group Anagrams *([Problem](https://leetcode.com/problems/group-anagrams/) | [Solution](../Problems/Group%20Anagrams/solution.py))*
 - **Category:** Array & Hashing
+- **Time Complexity:** O(m*n)
 - **Notes:**
   - Loop through strings storing list of counts as the key and string as value (defaultdict(list))
   - ASCII values for count
