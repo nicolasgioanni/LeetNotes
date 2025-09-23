@@ -8,6 +8,7 @@ import os
 import re
 import sys
 import urllib.request
+from linkify_leetcode import lookup_problem
 from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
@@ -121,7 +122,13 @@ def build_notes_markdown(fieldnames: list[str], rows: list[dict[str, str]], sour
     for row in rows:
         problem = (row.get("Problem") or "Untitled Problem").strip() or "Untitled Problem"
         slug = slugify(problem)
-        lines.append(f"## [{problem}](../Problems/{slug}/)")
+        problem_link = lookup_problem(problem)
+        solution_rel_path = f"../Problems/{slug}/solution.py"
+        if problem_link:
+            links_text = f"*([Problem]({problem_link.url}) | [Solution]({solution_rel_path}))*"
+        else:
+            links_text = f"*([Solution]({solution_rel_path}))*"
+        lines.append(f"## {problem} {links_text}")
 
         section_lines: list[str] = []
 
@@ -267,6 +274,10 @@ def write_if_changed(path: Path, content: str) -> None:
 
 if __name__ == "__main__":
     sys.exit(main())
+
+
+
+
 
 
 
