@@ -1,0 +1,35 @@
+name: Update Blind 75 Notes
+
+on:
+  schedule:
+    - cron: "0 13 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      SHEET_CSV_URL: ${{ secrets.SHEET_CSV_URL }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Regenerate Blind 75 notes
+        run: python "scripts/blind75.py"
+
+      - name: Commit and push if changed
+        run: |
+          if git status --short "Notes/blind75.md" | grep -q .; then
+            git config --global user.name "github-actions[bot]"
+            git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            git add "Notes/blind75.md"
+            git commit -m "chore: update blind 75 notes"
+            git push
+          else
+            echo "No changes to commit."
+          fi
