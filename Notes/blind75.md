@@ -1,9 +1,10 @@
 # Blind 75 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-09-23 06:47 UTC*
+*Last updated: 2025-09-24 05:18 UTC*
 
-[Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?output=csv)
+[Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?output=csv
+)
 
 ## Contains Duplicate *([Problem](https://leetcode.com/problems/contains-duplicate/) | [Solution](../Problems/Contains%20Duplicate/solution.py))*
 - **Category:** Array & Hashing
@@ -31,13 +32,16 @@
 
 ## Group Anagrams *([Problem](https://leetcode.com/problems/group-anagrams/) | [Solution](../Problems/Group%20Anagrams/solution.py))*
 - **Category:** Array & Hashing
-- **Time Complexity:** O(m*n)
+- **Time Complexity:** O(nm)
+- **Space Complexity:** O(nm)
 - **Notes:**
   - Loop through strings storing list of counts as the key and string as value (defaultdict(list))
   - ASCII values for count
 
 ## Top K Frequent Elements *([Problem](https://leetcode.com/problems/top-k-frequent-elements/) | [Solution](../Problems/Top%20K%20Frequent%20Elements/solution.py))*
 - **Category:** Array & Hashing
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
 - **Notes:**
   - Hashmap for count and dict of lists per number in input list storing count as key and number as values
   - Loop to get count of each number
@@ -46,6 +50,8 @@
 
 ## Encode and Decode Strings *([Problem](https://leetcode.com/problems/encode-and-decode-strings/) | [Solution](../Problems/Encode%20and%20Decode%20Strings/solution.py))*
 - **Category:** Array & Hashing
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n + m)
 - **Notes:**
   - Encode saving the new string as (length, unique char, string)
   - Decode Looping until we hit our right bound, using pointers front, middle, and end
@@ -147,6 +153,8 @@
 
 ## Minimum Window Substring *([Problem](https://leetcode.com/problems/minimum-window-substring/) | [Solution](../Problems/Minimum%20Window%20Substring/solution.py))*
 - **Category:** Sliding Window
+- **Time Complexity:** O(n + m)
+- **Space Complexity:** O(m)
 - **Notes:**
   - Check if are target substring is empty else continue
   - Hashmaps for window and target substring
