@@ -1,7 +1,7 @@
 # Blind 75 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-09-24 05:18 UTC*
+*Last updated: 2025-09-24 05:20 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?output=csv
 )
@@ -287,6 +287,7 @@
   - Key: Recursivly divide until we only have a list from both left and right halves, then slowly merge them until we have 1 resulting list
 
 ## Invert Binary Tree *([Problem](https://leetcode.com/problems/invert-binary-tree/) | [Solution](../Problems/Invert%20Binary%20Tree/solution.py))*
+- **Category:** Trees
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:** 1) Edge case, 2) swap left and right nodes, 3) Recursively call on both left and right nodes (the ones we changed)

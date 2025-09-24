@@ -1,7 +1,7 @@
 # Problem Index
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-09-24 05:18 UTC*
+*Last updated: 2025-09-24 05:20 UTC*
 
 This index shows every problem folder grouped by category using the
 exact problem titles.
@@ -46,11 +46,13 @@ exact problem titles.
 - [Reorder List](./Reorder%20List/)
 - [Reverse Linked List](./Reverse%20Linked%20List/)
 
+## Trees
+- [Invert Binary Tree](./Invert%20Binary%20Tree/)
+
 ## Uncategorized
 - [Binary Tree Level Order Traversal](./Binary%20Tree%20Level%20Order%20Traversal/)
 - [Binary Tree Maximum Path Sum](./Binary%20Tree%20Maximum%20Path%20Sum/)
 - [Construct Binary Tree From Preorder And Inorder Traversal](./Construct%20Binary%20Tree%20From%20Preorder%20And%20Inorder%20Traversal/)
-- [Invert Binary Tree](./Invert%20Binary%20Tree/)
 - [Kth Smallest Element In a Bst](./Kth%20Smallest%20Element%20In%20a%20Bst/)
 - [Lowest Common Ancestor of a Binary Search Tree](./Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/)
 - [Maximum Depth of Binary Tree (DFS)](./Maximum%20Depth%20of%20Binary%20Tree%20%28DFS%29/)
