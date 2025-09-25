@@ -19,7 +19,7 @@ This repo records my Blind 75 grind: problems solved, lessons learned, and code 
 
 ## Navigation Tips
 
-- Use `Problems/README.md` to browse by category; each entry links to its folder.
+- Use `Problems/Problems.md` to browse by category; each entry links to its folder.
 - Open `Notes/blind75.md` when you want a quick reminder of approach, complexity, or edge cases.
 - Every heading in the notes file links both to the LeetCode problem and to the matching solution in this repo.
 
@@ -27,7 +27,7 @@ This repo records my Blind 75 grind: problems solved, lessons learned, and code 
 
 1. `Scripts/blind75.py` reads the `SHEET_CSV_URL` (from an env var or GitHub secret) and downloads the Google Sheet as CSV.
 2. `linkify_leetcode.py` maps each problem title to its LeetCode slug so the notes include official problem URLs.
-3. The script regenerates `Notes/blind75.md` and `Problems/README.md`, writing per-problem sections with complexities, notes, and dual links.
+3. The script regenerates `Notes/blind75.md` and `Problems/Problems.md`, writing per-problem sections with complexities, notes, and dual links.
 4. It ensures `Problems/<Problem Title>/solution.py` exists, creating a placeholder only when the file is missing.
 5. `.github/workflows/notes.yml` runs daily and on manual dispatch: it executes the script and pushes any changed files back to `main`.
 

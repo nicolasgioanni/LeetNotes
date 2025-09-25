@@ -20,7 +20,7 @@ from linkify_leetcode import ProblemLink, lookup_problem
 REPO_ROOT = Path(__file__).resolve().parents[1]
 NOTES_OUTPUT_PATH = REPO_ROOT / "Notes" / "blind75.md"
 PROBLEMS_DIR = REPO_ROOT / "Problems"
-PROBLEMS_OUTPUT_PATH = PROBLEMS_DIR / "README.md"
+PROBLEMS_OUTPUT_PATH = PROBLEMS_DIR / "Problems.md"
 STANDARD_FIELDS = ("Problem", "Category", "Time Complexity", "Space Complexity", "Notes")
 NOTE_PREFIXES = ("- ", "* ", "\u2022 ", "\u2022")
 CATEGORY_ORDER = [
@@ -115,9 +115,12 @@ def ensure_problem_folders(rows: list[dict[str, str]]) -> MetadataMap:
             continue
 
         link = lookup_problem(problem)
+        frontend_id = (link.frontend_id or "").strip()
         folder_title = problem
-        if link.frontend_id:
-            folder_title = f"{link.frontend_id}. {problem}"
+        if frontend_id and frontend_id.isdigit():
+            folder_title = f"{frontend_id.zfill(4)}. {problem}"
+        elif frontend_id:
+            folder_title = f"{frontend_id}. {problem}"
 
         folder_name = folder_name_from_title(folder_title)
         target_folder = PROBLEMS_DIR / folder_name
@@ -126,6 +129,8 @@ def ensure_problem_folders(rows: list[dict[str, str]]) -> MetadataMap:
             PROBLEMS_DIR / slugify(problem),
             PROBLEMS_DIR / folder_name_from_title(problem),
         ]
+        if frontend_id:
+            legacy_candidates.append(PROBLEMS_DIR / folder_name_from_title(f"{frontend_id}. {problem}"))
         for legacy in legacy_candidates:
             if legacy.exists() and legacy != target_folder:
                 migrate_folder_contents(legacy, target_folder)
@@ -276,19 +281,21 @@ def build_problem_index(
         "",
     ]
 
-    category_map: dict[str, list[tuple[str, str]]] = defaultdict(list)
+    category_map: dict[str, list[tuple[str, str, Optional[ProblemLink], str]]] = defaultdict(list)
 
     for row in rows:
         problem = (row.get("Problem") or "Untitled Problem").strip() or "Untitled Problem"
-        folder_name, _ = metadata.get(problem, (folder_name_from_title(problem), None))
+        folder_name, link = metadata.get(problem, (folder_name_from_title(problem), None))
         folder_href = quote(folder_name)
+        display_name = problem_display_name(problem, link, folder_name)
+        solution_rel = f"./{folder_href}/solution.py"
         category_raw = (row.get("Category") or "").strip()
         categories = split_categories(category_raw)
         if not categories:
             categories = [DEFAULT_CATEGORY]
         for category in categories:
             canonical = CATEGORY_ALIASES.get(category, category) or DEFAULT_CATEGORY
-            category_map[canonical].append((problem, folder_href))
+            category_map[canonical].append((display_name, folder_href, link, solution_rel))
 
     ordered_categories = CATEGORY_ORDER + [
         category
@@ -301,15 +308,25 @@ def build_problem_index(
         if not problems:
             continue
         lines.append(f"## {category}")
-        for problem, folder_href in sorted(problems, key=lambda item: item[0].lower()):
-            lines.append(f"- [{problem}](./{folder_href}/)")
+        for display_name, folder_href, link_obj, solution_rel in sorted(problems, key=lambda item: item[0].lower()):
+            parts = []
+            if link_obj:
+                parts.append(f"[Problem]({link_obj.url})")
+            parts.append(f"[Solution]({solution_rel})")
+            extras = " | ".join(parts)
+            lines.append(f"- [{display_name}](./{folder_href}/) ({extras})")
         lines.append("")
 
     uncategorized = category_map.get(DEFAULT_CATEGORY, [])
     if uncategorized:
         lines.append(f"## {DEFAULT_CATEGORY}")
-        for problem, folder_href in sorted(uncategorized, key=lambda item: item[0].lower()):
-            lines.append(f"- [{problem}](./{folder_href}/)")
+        for display_name, folder_href, link_obj, solution_rel in sorted(uncategorized, key=lambda item: item[0].lower()):
+            parts = []
+            if link_obj:
+                parts.append(f"[Problem]({link_obj.url})")
+            parts.append(f"[Solution]({solution_rel})")
+            extras = " | ".join(parts)
+            lines.append(f"- [{display_name}](./{folder_href}/) ({extras})")
         lines.append("")
 
     if len(lines) == 7:
@@ -317,6 +334,26 @@ def build_problem_index(
         lines.append("")
 
     return "\n".join(lines)
+
+
+
+
+def canonical_problem_number(value: str) -> str:
+    cleaned = value.strip()
+    if cleaned.isdigit():
+        return str(int(cleaned))
+    return cleaned
+
+
+def problem_display_name(problem: str, link: Optional[ProblemLink], folder_name: str) -> str:
+    if link and link.frontend_id:
+        number = canonical_problem_number(link.frontend_id)
+        return f"{number}. {problem}"
+    match = re.match(r"^(\d+)\.\s+", folder_name)
+    if match:
+        number = canonical_problem_number(match.group(1))
+        return f"{number}. {problem}"
+    return problem
 
 
 def split_categories(raw: str) -> list[str]:
