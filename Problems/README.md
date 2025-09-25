@@ -1,7 +1,7 @@
 # Problem Index
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-09-25 05:25 UTC*
+*Last updated: 2025-09-25 05:31 UTC*
 
 This index shows every problem folder grouped by category using the
 problem numbers when available.
@@ -60,4 +60,5 @@ problem numbers when available.
 - [Validate Binary Search Tree](./98.%20Validate%20Binary%20Search%20Tree/)
 
 ## Uncategorized
+- [Combination Sum](./39.%20Combination%20Sum/)
 - [Find Median From Data Stream](./295.%20Find%20Median%20From%20Data%20Stream/)
