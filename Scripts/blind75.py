@@ -231,7 +231,6 @@ def build_notes_markdown(
     ordered_fields = preferred_order + extra_fields
 
     category_entries: dict[str, list[tuple[str, list[str]]]] = {}
-    category_sequence: list[str] = []
 
     for row in rows:
         problem = (row.get("Problem") or "Untitled Problem").strip() or "Untitled Problem"
@@ -279,23 +278,21 @@ def build_notes_markdown(
             canonical = CATEGORY_ALIASES.get(category, category) or DEFAULT_CATEGORY
             if canonical not in category_entries:
                 category_entries[canonical] = []
-                category_sequence.append(canonical)
             category_entries[canonical].append((problem_line, section_lines.copy()))
 
     if not category_entries:
         return "\n".join(lines)
 
-    ordered_categories: list[str] = []
-    for category in CATEGORY_ORDER:
-        if category == DEFAULT_CATEGORY:
-            continue
-        if category in category_entries:
-            ordered_categories.append(category)
-
-    for category in category_sequence:
-        if category not in ordered_categories and category != DEFAULT_CATEGORY:
-            ordered_categories.append(category)
-
+    ordered_categories = [
+        category
+        for category in CATEGORY_ORDER
+        if category in category_entries and category != DEFAULT_CATEGORY
+    ]
+    ordered_categories.extend(
+        category
+        for category in category_entries
+        if category not in CATEGORY_ORDER and category != DEFAULT_CATEGORY
+    )
     if DEFAULT_CATEGORY in category_entries:
         ordered_categories.append(DEFAULT_CATEGORY)
 
