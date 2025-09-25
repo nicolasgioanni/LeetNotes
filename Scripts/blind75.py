@@ -230,6 +230,9 @@ def build_notes_markdown(
     extra_fields = [field for field in fieldnames if field not in preferred_order]
     ordered_fields = preferred_order + extra_fields
 
+    category_entries: dict[str, list[tuple[str, list[str]]]] = {}
+    category_sequence: list[str] = []
+
     for row in rows:
         problem = (row.get("Problem") or "Untitled Problem").strip() or "Untitled Problem"
         folder_name, link = metadata.get(problem, (folder_name_from_title(problem), None))
@@ -239,12 +242,12 @@ def build_notes_markdown(
             links_text = f"*([Problem]({link.url}) | [Solution]({solution_rel_path}))*"
         else:
             links_text = f"*([Solution]({solution_rel_path}))*"
-        lines.append(f"## {problem} {links_text}")
+        problem_line = f"- {problem} {links_text}"
 
         section_lines: list[str] = []
 
         for field in ordered_fields:
-            if field == "Problem":
+            if field in {"Problem", "Category"}:
                 continue
             raw_value = row.get(field) or ""
             value = format_cell(raw_value)
@@ -267,11 +270,48 @@ def build_notes_markdown(
         if not section_lines:
             section_lines.append("- _No details provided._")
 
-        lines.extend(section_lines)
+        category_raw = (row.get("Category") or "").strip()
+        categories = split_categories(category_raw)
+        if not categories:
+            categories = [DEFAULT_CATEGORY]
+
+        for category in categories:
+            canonical = CATEGORY_ALIASES.get(category, category) or DEFAULT_CATEGORY
+            if canonical not in category_entries:
+                category_entries[canonical] = []
+                category_sequence.append(canonical)
+            category_entries[canonical].append((problem_line, section_lines.copy()))
+
+    if not category_entries:
+        return "\n".join(lines)
+
+    ordered_categories: list[str] = []
+    for category in CATEGORY_ORDER:
+        if category == DEFAULT_CATEGORY:
+            continue
+        if category in category_entries:
+            ordered_categories.append(category)
+
+    for category in category_sequence:
+        if category not in ordered_categories and category != DEFAULT_CATEGORY:
+            ordered_categories.append(category)
+
+    if DEFAULT_CATEGORY in category_entries:
+        ordered_categories.append(DEFAULT_CATEGORY)
+
+    for category in ordered_categories:
+        lines.append(f"## {category}")
         lines.append("")
+        for problem_line, detail_lines in category_entries[category]:
+            lines.append(problem_line)
+            for detail in detail_lines:
+                lines.append(f"  {detail}")
+            lines.append("")
+
+    if lines and lines[-1] == "":
+        lines.pop()
 
     return "\n".join(lines)
-
 
 def build_problem_index(
     rows: list[dict[str, str]],
