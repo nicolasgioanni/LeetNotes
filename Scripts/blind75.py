@@ -289,7 +289,7 @@ def build_problem_index(
         "",
     ]
 
-    category_map: dict[str, list[tuple[str, str, Optional[ProblemLink], str]]] = defaultdict(list)
+    category_map: dict[str, list[tuple[str, Optional[ProblemLink], str]]] = defaultdict(list)
 
     for row in rows:
         problem = (row.get("Problem") or "Untitled Problem").strip() or "Untitled Problem"
@@ -303,7 +303,7 @@ def build_problem_index(
             categories = [DEFAULT_CATEGORY]
         for category in categories:
             canonical = CATEGORY_ALIASES.get(category, category) or DEFAULT_CATEGORY
-            category_map[canonical].append((display_name, folder_href, link, solution_rel))
+            category_map[canonical].append((display_name, link, solution_rel))
 
     ordered_categories = CATEGORY_ORDER + [
         category
@@ -316,7 +316,7 @@ def build_problem_index(
         if not problems:
             continue
         lines.append(f"## {category}")
-        for display_name, folder_href, link_obj, solution_rel in sorted(problems, key=lambda item: item[0].lower()):
+        for display_name, link_obj, solution_rel in sorted(problems, key=lambda item: item[0].lower()):
             links: list[str] = []
             if link_obj:
                 links.append(f"[Problem]({link_obj.url})")
@@ -328,7 +328,7 @@ def build_problem_index(
     uncategorized = category_map.get(DEFAULT_CATEGORY, [])
     if uncategorized:
         lines.append(f"## {DEFAULT_CATEGORY}")
-        for display_name, folder_href, link_obj, solution_rel in sorted(uncategorized, key=lambda item: item[0].lower()):
+        for display_name, link_obj, solution_rel in sorted(uncategorized, key=lambda item: item[0].lower()):
             links: list[str] = []
             if link_obj:
                 links.append(f"[Problem]({link_obj.url})")
