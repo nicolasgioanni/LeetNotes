@@ -1,3 +1,5 @@
+# https://leetcode.com/problems/search-a-2d-matrix/solutions/7171354/simple-binary-search-on-matrix-beat-100-0ms-runtime
+
 class Solution(object):
     def searchMatrix(self, matrix, target):
         """
