@@ -357,24 +357,26 @@ def build_problem_index(
             continue
         lines.append(f"## {category}")
         for display_name, link_obj, solution_rel in sorted(problems, key=lambda item: item[0].lower()):
+            title_text = escape_ordered_list_prefix(display_name)
             links: list[str] = []
             if link_obj:
                 links.append(f"[Problem]({link_obj.url})")
             links.append(f"[Solution]({solution_rel})")
             links_text = " | ".join(links)
-            lines.append(f"- {display_name} ({links_text})")
+            lines.append(f"- {title_text} ({links_text})")
         lines.append("")
 
     uncategorized = category_map.get(DEFAULT_CATEGORY, [])
     if uncategorized:
         lines.append(f"## {DEFAULT_CATEGORY}")
         for display_name, link_obj, solution_rel in sorted(uncategorized, key=lambda item: item[0].lower()):
+            title_text = escape_ordered_list_prefix(display_name)
             links: list[str] = []
             if link_obj:
                 links.append(f"[Problem]({link_obj.url})")
             links.append(f"[Solution]({solution_rel})")
             links_text = " | ".join(links)
-            lines.append(f"- {display_name} ({links_text})")
+            lines.append(f"- {title_text} ({links_text})")
         lines.append("")
 
     if len(lines) == 7:
@@ -402,6 +404,10 @@ def problem_display_name(problem: str, link: Optional[ProblemLink], folder_name:
         number = canonical_problem_number(match.group(1))
         return f"{number}. {problem}"
     return problem
+
+def escape_ordered_list_prefix(text: str) -> str:
+    return re.sub(r"^(\\d+)\\.", r"\\1\\\\.", text)
+
 
 
 def split_categories(raw: str) -> list[str]:
