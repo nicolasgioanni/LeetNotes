@@ -31,9 +31,10 @@ jobs:
             git config --global user.name "${{ secrets.COMMIT_USER_NAME }}"
             git config --global user.email "${{ secrets.COMMIT_USER_EMAIL }}"
             git add "Notes/blind75.md" "Problems/README.md"
-            git commit -m "chore: update blind 75 notes"
+            git commit -m "Update Blind 75 Notes"
             git push
           else
             echo "No changes to commit."
           fi
+
 
