@@ -1,7 +1,7 @@
 # Problem Index
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-09-25 04:34 UTC*
+*Last updated: 2025-09-25 05:15 UTC*
 
 This index shows every problem folder grouped by category using the
 problem numbers when available.
@@ -58,3 +58,6 @@ problem numbers when available.
 - [Serialize And Deserialize Binary Tree](./297.%20Serialize%20And%20Deserialize%20Binary%20Tree/)
 - [Subtree of Another Tree (DFS)](./572.%20Subtree%20of%20Another%20Tree%20%28DFS%29/)
 - [Validate Binary Search Tree](./98.%20Validate%20Binary%20Search%20Tree/)
+
+## Uncategorized
+- [Find Median From Data Stream](./295.%20Find%20Median%20From%20Data%20Stream/)
