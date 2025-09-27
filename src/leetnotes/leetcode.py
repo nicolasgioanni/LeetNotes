@@ -1,5 +1,5 @@
-#!/usr/bin/env python3
-"""Helpers for resolving LeetCode problem URLs."""
+﻿"""Helpers for resolving LeetCode problem URLs."""
+
 from __future__ import annotations
 
 import json
@@ -7,8 +7,9 @@ import re
 import threading
 import urllib.error
 import urllib.request
-from dataclasses import dataclass
 from typing import Optional
+
+from .models import ProblemLink
 
 KNOWN_SLUGS: dict[str, str] = {
     "1 Bit and 2 Bit Characters": "1-bit-and-2-bit-characters",
@@ -29,19 +30,6 @@ _GRAPHQL_QUERY = (
 )
 _CACHE_LOCK = threading.Lock()
 _QUESTION_CACHE: dict[str, Optional[str]] = {}
-
-
-@dataclass(frozen=True)
-class ProblemLink:
-    """Resolved LeetCode problem metadata."""
-
-    title: str
-    slug: str
-    frontend_id: Optional[str] = None
-
-    @property
-    def url(self) -> str:
-        return f"https://leetcode.com/problems/{self.slug}/"
 
 
 def lookup_problem(title: str) -> ProblemLink:
@@ -98,3 +86,6 @@ def _question_frontend_id(slug: str) -> Optional[str]:
     with _CACHE_LOCK:
         _QUESTION_CACHE[slug] = result
     return result
+
+
+__all__ = ["KNOWN_SLUGS", "lookup_problem"]

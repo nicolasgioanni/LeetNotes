@@ -1,0 +1,22 @@
+﻿[build-system]
+requires = ["setuptools>=67", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "leetnotes"
+version = "0.1.0"
+description = "Generate LeetCode Blind 75 notes and problem index from a spreadsheet."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+dependencies = []
+
+[project.scripts]
+leetnotes = "leetnotes.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

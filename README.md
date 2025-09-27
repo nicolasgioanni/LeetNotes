@@ -1,4 +1,4 @@
-# LeetCode Progress Tracker
+﻿# LeetCode Progress Tracker
 
 This repo records my Blind 75 grind: problems solved, lessons learned, and code I can revisit quickly. A Google Sheet stays as the single source of truth, and the repo mirrors it through automation.
 
@@ -11,31 +11,46 @@ This repo records my Blind 75 grind: problems solved, lessons learned, and code 
 
 ## Repository Layout
 
-- `Notes/blind75.md` — auto-generated study notes with direct links back to LeetCode and the local solution file.
-- `Problems/` — one directory per problem (for example `Two Sum/solution.py`) where I store code, follow-up notes, or tests.
-- `Scripts/` — automation helpers (`blind75.py`, `linkify_leetcode.py`).
-- `.github/workflows/notes.yml` — scheduled workflow that updates notes at 5 AM Pacific.
-- `README.md` — this overview.
+- `Notes/blind75.md` - auto-generated study notes with direct links back to LeetCode and the local solution file.
+- `Problems/` - one directory per problem (for example `Two Sum/solution.py`) where I store code, follow-up notes, or tests.
+- `src/leetnotes/` - Python package housing the CLI entry point and supporting modules.
+- `tests/` - smoke tests that keep the renderers honest as the package evolves.
+- `.github/workflows/notes.yml` - scheduled workflow that updates notes at 5 AM Pacific.
+- `README.md` - this overview.
+
 
 ## Navigation Tips
 
-- Use `Problems/Problems.md` to browse by category; each entry links to its folder.
+- Use `Problems/README.md` to browse by category; each entry links to its folder.
 - Open `Notes/blind75.md` when you want a quick reminder of approach, complexity, or edge cases.
 - Every heading in the notes file links both to the LeetCode problem and to the matching solution in this repo.
 
 ## Automation Pipeline
 
-1. `Scripts/blind75.py` reads the `SHEET_CSV_URL` (from an env var or GitHub secret) and downloads the Google Sheet as CSV.
-2. `linkify_leetcode.py` maps each problem title to its LeetCode slug so the notes include official problem URLs.
-3. The script regenerates `Notes/blind75.md` and `Problems/Problems.md`, writing per-problem sections with complexities, notes, and dual links.
-4. It ensures `Problems/<Problem Title>/solution.py` exists, creating a placeholder only when the file is missing.
-5. `.github/workflows/notes.yml` runs daily and on manual dispatch: it executes the script and pushes any changed files back to `main`.
+1. The `leetnotes` CLI reads `SHEET_CSV_URL` (from an env var or GitHub secret) and downloads the Google Sheet as CSV.
+2. `leetnotes.leetcode` resolves each problem title to a LeetCode slug so the notes include official problem URLs.
+3. `leetnotes.repo` normalizes problem folders and ensures a placeholder `solution.py` exists when needed.
+4. `leetnotes.render_notes` and `leetnotes.render_index` rebuild `Notes/blind75.md` and `Problems/README.md` from the spreadsheet data.
+5. `.github/workflows/notes.yml` installs the package, runs the CLI daily, and pushes any committed changes.
 
 ### Run Locally
 
 ```bash
-SHEET_CSV_URL="<csv-url>" python Scripts/blind75.py
+python -m pip install --upgrade pip
+python -m pip install .
+
+SHEET_CSV_URL="<csv-url>" leetnotes
 ```
+
+### Additional Note Sets
+
+Need another curated list? Set the appropriate CSV URL and pick a profile when running the CLI.
+
+```bash
+SHEET_CSV_URL_NEETCODE150="<csv-url>" leetnotes --profile neetcode150
+```
+
+That profile writes to `Notes/neetcode150.md` and mirrors solutions in `Problems/NeetCode150/`. Feel free to add more profiles in `src/leetnotes/config.py` as your study plans grow.
 
 Update the sheet, run the script (or wait for the workflow), and everything stays current.
 
