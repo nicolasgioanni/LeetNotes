@@ -1,7 +1,7 @@
 # My Solved LeetCode Problem Index
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-09-27 07:01 UTC*
+*Last updated: 2025-09-27 07:09 UTC*
 
 This index lists every problem I've solved, organized by category, with links to the problem and my solutions.
 
@@ -62,3 +62,4 @@ This index lists every problem I've solved, organized by category, with links to
 ## Uncategorized
 - 295\. Find Median From Data Stream ([Problem](https://leetcode.com/problems/find-median-from-data-stream/) | [Solution](./0295.%20Find%20Median%20From%20Data%20Stream/solution.py))
 - 39\. Combination Sum ([Problem](https://leetcode.com/problems/combination-sum/) | [Solution](./0039.%20Combination%20Sum/solution.py))
+- 79\. Word Search ([Problem](https://leetcode.com/problems/word-search/) | [Solution](./0079.%20Word%20Search/solution.py))
