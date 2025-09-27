@@ -36,7 +36,7 @@ jobs:
 
       - name: Commit and push if changed
         run: |
-          git add "Notes/blind75.md" "Notes/neetcode150.md" "Problems" "Problems/README.md"
+          git add -f "Notes/blind75.md" "Notes/neetcode150.md" "Problems" "Problems/README.md"
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
