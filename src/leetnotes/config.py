@@ -1,4 +1,4 @@
-﻿"""Central configuration for the leetnotes package."""
+"""Central configuration for the leetnotes package."""
 
 from __future__ import annotations
 
@@ -10,6 +10,7 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 
 NOTES_DIR = REPO_ROOT / "Notes"
 PROBLEMS_DIR = REPO_ROOT / "Problems"
+PROBLEMS_CATALOG_PATH = PROBLEMS_DIR / ".catalog.json"
 
 STD_CATEGORY_ORDER = [
     "Array & Hashing",
@@ -69,10 +70,10 @@ NEETCODE150_PROFILE = NotesProfile(
     name="NeetCode 150",
     env_var="SHEET_CSV_URL_NEETCODE150",
     notes_output_path=NOTES_DIR / "neetcode150.md",
-    problems_dir=PROBLEMS_DIR / "NeetCode150",
-    problems_index_path=(PROBLEMS_DIR / "NeetCode150" / "README.md"),
+    problems_dir=PROBLEMS_DIR,
+    problems_index_path=PROBLEMS_DIR / "README.md",
     notes_title="NeetCode 150 Notes",
-    index_title="NeetCode 150 Problem Index",
+    index_title=BLIND75_PROFILE.index_title,
 )
 
 _PROFILES = {
@@ -120,6 +121,7 @@ __all__ = [
     "NOTES_DIR",
     "NOTES_OUTPUT_PATH",
     "NOTE_PREFIXES",
+    "PROBLEMS_CATALOG_PATH",
     "PROBLEMS_DIR",
     "PROBLEMS_INDEX_PATH",
     "REPO_ROOT",
