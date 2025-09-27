@@ -1,4 +1,4 @@
-"""Central configuration for the leetnotes package."""
+﻿"""Central configuration for the leetnotes package."""
 
 from __future__ import annotations
 
@@ -10,7 +10,8 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 
 NOTES_DIR = REPO_ROOT / "Notes"
 PROBLEMS_DIR = REPO_ROOT / "Problems"
-PROBLEMS_CATALOG_PATH = PROBLEMS_DIR / ".catalog.json"
+CATALOG_DIR = REPO_ROOT / ".leetnotes"
+PROBLEMS_CATALOG_PATH = CATALOG_DIR / "catalog.json"
 
 STD_CATEGORY_ORDER = [
     "Array & Hashing",
