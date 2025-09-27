@@ -1,4 +1,4 @@
-﻿name: Update Study Notes
+name: Update Study Notes
 
 on:
   schedule:
@@ -21,6 +21,14 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
+
+      - name: Inspect pyproject header
+        run: |
+          python - <<'PY'
+          import pathlib
+          data = pathlib.Path('pyproject.toml').read_bytes()
+          print(data[:32])
+          PY
 
       - name: Install leetnotes
         run: |
