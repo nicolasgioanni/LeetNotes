@@ -7,7 +7,7 @@ This index shows every problem folder grouped by category using the
 problem numbers when available.
 
 ## Array & Hashing
-- 1. Two Sum ([Problem](https://leetcode.com/problems/two-sum/) | [Solution](./0001.%20Two%20Sum/solution.py))
+- 1\. Two Sum ([Problem](https://leetcode.com/problems/two-sum/) | [Solution](./0001.%20Two%20Sum/solution.py))
 - 128. Longest Consecutive Sequence ([Problem](https://leetcode.com/problems/longest-consecutive-sequence/) | [Solution](./0128.%20Longest%20Consecutive%20Sequence/solution.py))
 - 217. Contains Duplicate ([Problem](https://leetcode.com/problems/contains-duplicate/) | [Solution](./0217.%20Contains%20Duplicate/solution.py))
 - 238. Product of Array Except Self ([Problem](https://leetcode.com/problems/product-of-array-except-self/) | [Solution](./0238.%20Product%20of%20Array%20Except%20Self/solution.py))
