@@ -316,13 +316,13 @@ def build_problem_index(
 ) -> str:
     timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
     lines: list[str] = [
-        "# Problem Index",
+        "# My Solved LeetCode Problem Index",
         "",
         "<!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->",
         f"*Last updated: {timestamp}*",
         "",
-        "This index shows every problem folder grouped by category using the",
-        "problem numbers when available.",
+        "This index lists every problem I've solved, organized by category, with links to the problem and my solutions.",
+        "",
         "",
     ]
 
@@ -403,7 +403,7 @@ def problem_display_name(problem: str, link: Optional[ProblemLink], folder_name:
     return problem
 
 def escape_ordered_list_prefix(text: str) -> str:
-    return re.sub(r"^(\\d+)\\.", r"\\1\\\\.", text)
+    return re.sub(r'^(\d+)\.', r'\1\.', text)
 
 
 
