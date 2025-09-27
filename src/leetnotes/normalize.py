@@ -28,7 +28,7 @@ def canonical_problem_number(value: str) -> str:
 def escape_ordered_list_prefix(text: str) -> str:
     """Escape leading ordered-list markers so Markdown keeps numbering."""
 
-    return re.sub(r"^(\\d+)\\.", r"\\1\\.", text)
+    return re.sub(r'^(\d+)\.', r'\1\.', text)
 
 def split_categories(raw: str) -> list[str]:
     """Split category strings on commas, slashes, or newlines."""
