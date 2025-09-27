@@ -241,7 +241,9 @@ def build_notes_markdown(
             links_text = f"*([Problem]({link.url}) | [Solution]({solution_rel_path}))*"
         else:
             links_text = f"*([Solution]({solution_rel_path}))*"
-        problem_line = f"- {problem} {links_text}"
+        problem_title = escape_ordered_list_prefix(problem)
+        heading_text = f"**{problem_title}**"
+        problem_line = f"{heading_text} {links_text}".strip()
 
         section_lines: list[str] = []
 
@@ -302,7 +304,7 @@ def build_notes_markdown(
         for problem_line, detail_lines in category_entries[category]:
             lines.append(problem_line)
             for detail in detail_lines:
-                lines.append(f"  {detail}")
+                lines.append(detail)
             lines.append("")
 
     if lines and lines[-1] == "":
