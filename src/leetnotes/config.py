@@ -10,7 +10,7 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 
 NOTES_DIR = REPO_ROOT / "Notes"
 PROBLEMS_DIR = REPO_ROOT / "Problems"
-CATALOG_DIR = REPO_ROOT / ".leetnotes"
+CATALOG_DIR = REPO_ROOT / "var"
 PROBLEMS_CATALOG_PATH = CATALOG_DIR / "catalog.json"
 
 STD_CATEGORY_ORDER = [
