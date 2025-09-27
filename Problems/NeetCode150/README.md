@@ -1,4 +1,4 @@
-# My Solved LeetCode Problem Index
+# NeetCode 150 Problem Index
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
 *Last updated: 2025-09-27 06:49 UTC*
