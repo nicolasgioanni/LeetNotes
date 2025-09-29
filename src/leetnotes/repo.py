@@ -18,9 +18,12 @@ def ensure_problem_folders(rows: list[dict[str, str]], profile: NotesProfile) ->
     metadata: MetadataMap = {}
     base_dir = profile.problems_dir
     for row in rows:
-        problem = (row.get("Problem") or "").strip()
-        if not problem:
+        original_problem = (row.get("Problem") or "").strip()
+        if not original_problem:
             continue
+
+        problem = normalize.clean_problem_title(original_problem) or "Untitled Problem"
+        row["Problem"] = problem
 
         link = lookup_problem(problem)
         frontend_id = (link.frontend_id or "").strip()
@@ -36,6 +39,8 @@ def ensure_problem_folders(rows: list[dict[str, str]], profile: NotesProfile) ->
         target_folder = base_dir / folder_name
 
         legacy_candidates = [
+            base_dir / normalize.slugify(original_problem),
+            base_dir / folder_name_from_title(original_problem),
             base_dir / normalize.slugify(problem),
             base_dir / folder_name_from_title(problem),
         ]

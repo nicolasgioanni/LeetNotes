@@ -5,6 +5,7 @@ from __future__ import annotations
 from leetnotes import config
 from leetnotes.models import ProblemLink, ProblemMetadata
 from leetnotes.render_index import build_problem_index
+from leetnotes.normalize import clean_problem_title
 from leetnotes.render_notes import build_notes_markdown
 
 
@@ -76,4 +77,4 @@ def test_alternate_profile_updates_solution_links() -> None:
     assert "../Problems/NeetCode150/0146.%20LRU%20Cache/solution.py" in notes_output
     assert "./0146.%20LRU%20Cache/solution.py" in index_output
     assert "# NeetCode 150 Notes" in notes_output
-    assert "# NeetCode 150 Problem Index" in index_output
+    assert "# NeetCode 150 Problem Index" in index_output\n\n\ndef test_clean_problem_title_strips_annotations() -> None:\n    assert clean_problem_title(\"Same Tree (DFS)\") == \"Same Tree\"\n    assert clean_problem_title(\"Word Search (Backtracking)\") == \"Word Search\"\n

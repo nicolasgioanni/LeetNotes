@@ -25,10 +25,18 @@ def canonical_problem_number(value: str) -> str:
     return cleaned
 
 
+def clean_problem_title(title: str) -> str:
+    """Remove trailing annotations in parentheses from a problem title."""
+
+    cleaned = title.strip()
+    return re.sub(r"\s*\([^)]*\)\s*$", "", cleaned)
+
+
 def escape_ordered_list_prefix(text: str) -> str:
     """Escape leading ordered-list markers so Markdown keeps numbering."""
 
     return re.sub(r'^(\d+)\.', r'\1\.', text)
+
 
 def split_categories(raw: str) -> list[str]:
     """Split category strings on commas, slashes, or newlines."""
@@ -86,6 +94,7 @@ def format_notes(value: str) -> list[str]:
 
 __all__ = [
     "canonical_problem_number",
+    "clean_problem_title",
     "escape_ordered_list_prefix",
     "format_cell",
     "format_frontend_id",
