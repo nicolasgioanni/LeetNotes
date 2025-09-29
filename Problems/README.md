@@ -1,7 +1,7 @@
 # My Solved LeetCode Problem Index
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-09-28 13:21 UTC*
+*Last updated: 2025-09-29 07:40 UTC*
 
 This index lists every problem I've solved, organized by category, with links to the problem and my solutions.
 
@@ -47,16 +47,16 @@ This index lists every problem I've solved, organized by category, with links to
 - 23\. Merge K Sorted Lists ([Problem](https://leetcode.com/problems/merge-k-sorted-lists/) | [Solution](./0023.%20Merge%20K%20Sorted%20Lists/solution.py))
 
 ## Trees
-- 100\. Same Tree (DFS) ([Problem](https://leetcode.com/problems/same-tree/) | [Solution](./0100.%20Same%20Tree%20%28DFS%29/solution.py))
+- 100\. Same Tree ([Problem](https://leetcode.com/problems/same-tree/) | [Solution](./0100.%20Same%20Tree/solution.py))
 - 102\. Binary Tree Level Order Traversal ([Problem](https://leetcode.com/problems/binary-tree-level-order-traversal/) | [Solution](./0102.%20Binary%20Tree%20Level%20Order%20Traversal/solution.py))
-- 104\. Maximum Depth of Binary Tree (DFS) ([Problem](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | [Solution](./0104.%20Maximum%20Depth%20of%20Binary%20Tree%20%28DFS%29/solution.py))
+- 104\. Maximum Depth of Binary Tree ([Problem](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | [Solution](./0104.%20Maximum%20Depth%20of%20Binary%20Tree/solution.py))
 - 105\. Construct Binary Tree From Preorder And Inorder Traversal ([Problem](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | [Solution](./0105.%20Construct%20Binary%20Tree%20From%20Preorder%20And%20Inorder%20Traversal/solution.py))
 - 124\. Binary Tree Maximum Path Sum ([Problem](https://leetcode.com/problems/binary-tree-maximum-path-sum/) | [Solution](./0124.%20Binary%20Tree%20Maximum%20Path%20Sum/solution.py))
 - 226\. Invert Binary Tree ([Problem](https://leetcode.com/problems/invert-binary-tree/) | [Solution](./0226.%20Invert%20Binary%20Tree/solution.py))
 - 230\. Kth Smallest Element In a Bst ([Problem](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | [Solution](./0230.%20Kth%20Smallest%20Element%20In%20a%20Bst/solution.py))
 - 235\. Lowest Common Ancestor of a Binary Search Tree ([Problem](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) | [Solution](./0235.%20Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/solution.py))
 - 297\. Serialize And Deserialize Binary Tree ([Problem](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) | [Solution](./0297.%20Serialize%20And%20Deserialize%20Binary%20Tree/solution.py))
-- 572\. Subtree of Another Tree (DFS) ([Problem](https://leetcode.com/problems/subtree-of-another-tree/) | [Solution](./0572.%20Subtree%20of%20Another%20Tree%20%28DFS%29/solution.py))
+- 572\. Subtree of Another Tree ([Problem](https://leetcode.com/problems/subtree-of-another-tree/) | [Solution](./0572.%20Subtree%20of%20Another%20Tree/solution.py))
 - 98\. Validate Binary Search Tree ([Problem](https://leetcode.com/problems/validate-binary-search-tree/) | [Solution](./0098.%20Validate%20Binary%20Search%20Tree/solution.py))
 
 ## Uncategorized

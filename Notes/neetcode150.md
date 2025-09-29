@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-09-28 13:21 UTC*
+*Last updated: 2025-09-29 07:40 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -276,14 +276,14 @@
 - **Space Complexity:** O(n)
 - **Notes:** 1) Edge case, 2) swap left and right nodes, 3) Recursively call on both left and right nodes (the ones we changed)
 
-**Maximum Depth of Binary Tree (DFS)** *([Problem](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | [Solution](../Problems/0104.%20Maximum%20Depth%20of%20Binary%20Tree%20%28DFS%29/solution.py))*
+**Maximum Depth of Binary Tree** *([Problem](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | [Solution](../Problems/0104.%20Maximum%20Depth%20of%20Binary%20Tree/solution.py))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(h) - O(log n), O(n)
 - **Notes:**
   - Case 1 (no node): if root is None, that side of the tree is empty, so depth = 0.
   - Case 2 (node exists): return 1 (for the current node) plus the max depth of the left and right subtrees.
 
-**Same Tree (DFS)** *([Problem](https://leetcode.com/problems/same-tree/) | [Solution](../Problems/0100.%20Same%20Tree%20%28DFS%29/solution.py))*
+**Same Tree** *([Problem](https://leetcode.com/problems/same-tree/) | [Solution](../Problems/0100.%20Same%20Tree/solution.py))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
@@ -291,7 +291,7 @@
   - Then if both not null and equal, recursively return the comparision of the left and right nodes of both trees
   - Otherwise, false
 
-**Subtree of Another Tree (DFS)** *([Problem](https://leetcode.com/problems/subtree-of-another-tree/) | [Solution](../Problems/0572.%20Subtree%20of%20Another%20Tree%20%28DFS%29/solution.py))*
+**Subtree of Another Tree** *([Problem](https://leetcode.com/problems/subtree-of-another-tree/) | [Solution](../Problems/0572.%20Subtree%20of%20Another%20Tree/solution.py))*
 - **Time Complexity:** O(nm)
 - **Space Complexity:** O(n + m)
 - **Notes:**
