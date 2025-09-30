@@ -1,7 +1,7 @@
 # Blind 75 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-09-29 13:29 UTC*
+*Last updated: 2025-09-30 13:28 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?output=csv
 )
@@ -310,12 +310,29 @@
 **Binary Tree Level Order Traversal** *([Problem](https://leetcode.com/problems/binary-tree-level-order-traversal/) | [Solution](../Problems/0102.%20Binary%20Tree%20Level%20Order%20Traversal/solution.py))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
+- **Notes:**
+  - Iterate the tree using a queue while loop
+  - Get the amount of nodes at that depth (length of queue)
+  - For every node at that depth, pop it (queue.popleft()), and add it to a temp list for that depth if not null
+  - If the temp list is not null (meaning nodes were present at that depth, add the temp list to the result list
 
 **Validate Binary Search Tree** *([Problem](https://leetcode.com/problems/validate-binary-search-tree/) | [Solution](../Problems/0098.%20Validate%20Binary%20Search%20Tree/solution.py))*
 - **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+- **Notes:**
+  - Nested function with 3 parameters (node, left bound, right bound):
+  - Our first root node can be in between negative infinity and infinity
+  - As we iterate recursively, we must update our left and right bounds accordingly
+  - Going left, update right bound to previous nodes value
+  - Going right, update left bound to previous nodes value
 
 **Kth Smallest Element In a Bst** *([Problem](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | [Solution](../Problems/0230.%20Kth%20Smallest%20Element%20In%20a%20Bst/solution.py))*
-- _No details provided._
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+- **Notes:**
+  - Inorder Traversal: Loop while stack or node we're looking at is not null
+  - Go left as far as possible, pushing nodes onto a stack
+  - Then, begin popping the smallest value, decrementing k, and going to that nodes's right child
 
 **Construct Binary Tree From Preorder And Inorder Traversal** *([Problem](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | [Solution](../Problems/0105.%20Construct%20Binary%20Tree%20From%20Preorder%20And%20Inorder%20Traversal/solution.py))*
 - _No details provided._
