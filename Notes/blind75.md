@@ -1,7 +1,7 @@
 # Blind 75 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-09-30 13:28 UTC*
+*Last updated: 2025-10-01 13:29 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?output=csv
 )
@@ -335,7 +335,27 @@
   - Then, begin popping the smallest value, decrementing k, and going to that nodes's right child
 
 **Construct Binary Tree From Preorder And Inorder Traversal** *([Problem](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | [Solution](../Problems/0105.%20Construct%20Binary%20Tree%20From%20Preorder%20And%20Inorder%20Traversal/solution.py))*
-- _No details provided._
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+- **Notes:**
+  - Idea: Preorder gives the root; Inorder tells us how to split into subtress
+  - Make a Inorder index dictonary to map the inorder values to indices for O(1) loopups
+  - Nested recursive function with four pointer parameters: preorder left and right, inorder left and right
+  - Base case: Make sure that our left pointers for both preorder and in order do not cross eachother (okay is equal)
+  - Root: Always build our root node with the preorder list index at our preorder left pointer
+  - Split: We find the index of that value in the preorder list, in the inorder list (rootIndex) using our dictionary
+  - Left Size (leftHalf): Compute how many nodes are in the left subtree by subtracting the inorder index (root Index) by our inorder left pointer
+  - Recurse Left:
+  - preLeft: Move forward by 1 (skip over the root in preorder).
+  - preRight: Move our pointer to our current preLeft + the number of nodes in the leftHalf
+  - inLeft: Keep the same inLeft
+  - inRight: Move our pointer to the middle (rootIndex) - 1 to exclude our current root node (everything to the left of the root in inorder)
+  - Recurse Right:
+  - preLeft: Move the pointer over by 1 + our current preLeft + the length of the leftHalf
+  - preRight: Keep the same preRight
+  - inLeft: Move our pointer to the rootIndex + 1 (everything to the right of the root in inorder).
+  - inRight: Keep the same inRight
+  - Note: Only compare or use index values together if they are part of the same list
 
 **Binary Tree Maximum Path Sum** *([Problem](https://leetcode.com/problems/binary-tree-maximum-path-sum/) | [Solution](../Problems/0124.%20Binary%20Tree%20Maximum%20Path%20Sum/solution.py))*
 - _No details provided._
