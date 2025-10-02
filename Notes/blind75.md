@@ -1,7 +1,7 @@
 # Blind 75 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-10-01 13:29 UTC*
+*Last updated: 2025-10-02 13:26 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?output=csv
 )
@@ -363,13 +363,149 @@
 **Serialize And Deserialize Binary Tree** *([Problem](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) | [Solution](../Problems/0297.%20Serialize%20And%20Deserialize%20Binary%20Tree/solution.py))*
 - _No details provided._
 
-## Uncategorized
-
-**Find Median From Data Stream** *([Problem](https://leetcode.com/problems/find-median-from-data-stream/) | [Solution](../Problems/0295.%20Find%20Median%20From%20Data%20Stream/solution.py))*
-- _No details provided._
+## Backtracking
 
 **Combination Sum** *([Problem](https://leetcode.com/problems/combination-sum/) | [Solution](../Problems/0039.%20Combination%20Sum/solution.py))*
 - _No details provided._
 
 **Word Search** *([Problem](https://leetcode.com/problems/word-search/) | [Solution](../Problems/0079.%20Word%20Search/solution.py))*
+- _No details provided._
+
+## Tries
+
+**Implement Trie Prefix Tree** *([Problem](https://leetcode.com/problems/implement-trie-prefix-tree/) | [Solution](../Problems/0208.%20Implement%20Trie%20Prefix%20Tree/solution.py))*
+- _No details provided._
+
+**Design Add And Search Words Data Structure** *([Problem](https://leetcode.com/problems/design-add-and-search-words-data-structure/) | [Solution](../Problems/0211.%20Design%20Add%20And%20Search%20Words%20Data%20Structure/solution.py))*
+- _No details provided._
+
+**Word Search II** *([Problem](https://leetcode.com/problems/word-search-ii/) | [Solution](../Problems/0212.%20Word%20Search%20II/solution.py))*
+- _No details provided._
+
+## Graphs
+
+**Number of Islands** *([Problem](https://leetcode.com/problems/number-of-islands/) | [Solution](../Problems/0200.%20Number%20of%20Islands/solution.py))*
+- _No details provided._
+
+**Clone Graph** *([Problem](https://leetcode.com/problems/clone-graph/) | [Solution](../Problems/0133.%20Clone%20Graph/solution.py))*
+- _No details provided._
+
+**Pacific Atlantic Water Flow** *([Problem](https://leetcode.com/problems/pacific-atlantic-water-flow/) | [Solution](../Problems/0417.%20Pacific%20Atlantic%20Water%20Flow/solution.py))*
+- _No details provided._
+
+**Course Schedule** *([Problem](https://leetcode.com/problems/course-schedule/) | [Solution](../Problems/0207.%20Course%20Schedule/solution.py))*
+- _No details provided._
+
+**Graph Valid Tree** *([Problem](https://leetcode.com/problems/graph-valid-tree/) | [Solution](../Problems/0261.%20Graph%20Valid%20Tree/solution.py))*
+- _No details provided._
+
+**Number of Connected Components In An Undirected Graph** *([Problem](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) | [Solution](../Problems/0323.%20Number%20of%20Connected%20Components%20In%20An%20Undirected%20Graph/solution.py))*
+- _No details provided._
+
+## Advanced Graphs
+
+**Alien Dictionary** *([Problem](https://leetcode.com/problems/alien-dictionary/) | [Solution](../Problems/0269.%20Alien%20Dictionary/solution.py))*
+- _No details provided._
+
+## 1-D Dynamic Programming
+
+**Climbing Stairs** *([Problem](https://leetcode.com/problems/climbing-stairs/) | [Solution](../Problems/0070.%20Climbing%20Stairs/solution.py))*
+- _No details provided._
+
+**House Robber** *([Problem](https://leetcode.com/problems/house-robber/) | [Solution](../Problems/0198.%20House%20Robber/solution.py))*
+- _No details provided._
+
+**House Robber II** *([Problem](https://leetcode.com/problems/house-robber-ii/) | [Solution](../Problems/0213.%20House%20Robber%20II/solution.py))*
+- _No details provided._
+
+**Longest Palindromic Substring** *([Problem](https://leetcode.com/problems/longest-palindromic-substring/) | [Solution](../Problems/0005.%20Longest%20Palindromic%20Substring/solution.py))*
+- _No details provided._
+
+**Palindromic Substrings** *([Problem](https://leetcode.com/problems/palindromic-substrings/) | [Solution](../Problems/0647.%20Palindromic%20Substrings/solution.py))*
+- _No details provided._
+
+**Decode Ways** *([Problem](https://leetcode.com/problems/decode-ways/) | [Solution](../Problems/0091.%20Decode%20Ways/solution.py))*
+- _No details provided._
+
+**Coin Change** *([Problem](https://leetcode.com/problems/coin-change/) | [Solution](../Problems/0322.%20Coin%20Change/solution.py))*
+- _No details provided._
+
+**Maximum Product Subarray** *([Problem](https://leetcode.com/problems/maximum-product-subarray/) | [Solution](../Problems/0152.%20Maximum%20Product%20Subarray/solution.py))*
+- _No details provided._
+
+**Word Break** *([Problem](https://leetcode.com/problems/word-break/) | [Solution](../Problems/0139.%20Word%20Break/solution.py))*
+- _No details provided._
+
+**Longest Increasing Subsequence** *([Problem](https://leetcode.com/problems/longest-increasing-subsequence/) | [Solution](../Problems/0300.%20Longest%20Increasing%20Subsequence/solution.py))*
+- _No details provided._
+
+## 2-D Dynamic Programming
+
+**Unique Paths** *([Problem](https://leetcode.com/problems/unique-paths/) | [Solution](../Problems/0062.%20Unique%20Paths/solution.py))*
+- _No details provided._
+
+**Longest Common Subsequence** *([Problem](https://leetcode.com/problems/longest-common-subsequence/) | [Solution](../Problems/1143.%20Longest%20Common%20Subsequence/solution.py))*
+- _No details provided._
+
+## Greedy
+
+**Maximum Subarray** *([Problem](https://leetcode.com/problems/maximum-subarray/) | [Solution](../Problems/0053.%20Maximum%20Subarray/solution.py))*
+- _No details provided._
+
+**Jump Game** *([Problem](https://leetcode.com/problems/jump-game/) | [Solution](../Problems/0055.%20Jump%20Game/solution.py))*
+- _No details provided._
+
+## Intervals
+
+**Insert Interval** *([Problem](https://leetcode.com/problems/insert-interval/) | [Solution](../Problems/0057.%20Insert%20Interval/solution.py))*
+- _No details provided._
+
+**Merge Intervals** *([Problem](https://leetcode.com/problems/merge-intervals/) | [Solution](../Problems/0056.%20Merge%20Intervals/solution.py))*
+- _No details provided._
+
+**Non Overlapping Intervals** *([Problem](https://leetcode.com/problems/non-overlapping-intervals/) | [Solution](../Problems/0435.%20Non%20Overlapping%20Intervals/solution.py))*
+- _No details provided._
+
+**Meeting Rooms** *([Problem](https://leetcode.com/problems/meeting-rooms/) | [Solution](../Problems/0252.%20Meeting%20Rooms/solution.py))*
+- _No details provided._
+
+**Meeting Rooms II** *([Problem](https://leetcode.com/problems/meeting-rooms-ii/) | [Solution](../Problems/0253.%20Meeting%20Rooms%20II/solution.py))*
+- _No details provided._
+
+## Math & Geometry
+
+**Rotate Image** *([Problem](https://leetcode.com/problems/rotate-image/) | [Solution](../Problems/0048.%20Rotate%20Image/solution.py))*
+- _No details provided._
+
+**Spiral Matrix** *([Problem](https://leetcode.com/problems/spiral-matrix/) | [Solution](../Problems/0054.%20Spiral%20Matrix/solution.py))*
+- _No details provided._
+
+**Set Matrix Zeroes** *([Problem](https://leetcode.com/problems/set-matrix-zeroes/) | [Solution](../Problems/0073.%20Set%20Matrix%20Zeroes/solution.py))*
+- _No details provided._
+
+## Bit Manipulation
+
+**Number of 1 Bits** *([Problem](https://leetcode.com/problems/number-of-1-bits/) | [Solution](../Problems/0191.%20Number%20of%201%20Bits/solution.py))*
+- _No details provided._
+
+**Counting Bits** *([Problem](https://leetcode.com/problems/counting-bits/) | [Solution](../Problems/0338.%20Counting%20Bits/solution.py))*
+- _No details provided._
+
+**Reverse Bits** *([Problem](https://leetcode.com/problems/reverse-bits/) | [Solution](../Problems/0190.%20Reverse%20Bits/solution.py))*
+- _No details provided._
+
+**Missing Number** *([Problem](https://leetcode.com/problems/missing-number/) | [Solution](../Problems/0268.%20Missing%20Number/solution.py))*
+- _No details provided._
+
+**Sum of Two Integers** *([Problem](https://leetcode.com/problems/sum-of-two-integers/) | [Solution](../Problems/0371.%20Sum%20of%20Two%20Integers/solution.py))*
+- _No details provided._
+
+## Heap
+
+**Find Median From Data Stream** *([Problem](https://leetcode.com/problems/find-median-from-data-stream/) | [Solution](../Problems/0295.%20Find%20Median%20From%20Data%20Stream/solution.py))*
+- _No details provided._
+
+## Priority Queue
+
+**Find Median From Data Stream** *([Problem](https://leetcode.com/problems/find-median-from-data-stream/) | [Solution](../Problems/0295.%20Find%20Median%20From%20Data%20Stream/solution.py))*
 - _No details provided._
