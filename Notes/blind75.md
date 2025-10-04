@@ -1,7 +1,7 @@
 # Blind 75 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-10-02 13:26 UTC*
+*Last updated: 2025-10-04 13:20 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?output=csv
 )
@@ -358,7 +358,15 @@
   - Note: Only compare or use index values together if they are part of the same list
 
 **Binary Tree Maximum Path Sum** *([Problem](https://leetcode.com/problems/binary-tree-maximum-path-sum/) | [Solution](../Problems/0124.%20Binary%20Tree%20Maximum%20Path%20Sum/solution.py))*
-- _No details provided._
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(h) or log(n)
+- **Notes:**
+  - Idea: Recurse through every node and return 2 things:
+  - The highest count path you can extend upwards (straight path)
+  - We return our current nodes value + either the left path, right path, or 0 (if the left and right path are 0)
+  - The best count path you can find anywhere in the tree (split path)
+  - We return either our current best count, or our current nodes value + left path + right path
+  - Base case: if the node is null, return 0 and -infinity as the best count path (anything is better than a null node)
 
 **Serialize And Deserialize Binary Tree** *([Problem](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) | [Solution](../Problems/0297.%20Serialize%20And%20Deserialize%20Binary%20Tree/solution.py))*
 - _No details provided._
