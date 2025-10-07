@@ -1,7 +1,7 @@
 # Blind 75 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-10-05 13:20 UTC*
+*Last updated: 2025-10-07 13:29 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?output=csv
 )
@@ -393,10 +393,30 @@
 ## Graphs
 
 **Number of Islands** *([Problem](https://leetcode.com/problems/number-of-islands/) | [Solution](../Problems/0200.%20Number%20of%20Islands/solution.py))*
-- _No details provided._
+- **Time Complexity:** O(n): O(row * col)
+- **Space Complexity:** O(n): O(row * col)
+- **Notes:**
+  - Idea: Iterate through each coordinate (row and col) in grid/matrix and run bfs or dfs every time we see a unvisited island coordinate (not in set)
+  - BFS or DFS: Logic works for both below but bfs pops left vs. dfs pops right
+  - Add the first coordinate to our visited set and to our queue (collections.deque)
+  - While loop as long as we have valid coordinates in our queue
+  - For loop to check all directions (left/right/up/down) of our current coordinates, if any of those coordinates:
+  - Are within our row and col bounds (0 to the length of 0-indexed range)
+  - Is an island in our grid (grid[row][col] == "x")
+  - And is not in our visited set
+  - Means: we found another valid coordinate a part of this island, and we update our visited set and queue with those coordinates to reiterate
+  - Otherwise: we do nothing until the queue is empty
 
 **Clone Graph** *([Problem](https://leetcode.com/problems/clone-graph/) | [Solution](../Problems/0133.%20Clone%20Graph/solution.py))*
-- _No details provided._
+- **Time Complexity:** O(V * E)
+- **Space Complexity:** O(V)
+- **Notes:**
+  - Idea: Recursively clone each node using the old node and returning the cloned node (whether it's already cloned or not):
+  - 1) If the old node is already in the map, return its clone (because our recursive call takes in the old node)
+  - 2) Otherwise, create the clone and update our hashmap (old : new) that the node has been copied.
+  - 3) For each neighbor of the old node, get the neighbor’s clone by recursion and append it to the current clone’s neighbors
+  - Question: Why the hashmap?
+  - Answer: It is both the visited check and the way to fetch the exact clone needed to wire edges (when we are updating neighbors of already cloned nodes)
 
 **Pacific Atlantic Water Flow** *([Problem](https://leetcode.com/problems/pacific-atlantic-water-flow/) | [Solution](../Problems/0417.%20Pacific%20Atlantic%20Water%20Flow/solution.py))*
 - _No details provided._
