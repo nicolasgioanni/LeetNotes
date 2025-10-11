@@ -22,10 +22,12 @@ def test_format_notes_detects_numbered_markers() -> None:
 
     assert entries[1].ordered is True
     assert entries[1].level == 1
+    assert entries[1].marker == "1)"
 
     assert entries[2].ordered is True
     assert entries[2].level == 1
     assert entries[2].order_bump == 1
+    assert entries[2].marker == "2)"
 
     assert entries[3].ordered is False
     assert entries[3].level == 0
@@ -63,6 +65,7 @@ def test_single_numbered_entry_stays_unordered() -> None:
     entries = format_notes(raw)
 
     assert [entry.ordered for entry in entries] == [False, False, False]
+    assert entries[1].text.startswith("1)")
 
     markdown = build_notes_markdown(
         ["Problem", "Category", "Notes"],
@@ -79,6 +82,7 @@ def test_single_numbered_entry_stays_unordered() -> None:
     )
 
     assert "<ol type=\"1\">" not in markdown
+    assert "1) Edge case" in markdown
     assert markdown.count("<ul>") >= 1
 
 
@@ -95,6 +99,7 @@ def test_numbered_heading_with_nested_bullets() -> None:
 
     assert entries[0].ordered is False
     assert entries[0].level == 0
+    assert entries[0].text.startswith("1)")
     assert all(entry.level == 1 for entry in entries[1:])
 
     markdown = build_notes_markdown(
@@ -112,4 +117,5 @@ def test_numbered_heading_with_nested_bullets() -> None:
     )
 
     assert "<ol type=\"1\">" not in markdown
+    assert "1) Edge case" in markdown
     assert markdown.count("<ul>") >= 1

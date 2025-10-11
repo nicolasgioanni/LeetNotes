@@ -82,6 +82,7 @@ class NoteEntry:
     text: str
     ordered: bool = False
     order_bump: int = 0
+    marker: str = ""
 
 
 def format_notes(value: str) -> list[NoteEntry]:
@@ -119,10 +120,13 @@ def format_notes(value: str) -> list[NoteEntry]:
 
         ordered = False
         order_bump = 0
+        marker = ""
         while True:
             match = _ORDERED_PREFIX_RE.match(content)
             if not match:
                 break
+            if not marker:
+                marker = match.group(0).rstrip()
             ordered = True
             content = content[match.end():]
             content = content.lstrip(" ")
@@ -133,7 +137,7 @@ def format_notes(value: str) -> list[NoteEntry]:
         total_level = indent_level + marker_level
         formatted = format_cell(content.strip())
         if formatted:
-            entries.append(NoteEntry(total_level, formatted, ordered, order_bump))
+            entries.append(NoteEntry(total_level, formatted, ordered, order_bump, marker))
 
     if not entries:
         return []
@@ -154,7 +158,10 @@ def format_notes(value: str) -> list[NoteEntry]:
                 adjusted_level = only.level
                 if only.order_bump and adjusted_level >= only.order_bump:
                     adjusted_level -= only.order_bump
-                normalized.append(NoteEntry(adjusted_level, only.text, False, 0))
+                restored_text = only.text
+                if only.marker:
+                    restored_text = f"{only.marker} {restored_text}" if restored_text else only.marker
+                normalized.append(NoteEntry(adjusted_level, restored_text, False, 0, ""))
             else:
                 normalized.extend(run)
             continue
@@ -166,7 +173,7 @@ def format_notes(value: str) -> list[NoteEntry]:
     min_level = min(entry.level for entry in entries)
     if min_level > 0:
         entries = [
-            NoteEntry(entry.level - min_level, entry.text, entry.ordered, entry.order_bump)
+            NoteEntry(entry.level - min_level, entry.text, entry.ordered, entry.order_bump, entry.marker)
             for entry in entries
         ]
     return entries
