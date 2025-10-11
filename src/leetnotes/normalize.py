@@ -87,15 +87,21 @@ def format_notes(value: str) -> list[tuple[int, str]]:
             continue
         stripped = expanded.lstrip(" ")
         indent_width = len(expanded) - len(stripped)
-        level = indent_width // 2
+        indent_level = indent_width // 2
         content = stripped
-        for prefix in config.NOTE_PREFIXES:
-            if content.startswith(prefix):
-                content = content[len(prefix):]
+        marker_level = 0
+        while True:
+            for prefix in config.NOTE_PREFIXES:
+                if content.startswith(prefix):
+                    content = content[len(prefix):]
+                    marker_level += 1
+                    break
+            else:
                 break
+            content = content.lstrip(" ")
         formatted = format_cell(content.strip())
         if formatted:
-            entries.append((level, formatted))
+            entries.append((indent_level + marker_level, formatted))
 
     if not entries:
         return []
