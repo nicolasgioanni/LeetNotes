@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-10-10 13:28 UTC*
+*Last updated: 2025-10-11 05:12 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -73,7 +73,7 @@
   - Loop over every unique number
   - Check if it is a start of a sequence
   - If it is, continue to check the numbers after if it is a sequence
-  - Then compare it to the length of the max
+    - Then compare it to the length of the max
 
 ## Two Pointers
 
@@ -103,7 +103,7 @@
   - After the first iteration, check if prev value is the same as current value
   - Loop through pointers which are the ends after the value we enumerate
   - Calculate threeSum, and update pointers based on whether equal, greater or less than target
-  - When equal, update both pointers and duplicate check
+    - When equal, update both pointers and duplicate check
 
 **Container With Most Water** *([Problem](https://leetcode.com/problems/container-with-most-water/) | [Solution](../Problems/0011.%20Container%20With%20Most%20Water/solution.py))*
 - **Time Complexity:** O(n)
@@ -145,7 +145,7 @@
   - Dictionary to store unique letters as keys and counts as values
   - Two pointers, loop with right pointer, update counts and max length
   - While the most frequency letter plus k is less than the length of the string
-  - Update the letters count and left pointer
+    - Update the letters count and left pointer
 
 **Permutation In String** *([Problem](https://leetcode.com/problems/permutation-in-string/) | [Solution](../Problems/0567.%20Permutation%20In%20String/solution.py))*
 - _No details provided._
@@ -157,9 +157,9 @@
   - Check if are target substring is empty else continue
   - Hashmaps for window and target substring
   - Two pointers, loop until our right pointer hits the right bound (end of input string)
-  - Continously add unique char and their count to our window
-  - If we have the count for all the unique letters we need save it if is it smaller than our old substring
-  - Update our left pointer and decrease the count until we don't have what we need anymore
+    - Continously add unique char and their count to our window
+    - If we have the count for all the unique letters we need save it if is it smaller than our old substring
+    - Update our left pointer and decrease the count until we don't have what we need anymore
 
 **Sliding Window Maximum** *([Problem](https://leetcode.com/problems/sliding-window-maximum/) | [Solution](../Problems/0239.%20Sliding%20Window%20Maximum/solution.py))*
 - _No details provided._
@@ -238,11 +238,11 @@
   - Two pointers and loop until they cross, it's okay if they're equal
   - If our middle is the target, return, otherwise, two subcases
   - Elif middle is greater than our left pointer (left side is sorted)
-  - And If our target is greater than our middle pointer or less than our left pointer (meaning it's not in our sorted side), update left
-  - Else, our target is in our sorted side and update right
+    - And If our target is greater than our middle pointer or less than our left pointer (meaning it's not in our sorted side), update left
+    - Else, our target is in our sorted side and update right
   - Else, meaning our right side is sorted
-  - And our target is less than our middle pointer but greater than our right pointer (meaning it's not in our sorted sid), update right
-  - Else, our target is in our sorted side and update left
+    - And our target is less than our middle pointer but greater than our right pointer (meaning it's not in our sorted sid), update right
+    - Else, our target is in our sorted side and update left
 
 **Time Based Key Value Store** *([Problem](https://leetcode.com/problems/time-based-key-value-store/) | [Solution](../Problems/0981.%20Time%20Based%20Key%20Value%20Store/solution.py))*
 - _No details provided._
@@ -294,7 +294,7 @@
   - Slow/fast pointers, slow = head, fast = n
   - If n is the size of the list (meaning fast is None) return the next node after the head
   - Else we loop until the node after fast is None (because we want slow to point to the node before our nth end node)
-  - Then, redirect links
+    - Then, redirect links
 
 **Copy List With Random Pointer** *([Problem](https://leetcode.com/problems/copy-list-with-random-pointer/) | [Solution](../Problems/0138.%20Copy%20List%20With%20Random%20Pointer/solution.py))*
 - _No details provided._
@@ -373,8 +373,8 @@
   - Nested function with 3 parameters (node, left bound, right bound):
   - Our first root node can be in between negative infinity and infinity
   - As we iterate recursively, we must update our left and right bounds accordingly
-  - Going left, update right bound to previous nodes value
-  - Going right, update left bound to previous nodes value
+    - Going left, update right bound to previous nodes value
+    - Going right, update left bound to previous nodes value
 
 **Kth Smallest Element In a Bst** *([Problem](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | [Solution](../Problems/0230.%20Kth%20Smallest%20Element%20In%20a%20Bst/solution.py))*
 - **Time Complexity:** O(n)
@@ -391,10 +391,10 @@
   - Idea: Preorder gives the root; Inorder tells us how to split into subtress
   - Make a Inorder index dictonary to map the inorder values to indices for O(1) loopups
   - Nested recursive function with four pointer parameters: preorder left and right, inorder left and right
-  - Base case: Make sure that our left pointers for both preorder and in order do not cross eachother (okay is equal)
-  - Root: Always build our root node with the preorder list index at our preorder left pointer
-  - Split: We find the index of that value in the preorder list, in the inorder list (rootIndex) using our dictionary
-  - Left Size (leftHalf): Compute how many nodes are in the left subtree by subtracting the inorder index (root Index) by our inorder left pointer
+    - Base case: Make sure that our left pointers for both preorder and in order do not cross eachother (okay is equal)
+    - Root: Always build our root node with the preorder list index at our preorder left pointer
+    - Split: We find the index of that value in the preorder list, in the inorder list (rootIndex) using our dictionary
+    - Left Size (leftHalf): Compute how many nodes are in the left subtree by subtracting the inorder index (root Index) by our inorder left pointer
   - Recurse Left:
   - preLeft: Move forward by 1 (skip over the root in preorder).
   - preRight: Move our pointer to our current preLeft + the number of nodes in the leftHalf

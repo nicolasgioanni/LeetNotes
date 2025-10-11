@@ -1,7 +1,7 @@
 # Blind 75 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-10-10 13:28 UTC*
+*Last updated: 2025-10-11 05:12 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?output=csv
 )
@@ -71,7 +71,7 @@
   - Loop over every unique number
   - Check if it is a start of a sequence
   - If it is, continue to check the numbers after if it is a sequence
-  - Then compare it to the length of the max
+    - Then compare it to the length of the max
 
 ## Two Pointers
 
@@ -101,7 +101,7 @@
   - After the first iteration, check if prev value is the same as current value
   - Loop through pointers which are the ends after the value we enumerate
   - Calculate threeSum, and update pointers based on whether equal, greater or less than target
-  - When equal, update both pointers and duplicate check
+    - When equal, update both pointers and duplicate check
 
 **Container With Most Water** *([Problem](https://leetcode.com/problems/container-with-most-water/) | [Solution](../Problems/0011.%20Container%20With%20Most%20Water/solution.py))*
 - **Time Complexity:** O(n)
@@ -140,7 +140,7 @@
   - Dictionary to store unique letters as keys and counts as values
   - Two pointers, loop with right pointer, update counts and max length
   - While the most frequency letter plus k is less than the length of the string
-  - Update the letters count and left pointer
+    - Update the letters count and left pointer
 
 **Minimum Window Substring** *([Problem](https://leetcode.com/problems/minimum-window-substring/) | [Solution](../Problems/0076.%20Minimum%20Window%20Substring/solution.py))*
 - **Time Complexity:** O(n + m)
@@ -149,9 +149,9 @@
   - Check if are target substring is empty else continue
   - Hashmaps for window and target substring
   - Two pointers, loop until our right pointer hits the right bound (end of input string)
-  - Continously add unique char and their count to our window
-  - If we have the count for all the unique letters we need save it if is it smaller than our old substring
-  - Update our left pointer and decrease the count until we don't have what we need anymore
+    - Continously add unique char and their count to our window
+    - If we have the count for all the unique letters we need save it if is it smaller than our old substring
+    - Update our left pointer and decrease the count until we don't have what we need anymore
 
 ## Stack
 
@@ -209,11 +209,11 @@
   - Two pointers and loop until they cross, it's okay if they're equal
   - If our middle is the target, return, otherwise, two subcases
   - Elif middle is greater than our left pointer (left side is sorted)
-  - And If our target is greater than our middle pointer or less than our left pointer (meaning it's not in our sorted side), update left
-  - Else, our target is in our sorted side and update right
+    - And If our target is greater than our middle pointer or less than our left pointer (meaning it's not in our sorted side), update left
+    - Else, our target is in our sorted side and update right
   - Else, meaning our right side is sorted
-  - And our target is less than our middle pointer but greater than our right pointer (meaning it's not in our sorted sid), update right
-  - Else, our target is in our sorted side and update left
+    - And our target is less than our middle pointer but greater than our right pointer (meaning it's not in our sorted sid), update right
+    - Else, our target is in our sorted side and update left
 
 ## Linked List
 
@@ -259,7 +259,7 @@
   - Slow/fast pointers, slow = head, fast = n
   - If n is the size of the list (meaning fast is None) return the next node after the head
   - Else we loop until the node after fast is None (because we want slow to point to the node before our nth end node)
-  - Then, redirect links
+    - Then, redirect links
 
 **Merge K Sorted Lists** *([Problem](https://leetcode.com/problems/merge-k-sorted-lists/) | [Solution](../Problems/0023.%20Merge%20K%20Sorted%20Lists/solution.py))*
 - **Time Complexity:** O(n log k)
@@ -323,8 +323,8 @@
   - Nested function with 3 parameters (node, left bound, right bound):
   - Our first root node can be in between negative infinity and infinity
   - As we iterate recursively, we must update our left and right bounds accordingly
-  - Going left, update right bound to previous nodes value
-  - Going right, update left bound to previous nodes value
+    - Going left, update right bound to previous nodes value
+    - Going right, update left bound to previous nodes value
 
 **Kth Smallest Element In a Bst** *([Problem](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | [Solution](../Problems/0230.%20Kth%20Smallest%20Element%20In%20a%20Bst/solution.py))*
 - **Time Complexity:** O(n)
@@ -341,10 +341,10 @@
   - Idea: Preorder gives the root; Inorder tells us how to split into subtress
   - Make a Inorder index dictonary to map the inorder values to indices for O(1) loopups
   - Nested recursive function with four pointer parameters: preorder left and right, inorder left and right
-  - Base case: Make sure that our left pointers for both preorder and in order do not cross eachother (okay is equal)
-  - Root: Always build our root node with the preorder list index at our preorder left pointer
-  - Split: We find the index of that value in the preorder list, in the inorder list (rootIndex) using our dictionary
-  - Left Size (leftHalf): Compute how many nodes are in the left subtree by subtracting the inorder index (root Index) by our inorder left pointer
+    - Base case: Make sure that our left pointers for both preorder and in order do not cross eachother (okay is equal)
+    - Root: Always build our root node with the preorder list index at our preorder left pointer
+    - Split: We find the index of that value in the preorder list, in the inorder list (rootIndex) using our dictionary
+    - Left Size (leftHalf): Compute how many nodes are in the left subtree by subtracting the inorder index (root Index) by our inorder left pointer
   - Recurse Left:
   - preLeft: Move forward by 1 (skip over the root in preorder).
   - preRight: Move our pointer to our current preLeft + the number of nodes in the leftHalf
@@ -363,9 +363,9 @@
 - **Notes:**
   - Idea: Recurse through every node and return 2 things:
   - The highest count path you can extend upwards (straight path)
-  - We return our current nodes value + either the left path, right path, or 0 (if the left and right path are 0)
+    - We return our current nodes value + either the left path, right path, or 0 (if the left and right path are 0)
   - The best count path you can find anywhere in the tree (split path)
-  - We return either our current best count, or our current nodes value + left path + right path
+    - We return either our current best count, or our current nodes value + left path + right path
   - Base case: if the node is null, return 0 and -infinity as the best count path (anything is better than a null node)
 
 **Serialize And Deserialize Binary Tree** *([Problem](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) | [Solution](../Problems/0297.%20Serialize%20And%20Deserialize%20Binary%20Tree/solution.py))*
@@ -401,9 +401,9 @@
   - Add the first coordinate to our visited set and to our queue (collections.deque)
   - While loop as long as we have valid coordinates in our queue
   - For loop to check all directions (left/right/up/down) of our current coordinates, if any of those coordinates:
-  - Are within our row and col bounds (0 to the length of 0-indexed range)
-  - Is an island in our grid (grid[row][col] == "x")
-  - And is not in our visited set
+    - Are within our row and col bounds (0 to the length of 0-indexed range)
+    - Is an island in our grid (grid[row][col] == "x")
+    - And is not in our visited set
   - Means: we found another valid coordinate a part of this island, and we update our visited set and queue with those coordinates to reiterate
   - Otherwise: we do nothing until the queue is empty
 
@@ -419,7 +419,16 @@
   - Answer: It is both the visited check and the way to fetch the exact clone needed to wire edges (when we are updating neighbors of already cloned nodes)
 
 **Pacific Atlantic Water Flow** *([Problem](https://leetcode.com/problems/pacific-atlantic-water-flow/) | [Solution](../Problems/0417.%20Pacific%20Atlantic%20Water%20Flow/solution.py))*
-- _No details provided._
+- **Time Complexity:** O(n): O(row * col)
+- **Space Complexity:** O(n): O(row * col)
+- **Notes:**
+  - Idea: Iterate through top/bottom, left/right sides and recursivly dfs go inward storing valid coordinates in sets (coordinates that are in a path to ocean)
+  - 1) Top/Bottom: Iterate through cols and recursive dfs on every coordinate on the top and bottom row (0, rows -1)
+  - 2) Left/Right: Iterate through rows and recursive dfs on every coordinate on the left and right cols (0, cols - 1)
+  - 3) DFS: If the row/col is within bounds, the coordinate has a equal or greater height than our old, and is not already marked reachable:
+    - Mark it as reachable for that respective ocean
+    - Recursively check all 4 directions
+  - 4) Result: Iterate over one ocean’s reachable set and add any cell that also appears in the other ocean’s set to the result.
 
 **Course Schedule** *([Problem](https://leetcode.com/problems/course-schedule/) | [Solution](../Problems/0207.%20Course%20Schedule/solution.py))*
 - _No details provided._
