@@ -81,6 +81,7 @@ class NoteEntry:
     level: int
     text: str
     ordered: bool = False
+    order_bump: int = 0
 
 
 def format_notes(value: str) -> list[NoteEntry]:
@@ -117,6 +118,7 @@ def format_notes(value: str) -> list[NoteEntry]:
             content = content.lstrip(" ")
 
         ordered = False
+        order_bump = 0
         while True:
             match = _ORDERED_PREFIX_RE.match(content)
             if not match:
@@ -126,19 +128,49 @@ def format_notes(value: str) -> list[NoteEntry]:
             content = content.lstrip(" ")
             if marker_level == 0:
                 marker_level = 1
+                order_bump = 1
 
         total_level = indent_level + marker_level
         formatted = format_cell(content.strip())
         if formatted:
-            entries.append(NoteEntry(total_level, formatted, ordered))
+            entries.append(NoteEntry(total_level, formatted, ordered, order_bump))
 
     if not entries:
         return []
 
+    normalized: list[NoteEntry] = []
+    idx = 0
+    length = len(entries)
+    while idx < length:
+        entry = entries[idx]
+        if entry.ordered:
+            level = entry.level
+            run: list[NoteEntry] = []
+            while idx < length and entries[idx].ordered and entries[idx].level == level:
+                run.append(entries[idx])
+                idx += 1
+            if len(run) == 1:
+                only = run[0]
+                adjusted_level = only.level
+                if only.order_bump and adjusted_level >= only.order_bump:
+                    adjusted_level -= only.order_bump
+                normalized.append(NoteEntry(adjusted_level, only.text, False, 0))
+            else:
+                normalized.extend(run)
+            continue
+        normalized.append(entry)
+        idx += 1
+
+    entries = normalized
+
     min_level = min(entry.level for entry in entries)
-    if min_level:
-        return [NoteEntry(entry.level - min_level, entry.text, entry.ordered) for entry in entries]
+    if min_level > 0:
+        entries = [
+            NoteEntry(entry.level - min_level, entry.text, entry.ordered, entry.order_bump)
+            for entry in entries
+        ]
     return entries
+
 
 __all__ = [
     "canonical_problem_number",
