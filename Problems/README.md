@@ -1,7 +1,7 @@
 # My Solved LeetCode Problem Index
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-10-11 06:18 UTC*
+*Last updated: 2025-10-11 13:21 UTC*
 
 This index lists every problem I've solved, organized by category, with links to the problem and my solutions.
 
@@ -68,11 +68,15 @@ This index lists every problem I've solved, organized by category, with links to
 - 102\. Binary Tree Level Order Traversal ([Problem](https://leetcode.com/problems/binary-tree-level-order-traversal/) | [Solution](./0102.%20Binary%20Tree%20Level%20Order%20Traversal/solution.py))
 - 104\. Maximum Depth of Binary Tree ([Problem](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | [Solution](./0104.%20Maximum%20Depth%20of%20Binary%20Tree/solution.py))
 - 105\. Construct Binary Tree From Preorder And Inorder Traversal ([Problem](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | [Solution](./0105.%20Construct%20Binary%20Tree%20From%20Preorder%20And%20Inorder%20Traversal/solution.py))
+- 110\. Balanced Binary Tree ([Problem](https://leetcode.com/problems/balanced-binary-tree/) | [Solution](./0110.%20Balanced%20Binary%20Tree/solution.py))
 - 124\. Binary Tree Maximum Path Sum ([Problem](https://leetcode.com/problems/binary-tree-maximum-path-sum/) | [Solution](./0124.%20Binary%20Tree%20Maximum%20Path%20Sum/solution.py))
+- 1448\. Count Good Nodes In Binary Tree ([Problem](https://leetcode.com/problems/count-good-nodes-in-binary-tree/) | [Solution](./1448.%20Count%20Good%20Nodes%20In%20Binary%20Tree/solution.py))
+- 199\. Binary Tree Right Side View ([Problem](https://leetcode.com/problems/binary-tree-right-side-view/) | [Solution](./0199.%20Binary%20Tree%20Right%20Side%20View/solution.py))
 - 226\. Invert Binary Tree ([Problem](https://leetcode.com/problems/invert-binary-tree/) | [Solution](./0226.%20Invert%20Binary%20Tree/solution.py))
 - 230\. Kth Smallest Element In a Bst ([Problem](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | [Solution](./0230.%20Kth%20Smallest%20Element%20In%20a%20Bst/solution.py))
 - 235\. Lowest Common Ancestor of a Binary Search Tree ([Problem](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) | [Solution](./0235.%20Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/solution.py))
 - 297\. Serialize And Deserialize Binary Tree ([Problem](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) | [Solution](./0297.%20Serialize%20And%20Deserialize%20Binary%20Tree/solution.py))
+- 543\. Diameter of Binary Tree ([Problem](https://leetcode.com/problems/diameter-of-binary-tree/) | [Solution](./0543.%20Diameter%20of%20Binary%20Tree/solution.py))
 - 572\. Subtree of Another Tree ([Problem](https://leetcode.com/problems/subtree-of-another-tree/) | [Solution](./0572.%20Subtree%20of%20Another%20Tree/solution.py))
 - 98\. Validate Binary Search Tree ([Problem](https://leetcode.com/problems/validate-binary-search-tree/) | [Solution](./0098.%20Validate%20Binary%20Search%20Tree/solution.py))
 
@@ -196,9 +200,3 @@ This index lists every problem I've solved, organized by category, with links to
 - 621\. Task Scheduler ([Problem](https://leetcode.com/problems/task-scheduler/) | [Solution](./0621.%20Task%20Scheduler/solution.py))
 - 703\. Kth Largest Element In a Stream ([Problem](https://leetcode.com/problems/kth-largest-element-in-a-stream/) | [Solution](./0703.%20Kth%20Largest%20Element%20In%20a%20Stream/solution.py))
 - 973\. K Closest Points to Origin ([Problem](https://leetcode.com/problems/k-closest-points-to-origin/) | [Solution](./0973.%20K%20Closest%20Points%20to%20Origin/solution.py))
-
-## Uncategorized
-- 110\. Balanced Binary Tree ([Problem](https://leetcode.com/problems/balanced-binary-tree/) | [Solution](./0110.%20Balanced%20Binary%20Tree/solution.py))
-- 1448\. Count Good Nodes In Binary Tree ([Problem](https://leetcode.com/problems/count-good-nodes-in-binary-tree/) | [Solution](./1448.%20Count%20Good%20Nodes%20In%20Binary%20Tree/solution.py))
-- 199\. Binary Tree Right Side View ([Problem](https://leetcode.com/problems/binary-tree-right-side-view/) | [Solution](./0199.%20Binary%20Tree%20Right%20Side%20View/solution.py))
-- 543\. Diameter of Binary Tree ([Problem](https://leetcode.com/problems/diameter-of-binary-tree/) | [Solution](./0543.%20Diameter%20of%20Binary%20Tree/solution.py))

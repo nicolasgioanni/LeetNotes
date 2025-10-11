@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-10-11 06:18 UTC*
+*Last updated: 2025-10-11 13:21 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -477,6 +477,12 @@
     <li>Case 2 (node exists): return 1 (for the current node) plus the max depth of the left and right subtrees.</li>
   </ul>
 
+**Diameter of Binary Tree** *([Problem](https://leetcode.com/problems/diameter-of-binary-tree/) | [Solution](../Problems/0543.%20Diameter%20of%20Binary%20Tree/solution.py))*
+- _No details provided._
+
+**Balanced Binary Tree** *([Problem](https://leetcode.com/problems/balanced-binary-tree/) | [Solution](../Problems/0110.%20Balanced%20Binary%20Tree/solution.py))*
+- _No details provided._
+
 **Same Tree** *([Problem](https://leetcode.com/problems/same-tree/) | [Solution](../Problems/0100.%20Same%20Tree/solution.py))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
@@ -525,6 +531,12 @@
       </ul>
     </li>
   </ul>
+
+**Binary Tree Right Side View** *([Problem](https://leetcode.com/problems/binary-tree-right-side-view/) | [Solution](../Problems/0199.%20Binary%20Tree%20Right%20Side%20View/solution.py))*
+- _No details provided._
+
+**Count Good Nodes In Binary Tree** *([Problem](https://leetcode.com/problems/count-good-nodes-in-binary-tree/) | [Solution](../Problems/1448.%20Count%20Good%20Nodes%20In%20Binary%20Tree/solution.py))*
+- _No details provided._
 
 **Validate Binary Search Tree** *([Problem](https://leetcode.com/problems/validate-binary-search-tree/) | [Solution](../Problems/0098.%20Validate%20Binary%20Search%20Tree/solution.py))*
 - **Time Complexity:** O(n)
@@ -913,18 +925,4 @@
 - _No details provided._
 
 **Find Median From Data Stream** *([Problem](https://leetcode.com/problems/find-median-from-data-stream/) | [Solution](../Problems/0295.%20Find%20Median%20From%20Data%20Stream/solution.py))*
-- _No details provided._
-
-## Uncategorized
-
-**Diameter of Binary Tree** *([Problem](https://leetcode.com/problems/diameter-of-binary-tree/) | [Solution](../Problems/0543.%20Diameter%20of%20Binary%20Tree/solution.py))*
-- _No details provided._
-
-**Balanced Binary Tree** *([Problem](https://leetcode.com/problems/balanced-binary-tree/) | [Solution](../Problems/0110.%20Balanced%20Binary%20Tree/solution.py))*
-- _No details provided._
-
-**Binary Tree Right Side View** *([Problem](https://leetcode.com/problems/binary-tree-right-side-view/) | [Solution](../Problems/0199.%20Binary%20Tree%20Right%20Side%20View/solution.py))*
-- _No details provided._
-
-**Count Good Nodes In Binary Tree** *([Problem](https://leetcode.com/problems/count-good-nodes-in-binary-tree/) | [Solution](../Problems/1448.%20Count%20Good%20Nodes%20In%20Binary%20Tree/solution.py))*
 - _No details provided._
