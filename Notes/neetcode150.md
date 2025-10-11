@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-10-11 05:18 UTC*
+*Last updated: 2025-10-11 05:49 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -17,8 +17,10 @@
 - **Space Complexity:** O(1)
 - **Notes:**
   - Two ways to solve this:
-    - 1) Hashmaps to keep track of char count and then compare
-    - 2) ASCII values list, adding count of 1 and subtracting count of 2, at the end, the list should have counts of all 0s
+    <ol type="1">
+      <li>Hashmaps to keep track of char count and then compare</li>
+      <li>ASCII values list, adding count of 1 and subtracting count of 2, at the end, the list should have counts of all 0s</li>
+    </ol>
 
 **Two Sum** *([Problem](https://leetcode.com/problems/two-sum/) | [Solution](../Problems/0001.%20Two%20Sum/solution.py))*
 - **Time Complexity:** O(n)
@@ -69,7 +71,7 @@
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
-    - Use a set to iterate quickly
+  - Use a set to iterate quickly
   - Loop over every unique number
     - Check if it is a start of a sequence
     - If it is, continue to check the numbers after if it is a sequence
@@ -142,7 +144,7 @@
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(m)
 - **Notes:**
-    - Dictionary to store unique letters as keys and counts as values
+  - Dictionary to store unique letters as keys and counts as values
   - Two pointers, loop with right pointer, update counts and max length
     - While the most frequency letter plus k is less than the length of the string
       - Update the letters count and left pointer
@@ -154,12 +156,12 @@
 - **Time Complexity:** O(n + m)
 - **Space Complexity:** O(m)
 - **Notes:**
-    - Check if are target substring is empty else continue
-    - Hashmaps for window and target substring
+  - Check if are target substring is empty else continue
+  - Hashmaps for window and target substring
   - Two pointers, loop until our right pointer hits the right bound (end of input string)
-      - Continously add unique char and their count to our window
-      - If we have the count for all the unique letters we need save it if is it smaller than our old substring
-      - Update our left pointer and decrease the count until we don't have what we need anymore
+    - Continously add unique char and their count to our window
+    - If we have the count for all the unique letters we need save it if is it smaller than our old substring
+    - Update our left pointer and decrease the count until we don't have what we need anymore
 
 **Sliding Window Maximum** *([Problem](https://leetcode.com/problems/sliding-window-maximum/) | [Solution](../Problems/0239.%20Sliding%20Window%20Maximum/solution.py))*
 - _No details provided._
@@ -265,11 +267,13 @@
 - **Time Complexity:** O(n + m)
 - **Space Complexity:** O(1)
 - **Notes:**
-  - 1) Edge case, 2) determine head node, 3) merge loop, 4) attach rest
-    - Edge case if lists are None
-    - Compare list.val and set as head and tail, move to next node in list we took node from
-    - Loop while both lists have nodes, attaching smaller node to tail.next and updating tail to tail.next
-    - Tail.next is the node that is not None
+  <ol type="1">
+    <li>Edge case, 2) determine head node, 3) merge loop, 4) attach rest</li>
+  </ol>
+  - Edge case if lists are None
+  - Compare list.val and set as head and tail, move to next node in list we took node from
+  - Loop while both lists have nodes, attaching smaller node to tail.next and updating tail to tail.next
+  - Tail.next is the node that is not None
 
 **Linked List Cycle** *([Problem](https://leetcode.com/problems/linked-list-cycle/) | [Solution](../Problems/0141.%20Linked%20List%20Cycle/solution.py))*
 - **Time Complexity:** O(n)
@@ -325,7 +329,10 @@
 **Invert Binary Tree** *([Problem](https://leetcode.com/problems/invert-binary-tree/) | [Solution](../Problems/0226.%20Invert%20Binary%20Tree/solution.py))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
-- **Notes:** 1) Edge case, 2) swap left and right nodes, 3) Recursively call on both left and right nodes (the ones we changed)
+- **Notes:**
+  <ol type="1">
+    <li>Edge case, 2) swap left and right nodes, 3) Recursively call on both left and right nodes (the ones we changed)</li>
+  </ol>
 
 **Maximum Depth of Binary Tree** *([Problem](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | [Solution](../Problems/0104.%20Maximum%20Depth%20of%20Binary%20Tree/solution.py))*
 - **Time Complexity:** O(n)
