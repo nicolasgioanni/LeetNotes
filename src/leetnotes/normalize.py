@@ -70,26 +70,39 @@ def format_cell(value: str) -> str:
     return " ".join(text.split())
 
 
-def format_notes(value: str) -> list[str]:
-    """Normalise a freeform notes field into individual bullet points."""
+def format_notes(value: str) -> list[tuple[int, str]]:
+    """Normalise a freeform notes field into bullet lines with indentation metadata."""
 
     text = (value or "").replace("<br>", "\n")
     text = text.replace("\r\n", "\n").replace("\r", "\n")
-    parts = [part.strip() for part in text.split("\n")]
+    raw_lines = text.split("\n")
 
-    cleaned: list[str] = []
-    for part in parts:
-        if not part:
+    entries: list[tuple[int, str]] = []
+
+    for raw_line in raw_lines:
+        if not raw_line.strip():
             continue
-        stripped = part
+        expanded = raw_line.expandtabs(2).rstrip()
+        if not expanded:
+            continue
+        stripped = expanded.lstrip(" ")
+        indent_width = len(expanded) - len(stripped)
+        level = indent_width // 2
+        content = stripped
         for prefix in config.NOTE_PREFIXES:
-            if stripped.startswith(prefix):
-                stripped = stripped[len(prefix):].strip()
+            if content.startswith(prefix):
+                content = content[len(prefix):]
                 break
-        formatted = format_cell(stripped)
+        formatted = format_cell(content.strip())
         if formatted:
-            cleaned.append(formatted)
-    return cleaned
+            entries.append((level, formatted))
+
+    if not entries:
+        return []
+
+    min_level = min(level for level, _ in entries)
+    return [(level - min_level, text) for level, text in entries]
+
 
 
 __all__ = [

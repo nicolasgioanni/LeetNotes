@@ -79,14 +79,16 @@ def build_notes_markdown(
                 continue
 
             if field == "Notes":
-                note_lines = normalize.format_notes(raw_value)
-                if not note_lines:
+                note_entries = normalize.format_notes(raw_value)
+                if not note_entries:
                     continue
-                if len(note_lines) == 1:
-                    section_lines.append(f"- **Notes:** {note_lines[0]}")
+                if len(note_entries) == 1 and note_entries[0][0] == 0:
+                    section_lines.append(f"- **Notes:** {note_entries[0][1]}")
                 else:
                     section_lines.append("- **Notes:**")
-                    section_lines.extend(f"  - {note}" for note in note_lines)
+                    for level, note in note_entries:
+                        indent = "  " * (level + 1)
+                        section_lines.append(f"{indent}- {note}")
                 continue
 
             section_lines.append(f"- **{field}:** {value}")
