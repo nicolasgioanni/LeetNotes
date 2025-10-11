@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+from dataclasses import dataclass
 
 from . import config
 
@@ -70,14 +71,26 @@ def format_cell(value: str) -> str:
     return " ".join(text.split())
 
 
-def format_notes(value: str) -> list[tuple[int, str]]:
+_ORDERED_PREFIX_RE = re.compile(r"^(?:\(\d+\)|\d+[.)])\s+")
+
+
+@dataclass(frozen=True)
+class NoteEntry:
+    """Normalized note line with indentation metadata and ordering flag."""
+
+    level: int
+    text: str
+    ordered: bool = False
+
+
+def format_notes(value: str) -> list[NoteEntry]:
     """Normalise a freeform notes field into bullet lines with indentation metadata."""
 
     text = (value or "").replace("<br>", "\n")
     text = text.replace("\r\n", "\n").replace("\r", "\n")
     raw_lines = text.split("\n")
 
-    entries: list[tuple[int, str]] = []
+    entries: list[NoteEntry] = []
 
     for raw_line in raw_lines:
         if not raw_line.strip():
@@ -89,27 +102,43 @@ def format_notes(value: str) -> list[tuple[int, str]]:
         indent_width = len(expanded) - len(stripped)
         indent_level = indent_width // 2
         content = stripped
+
         marker_level = 0
         while True:
+            matched_prefix = False
             for prefix in config.NOTE_PREFIXES:
                 if content.startswith(prefix):
                     content = content[len(prefix):]
                     marker_level += 1
+                    matched_prefix = True
                     break
-            else:
+            if not matched_prefix:
                 break
             content = content.lstrip(" ")
+
+        ordered = False
+        while True:
+            match = _ORDERED_PREFIX_RE.match(content)
+            if not match:
+                break
+            ordered = True
+            content = content[match.end():]
+            content = content.lstrip(" ")
+            if marker_level == 0:
+                marker_level = 1
+
+        total_level = indent_level + marker_level
         formatted = format_cell(content.strip())
         if formatted:
-            entries.append((indent_level + marker_level, formatted))
+            entries.append(NoteEntry(total_level, formatted, ordered))
 
     if not entries:
         return []
 
-    min_level = min(level for level, _ in entries)
-    return [(level - min_level, text) for level, text in entries]
-
-
+    min_level = min(entry.level for entry in entries)
+    if min_level:
+        return [NoteEntry(entry.level - min_level, entry.text, entry.ordered) for entry in entries]
+    return entries
 
 __all__ = [
     "canonical_problem_number",
@@ -117,6 +146,7 @@ __all__ = [
     "escape_ordered_list_prefix",
     "format_cell",
     "format_frontend_id",
+    "NoteEntry",
     "format_notes",
     "slugify",
     "split_categories",

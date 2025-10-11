@@ -1,10 +1,11 @@
-﻿"""Markdown renderers for study note documents."""
+"""Markdown renderers for study note documents."""
 
 from __future__ import annotations
 
 import os
 from datetime import datetime
 from pathlib import Path
+from typing import Any
 from urllib.parse import quote
 
 from . import config, normalize
@@ -19,6 +20,74 @@ def _relative_solution_url(from_dir: Path, solution_path: Path) -> str:
     if not encoded.startswith((".", "/")):
         encoded = f"./{encoded}"
     return encoded
+
+def _build_note_tree(entries: list[normalize.NoteEntry]) -> list[dict[str, Any]]:
+    """Convert flat note entries into a parent/child hierarchy."""
+
+    root: dict[str, Any] = {"level": -1, "text": "", "ordered": False, "children": []}
+    stack: list[dict[str, Any]] = [root]
+
+    for entry in entries:
+        level = entry.level
+        while stack and level <= stack[-1]["level"]:
+            stack.pop()
+        parent = stack[-1]
+        node: dict[str, Any] = {
+            "level": level,
+            "text": entry.text,
+            "ordered": entry.ordered,
+            "children": [],
+        }
+        parent["children"].append(node)
+        stack.append(node)
+
+    return root["children"]
+
+
+def _render_note_nodes(nodes: list[dict[str, Any]], base_indent: int) -> list[str]:
+    """Render note nodes as Markdown/HTML lines anchored at base_indent."""
+
+    lines: list[str] = []
+    idx = 0
+    while idx < len(nodes):
+        ordered = bool(nodes[idx]["ordered"])
+        group: list[dict[str, Any]] = []
+        while idx < len(nodes) and bool(nodes[idx]["ordered"]) == ordered:
+            group.append(nodes[idx])
+            idx += 1
+        if ordered:
+            lines.extend(_render_ordered_group(group, base_indent))
+        else:
+            lines.extend(_render_bullet_group(group, base_indent))
+    return lines
+
+
+def _render_bullet_group(group: list[dict[str, Any]], base_indent: int) -> list[str]:
+    lines: list[str] = []
+    for node in group:
+        indent = "  " * base_indent
+        lines.append(f"{indent}- {node['text']}")
+        children = node["children"]
+        if children:
+            lines.extend(_render_note_nodes(children, base_indent + 1))
+    return lines
+
+
+def _render_ordered_group(group: list[dict[str, Any]], base_indent: int) -> list[str]:
+    indent = "  " * base_indent
+    lines: list[str] = [f"{indent}<ol type=\"1\">"]
+    for node in group:
+        item_indent = "  " * (base_indent + 1)
+        children = node["children"]
+        if children:
+            lines.append(f"{item_indent}<li>{node['text']}")
+            lines.extend(_render_note_nodes(children, base_indent + 2))
+            lines.append(f"{item_indent}</li>")
+        else:
+            lines.append(f"{item_indent}<li>{node['text']}</li>")
+    lines.append(f"{indent}</ol>")
+    return lines
+
 
 def build_notes_markdown(
     fieldnames: list[str],
@@ -82,13 +151,16 @@ def build_notes_markdown(
                 note_entries = normalize.format_notes(raw_value)
                 if not note_entries:
                     continue
-                if len(note_entries) == 1 and note_entries[0][0] == 0:
-                    section_lines.append(f"- **Notes:** {note_entries[0][1]}")
+                if (
+                    len(note_entries) == 1
+                    and note_entries[0].level == 0
+                    and not note_entries[0].ordered
+                ):
+                    section_lines.append(f"- **Notes:** {note_entries[0].text}")
                 else:
                     section_lines.append("- **Notes:**")
-                    for level, note in note_entries:
-                        indent = "  " * (level + 1)
-                        section_lines.append(f"{indent}- {note}")
+                    tree = _build_note_tree(note_entries)
+                    section_lines.extend(_render_note_nodes(tree, base_indent=1))
                 continue
 
             section_lines.append(f"- **{field}:** {value}")
@@ -136,3 +208,4 @@ def build_notes_markdown(
 
 
 __all__ = ["build_notes_markdown"]
+
