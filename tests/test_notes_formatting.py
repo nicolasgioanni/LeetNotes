@@ -52,3 +52,4 @@ def test_build_notes_markdown_renders_ordered_lists_with_html() -> None:
     assert "<ol type="1">" in markdown
     assert "Hash map for counts" in markdown
     assert "ASCII diff array" in markdown
+    assert "<ul>" in markdown

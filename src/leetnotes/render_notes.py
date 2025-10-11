@@ -63,13 +63,18 @@ def _render_note_nodes(nodes: list[dict[str, Any]], base_indent: int) -> list[st
 
 
 def _render_bullet_group(group: list[dict[str, Any]], base_indent: int) -> list[str]:
-    lines: list[str] = []
+    indent = "  " * base_indent
+    lines: list[str] = [f"{indent}<ul>"]
     for node in group:
-        indent = "  " * base_indent
-        lines.append(f"{indent}- {node['text']}")
+        item_indent = "  " * (base_indent + 1)
         children = node["children"]
         if children:
-            lines.extend(_render_note_nodes(children, base_indent + 1))
+            lines.append(f"{item_indent}<li>{node['text']}")
+            lines.extend(_render_note_nodes(children, base_indent + 2))
+            lines.append(f"{item_indent}</li>")
+        else:
+            lines.append(f"{item_indent}<li>{node['text']}</li>")
+    lines.append(f"{indent}</ul>")
     return lines
 
 
