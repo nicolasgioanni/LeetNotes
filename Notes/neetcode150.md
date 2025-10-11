@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-10-11 06:10 UTC*
+*Last updated: 2025-10-11 06:18 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -379,7 +379,7 @@
 - **Space Complexity:** O(1)
 - **Notes:**
   <ul>
-    <li>Edge case, 2) determine head node, 3) merge loop, 4) attach rest
+    <li>1) Edge case, 2) determine head node, 3) merge loop, 4) attach rest
       <ul>
         <li>Edge case if lists are None</li>
         <li>Compare list.val and set as head and tail, move to next node in list we took node from</li>
@@ -466,7 +466,7 @@
 **Invert Binary Tree** *([Problem](https://leetcode.com/problems/invert-binary-tree/) | [Solution](../Problems/0226.%20Invert%20Binary%20Tree/solution.py))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
-- **Notes:** Edge case, 2) swap left and right nodes, 3) Recursively call on both left and right nodes (the ones we changed)
+- **Notes:** 1) Edge case, 2) swap left and right nodes, 3) Recursively call on both left and right nodes (the ones we changed)
 
 **Maximum Depth of Binary Tree** *([Problem](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | [Solution](../Problems/0104.%20Maximum%20Depth%20of%20Binary%20Tree/solution.py))*
 - **Time Complexity:** O(n)
