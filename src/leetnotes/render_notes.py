@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import os
 from datetime import datetime
-from html import escape as html_escape
 from pathlib import Path
 from typing import Any
 from urllib.parse import quote
@@ -21,25 +20,6 @@ def _relative_solution_url(from_dir: Path, solution_path: Path) -> str:
     if not encoded.startswith((".", "/")):
         encoded = f"./{encoded}"
     return encoded
-
-
-def _bullet_style_for_level(level: int) -> dict[str, str]:
-    """Return rendering metadata for a given unordered note depth."""
-
-    styles = getattr(config, "NOTE_BULLET_LEVEL_STYLES", ())
-    if not styles:
-        return {}
-    index = min(level, len(styles) - 1)
-    return dict(styles[index])
-
-
-def _apply_marker(text: str, marker: str | None) -> str:
-    """Prefix a note line with a custom marker when provided."""
-
-    if not marker:
-        return text
-    marker_html = html_escape(marker)
-    return f"{marker_html}&nbsp;{text}" if text else marker_html
 
 def _build_note_tree(entries: list[normalize.NoteEntry]) -> list[dict[str, Any]]:
     """Convert flat note entries into a parent/child hierarchy."""
@@ -75,45 +55,25 @@ def _render_note_nodes(nodes: list[dict[str, Any]], base_indent: int) -> list[st
         while idx < len(nodes) and bool(nodes[idx]["ordered"]) == ordered:
             group.append(nodes[idx])
             idx += 1
-        if not group:
-            continue
-        current_level = min(node["level"] for node in group)
         if ordered:
             lines.extend(_render_ordered_group(group, base_indent))
         else:
-            lines.extend(_render_bullet_group(group, base_indent, current_level))
+            lines.extend(_render_bullet_group(group, base_indent))
     return lines
 
 
-def _render_bullet_group(group: list[dict[str, Any]], base_indent: int, level: int) -> list[str]:
+def _render_bullet_group(group: list[dict[str, Any]], base_indent: int) -> list[str]:
     indent = "  " * base_indent
-    style_config = _bullet_style_for_level(level)
-    attr_parts: list[str] = [f'data-note-level="{level}"']
-    class_names = ["note-list", f"note-level-{level}"]
-    if extra_class := style_config.get("class"):
-        class_names.append(extra_class)
-    if class_names:
-        attr_parts.append(f'class="{" ".join(class_names)}"')
-    if style_value := style_config.get("style"):
-        attr_parts.append(f'style="{style_value}"')
-    attr_text = f" {' '.join(attr_parts)}" if attr_parts else ""
-    lines: list[str] = [f"{indent}<ul{attr_text}>"]
-    marker_prefix = style_config.get("marker")
+    lines: list[str] = [f"{indent}<ul>"]
     for node in group:
         item_indent = "  " * (base_indent + 1)
         children = node["children"]
-        li_classes = ["note-item", f"note-level-{node['level']}"]
-        if marker_prefix:
-            li_classes.append("note-item-with-marker")
-        li_attr_parts = [f'data-note-level="{node["level"]}"', f'class="{" ".join(li_classes)}"']
-        li_attr_text = " " + " ".join(li_attr_parts) if li_attr_parts else ""
-        display_text = _apply_marker(node["text"], marker_prefix)
         if children:
-            lines.append(f"{item_indent}<li{li_attr_text}>{display_text}")
+            lines.append(f"{item_indent}<li>{node['text']}")
             lines.extend(_render_note_nodes(children, base_indent + 2))
             lines.append(f"{item_indent}</li>")
         else:
-            lines.append(f"{item_indent}<li{li_attr_text}>{display_text}</li>")
+            lines.append(f"{item_indent}<li>{node['text']}</li>")
     lines.append(f"{indent}</ul>")
     return lines
 

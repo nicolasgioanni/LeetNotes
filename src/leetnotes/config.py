@@ -46,45 +46,6 @@ STANDARD_FIELDS = (
 
 NOTE_PREFIXES = ("- ", "* ", "\u2022 ", "\u2022")
 
-NOTE_BULLET_LEVEL_STYLES = (
-    {
-        "style": "list-style-type: disc;",
-    },
-    {
-        "style": "list-style-type: circle;",
-    },
-    {
-        "style": "list-style-type: square;",
-    },
-    {
-        "style": (
-            "list-style-type: none; "
-            "list-style-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20"
-            "viewBox%3D%220%200%2016%2016%22%3E%3Cpolygon%20points%3D%228%2C1%2015%2C8%208%2C15%201%2C8%22%20"
-            "fill%3D%22%23000%22/%3E%3C/svg%3E');"
-        ),
-        "marker": "◆",
-    },
-    {
-        "style": (
-            "list-style-type: none; "
-            "list-style-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20"
-            "viewBox%3D%220%200%2016%2016%22%3E%3Cpolygon%20points%3D%223%2C2%2013%2C8%203%2C14%22%20"
-            "fill%3D%22%23000%22/%3E%3C/svg%3E');"
-        ),
-        "marker": "▶",
-    },
-    {
-        "style": (
-            "list-style-type: none; "
-            "list-style-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20"
-            "viewBox%3D%220%200%2016%2016%22%3E%3Cpolygon%20points%3D%223%2C2%2013%2C2%2015%2C8%2013%2C14%203%2C14%201%2C8%22%20"
-            "fill%3D%22%23000%22/%3E%3C/svg%3E');"
-        ),
-        "marker": "▹",
-    },
-)
-
 CATEGORY_ALIASES = {
     "Arrays & Hashing": "Array & Hashing",
     "Binary Tree": "Trees",
@@ -153,7 +114,6 @@ __all__ = [
     "BLIND75_PROFILE",
     "CATEGORY_ALIASES",
     "CATEGORY_ORDER",
-    "NOTE_BULLET_LEVEL_STYLES",
     "DEFAULT_CATEGORY",
     "DEFAULT_PROFILE",
     "ENV_SHEET_CSV_URL",
