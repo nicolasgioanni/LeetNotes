@@ -83,7 +83,7 @@ def test_single_numbered_entry_stays_unordered() -> None:
 
     assert "<ol type=\"1\">" not in markdown
     assert "1) only step" in markdown
-    assert markdown.count("<ul>") >= 1
+    assert 'class="note-line"' in markdown
 
 
 def test_numbered_heading_with_nested_bullets() -> None:
@@ -118,7 +118,7 @@ def test_numbered_heading_with_nested_bullets() -> None:
 
     assert "<ol type=\"1\">" not in markdown
     assert "1) Edge case" in markdown
-    assert markdown.count("<ul>") >= 1
+    assert markdown.count('class="note-line"') >= 1
 
 
 def test_ordered_sections_with_nested_children() -> None:
