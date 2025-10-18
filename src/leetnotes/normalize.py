@@ -1,4 +1,4 @@
-﻿"""String normalisation helpers."""
+"""String normalisation helpers."""
 
 from __future__ import annotations
 
@@ -142,31 +142,35 @@ def format_notes(value: str) -> list[NoteEntry]:
     if not entries:
         return []
 
-    normalized: list[NoteEntry] = []
-    idx = 0
-    length = len(entries)
-    while idx < length:
-        entry = entries[idx]
+    parents: list[int | None] = []
+    stack: list[int] = []
+    for idx, entry in enumerate(entries):
+        while stack and entries[stack[-1]].level >= entry.level:
+            stack.pop()
+        parent_idx = stack[-1] if stack else None
+        parents.append(parent_idx)
+        stack.append(idx)
+
+    ordered_counts: dict[tuple[int | None, int], int] = {}
+    for idx, entry in enumerate(entries):
         if entry.ordered:
-            level = entry.level
-            run: list[NoteEntry] = []
-            while idx < length and entries[idx].ordered and entries[idx].level == level:
-                run.append(entries[idx])
-                idx += 1
-            if len(run) == 1:
-                only = run[0]
-                adjusted_level = only.level
-                if only.order_bump and adjusted_level >= only.order_bump:
-                    adjusted_level -= only.order_bump
-                restored_text = only.text
-                if only.marker:
-                    restored_text = f"{only.marker} {restored_text}" if restored_text else only.marker
+            key = (parents[idx], entry.level)
+            ordered_counts[key] = ordered_counts.get(key, 0) + 1
+
+    normalized: list[NoteEntry] = []
+    for idx, entry in enumerate(entries):
+        if entry.ordered:
+            key = (parents[idx], entry.level)
+            if ordered_counts.get(key, 0) == 1:
+                adjusted_level = entry.level
+                if entry.order_bump and adjusted_level >= entry.order_bump:
+                    adjusted_level -= entry.order_bump
+                restored_text = entry.text
+                if entry.marker:
+                    restored_text = f"{entry.marker} {restored_text}" if restored_text else entry.marker
                 normalized.append(NoteEntry(adjusted_level, restored_text, False, 0, ""))
-            else:
-                normalized.extend(run)
-            continue
+                continue
         normalized.append(entry)
-        idx += 1
 
     entries = normalized
 
@@ -190,3 +194,4 @@ __all__ = [
     "slugify",
     "split_categories",
 ]
+

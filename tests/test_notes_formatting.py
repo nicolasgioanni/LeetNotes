@@ -82,7 +82,7 @@ def test_single_numbered_entry_stays_unordered() -> None:
     )
 
     assert "<ol type=\"1\">" not in markdown
-    assert "1) Edge case" in markdown
+    assert "1) only step" in markdown
     assert markdown.count("<ul>") >= 1
 
 
@@ -119,3 +119,49 @@ def test_numbered_heading_with_nested_bullets() -> None:
     assert "<ol type=\"1\">" not in markdown
     assert "1) Edge case" in markdown
     assert markdown.count("<ul>") >= 1
+
+
+def test_ordered_sections_with_nested_children() -> None:
+    raw = (
+        "Base Check: If the number of edges isn't equal to the number of nodes minus one, the graph can't be a valid tree\n"
+        "Reason: After the first node, each added node needs exactly one new edge to connect them to be a valid tree\n"
+        "1) Data Structures:\n"
+        "  - Adjacency List: Map nodes to neighbors and back\n"
+        "  - Visited Set: Store every node visited for iteration/recursion using dfs/bfs\n"
+        "2) Run DFS on any node passing a current node and previous node as parameters:\n"
+        "  - Base case: Check if node is in visited\n"
+        "  - For every neighbor the current node has, i\n"
+        "    - If the neighbor is the previous node, skip it\n"
+        "    - If the DFS call on the neighbor nodes is false, return false (caught a cycle)\n"
+        "  - If the for loop performed without failing, return True\n"
+        "3) Return the boolean result of both (and): \n"
+        "  - The DFS call\n"
+        "  - Whether or not the number of visited nodes equals the total number of nodes (n)"
+    )
+
+    entries = format_notes(raw)
+
+    ordered_levels = [entry.level for entry in entries if entry.marker in {"1)", "2)", "3)"}]
+    assert ordered_levels == [1, 1, 1]
+
+    markdown = build_notes_markdown(
+        ["Problem", "Category", "Notes"],
+        [
+            {
+                "Problem": "Valid Tree",
+                "Category": "Graphs",
+                "Notes": raw,
+            }
+        ],
+        "https://example.com",
+        {},
+        DEFAULT_PROFILE,
+    )
+
+    assert markdown.count('<ol type="1">') == 1
+    assert '<li>Return the boolean result of both (and):' in markdown
+    assert markdown.find('<li>Return the boolean result of both (and):') > markdown.find('<ol type="1">')
+
+
+
+
