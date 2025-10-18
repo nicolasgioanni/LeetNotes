@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-10-18 07:01 UTC*
+*Last updated: 2025-10-18 07:26 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -16,8 +16,8 @@
 - **Time Complexity:** O(n + m)
 - **Space Complexity:** O(1)
 - **Notes:**
-  <ul>
-    <li>Two ways to solve this:
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Two ways to solve this:
       <ol type="1">
         <li>Hashmaps to keep track of char count and then compare</li>
         <li>ASCII values list, adding count of 1 and subtracting count of 2, at the end, the list should have counts of all 0s</li>
@@ -29,11 +29,11 @@
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
-  <ul>
-    <li>Loop through every value
-      <ul>
-        <li>If our target - the value we are looking at is in our hashmap of seen values, return them</li>
-        <li>Otherwise, add it to our hashmap</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Loop through every value
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">If our target - the value we are looking at is in our hashmap of seen values, return them</li>
+        <li data-note-level="1" class="note-item note-level-1">Otherwise, add it to our hashmap</li>
       </ul>
     </li>
   </ul>
@@ -42,33 +42,33 @@
 - **Time Complexity:** O(nm)
 - **Space Complexity:** O(nm)
 - **Notes:**
-  <ul>
-    <li>Loop through strings storing list of counts as the key and string as value (defaultdict(list))</li>
-    <li>ASCII values for count</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Loop through strings storing list of counts as the key and string as value (defaultdict(list))</li>
+    <li data-note-level="0" class="note-item note-level-0">ASCII values for count</li>
   </ul>
 
 **Top K Frequent Elements** *([Problem](https://leetcode.com/problems/top-k-frequent-elements/) | [Solution](../Problems/0347.%20Top%20K%20Frequent%20Elements/solution.py))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
-  <ul>
-    <li>Hashmap for count and dict of lists per number in input list storing count as key and number as values</li>
-    <li>Loop to get count of each number</li>
-    <li>Loop to store each number and its count in dict</li>
-    <li>Return the k most frequent numbers</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Hashmap for count and dict of lists per number in input list storing count as key and number as values</li>
+    <li data-note-level="0" class="note-item note-level-0">Loop to get count of each number</li>
+    <li data-note-level="0" class="note-item note-level-0">Loop to store each number and its count in dict</li>
+    <li data-note-level="0" class="note-item note-level-0">Return the k most frequent numbers</li>
   </ul>
 
 **Encode and Decode Strings** *([Problem](https://leetcode.com/problems/encode-and-decode-strings/) | [Solution](../Problems/0271.%20Encode%20and%20Decode%20Strings/solution.py))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n + m)
 - **Notes:**
-  <ul>
-    <li>Encode saving the new string as (length, unique char, string)</li>
-    <li>Decode Looping until we hit our right bound, using pointers front, middle, and end
-      <ul>
-        <li>Front points to our first number for our string length</li>
-        <li>Middle points to our unique char</li>
-        <li>End points to the end of our string</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Encode saving the new string as (length, unique char, string)</li>
+    <li data-note-level="0" class="note-item note-level-0">Decode Looping until we hit our right bound, using pointers front, middle, and end
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">Front points to our first number for our string length</li>
+        <li data-note-level="1" class="note-item note-level-1">Middle points to our unique char</li>
+        <li data-note-level="1" class="note-item note-level-1">End points to the end of our string</li>
       </ul>
     </li>
   </ul>
@@ -77,10 +77,10 @@
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(1) or O(n)
 - **Notes:**
-  <ul>
-    <li>Result list</li>
-    <li>Prefix, equal first then multiply update</li>
-    <li>Postfix, multiply first then multiply update</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Result list</li>
+    <li data-note-level="0" class="note-item note-level-0">Prefix, equal first then multiply update</li>
+    <li data-note-level="0" class="note-item note-level-0">Postfix, multiply first then multiply update</li>
   </ul>
 
 **Valid Sudoku** *([Problem](https://leetcode.com/problems/valid-sudoku/) | [Solution](../Problems/0036.%20Valid%20Sudoku/solution.py))*
@@ -90,14 +90,14 @@
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
-  <ul>
-    <li>Use a set to iterate quickly</li>
-    <li>Loop over every unique number
-      <ul>
-        <li>Check if it is a start of a sequence</li>
-        <li>If it is, continue to check the numbers after if it is a sequence
-          <ul>
-            <li>Then compare it to the length of the max</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="1" class="note-item note-level-1">Use a set to iterate quickly</li>
+    <li data-note-level="0" class="note-item note-level-0">Loop over every unique number
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">Check if it is a start of a sequence</li>
+        <li data-note-level="1" class="note-item note-level-1">If it is, continue to check the numbers after if it is a sequence
+          <ul data-note-level="2" class="note-list note-level-2" style="list-style-type: square;">
+            <li data-note-level="2" class="note-item note-level-2">Then compare it to the length of the max</li>
           </ul>
         </li>
       </ul>
@@ -110,12 +110,12 @@
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(1)
 - **Notes:**
-  <ul>
-    <li>Loop through Two pointers
-      <ul>
-        <li>Increment/decrement whether pointer value is within ascii values to avoid non numeric values</li>
-        <li>Compare characters at pointer values</li>
-        <li>Update pointers</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Loop through Two pointers
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">Increment/decrement whether pointer value is within ascii values to avoid non numeric values</li>
+        <li data-note-level="1" class="note-item note-level-1">Compare characters at pointer values</li>
+        <li data-note-level="1" class="note-item note-level-1">Update pointers</li>
       </ul>
     </li>
   </ul>
@@ -124,10 +124,10 @@
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(1)
 - **Notes:**
-  <ul>
-    <li>Loop 2 pointers
-      <ul>
-        <li>Calculate twoSum, and update pointers based on whether greater or less than target</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Loop 2 pointers
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">Calculate twoSum, and update pointers based on whether greater or less than target</li>
       </ul>
     </li>
   </ul>
@@ -136,16 +136,16 @@
 - **Time Complexity:** O(n^2)
 - **Space Complexity:** O(1) or O(n)
 - **Notes:**
-  <ul>
-    <li>Result list and sort the input list
-      <ul>
-        <li>Enumerate though each value in the list</li>
-        <li>Check if the smallest value is greater than target</li>
-        <li>After the first iteration, check if prev value is the same as current value</li>
-        <li>Loop through pointers which are the ends after the value we enumerate</li>
-        <li>Calculate threeSum, and update pointers based on whether equal, greater or less than target
-          <ul>
-            <li>When equal, update both pointers and duplicate check</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Result list and sort the input list
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">Enumerate though each value in the list</li>
+        <li data-note-level="1" class="note-item note-level-1">Check if the smallest value is greater than target</li>
+        <li data-note-level="1" class="note-item note-level-1">After the first iteration, check if prev value is the same as current value</li>
+        <li data-note-level="1" class="note-item note-level-1">Loop through pointers which are the ends after the value we enumerate</li>
+        <li data-note-level="1" class="note-item note-level-1">Calculate threeSum, and update pointers based on whether equal, greater or less than target
+          <ul data-note-level="2" class="note-list note-level-2" style="list-style-type: square;">
+            <li data-note-level="2" class="note-item note-level-2">When equal, update both pointers and duplicate check</li>
           </ul>
         </li>
       </ul>
@@ -156,11 +156,11 @@
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(1)
 - **Notes:**
-  <ul>
-    <li>Two pointers</li>
-    <li>Loop through ends (pointers)</li>
-    <li>Calculate area</li>
-    <li>Update pointers based on which value is smaller</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Two pointers</li>
+    <li data-note-level="0" class="note-item note-level-0">Loop through ends (pointers)</li>
+    <li data-note-level="0" class="note-item note-level-0">Calculate area</li>
+    <li data-note-level="0" class="note-item note-level-0">Update pointers based on which value is smaller</li>
   </ul>
 
 **Trapping Rain Water** *([Problem](https://leetcode.com/problems/trapping-rain-water/) | [Solution](../Problems/0042.%20Trapping%20Rain%20Water/solution.py))*
@@ -172,12 +172,12 @@
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(1)
 - **Notes:**
-  <ul>
-    <li>Two pointers
-      <ul>
-        <li>Loop until our sell pointer crosses input array bounds</li>
-        <li>If sell is greater than buy, get the max of our old and current profit</li>
-        <li>Otherwise, this means we have a new low buy, so update pointers accordingly</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Two pointers
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">Loop until our sell pointer crosses input array bounds</li>
+        <li data-note-level="1" class="note-item note-level-1">If sell is greater than buy, get the max of our old and current profit</li>
+        <li data-note-level="1" class="note-item note-level-1">Otherwise, this means we have a new low buy, so update pointers accordingly</li>
       </ul>
     </li>
   </ul>
@@ -186,13 +186,13 @@
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(m)
 - **Notes:**
-  <ul>
-    <li>Hashmap to store char as key and its index as the value</li>
-    <li>Two pointers
-      <ul>
-        <li>Loop through our right pointer, adding them to hashmap</li>
-        <li>If duplicate (already in seen) & last seen duplicate char index greater than our left pointer</li>
-        <li>Update left pointer to last seen duplicate char index + 1 (to skip it)</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Hashmap to store char as key and its index as the value</li>
+    <li data-note-level="0" class="note-item note-level-0">Two pointers
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">Loop through our right pointer, adding them to hashmap</li>
+        <li data-note-level="1" class="note-item note-level-1">If duplicate (already in seen) & last seen duplicate char index greater than our left pointer</li>
+        <li data-note-level="1" class="note-item note-level-1">Update left pointer to last seen duplicate char index + 1 (to skip it)</li>
       </ul>
     </li>
   </ul>
@@ -201,13 +201,13 @@
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(m)
 - **Notes:**
-  <ul>
-    <li>Dictionary to store unique letters as keys and counts as values</li>
-    <li>Two pointers, loop with right pointer, update counts and max length
-      <ul>
-        <li>While the most frequency letter plus k is less than the length of the string
-          <ul>
-            <li>Update the letters count and left pointer</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="1" class="note-item note-level-1">Dictionary to store unique letters as keys and counts as values</li>
+    <li data-note-level="0" class="note-item note-level-0">Two pointers, loop with right pointer, update counts and max length
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">While the most frequency letter plus k is less than the length of the string
+          <ul data-note-level="2" class="note-list note-level-2" style="list-style-type: square;">
+            <li data-note-level="2" class="note-item note-level-2">Update the letters count and left pointer</li>
           </ul>
         </li>
       </ul>
@@ -221,14 +221,14 @@
 - **Time Complexity:** O(n + m)
 - **Space Complexity:** O(m)
 - **Notes:**
-  <ul>
-    <li>Check if are target substring is empty else continue</li>
-    <li>Hashmaps for window and target substring</li>
-    <li>Two pointers, loop until our right pointer hits the right bound (end of input string)
-      <ul>
-        <li>Continously add unique char and their count to our window</li>
-        <li>If we have the count for all the unique letters we need save it if is it smaller than our old substring</li>
-        <li>Update our left pointer and decrease the count until we don't have what we need anymore</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="1" class="note-item note-level-1">Check if are target substring is empty else continue</li>
+    <li data-note-level="1" class="note-item note-level-1">Hashmaps for window and target substring</li>
+    <li data-note-level="0" class="note-item note-level-0">Two pointers, loop until our right pointer hits the right bound (end of input string)
+      <ul data-note-level="2" class="note-list note-level-2" style="list-style-type: square;">
+        <li data-note-level="2" class="note-item note-level-2">Continously add unique char and their count to our window</li>
+        <li data-note-level="2" class="note-item note-level-2">If we have the count for all the unique letters we need save it if is it smaller than our old substring</li>
+        <li data-note-level="2" class="note-item note-level-2">Update our left pointer and decrease the count until we don't have what we need anymore</li>
       </ul>
     </li>
   </ul>
@@ -242,11 +242,11 @@
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
-  <ul>
-    <li>Stack and Hashmap to map parentheses
-      <ul>
-        <li>Loop through every char and check if it is open or close, add opens as needed and check stack if looking at close</li>
-        <li>Return whether we have no more opens in our stack or if we run into the wrong close</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Stack and Hashmap to map parentheses
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">Loop through every char and check if it is open or close, add opens as needed and check stack if looking at close</li>
+        <li data-note-level="1" class="note-item note-level-1">Return whether we have no more opens in our stack or if we run into the wrong close</li>
       </ul>
     </li>
   </ul>
@@ -275,11 +275,11 @@
 - **Time Complexity:** O(logn)
 - **Space Complexity:** O(1)
 - **Notes:**
-  <ul>
-    <li>Two pointers and loop until they cross, it's okay if they're equal
-      <ul>
-        <li>If the middle pointer is less than target, update right pointer</li>
-        <li>Else means middle pointer is greater than target, update left pointer</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Two pointers and loop until they cross, it's okay if they're equal
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">If the middle pointer is less than target, update right pointer</li>
+        <li data-note-level="1" class="note-item note-level-1">Else means middle pointer is greater than target, update left pointer</li>
       </ul>
     </li>
   </ul>
@@ -288,13 +288,13 @@
 - **Time Complexity:** O(lognm)
 - **Space Complexity:** O(1)
 - **Notes:**
-  <ul>
-    <li>Four pointers, 2 for rows top and bottom, 2 for columns left and right
-      <ul>
-        <li>Loop until the row pointers cross, it's okay if they're equal, get middle row</li>
-        <li>If the first value in the middle row is less than target, update bottom row</li>
-        <li>If the last value in the middle row is greater than target, update top row</li>
-        <li>Else, means target must be in row and perform traditional binary search</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Four pointers, 2 for rows top and bottom, 2 for columns left and right
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">Loop until the row pointers cross, it's okay if they're equal, get middle row</li>
+        <li data-note-level="1" class="note-item note-level-1">If the first value in the middle row is less than target, update bottom row</li>
+        <li data-note-level="1" class="note-item note-level-1">If the last value in the middle row is greater than target, update top row</li>
+        <li data-note-level="1" class="note-item note-level-1">Else, means target must be in row and perform traditional binary search</li>
       </ul>
     </li>
   </ul>
@@ -303,13 +303,13 @@
 - **Time Complexity:** O(lognm)
 - **Space Complexity:** O(1)
 - **Notes:**
-  <ul>
-    <li>Two pointers, between values 1 and max rate per hour
-      <ul>
-        <li>Loop until pointers cross, it's okay if they're equal</li>
-        <li>Calculate total hours it takes to eat all bananas with middle rate (math.ceil(float(x) / m))</li>
-        <li>If valid, update right pointer</li>
-        <li>Else this means we didn't finish eating in time, update left (to eat more per hour)</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Two pointers, between values 1 and max rate per hour
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">Loop until pointers cross, it's okay if they're equal</li>
+        <li data-note-level="1" class="note-item note-level-1">Calculate total hours it takes to eat all bananas with middle rate (math.ceil(float(x) / m))</li>
+        <li data-note-level="1" class="note-item note-level-1">If valid, update right pointer</li>
+        <li data-note-level="1" class="note-item note-level-1">Else this means we didn't finish eating in time, update left (to eat more per hour)</li>
       </ul>
     </li>
   </ul>
@@ -318,12 +318,12 @@
 - **Time Complexity:** O(log n)
 - **Space Complexity:** O(1)
 - **Notes:**
-  <ul>
-    <li>Two pointers, loop until they cross
-      <ul>
-        <li>If our middle pointer is less than our right, its impossible to have a smaller number than middle</li>
-        <li>Else means it is greater and our right subarray has the smaller value than our middle</li>
-        <li>Last case, middle and left pointer will be the same, and if it's greater than our right, l = m + 1 = r, next iteration pointers cross</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Two pointers, loop until they cross
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">If our middle pointer is less than our right, its impossible to have a smaller number than middle</li>
+        <li data-note-level="1" class="note-item note-level-1">Else means it is greater and our right subarray has the smaller value than our middle</li>
+        <li data-note-level="1" class="note-item note-level-1">Last case, middle and left pointer will be the same, and if it's greater than our right, l = m + 1 = r, next iteration pointers cross</li>
       </ul>
     </li>
   </ul>
@@ -332,20 +332,20 @@
 - **Time Complexity:** O(log n)
 - **Space Complexity:** O(1)
 - **Notes:**
-  <ul>
-    <li>Two pointers and loop until they cross, it's okay if they're equal
-      <ul>
-        <li>If our middle is the target, return, otherwise, two subcases</li>
-        <li>Elif middle is greater than our left pointer (left side is sorted)
-          <ul>
-            <li>And If our target is greater than our middle pointer or less than our left pointer (meaning it's not in our sorted side), update left</li>
-            <li>Else, our target is in our sorted side and update right</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Two pointers and loop until they cross, it's okay if they're equal
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">If our middle is the target, return, otherwise, two subcases</li>
+        <li data-note-level="1" class="note-item note-level-1">Elif middle is greater than our left pointer (left side is sorted)
+          <ul data-note-level="2" class="note-list note-level-2" style="list-style-type: square;">
+            <li data-note-level="2" class="note-item note-level-2">And If our target is greater than our middle pointer or less than our left pointer (meaning it's not in our sorted side), update left</li>
+            <li data-note-level="2" class="note-item note-level-2">Else, our target is in our sorted side and update right</li>
           </ul>
         </li>
-        <li>Else, meaning our right side is sorted
-          <ul>
-            <li>And our target is less than our middle pointer but greater than our right pointer (meaning it's not in our sorted sid), update right</li>
-            <li>Else, our target is in our sorted side and update left</li>
+        <li data-note-level="1" class="note-item note-level-1">Else, meaning our right side is sorted
+          <ul data-note-level="2" class="note-list note-level-2" style="list-style-type: square;">
+            <li data-note-level="2" class="note-item note-level-2">And our target is less than our middle pointer but greater than our right pointer (meaning it's not in our sorted sid), update right</li>
+            <li data-note-level="2" class="note-item note-level-2">Else, our target is in our sorted side and update left</li>
           </ul>
         </li>
       </ul>
@@ -364,12 +364,12 @@
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(1)
 - **Notes:**
-  <ul>
-    <li>Think of creating a new List starting with None, and redirecting every node to point to that new list 1 by 1
-      <ul>
-        <li>Update our current nodes next to point to our previous</li>
-        <li>Change our prevous pointer to be our current node (to continue iterating)</li>
-        <li>Change our old current nodes next (before we changed it) to be our new current</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Think of creating a new List starting with None, and redirecting every node to point to that new list 1 by 1
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">Update our current nodes next to point to our previous</li>
+        <li data-note-level="1" class="note-item note-level-1">Change our prevous pointer to be our current node (to continue iterating)</li>
+        <li data-note-level="1" class="note-item note-level-1">Change our old current nodes next (before we changed it) to be our new current</li>
       </ul>
     </li>
   </ul>
@@ -378,13 +378,13 @@
 - **Time Complexity:** O(n + m)
 - **Space Complexity:** O(1)
 - **Notes:**
-  <ul>
-    <li>1) Edge case, 2) determine head node, 3) merge loop, 4) attach rest
-      <ul>
-        <li>Edge case if lists are None</li>
-        <li>Compare list.val and set as head and tail, move to next node in list we took node from</li>
-        <li>Loop while both lists have nodes, attaching smaller node to tail.next and updating tail to tail.next</li>
-        <li>Tail.next is the node that is not None</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">1) Edge case, 2) determine head node, 3) merge loop, 4) attach rest
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">Edge case if lists are None</li>
+        <li data-note-level="1" class="note-item note-level-1">Compare list.val and set as head and tail, move to next node in list we took node from</li>
+        <li data-note-level="1" class="note-item note-level-1">Loop while both lists have nodes, attaching smaller node to tail.next and updating tail to tail.next</li>
+        <li data-note-level="1" class="note-item note-level-1">Tail.next is the node that is not None</li>
       </ul>
     </li>
   </ul>
@@ -393,10 +393,10 @@
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(1)
 - **Notes:**
-  <ul>
-    <li>Slow/fast pointers
-      <ul>
-        <li>Loop until fast and its next are None constantly checking if the pointers nodes are ever equal</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Slow/fast pointers
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">Loop until fast and its next are None constantly checking if the pointers nodes are ever equal</li>
       </ul>
     </li>
   </ul>
@@ -405,12 +405,12 @@
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(1)
 - **Notes:**
-  <ul>
-    <li>Slow/fast pointers, reverse second half, merge lists:
-      <ul>
-        <li>Slow/fast pointers to find second half, slow.next is our start second half, fast to find our end bound</li>
-        <li>Then we need to reverse the links so we start at the end and point to the middle (second half points backwards)</li>
-        <li>While second, save next nodes, change the nodes our currents point to, update our current nodes to temps</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Slow/fast pointers, reverse second half, merge lists:
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">Slow/fast pointers to find second half, slow.next is our start second half, fast to find our end bound</li>
+        <li data-note-level="1" class="note-item note-level-1">Then we need to reverse the links so we start at the end and point to the middle (second half points backwards)</li>
+        <li data-note-level="1" class="note-item note-level-1">While second, save next nodes, change the nodes our currents point to, update our current nodes to temps</li>
       </ul>
     </li>
   </ul>
@@ -419,13 +419,13 @@
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(1)
 - **Notes:**
-  <ul>
-    <li>Slow/fast pointers, slow = head, fast = n
-      <ul>
-        <li>If n is the size of the list (meaning fast is None) return the next node after the head</li>
-        <li>Else we loop until the node after fast is None (because we want slow to point to the node before our nth end node)
-          <ul>
-            <li>Then, redirect links</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Slow/fast pointers, slow = head, fast = n
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">If n is the size of the list (meaning fast is None) return the next node after the head</li>
+        <li data-note-level="1" class="note-item note-level-1">Else we loop until the node after fast is None (because we want slow to point to the node before our nth end node)
+          <ul data-note-level="2" class="note-list note-level-2" style="list-style-type: square;">
+            <li data-note-level="2" class="note-item note-level-2">Then, redirect links</li>
           </ul>
         </li>
       </ul>
@@ -448,14 +448,14 @@
 - **Time Complexity:** O(n log k)
 - **Space Complexity:** O(log k)
 - **Notes:**
-  <ul>
-    <li>Two pointers, Divide and conquer (recursive)
-      <ul>
-        <li>Divide: Get the range of lists, divide until we only look at 1 which is sorted (pointers are same)</li>
-        <li>Two pointers/conquer: Used to look at two nodes from divide and begin merging sorted lists into 1 sorted list</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Two pointers, Divide and conquer (recursive)
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">Divide: Get the range of lists, divide until we only look at 1 which is sorted (pointers are same)</li>
+        <li data-note-level="1" class="note-item note-level-1">Two pointers/conquer: Used to look at two nodes from divide and begin merging sorted lists into 1 sorted list</li>
       </ul>
     </li>
-    <li>Key: Recursivly divide until we only have a list from both left and right halves, then slowly merge them until we have 1 resulting list</li>
+    <li data-note-level="0" class="note-item note-level-0">Key: Recursivly divide until we only have a list from both left and right halves, then slowly merge them until we have 1 resulting list</li>
   </ul>
 
 **Reverse Nodes In K Group** *([Problem](https://leetcode.com/problems/reverse-nodes-in-k-group/) | [Solution](../Problems/0025.%20Reverse%20Nodes%20In%20K%20Group/solution.py))*
@@ -472,9 +472,9 @@
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(h) - O(log n), O(n)
 - **Notes:**
-  <ul>
-    <li>Case 1 (no node): if root is None, that side of the tree is empty, so depth = 0.</li>
-    <li>Case 2 (node exists): return 1 (for the current node) plus the max depth of the left and right subtrees.</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Case 1 (no node): if root is None, that side of the tree is empty, so depth = 0.</li>
+    <li data-note-level="0" class="note-item note-level-0">Case 2 (node exists): return 1 (for the current node) plus the max depth of the left and right subtrees.</li>
   </ul>
 
 **Diameter of Binary Tree** *([Problem](https://leetcode.com/problems/diameter-of-binary-tree/) | [Solution](../Problems/0543.%20Diameter%20of%20Binary%20Tree/solution.py))*
@@ -487,11 +487,11 @@
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
-  <ul>
-    <li>Base case: return true if nodes are null
-      <ul>
-        <li>Then if both not null and equal, recursively return the comparision of the left and right nodes of both trees</li>
-        <li>Otherwise, false</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Base case: return true if nodes are null
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">Then if both not null and equal, recursively return the comparision of the left and right nodes of both trees</li>
+        <li data-note-level="1" class="note-item note-level-1">Otherwise, false</li>
       </ul>
     </li>
   </ul>
@@ -500,10 +500,10 @@
 - **Time Complexity:** O(nm)
 - **Space Complexity:** O(n + m)
 - **Notes:**
-  <ul>
-    <li>Iterate the tree using a basic stack or recursive call
-      <ul>
-        <li>If found subtree, perform same tree check (either recursively with a seperate function or iteratively with a stack)</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Iterate the tree using a basic stack or recursive call
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">If found subtree, perform same tree check (either recursively with a seperate function or iteratively with a stack)</li>
       </ul>
     </li>
   </ul>
@@ -512,22 +512,22 @@
 - **Time Complexity:** O(h)
 - **Space Complexity:** O(1)
 - **Notes:**
-  <ul>
-    <li>Case 1: Both nodes are greater than our current node, we go right</li>
-    <li>Case 2: Both nodes are less than our current node, we go left</li>
-    <li>Case 3: This means a split occured (one node is to the left and the other is to the right) or one node equals our current, LCA found</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Case 1: Both nodes are greater than our current node, we go right</li>
+    <li data-note-level="0" class="note-item note-level-0">Case 2: Both nodes are less than our current node, we go left</li>
+    <li data-note-level="0" class="note-item note-level-0">Case 3: This means a split occured (one node is to the left and the other is to the right) or one node equals our current, LCA found</li>
   </ul>
 
 **Binary Tree Level Order Traversal** *([Problem](https://leetcode.com/problems/binary-tree-level-order-traversal/) | [Solution](../Problems/0102.%20Binary%20Tree%20Level%20Order%20Traversal/solution.py))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
-  <ul>
-    <li>Iterate the tree using a queue while loop
-      <ul>
-        <li>Get the amount of nodes at that depth (length of queue)</li>
-        <li>For every node at that depth, pop it (queue.popleft()), and add it to a temp list for that depth if not null</li>
-        <li>If the temp list is not null (meaning nodes were present at that depth, add the temp list to the result list</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Iterate the tree using a queue while loop
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">Get the amount of nodes at that depth (length of queue)</li>
+        <li data-note-level="1" class="note-item note-level-1">For every node at that depth, pop it (queue.popleft()), and add it to a temp list for that depth if not null</li>
+        <li data-note-level="1" class="note-item note-level-1">If the temp list is not null (meaning nodes were present at that depth, add the temp list to the result list</li>
       </ul>
     </li>
   </ul>
@@ -542,14 +542,14 @@
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
-  <ul>
-    <li>Nested function with 3 parameters (node, left bound, right bound):
-      <ul>
-        <li>Our first root node can be in between negative infinity and infinity</li>
-        <li>As we iterate recursively, we must update our left and right bounds accordingly
-          <ul>
-            <li>Going left, update right bound to previous nodes value</li>
-            <li>Going right, update left bound to previous nodes value</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Nested function with 3 parameters (node, left bound, right bound):
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">Our first root node can be in between negative infinity and infinity</li>
+        <li data-note-level="1" class="note-item note-level-1">As we iterate recursively, we must update our left and right bounds accordingly
+          <ul data-note-level="2" class="note-list note-level-2" style="list-style-type: square;">
+            <li data-note-level="2" class="note-item note-level-2">Going left, update right bound to previous nodes value</li>
+            <li data-note-level="2" class="note-item note-level-2">Going right, update left bound to previous nodes value</li>
           </ul>
         </li>
       </ul>
@@ -560,11 +560,11 @@
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
-  <ul>
-    <li>Inorder Traversal: Loop while stack or node we're looking at is not null
-      <ul>
-        <li>Go left as far as possible, pushing nodes onto a stack</li>
-        <li>Then, begin popping the smallest value, decrementing k, and going to that nodes's right child</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Inorder Traversal: Loop while stack or node we're looking at is not null
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">Go left as far as possible, pushing nodes onto a stack</li>
+        <li data-note-level="1" class="note-item note-level-1">Then, begin popping the smallest value, decrementing k, and going to that nodes's right child</li>
       </ul>
     </li>
   </ul>
@@ -573,37 +573,37 @@
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
-  <ul>
-    <li>Idea: Preorder gives the root; Inorder tells us how to split into subtress
-      <ul>
-        <li>Make a Inorder index dictonary to map the inorder values to indices for O(1) loopups</li>
-        <li>Nested recursive function with four pointer parameters: preorder left and right, inorder left and right
-          <ul>
-            <li>Base case: Make sure that our left pointers for both preorder and in order do not cross eachother (okay is equal)</li>
-            <li>Root: Always build our root node with the preorder list index at our preorder left pointer</li>
-            <li>Split: We find the index of that value in the preorder list, in the inorder list (rootIndex) using our dictionary</li>
-            <li>Left Size (leftHalf): Compute how many nodes are in the left subtree by subtracting the inorder index (root Index) by our inorder left pointer</li>
+  <ul data-note-level="0" class="note-list note-level-0" style="list-style-type: disc;">
+    <li data-note-level="0" class="note-item note-level-0">Idea: Preorder gives the root; Inorder tells us how to split into subtress
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">Make a Inorder index dictonary to map the inorder values to indices for O(1) loopups</li>
+        <li data-note-level="1" class="note-item note-level-1">Nested recursive function with four pointer parameters: preorder left and right, inorder left and right
+          <ul data-note-level="2" class="note-list note-level-2" style="list-style-type: square;">
+            <li data-note-level="2" class="note-item note-level-2">Base case: Make sure that our left pointers for both preorder and in order do not cross eachother (okay is equal)</li>
+            <li data-note-level="2" class="note-item note-level-2">Root: Always build our root node with the preorder list index at our preorder left pointer</li>
+            <li data-note-level="2" class="note-item note-level-2">Split: We find the index of that value in the preorder list, in the inorder list (rootIndex) using our dictionary</li>
+            <li data-note-level="2" class="note-item note-level-2">Left Size (leftHalf): Compute how many nodes are in the left subtree by subtracting the inorder index (root Index) by our inorder left pointer</li>
           </ul>
         </li>
       </ul>
     </li>
-    <li>Recurse Left:
-      <ul>
-        <li>preLeft: Move forward by 1 (skip over the root in preorder).</li>
-        <li>preRight: Move our pointer to our current preLeft + the number of nodes in the leftHalf</li>
-        <li>inLeft: Keep the same inLeft</li>
-        <li>inRight: Move our pointer to the middle (rootIndex) - 1 to exclude our current root node (everything to the left of the root in inorder)</li>
+    <li data-note-level="0" class="note-item note-level-0">Recurse Left:
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">preLeft: Move forward by 1 (skip over the root in preorder).</li>
+        <li data-note-level="1" class="note-item note-level-1">preRight: Move our pointer to our current preLeft + the number of nodes in the leftHalf</li>
+        <li data-note-level="1" class="note-item note-level-1">inLeft: Keep the same inLeft</li>
+        <li data-note-level="1" class="note-item note-level-1">inRight: Move our pointer to the middle (rootIndex) - 1 to exclude our current root node (everything to the left of the root in inorder)</li>
       </ul>
     </li>
-    <li>Recurse Right:
-      <ul>
-        <li>preLeft: Move the pointer over by 1 + our current preLeft + the length of the leftHalf</li>
-        <li>preRight: Keep the same preRight</li>
-        <li>inLeft: Move our pointer to the rootIndex + 1 (everything to the right of the root in inorder).</li>
-        <li>inRight: Keep the same inRight</li>
+    <li data-note-level="0" class="note-item note-level-0">Recurse Right:
+      <ul data-note-level="1" class="note-list note-level-1" style="list-style-type: circle;">
+        <li data-note-level="1" class="note-item note-level-1">preLeft: Move the pointer over by 1 + our current preLeft + the length of the leftHalf</li>
+        <li data-note-level="1" class="note-item note-level-1">preRight: Keep the same preRight</li>
+        <li data-note-level="1" class="note-item note-level-1">inLeft: Move our pointer to the rootIndex + 1 (everything to the right of the root in inorder).</li>
+        <li data-note-level="1" class="note-item note-level-1">inRight: Keep the same inRight</li>
       </ul>
     </li>
-    <li>Note: Only compare or use index values together if they are part of the same list</li>
+    <li data-note-level="0" class="note-item note-level-0">Note: Only compare or use index values together if they are part of the same list</li>
   </ul>
 
 **Binary Tree Maximum Path Sum** *([Problem](https://leetcode.com/problems/binary-tree-maximum-path-sum/) | [Solution](../Problems/0124.%20Binary%20Tree%20Maximum%20Path%20Sum/solution.py))*
