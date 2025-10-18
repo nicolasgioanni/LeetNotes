@@ -1,7 +1,7 @@
 # Blind 75 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-10-17 13:28 UTC*
+*Last updated: 2025-10-18 07:00 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?output=csv
 )
@@ -644,9 +644,9 @@
             <li>Recursively check all 4 directions</li>
           </ul>
         </li>
+        <li>Result: Iterate over one ocean’s reachable set and add any cell that also appears in the other ocean’s set to the result.</li>
       </ol>
     </li>
-    <li>4) Result: Iterate over one ocean’s reachable set and add any cell that also appears in the other ocean’s set to the result.</li>
   </ul>
 
 **Course Schedule** *([Problem](https://leetcode.com/problems/course-schedule/) | [Solution](../Problems/0207.%20Course%20Schedule/solution.py))*
@@ -682,7 +682,12 @@
     <li>Base Check: If the number of edges isn’t equal to the number of nodes minus one, the graph can’t be a valid tree</li>
     <li>Reason: After the first node, each added node needs exactly one new edge to connect them to be a valid tree
       <ol type="1">
-        <li>Adjacency List + Visited Set: Build a neighbor map (node to neighbor and back) for every node AND neighbor; create a set to store all visited nodes</li>
+        <li>Data Structures:
+          <ul>
+            <li>Adjacency List: Map nodes to neighbors and back</li>
+            <li>Visited Set: Store every node visited for iteration/recursion using dfs/bfs</li>
+          </ul>
+        </li>
         <li>Run DFS on any node passing a current node and previous node as parameters:
           <ul>
             <li>Base case: Check if node is in visited</li>
@@ -695,13 +700,47 @@
             <li>If the for loop preformed without failing, return True</li>
           </ul>
         </li>
+        <li>Return the boolean result of both (and):
+          <ul>
+            <li>The DFS call</li>
+            <li>Whether or not the number of visited nodes equals the total number of nodes (n)</li>
+          </ul>
+        </li>
       </ol>
     </li>
-    <li>3) Return True only if both are true: the first DFS call succeeds and the number of visited nodes equals the total number of nodes (n)</li>
   </ul>
 
 **Number of Connected Components In An Undirected Graph** *([Problem](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) | [Solution](../Problems/0323.%20Number%20of%20Connected%20Components%20In%20An%20Undirected%20Graph/solution.py))*
-- _No details provided._
+- **Time Complexity:** O(V * E)
+- **Space Complexity:** O(V * E)
+- **Notes:**
+  <ol type="1">
+    <li>Data Structures:
+      <ul>
+        <li>Adjacency List: Map nodes to neighbors and back</li>
+        <li>Visited Set: Store every node visited for iteration/recursion dfs/bfs</li>
+        <li>Components Count: Store amount of components detected</li>
+      </ul>
+    </li>
+    <li>Linear Iteration:
+      <ul>
+        <li>For each node in the graph
+          <ul>
+            <li>If we have not visitied yet, mark it as visited, run DFS, and increment our components counter</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>DFS:
+      <ul>
+        <li>For every neighbor the passed node has
+          <ul>
+            <li>If the neighbor is not in visited, mark it as visited and run DFS</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ol>
 
 ## Advanced Graphs
 
