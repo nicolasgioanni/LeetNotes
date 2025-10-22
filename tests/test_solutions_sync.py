@@ -64,6 +64,13 @@ def test_sync_creates_language_specific_files(monkeypatch: pytest.MonkeyPatch, t
     meta = metadata["Grid Traveler"]
     assert meta.solutions == ("solution1.py", "solution2.java")
 
+    # Simulate a subsequent ensure pass and confirm placeholder is not recreated.
+    repo.ensure_problem_folders(
+        [{"Problem": "Grid Traveler", "Category": "Dynamic Programming"}],
+        profile,
+    )
+    assert not (problem_folder / "solution.py").exists()
+
 
 def test_sync_skips_empty_solutions(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
     profile = _profile(tmp_path)

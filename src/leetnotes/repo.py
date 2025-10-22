@@ -56,9 +56,11 @@ def ensure_problem_folders(rows: list[dict[str, str]], profile: NotesProfile) ->
         target_folder.mkdir(parents=True, exist_ok=True)
 
         solution_path = target_folder / "solution.py"
-        if not solution_path.exists():
-            placeholder = f"# TODO: implement solution for {problem}\n"
-            solution_path.write_text(placeholder, encoding="utf-8")
+        existing_solution_files = list_solution_files(target_folder)
+        if not existing_solution_files:
+            if not solution_path.exists():
+                placeholder = f"# TODO: implement solution for {problem}\n"
+                solution_path.write_text(placeholder, encoding="utf-8")
 
         if link.frontend_id:
             for legacy in legacy_candidates:
