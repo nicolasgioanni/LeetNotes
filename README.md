@@ -1,4 +1,4 @@
-﻿# LeetNotes: LeetCode Notes Automation
+﻿# LeetNotes: Automated LeetCode Notes
 
 A structured workspace for solving LeetCode problems and maintaining high-quality study notes. The repository couples a simple Python CLI with a Google Sheets source to keep solutions, notes, and indexes synchronized.
 
