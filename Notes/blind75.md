@@ -1,19 +1,19 @@
 # Blind 75 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-10-22 04:52 UTC*
+*Last updated: 2025-10-22 05:15 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?output=csv
 )
 
 ## Array & Hashing
 
-**Contains Duplicate** *([Problem](https://leetcode.com/problems/contains-duplicate/) | [Solution](../Problems/0217.%20Contains%20Duplicate/solution.py))*
+**Contains Duplicate** *([Problem](https://leetcode.com/problems/contains-duplicate/) | [Solution](../Problems/0217.%20Contains%20Duplicate))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:** Hashset, check if the value is in seen otherwise, add it to seen
 
-**Valid Anagram** *([Problem](https://leetcode.com/problems/valid-anagram/) | [Solution](../Problems/0242.%20Valid%20Anagram/solution.py))*
+**Valid Anagram** *([Problem](https://leetcode.com/problems/valid-anagram/) | [Solution](../Problems/0242.%20Valid%20Anagram))*
 - **Time Complexity:** O(n + m)
 - **Space Complexity:** O(1)
 - **Notes:**
@@ -26,7 +26,7 @@
     </li>
   </ul>
 
-**Two Sum** *([Problem](https://leetcode.com/problems/two-sum/) | [Solution](../Problems/0001.%20Two%20Sum/solution.py))*
+**Two Sum** *([Problem](https://leetcode.com/problems/two-sum/) | [Solution](../Problems/0001.%20Two%20Sum))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
@@ -39,7 +39,7 @@
     </li>
   </ul>
 
-**Group Anagrams** *([Problem](https://leetcode.com/problems/group-anagrams/) | [Solution](../Problems/0049.%20Group%20Anagrams/solution.py))*
+**Group Anagrams** *([Problem](https://leetcode.com/problems/group-anagrams/) | [Solution](../Problems/0049.%20Group%20Anagrams))*
 - **Time Complexity:** O(nm)
 - **Space Complexity:** O(nm)
 - **Notes:**
@@ -48,7 +48,7 @@
     <li>ASCII values for count</li>
   </ul>
 
-**Top K Frequent Elements** *([Problem](https://leetcode.com/problems/top-k-frequent-elements/) | [Solution](../Problems/0347.%20Top%20K%20Frequent%20Elements/solution.py))*
+**Top K Frequent Elements** *([Problem](https://leetcode.com/problems/top-k-frequent-elements/) | [Solution](../Problems/0347.%20Top%20K%20Frequent%20Elements))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
@@ -59,7 +59,7 @@
     <li>Return the k most frequent numbers</li>
   </ul>
 
-**Encode and Decode Strings** *([Problem](https://leetcode.com/problems/encode-and-decode-strings/) | [Solution](../Problems/0271.%20Encode%20and%20Decode%20Strings/solution.py))*
+**Encode and Decode Strings** *([Problem](https://leetcode.com/problems/encode-and-decode-strings/) | [Solution](../Problems/0271.%20Encode%20and%20Decode%20Strings))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n + m)
 - **Notes:**
@@ -74,7 +74,7 @@
     </li>
   </ul>
 
-**Product of Array Except Self** *([Problem](https://leetcode.com/problems/product-of-array-except-self/) | [Solution](../Problems/0238.%20Product%20of%20Array%20Except%20Self/solution.py))*
+**Product of Array Except Self** *([Problem](https://leetcode.com/problems/product-of-array-except-self/) | [Solution](../Problems/0238.%20Product%20of%20Array%20Except%20Self))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(1) or O(n)
 - **Notes:**
@@ -84,7 +84,7 @@
     <li>Postfix, multiply first then multiply update</li>
   </ul>
 
-**Longest Consecutive Sequence** *([Problem](https://leetcode.com/problems/longest-consecutive-sequence/) | [Solution](../Problems/0128.%20Longest%20Consecutive%20Sequence/solution.py))*
+**Longest Consecutive Sequence** *([Problem](https://leetcode.com/problems/longest-consecutive-sequence/) | [Solution](../Problems/0128.%20Longest%20Consecutive%20Sequence))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
@@ -104,7 +104,7 @@
 
 ## Two Pointers
 
-**Valid Palindrome** *([Problem](https://leetcode.com/problems/valid-palindrome/) | [Solution](../Problems/0125.%20Valid%20Palindrome/solution.py))*
+**Valid Palindrome** *([Problem](https://leetcode.com/problems/valid-palindrome/) | [Solution](../Problems/0125.%20Valid%20Palindrome))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(1)
 - **Notes:**
@@ -118,7 +118,7 @@
     </li>
   </ul>
 
-**Two Sum II Input Array Is Sorted** *([Problem](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) | [Solution](../Problems/0167.%20Two%20Sum%20II%20Input%20Array%20Is%20Sorted/solution.py))*
+**Two Sum II Input Array Is Sorted** *([Problem](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) | [Solution](../Problems/0167.%20Two%20Sum%20II%20Input%20Array%20Is%20Sorted))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(1)
 - **Notes:**
@@ -130,7 +130,7 @@
     </li>
   </ul>
 
-**Three Sum** *([Problem](https://leetcode.com/problems/3sum/) | [Solution](../Problems/0015.%20Three%20Sum/solution.py))*
+**Three Sum** *([Problem](https://leetcode.com/problems/3sum/) | [Solution](../Problems/0015.%20Three%20Sum))*
 - **Time Complexity:** O(n^2)
 - **Space Complexity:** O(1) or O(n)
 - **Notes:**
@@ -150,7 +150,7 @@
     </li>
   </ul>
 
-**Container With Most Water** *([Problem](https://leetcode.com/problems/container-with-most-water/) | [Solution](../Problems/0011.%20Container%20With%20Most%20Water/solution.py))*
+**Container With Most Water** *([Problem](https://leetcode.com/problems/container-with-most-water/) | [Solution](../Problems/0011.%20Container%20With%20Most%20Water))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(1)
 - **Notes:**
@@ -163,7 +163,7 @@
 
 ## Sliding Window
 
-**Best Time to Buy and Sell Stock** *([Problem](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) | [Solution](../Problems/0121.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock/solution.py))*
+**Best Time to Buy and Sell Stock** *([Problem](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) | [Solution](../Problems/0121.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(1)
 - **Notes:**
@@ -177,7 +177,7 @@
     </li>
   </ul>
 
-**Longest Substring Without Repeating Characters** *([Problem](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | [Solution](../Problems/0003.%20Longest%20Substring%20Without%20Repeating%20Characters/solution.py))*
+**Longest Substring Without Repeating Characters** *([Problem](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | [Solution](../Problems/0003.%20Longest%20Substring%20Without%20Repeating%20Characters))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(m)
 - **Notes:**
@@ -192,7 +192,7 @@
     </li>
   </ul>
 
-**Longest Repeating Character Replacement** *([Problem](https://leetcode.com/problems/longest-repeating-character-replacement/) | [Solution](../Problems/0424.%20Longest%20Repeating%20Character%20Replacement/solution.py))*
+**Longest Repeating Character Replacement** *([Problem](https://leetcode.com/problems/longest-repeating-character-replacement/) | [Solution](../Problems/0424.%20Longest%20Repeating%20Character%20Replacement))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(m)
 - **Notes:**
@@ -209,7 +209,7 @@
     </li>
   </ul>
 
-**Minimum Window Substring** *([Problem](https://leetcode.com/problems/minimum-window-substring/) | [Solution](../Problems/0076.%20Minimum%20Window%20Substring/solution.py))*
+**Minimum Window Substring** *([Problem](https://leetcode.com/problems/minimum-window-substring/) | [Solution](../Problems/0076.%20Minimum%20Window%20Substring))*
 - **Time Complexity:** O(n + m)
 - **Space Complexity:** O(m)
 - **Notes:**
@@ -227,7 +227,7 @@
 
 ## Stack
 
-**Valid Parentheses** *([Problem](https://leetcode.com/problems/valid-parentheses/) | [Solution](../Problems/0020.%20Valid%20Parentheses/solution.py))*
+**Valid Parentheses** *([Problem](https://leetcode.com/problems/valid-parentheses/) | [Solution](../Problems/0020.%20Valid%20Parentheses))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
@@ -242,7 +242,7 @@
 
 ## Binary Search
 
-**Binary Search** *([Problem](https://leetcode.com/problems/binary-search/) | [Solution](../Problems/0704.%20Binary%20Search/solution.py))*
+**Binary Search** *([Problem](https://leetcode.com/problems/binary-search/) | [Solution](../Problems/0704.%20Binary%20Search))*
 - **Time Complexity:** O(logn)
 - **Space Complexity:** O(1)
 - **Notes:**
@@ -255,7 +255,7 @@
     </li>
   </ul>
 
-**Search a 2D Matrix** *([Problem](https://leetcode.com/problems/search-a-2d-matrix/) | [Solution](../Problems/0074.%20Search%20a%202D%20Matrix/solution.py))*
+**Search a 2D Matrix** *([Problem](https://leetcode.com/problems/search-a-2d-matrix/) | [Solution](../Problems/0074.%20Search%20a%202D%20Matrix))*
 - **Time Complexity:** O(lognm)
 - **Space Complexity:** O(1)
 - **Notes:**
@@ -270,7 +270,7 @@
     </li>
   </ul>
 
-**Koko Eating Bananas** *([Problem](https://leetcode.com/problems/koko-eating-bananas/) | [Solution](../Problems/0875.%20Koko%20Eating%20Bananas/solution.py))*
+**Koko Eating Bananas** *([Problem](https://leetcode.com/problems/koko-eating-bananas/) | [Solution](../Problems/0875.%20Koko%20Eating%20Bananas))*
 - **Time Complexity:** O(lognm)
 - **Space Complexity:** O(1)
 - **Notes:**
@@ -285,7 +285,7 @@
     </li>
   </ul>
 
-**Find Minimum In Rotated Sorted Array** *([Problem](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) | [Solution](../Problems/0153.%20Find%20Minimum%20In%20Rotated%20Sorted%20Array/solution.py))*
+**Find Minimum In Rotated Sorted Array** *([Problem](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) | [Solution](../Problems/0153.%20Find%20Minimum%20In%20Rotated%20Sorted%20Array))*
 - **Time Complexity:** O(log n)
 - **Space Complexity:** O(1)
 - **Notes:**
@@ -299,7 +299,7 @@
     </li>
   </ul>
 
-**Search In Rotated Sorted Array** *([Problem](https://leetcode.com/problems/search-in-rotated-sorted-array/) | [Solution](../Problems/0033.%20Search%20In%20Rotated%20Sorted%20Array/solution.py))*
+**Search In Rotated Sorted Array** *([Problem](https://leetcode.com/problems/search-in-rotated-sorted-array/) | [Solution](../Problems/0033.%20Search%20In%20Rotated%20Sorted%20Array))*
 - **Time Complexity:** O(log n)
 - **Space Complexity:** O(1)
 - **Notes:**
@@ -325,7 +325,7 @@
 
 ## Linked List
 
-**Reverse Linked List** *([Problem](https://leetcode.com/problems/reverse-linked-list/) | [Solution](../Problems/0206.%20Reverse%20Linked%20List/solution.py))*
+**Reverse Linked List** *([Problem](https://leetcode.com/problems/reverse-linked-list/) | [Solution](../Problems/0206.%20Reverse%20Linked%20List))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(1)
 - **Notes:**
@@ -339,7 +339,7 @@
     </li>
   </ul>
 
-**Merge Two Sorted Lists** *([Problem](https://leetcode.com/problems/merge-two-sorted-lists/) | [Solution](../Problems/0021.%20Merge%20Two%20Sorted%20Lists/solution.py))*
+**Merge Two Sorted Lists** *([Problem](https://leetcode.com/problems/merge-two-sorted-lists/) | [Solution](../Problems/0021.%20Merge%20Two%20Sorted%20Lists))*
 - **Time Complexity:** O(n + m)
 - **Space Complexity:** O(1)
 - **Notes:**
@@ -354,7 +354,7 @@
     </li>
   </ul>
 
-**Linked List Cycle** *([Problem](https://leetcode.com/problems/linked-list-cycle/) | [Solution](../Problems/0141.%20Linked%20List%20Cycle/solution.py))*
+**Linked List Cycle** *([Problem](https://leetcode.com/problems/linked-list-cycle/) | [Solution](../Problems/0141.%20Linked%20List%20Cycle))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(1)
 - **Notes:**
@@ -366,7 +366,7 @@
     </li>
   </ul>
 
-**Reorder List** *([Problem](https://leetcode.com/problems/reorder-list/) | [Solution](../Problems/0143.%20Reorder%20List/solution.py))*
+**Reorder List** *([Problem](https://leetcode.com/problems/reorder-list/) | [Solution](../Problems/0143.%20Reorder%20List))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(1)
 - **Notes:**
@@ -380,7 +380,7 @@
     </li>
   </ul>
 
-**Remove Nth Node From End of List** *([Problem](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) | [Solution](../Problems/0019.%20Remove%20Nth%20Node%20From%20End%20of%20List/solution.py))*
+**Remove Nth Node From End of List** *([Problem](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) | [Solution](../Problems/0019.%20Remove%20Nth%20Node%20From%20End%20of%20List))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(1)
 - **Notes:**
@@ -397,7 +397,7 @@
     </li>
   </ul>
 
-**Merge K Sorted Lists** *([Problem](https://leetcode.com/problems/merge-k-sorted-lists/) | [Solution](../Problems/0023.%20Merge%20K%20Sorted%20Lists/solution.py))*
+**Merge K Sorted Lists** *([Problem](https://leetcode.com/problems/merge-k-sorted-lists/) | [Solution](../Problems/0023.%20Merge%20K%20Sorted%20Lists))*
 - **Time Complexity:** O(n log k)
 - **Space Complexity:** O(log k)
 - **Notes:**
@@ -413,12 +413,12 @@
 
 ## Trees
 
-**Invert Binary Tree** *([Problem](https://leetcode.com/problems/invert-binary-tree/) | [Solution](../Problems/0226.%20Invert%20Binary%20Tree/solution.py))*
+**Invert Binary Tree** *([Problem](https://leetcode.com/problems/invert-binary-tree/) | [Solution](../Problems/0226.%20Invert%20Binary%20Tree))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:** 1) Edge case, 2) swap left and right nodes, 3) Recursively call on both left and right nodes (the ones we changed)
 
-**Maximum Depth of Binary Tree** *([Problem](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | [Solution](../Problems/0104.%20Maximum%20Depth%20of%20Binary%20Tree/solution.py))*
+**Maximum Depth of Binary Tree** *([Problem](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | [Solution](../Problems/0104.%20Maximum%20Depth%20of%20Binary%20Tree))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(h) - O(log n), O(n)
 - **Notes:**
@@ -427,7 +427,7 @@
     <li>Case 2 (node exists): return 1 (for the current node) plus the max depth of the left and right subtrees.</li>
   </ul>
 
-**Same Tree** *([Problem](https://leetcode.com/problems/same-tree/) | [Solution](../Problems/0100.%20Same%20Tree/solution.py))*
+**Same Tree** *([Problem](https://leetcode.com/problems/same-tree/) | [Solution](../Problems/0100.%20Same%20Tree))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
@@ -440,7 +440,7 @@
     </li>
   </ul>
 
-**Subtree of Another Tree** *([Problem](https://leetcode.com/problems/subtree-of-another-tree/) | [Solution](../Problems/0572.%20Subtree%20of%20Another%20Tree/solution.py))*
+**Subtree of Another Tree** *([Problem](https://leetcode.com/problems/subtree-of-another-tree/) | [Solutions](../Problems/0572.%20Subtree%20of%20Another%20Tree))*
 - **Time Complexity:** O(nm)
 - **Space Complexity:** O(n + m)
 - **Notes:**
@@ -452,7 +452,7 @@
     </li>
   </ul>
 
-**Lowest Common Ancestor of a Binary Search Tree** *([Problem](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) | [Solution](../Problems/0235.%20Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/solution.py))*
+**Lowest Common Ancestor of a Binary Search Tree** *([Problem](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) | [Solution](../Problems/0235.%20Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree))*
 - **Time Complexity:** O(h)
 - **Space Complexity:** O(1)
 - **Notes:**
@@ -462,7 +462,7 @@
     <li>Case 3: This means a split occured (one node is to the left and the other is to the right) or one node equals our current, LCA found</li>
   </ul>
 
-**Binary Tree Level Order Traversal** *([Problem](https://leetcode.com/problems/binary-tree-level-order-traversal/) | [Solution](../Problems/0102.%20Binary%20Tree%20Level%20Order%20Traversal/solution.py))*
+**Binary Tree Level Order Traversal** *([Problem](https://leetcode.com/problems/binary-tree-level-order-traversal/) | [Solutions](../Problems/0102.%20Binary%20Tree%20Level%20Order%20Traversal))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
@@ -476,7 +476,7 @@
     </li>
   </ul>
 
-**Validate Binary Search Tree** *([Problem](https://leetcode.com/problems/validate-binary-search-tree/) | [Solution](../Problems/0098.%20Validate%20Binary%20Search%20Tree/solution.py))*
+**Validate Binary Search Tree** *([Problem](https://leetcode.com/problems/validate-binary-search-tree/) | [Solutions](../Problems/0098.%20Validate%20Binary%20Search%20Tree))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
@@ -494,7 +494,7 @@
     </li>
   </ul>
 
-**Kth Smallest Element In a Bst** *([Problem](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | [Solution](../Problems/0230.%20Kth%20Smallest%20Element%20In%20a%20Bst/solution.py))*
+**Kth Smallest Element In a Bst** *([Problem](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | [Solutions](../Problems/0230.%20Kth%20Smallest%20Element%20In%20a%20Bst))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
@@ -507,7 +507,7 @@
     </li>
   </ul>
 
-**Construct Binary Tree From Preorder And Inorder Traversal** *([Problem](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | [Solution](../Problems/0105.%20Construct%20Binary%20Tree%20From%20Preorder%20And%20Inorder%20Traversal/solution.py))*
+**Construct Binary Tree From Preorder And Inorder Traversal** *([Problem](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | [Solutions](../Problems/0105.%20Construct%20Binary%20Tree%20From%20Preorder%20And%20Inorder%20Traversal))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
@@ -544,7 +544,7 @@
     <li>Note: Only compare or use index values together if they are part of the same list</li>
   </ul>
 
-**Binary Tree Maximum Path Sum** *([Problem](https://leetcode.com/problems/binary-tree-maximum-path-sum/) | [Solution](../Problems/0124.%20Binary%20Tree%20Maximum%20Path%20Sum/solution.py))*
+**Binary Tree Maximum Path Sum** *([Problem](https://leetcode.com/problems/binary-tree-maximum-path-sum/) | [Solutions](../Problems/0124.%20Binary%20Tree%20Maximum%20Path%20Sum))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(h) or log(n)
 - **Notes:**
@@ -566,31 +566,31 @@
     <li>Base case: if the node is null, return 0 and -infinity as the best count path (anything is better than a null node)</li>
   </ul>
 
-**Serialize And Deserialize Binary Tree** *([Problem](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) | [Solution](../Problems/0297.%20Serialize%20And%20Deserialize%20Binary%20Tree/solution.py))*
+**Serialize And Deserialize Binary Tree** *([Problem](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) | [Solution](../Problems/0297.%20Serialize%20And%20Deserialize%20Binary%20Tree))*
 - _No details provided._
 
 ## Backtracking
 
-**Combination Sum** *([Problem](https://leetcode.com/problems/combination-sum/) | [Solution](../Problems/0039.%20Combination%20Sum/solution.py))*
+**Combination Sum** *([Problem](https://leetcode.com/problems/combination-sum/) | [Solution](../Problems/0039.%20Combination%20Sum))*
 - _No details provided._
 
-**Word Search** *([Problem](https://leetcode.com/problems/word-search/) | [Solution](../Problems/0079.%20Word%20Search/solution.py))*
+**Word Search** *([Problem](https://leetcode.com/problems/word-search/) | [Solution](../Problems/0079.%20Word%20Search))*
 - _No details provided._
 
 ## Tries
 
-**Implement Trie Prefix Tree** *([Problem](https://leetcode.com/problems/implement-trie-prefix-tree/) | [Solution](../Problems/0208.%20Implement%20Trie%20Prefix%20Tree/solution.py))*
+**Implement Trie Prefix Tree** *([Problem](https://leetcode.com/problems/implement-trie-prefix-tree/) | [Solution](../Problems/0208.%20Implement%20Trie%20Prefix%20Tree))*
 - _No details provided._
 
-**Design Add And Search Words Data Structure** *([Problem](https://leetcode.com/problems/design-add-and-search-words-data-structure/) | [Solution](../Problems/0211.%20Design%20Add%20And%20Search%20Words%20Data%20Structure/solution.py))*
+**Design Add And Search Words Data Structure** *([Problem](https://leetcode.com/problems/design-add-and-search-words-data-structure/) | [Solution](../Problems/0211.%20Design%20Add%20And%20Search%20Words%20Data%20Structure))*
 - _No details provided._
 
-**Word Search II** *([Problem](https://leetcode.com/problems/word-search-ii/) | [Solution](../Problems/0212.%20Word%20Search%20II/solution.py))*
+**Word Search II** *([Problem](https://leetcode.com/problems/word-search-ii/) | [Solution](../Problems/0212.%20Word%20Search%20II))*
 - _No details provided._
 
 ## Graphs
 
-**Number of Islands** *([Problem](https://leetcode.com/problems/number-of-islands/) | [Solution](../Problems/0200.%20Number%20of%20Islands/solution.py))*
+**Number of Islands** *([Problem](https://leetcode.com/problems/number-of-islands/) | [Solutions](../Problems/0200.%20Number%20of%20Islands))*
 - **Time Complexity:** O(n): O(row * col)
 - **Space Complexity:** O(n): O(row * col)
 - **Notes:**
@@ -613,7 +613,7 @@
     </li>
   </ul>
 
-**Clone Graph** *([Problem](https://leetcode.com/problems/clone-graph/) | [Solution](../Problems/0133.%20Clone%20Graph/solution.py))*
+**Clone Graph** *([Problem](https://leetcode.com/problems/clone-graph/) | [Solution](../Problems/0133.%20Clone%20Graph))*
 - **Time Complexity:** O(V * E)
 - **Space Complexity:** O(V)
 - **Notes:**
@@ -629,7 +629,7 @@
     <li>Answer: It is both the visited check and the way to fetch the exact clone needed to wire edges (when we are updating neighbors of already cloned nodes)</li>
   </ul>
 
-**Pacific Atlantic Water Flow** *([Problem](https://leetcode.com/problems/pacific-atlantic-water-flow/) | [Solution](../Problems/0417.%20Pacific%20Atlantic%20Water%20Flow/solution.py))*
+**Pacific Atlantic Water Flow** *([Problem](https://leetcode.com/problems/pacific-atlantic-water-flow/) | [Solutions](../Problems/0417.%20Pacific%20Atlantic%20Water%20Flow))*
 - **Time Complexity:** O(n): O(row * col)
 - **Space Complexity:** O(n): O(row * col)
 - **Notes:**
@@ -649,7 +649,7 @@
     </li>
   </ul>
 
-**Course Schedule** *([Problem](https://leetcode.com/problems/course-schedule/) | [Solution](../Problems/0207.%20Course%20Schedule/solution.py))*
+**Course Schedule** *([Problem](https://leetcode.com/problems/course-schedule/) | [Solutions](../Problems/0207.%20Course%20Schedule))*
 - **Time Complexity:** O(V * E)
 - **Space Complexity:** O(V * E)
 - **Notes:**
@@ -674,7 +674,7 @@
     </li>
   </ul>
 
-**Graph Valid Tree** *([Problem](https://leetcode.com/problems/graph-valid-tree/) | [Solution](../Problems/0261.%20Graph%20Valid%20Tree/solution.py))*
+**Graph Valid Tree** *([Problem](https://leetcode.com/problems/graph-valid-tree/) | [Solutions](../Problems/0261.%20Graph%20Valid%20Tree))*
 - **Time Complexity:** O(V * E)
 - **Space Complexity:** O(V * E)
 - **Notes:**
@@ -710,7 +710,7 @@
     </li>
   </ul>
 
-**Number of Connected Components In An Undirected Graph** *([Problem](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) | [Solution](../Problems/0323.%20Number%20of%20Connected%20Components%20In%20An%20Undirected%20Graph/solution.py))*
+**Number of Connected Components In An Undirected Graph** *([Problem](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) | [Solutions](../Problems/0323.%20Number%20of%20Connected%20Components%20In%20An%20Undirected%20Graph))*
 - **Time Complexity:** O(V * E)
 - **Space Complexity:** O(V * E)
 - **Notes:**
@@ -744,108 +744,108 @@
 
 ## Advanced Graphs
 
-**Alien Dictionary** *([Problem](https://leetcode.com/problems/alien-dictionary/) | [Solution](../Problems/0269.%20Alien%20Dictionary/solution.py))*
+**Alien Dictionary** *([Problem](https://leetcode.com/problems/alien-dictionary/) | [Solution](../Problems/0269.%20Alien%20Dictionary))*
 - _No details provided._
 
 ## 1-D Dynamic Programming
 
-**Climbing Stairs** *([Problem](https://leetcode.com/problems/climbing-stairs/) | [Solution](../Problems/0070.%20Climbing%20Stairs/solution.py))*
+**Climbing Stairs** *([Problem](https://leetcode.com/problems/climbing-stairs/) | [Solution](../Problems/0070.%20Climbing%20Stairs))*
 - _No details provided._
 
-**House Robber** *([Problem](https://leetcode.com/problems/house-robber/) | [Solution](../Problems/0198.%20House%20Robber/solution.py))*
+**House Robber** *([Problem](https://leetcode.com/problems/house-robber/) | [Solution](../Problems/0198.%20House%20Robber))*
 - _No details provided._
 
-**House Robber II** *([Problem](https://leetcode.com/problems/house-robber-ii/) | [Solution](../Problems/0213.%20House%20Robber%20II/solution.py))*
+**House Robber II** *([Problem](https://leetcode.com/problems/house-robber-ii/) | [Solution](../Problems/0213.%20House%20Robber%20II))*
 - _No details provided._
 
-**Longest Palindromic Substring** *([Problem](https://leetcode.com/problems/longest-palindromic-substring/) | [Solution](../Problems/0005.%20Longest%20Palindromic%20Substring/solution.py))*
+**Longest Palindromic Substring** *([Problem](https://leetcode.com/problems/longest-palindromic-substring/) | [Solution](../Problems/0005.%20Longest%20Palindromic%20Substring))*
 - _No details provided._
 
-**Palindromic Substrings** *([Problem](https://leetcode.com/problems/palindromic-substrings/) | [Solution](../Problems/0647.%20Palindromic%20Substrings/solution.py))*
+**Palindromic Substrings** *([Problem](https://leetcode.com/problems/palindromic-substrings/) | [Solution](../Problems/0647.%20Palindromic%20Substrings))*
 - _No details provided._
 
-**Decode Ways** *([Problem](https://leetcode.com/problems/decode-ways/) | [Solution](../Problems/0091.%20Decode%20Ways/solution.py))*
+**Decode Ways** *([Problem](https://leetcode.com/problems/decode-ways/) | [Solution](../Problems/0091.%20Decode%20Ways))*
 - _No details provided._
 
-**Coin Change** *([Problem](https://leetcode.com/problems/coin-change/) | [Solution](../Problems/0322.%20Coin%20Change/solution.py))*
+**Coin Change** *([Problem](https://leetcode.com/problems/coin-change/) | [Solution](../Problems/0322.%20Coin%20Change))*
 - _No details provided._
 
-**Maximum Product Subarray** *([Problem](https://leetcode.com/problems/maximum-product-subarray/) | [Solution](../Problems/0152.%20Maximum%20Product%20Subarray/solution.py))*
+**Maximum Product Subarray** *([Problem](https://leetcode.com/problems/maximum-product-subarray/) | [Solution](../Problems/0152.%20Maximum%20Product%20Subarray))*
 - _No details provided._
 
-**Word Break** *([Problem](https://leetcode.com/problems/word-break/) | [Solution](../Problems/0139.%20Word%20Break/solution.py))*
+**Word Break** *([Problem](https://leetcode.com/problems/word-break/) | [Solution](../Problems/0139.%20Word%20Break))*
 - _No details provided._
 
-**Longest Increasing Subsequence** *([Problem](https://leetcode.com/problems/longest-increasing-subsequence/) | [Solution](../Problems/0300.%20Longest%20Increasing%20Subsequence/solution.py))*
+**Longest Increasing Subsequence** *([Problem](https://leetcode.com/problems/longest-increasing-subsequence/) | [Solution](../Problems/0300.%20Longest%20Increasing%20Subsequence))*
 - _No details provided._
 
 ## 2-D Dynamic Programming
 
-**Unique Paths** *([Problem](https://leetcode.com/problems/unique-paths/) | [Solution](../Problems/0062.%20Unique%20Paths/solution.py))*
+**Unique Paths** *([Problem](https://leetcode.com/problems/unique-paths/) | [Solution](../Problems/0062.%20Unique%20Paths))*
 - _No details provided._
 
-**Longest Common Subsequence** *([Problem](https://leetcode.com/problems/longest-common-subsequence/) | [Solution](../Problems/1143.%20Longest%20Common%20Subsequence/solution.py))*
+**Longest Common Subsequence** *([Problem](https://leetcode.com/problems/longest-common-subsequence/) | [Solution](../Problems/1143.%20Longest%20Common%20Subsequence))*
 - _No details provided._
 
 ## Greedy
 
-**Maximum Subarray** *([Problem](https://leetcode.com/problems/maximum-subarray/) | [Solution](../Problems/0053.%20Maximum%20Subarray/solution.py))*
+**Maximum Subarray** *([Problem](https://leetcode.com/problems/maximum-subarray/) | [Solution](../Problems/0053.%20Maximum%20Subarray))*
 - _No details provided._
 
-**Jump Game** *([Problem](https://leetcode.com/problems/jump-game/) | [Solution](../Problems/0055.%20Jump%20Game/solution.py))*
+**Jump Game** *([Problem](https://leetcode.com/problems/jump-game/) | [Solution](../Problems/0055.%20Jump%20Game))*
 - _No details provided._
 
 ## Intervals
 
-**Insert Interval** *([Problem](https://leetcode.com/problems/insert-interval/) | [Solution](../Problems/0057.%20Insert%20Interval/solution.py))*
+**Insert Interval** *([Problem](https://leetcode.com/problems/insert-interval/) | [Solution](../Problems/0057.%20Insert%20Interval))*
 - _No details provided._
 
-**Merge Intervals** *([Problem](https://leetcode.com/problems/merge-intervals/) | [Solution](../Problems/0056.%20Merge%20Intervals/solution.py))*
+**Merge Intervals** *([Problem](https://leetcode.com/problems/merge-intervals/) | [Solution](../Problems/0056.%20Merge%20Intervals))*
 - _No details provided._
 
-**Non Overlapping Intervals** *([Problem](https://leetcode.com/problems/non-overlapping-intervals/) | [Solution](../Problems/0435.%20Non%20Overlapping%20Intervals/solution.py))*
+**Non Overlapping Intervals** *([Problem](https://leetcode.com/problems/non-overlapping-intervals/) | [Solution](../Problems/0435.%20Non%20Overlapping%20Intervals))*
 - _No details provided._
 
-**Meeting Rooms** *([Problem](https://leetcode.com/problems/meeting-rooms/) | [Solution](../Problems/0252.%20Meeting%20Rooms/solution.py))*
+**Meeting Rooms** *([Problem](https://leetcode.com/problems/meeting-rooms/) | [Solution](../Problems/0252.%20Meeting%20Rooms))*
 - _No details provided._
 
-**Meeting Rooms II** *([Problem](https://leetcode.com/problems/meeting-rooms-ii/) | [Solution](../Problems/0253.%20Meeting%20Rooms%20II/solution.py))*
+**Meeting Rooms II** *([Problem](https://leetcode.com/problems/meeting-rooms-ii/) | [Solution](../Problems/0253.%20Meeting%20Rooms%20II))*
 - _No details provided._
 
 ## Math & Geometry
 
-**Rotate Image** *([Problem](https://leetcode.com/problems/rotate-image/) | [Solution](../Problems/0048.%20Rotate%20Image/solution.py))*
+**Rotate Image** *([Problem](https://leetcode.com/problems/rotate-image/) | [Solution](../Problems/0048.%20Rotate%20Image))*
 - _No details provided._
 
-**Spiral Matrix** *([Problem](https://leetcode.com/problems/spiral-matrix/) | [Solution](../Problems/0054.%20Spiral%20Matrix/solution.py))*
+**Spiral Matrix** *([Problem](https://leetcode.com/problems/spiral-matrix/) | [Solution](../Problems/0054.%20Spiral%20Matrix))*
 - _No details provided._
 
-**Set Matrix Zeroes** *([Problem](https://leetcode.com/problems/set-matrix-zeroes/) | [Solution](../Problems/0073.%20Set%20Matrix%20Zeroes/solution.py))*
+**Set Matrix Zeroes** *([Problem](https://leetcode.com/problems/set-matrix-zeroes/) | [Solution](../Problems/0073.%20Set%20Matrix%20Zeroes))*
 - _No details provided._
 
 ## Bit Manipulation
 
-**Number of 1 Bits** *([Problem](https://leetcode.com/problems/number-of-1-bits/) | [Solution](../Problems/0191.%20Number%20of%201%20Bits/solution.py))*
+**Number of 1 Bits** *([Problem](https://leetcode.com/problems/number-of-1-bits/) | [Solution](../Problems/0191.%20Number%20of%201%20Bits))*
 - _No details provided._
 
-**Counting Bits** *([Problem](https://leetcode.com/problems/counting-bits/) | [Solution](../Problems/0338.%20Counting%20Bits/solution.py))*
+**Counting Bits** *([Problem](https://leetcode.com/problems/counting-bits/) | [Solution](../Problems/0338.%20Counting%20Bits))*
 - _No details provided._
 
-**Reverse Bits** *([Problem](https://leetcode.com/problems/reverse-bits/) | [Solution](../Problems/0190.%20Reverse%20Bits/solution.py))*
+**Reverse Bits** *([Problem](https://leetcode.com/problems/reverse-bits/) | [Solution](../Problems/0190.%20Reverse%20Bits))*
 - _No details provided._
 
-**Missing Number** *([Problem](https://leetcode.com/problems/missing-number/) | [Solution](../Problems/0268.%20Missing%20Number/solution.py))*
+**Missing Number** *([Problem](https://leetcode.com/problems/missing-number/) | [Solution](../Problems/0268.%20Missing%20Number))*
 - _No details provided._
 
-**Sum of Two Integers** *([Problem](https://leetcode.com/problems/sum-of-two-integers/) | [Solution](../Problems/0371.%20Sum%20of%20Two%20Integers/solution.py))*
+**Sum of Two Integers** *([Problem](https://leetcode.com/problems/sum-of-two-integers/) | [Solution](../Problems/0371.%20Sum%20of%20Two%20Integers))*
 - _No details provided._
 
 ## Heap
 
-**Find Median From Data Stream** *([Problem](https://leetcode.com/problems/find-median-from-data-stream/) | [Solution](../Problems/0295.%20Find%20Median%20From%20Data%20Stream/solution.py))*
+**Find Median From Data Stream** *([Problem](https://leetcode.com/problems/find-median-from-data-stream/) | [Solution](../Problems/0295.%20Find%20Median%20From%20Data%20Stream))*
 - _No details provided._
 
 ## Priority Queue
 
-**Find Median From Data Stream** *([Problem](https://leetcode.com/problems/find-median-from-data-stream/) | [Solution](../Problems/0295.%20Find%20Median%20From%20Data%20Stream/solution.py))*
+**Find Median From Data Stream** *([Problem](https://leetcode.com/problems/find-median-from-data-stream/) | [Solution](../Problems/0295.%20Find%20Median%20From%20Data%20Stream))*
 - _No details provided._
