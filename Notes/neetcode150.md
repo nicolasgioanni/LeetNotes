@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-10-22 05:34 UTC*
+*Last updated: 2025-10-22 05:44 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -882,29 +882,6 @@
 - _No details provided._
 
 ## Heap
-
-**Design Twitter** *([Problem](https://leetcode.com/problems/design-twitter/) | [Solution](../Problems/0355.%20Design%20Twitter))*
-- _No details provided._
-
-**Find Median From Data Stream** *([Problem](https://leetcode.com/problems/find-median-from-data-stream/) | [Solution](../Problems/0295.%20Find%20Median%20From%20Data%20Stream))*
-- _No details provided._
-
-**K Closest Points to Origin** *([Problem](https://leetcode.com/problems/k-closest-points-to-origin/) | [Solution](../Problems/0973.%20K%20Closest%20Points%20to%20Origin))*
-- _No details provided._
-
-**Kth Largest Element In a Stream** *([Problem](https://leetcode.com/problems/kth-largest-element-in-a-stream/) | [Solution](../Problems/0703.%20Kth%20Largest%20Element%20In%20a%20Stream))*
-- _No details provided._
-
-**Kth Largest Element In An Array** *([Problem](https://leetcode.com/problems/kth-largest-element-in-an-array/) | [Solution](../Problems/0215.%20Kth%20Largest%20Element%20In%20An%20Array))*
-- _No details provided._
-
-**Last Stone Weight** *([Problem](https://leetcode.com/problems/last-stone-weight/) | [Solution](../Problems/1046.%20Last%20Stone%20Weight))*
-- _No details provided._
-
-**Task Scheduler** *([Problem](https://leetcode.com/problems/task-scheduler/) | [Solution](../Problems/0621.%20Task%20Scheduler))*
-- _No details provided._
-
-## Priority Queue
 
 **Design Twitter** *([Problem](https://leetcode.com/problems/design-twitter/) | [Solution](../Problems/0355.%20Design%20Twitter))*
 - _No details provided._
