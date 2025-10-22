@@ -225,19 +225,48 @@ def _detect_language(code_body: str, hint: str | None) -> str:
     snippet = code_body.strip()
     lowered = snippet.lower()
 
-    if "import java" in lowered or "public class" in snippet or "System.out" in snippet:
+    if (
+        "using system" in lowered
+        or ("namespace " in lowered and "namespace std" not in lowered)
+        or "console.write" in lowered
+        or "ilist<" in lowered
+        or "ienumerable<" in lowered
+    ):
+        return "csharp"
+    if (
+        "import java" in lowered
+        or "public class" in snippet
+        or "system.out" in lowered
+        or "public static void main" in lowered
+    ):
         return "java"
     if "#include" in lowered or "std::" in snippet or "using namespace std" in lowered:
         return "cpp"
     if "#include <stdio" in lowered or "printf(" in snippet:
         return "c"
+    if (
+        lowered.startswith("package ")
+        or "package main" in lowered
+        or ("func " in lowered and "fmt." in lowered)
+    ):
+        return "go"
     if lowered.startswith("def ") or lowered.startswith("class ") or "def " in lowered:
         return "python"
     if "fun main(" in lowered or "val " in lowered:
         return "kotlin"
     if "func " in lowered and "->" in snippet:
         return "swift"
-    if "console.log" in lowered or lowered.startswith("function "):
+    if (
+        "console.log" in lowered
+        or lowered.startswith("function ")
+        or lowered.startswith("const ")
+        or lowered.startswith("let ")
+        or lowered.startswith("var ")
+        or " => " in snippet
+        or "=>{" in snippet
+        or "module.exports" in lowered
+        or "export default" in lowered
+    ):
         return "javascript"
 
     return "python"

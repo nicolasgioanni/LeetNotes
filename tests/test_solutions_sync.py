@@ -124,3 +124,30 @@ def test_sync_detects_cpp_extension(monkeypatch: pytest.MonkeyPatch, tmp_path: P
     problem_folder = profile.problems_dir / "0123. Graph Paths"
     assert (problem_folder / "solution1.cpp").exists()
     assert metadata["Graph Paths"].solutions == ("solution1.cpp",)
+
+
+def test_sync_detects_javascript_extension(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    profile = _profile(tmp_path)
+    profile.problems_dir.mkdir(parents=True, exist_ok=True)
+    monkeypatch.setattr(repo, "lookup_problem", _stub_lookup_problem)
+
+    rows = [{"Problem": "Two Sum", "Category": "Array"}]
+    metadata: MetadataMap = repo.ensure_problem_folders(rows, profile)
+
+    js_code = "const twoSum = (nums, target) => {\n  const map = new Map();\n  return [];\n};"
+
+    solution_fieldnames = ["Problems", "Category", "Solution 1"]
+    solution_rows = [
+        {"Problems": "Two Sum", "Category": "Array", "Solution 1": js_code},
+    ]
+
+    solutions.sync_solutions_from_rows(
+        solution_fieldnames,
+        solution_rows,
+        metadata,
+        profile,
+    )
+
+    problem_folder = profile.problems_dir / "0123. Two Sum"
+    assert (problem_folder / "solution1.js").exists()
+    assert metadata["Two Sum"].solutions == ("solution1.js",)
