@@ -65,7 +65,12 @@ def ensure_problem_folders(rows: list[dict[str, str]], profile: NotesProfile) ->
                 if legacy != target_folder:
                     remove_directory(legacy)
 
-        metadata[problem] = ProblemMetadata(folder_name=folder_name, link=link)
+        existing_solutions = list_solution_files(target_folder)
+        metadata[problem] = ProblemMetadata(
+            folder_name=folder_name,
+            link=link,
+            solutions=tuple(existing_solutions) if existing_solutions else None,
+        )
 
     return metadata
 
@@ -151,8 +156,49 @@ def write_if_changed(path: Path, content: str) -> None:
 
 __all__ = [
     "ensure_problem_folders",
+    "clear_solution_files",
     "folder_name_from_title",
+    "list_solution_files",
     "migrate_folder_contents",
     "remove_directory",
     "write_if_changed",
 ]
+_SOLUTION_FILE_RE = re.compile(r"^solutions?(?P<index>\d*)(?P<ext>\.[A-Za-z0-9_+#-]+)$", re.IGNORECASE)
+
+
+def _solution_sort_key(filename: str) -> tuple[int, str]:
+    match = _SOLUTION_FILE_RE.match(filename)
+    if not match:
+        return (float("inf"), filename.lower())
+    index = int(match.group("index") or "0")
+    return (index, filename.lower())
+
+
+def list_solution_files(folder: Path) -> list[str]:
+    """Return sorted solution filenames for the given folder."""
+
+    if not folder.exists():
+        return []
+    matches: list[str] = []
+    for entry in folder.iterdir():
+        if not entry.is_file():
+            continue
+        if _SOLUTION_FILE_RE.match(entry.name):
+            matches.append(entry.name)
+    matches.sort(key=_solution_sort_key)
+    return matches
+
+
+def clear_solution_files(folder: Path) -> None:
+    """Remove all managed solution files in the given folder."""
+
+    if not folder.exists():
+        return
+    for entry in folder.iterdir():
+        if not entry.is_file():
+            continue
+        if _SOLUTION_FILE_RE.match(entry.name):
+            try:
+                entry.unlink()
+            except OSError:
+                pass

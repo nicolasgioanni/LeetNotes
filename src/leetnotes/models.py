@@ -26,6 +26,7 @@ class ProblemMetadata:
 
     folder_name: str
     link: Optional[ProblemLink]
+    solutions: tuple[str, ...] | None = None
 
 
 @dataclass(frozen=True)
@@ -40,6 +41,7 @@ class NotesProfile:
     problems_index_path: Path
     notes_title: str
     index_title: str
+    solutions_env_var: Optional[str] = None
 
 
 MetadataMap = Dict[str, ProblemMetadata]

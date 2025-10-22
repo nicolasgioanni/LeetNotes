@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, Iterable
 
-from . import config
+from . import config, repo
 from .models import MetadataMap, ProblemLink, ProblemMetadata
 from .normalize import split_categories
 
@@ -118,5 +118,10 @@ def catalog_rows_and_metadata(catalog: Catalog) -> tuple[list[dict[str, str]], M
                 "Category": ", ".join(entry.categories),
             }
         )
-        metadata[problem] = ProblemMetadata(folder_name=entry.folder_name, link=entry.link)
+        solution_files = repo.list_solution_files(config.PROBLEMS_DIR / entry.folder_name)
+        metadata[problem] = ProblemMetadata(
+            folder_name=entry.folder_name,
+            link=entry.link,
+            solutions=tuple(solution_files) if solution_files else None,
+        )
     return rows, metadata

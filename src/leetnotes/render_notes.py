@@ -11,6 +11,7 @@ from urllib.parse import quote
 from . import config, normalize
 from .models import MetadataMap, NotesProfile
 from .repo import folder_name_from_title
+from .solutions import solution_link_labels
 
 def _relative_solution_url(from_dir: Path, solution_path: Path) -> str:
     """Return a percent-encoded relative path from from_dir to solution_path."""
@@ -20,6 +21,7 @@ def _relative_solution_url(from_dir: Path, solution_path: Path) -> str:
     if not encoded.startswith((".", "/")):
         encoded = f"./{encoded}"
     return encoded
+
 
 def _build_note_tree(entries: list[normalize.NoteEntry]) -> list[dict[str, Any]]:
     """Convert flat note entries into a parent/child hierarchy."""
@@ -130,14 +132,24 @@ def build_notes_markdown(
         problem_meta = metadata.get(problem)
         folder_name = problem_meta.folder_name if problem_meta else folder_name_from_title(problem)
         link = problem_meta.link if problem_meta else None
-        solution_rel_path = _relative_solution_url(
-            profile.notes_output_path.parent,
-            profile.problems_dir / folder_name / "solution.py",
-        )
+        solution_filenames = list(problem_meta.solutions) if problem_meta and problem_meta.solutions else []
+        solution_links: list[str] = []
+        for label, filename in solution_link_labels(solution_filenames):
+            solution_rel_path = _relative_solution_url(
+                profile.notes_output_path.parent,
+                profile.problems_dir / folder_name / filename,
+            )
+            solution_links.append(f"[{label}]({solution_rel_path})")
+        if not solution_links:
+            solution_rel_path = _relative_solution_url(
+                profile.notes_output_path.parent,
+                profile.problems_dir / folder_name / "solution.py",
+            )
+            solution_links.append(f"[Solution]({solution_rel_path})")
+        link_entries: list[str] = solution_links
         if link:
-            links_text = f"*([Problem]({link.url}) | [Solution]({solution_rel_path}))*"
-        else:
-            links_text = f"*([Solution]({solution_rel_path}))*"
+            link_entries = [f"[Problem]({link.url})", *solution_links]
+        links_text = f"*({' | '.join(link_entries)})*"
         problem_title = normalize.escape_ordered_list_prefix(problem)
         heading_text = f"**{problem_title}**"
         problem_line = f"{heading_text} {links_text}".strip()

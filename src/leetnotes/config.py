@@ -64,6 +64,7 @@ BLIND75_PROFILE = NotesProfile(
     problems_index_path=PROBLEMS_DIR / "README.md",
     notes_title="Blind 75 Notes",
     index_title="My Solved LeetCode Problem Index",
+    solutions_env_var="SOLUTIONS_CSV_URL",
 )
 
 NEETCODE150_PROFILE = NotesProfile(
@@ -75,6 +76,7 @@ NEETCODE150_PROFILE = NotesProfile(
     problems_index_path=PROBLEMS_DIR / "README.md",
     notes_title="NeetCode 150 Notes",
     index_title=BLIND75_PROFILE.index_title,
+    solutions_env_var="SOLUTIONS_CSV_URL_NEETCODE150",
 )
 
 _PROFILES = {

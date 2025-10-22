@@ -24,9 +24,17 @@ def main(argv: Sequence[str] | None = None) -> int:
         "--csv-url",
         help="Override the configured environment variable with an explicit CSV URL.",
     )
+    parser.add_argument(
+        "--solutions-csv-url",
+        help="Override the configured solutions environment variable with an explicit CSV URL.",
+    )
     args = parser.parse_args(list(argv) if argv is not None else None)
 
-    return run(profile_slug=args.profile, csv_url=args.csv_url)
+    return run(
+        profile_slug=args.profile,
+        csv_url=args.csv_url,
+        solutions_csv_url=args.solutions_csv_url,
+    )
 
 
 if __name__ == "__main__":

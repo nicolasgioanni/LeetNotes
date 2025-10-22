@@ -1,11 +1,11 @@
-﻿"""Smoke tests for leetnotes renderers."""
+"""Smoke tests for leetnotes renderers."""
 
 from __future__ import annotations
 
 from leetnotes import config
 from leetnotes.models import ProblemLink, ProblemMetadata
-from leetnotes.render_index import build_problem_index
 from leetnotes.normalize import clean_problem_title
+from leetnotes.render_index import build_problem_index
 from leetnotes.render_notes import build_notes_markdown
 
 
@@ -24,7 +24,7 @@ def test_build_notes_markdown_includes_problem_links() -> None:
     ]
     link = ProblemLink(title="Two Sum", slug="two-sum", frontend_id="1")
     metadata = {
-        "Two Sum": ProblemMetadata(folder_name="0001. Two Sum", link=link),
+        "Two Sum": ProblemMetadata(folder_name="0001. Two Sum", link=link, solutions=("solution.py",)),
     }
 
     result = build_notes_markdown(fieldnames, rows, "https://example.com", metadata, BLIND75)
@@ -47,8 +47,8 @@ def test_build_problem_index_groups_by_category() -> None:
         },
     ]
     metadata = {
-        "Two Sum": ProblemMetadata(folder_name="0001. Two Sum", link=None),
-        "Binary Search": ProblemMetadata(folder_name="0704. Binary Search", link=None),
+        "Two Sum": ProblemMetadata(folder_name="0001. Two Sum", link=None, solutions=("solution.py",)),
+        "Binary Search": ProblemMetadata(folder_name="0704. Binary Search", link=None, solutions=("solution.py",)),
     }
 
     result = build_problem_index(rows, metadata, BLIND75)
@@ -68,13 +68,42 @@ def test_alternate_profile_updates_solution_links() -> None:
         }
     ]
     metadata = {
-        "LRU Cache": ProblemMetadata(folder_name="0146. LRU Cache", link=None),
+        "LRU Cache": ProblemMetadata(folder_name="NeetCode150/0146. LRU Cache", link=None, solutions=("solution.py",)),
     }
 
     notes_output = build_notes_markdown(fieldnames, rows, "https://example.com", metadata, NEETCODE150)
     index_output = build_problem_index(rows, metadata, NEETCODE150)
 
     assert "../Problems/NeetCode150/0146.%20LRU%20Cache/solution.py" in notes_output
-    assert "./0146.%20LRU%20Cache/solution.py" in index_output
+    assert "./NeetCode150/0146.%20LRU%20Cache/solution.py" in index_output
     assert "# NeetCode 150 Notes" in notes_output
-    assert "# NeetCode 150 Problem Index" in index_output\n\n\ndef test_clean_problem_title_strips_annotations() -> None:\n    assert clean_problem_title(\"Same Tree (DFS)\") == \"Same Tree\"\n    assert clean_problem_title(\"Word Search (Backtracking)\") == \"Word Search\"\n
+    assert "# My Solved LeetCode Problem Index" in index_output
+
+
+def test_renderers_include_multiple_solution_links() -> None:
+    rows = [
+        {
+            "Problem": "Two Sum",
+            "Category": "Array & Hashing",
+        }
+    ]
+    metadata = {
+        "Two Sum": ProblemMetadata(
+            folder_name="0001. Two Sum",
+            link=None,
+            solutions=("solution1.py", "solution2.java"),
+        )
+    }
+
+    notes_output = build_notes_markdown(["Problem", "Category"], rows, "https://example.com", metadata, BLIND75)
+    index_output = build_problem_index(rows, metadata, BLIND75)
+
+    assert "[Solution 1 (py)](../Problems/0001.%20Two%20Sum/solution1.py)" in notes_output
+    assert "[Solution 2 (java)](../Problems/0001.%20Two%20Sum/solution2.java)" in notes_output
+    assert "[Solution 1 (py)](./0001.%20Two%20Sum/solution1.py)" in index_output
+    assert "[Solution 2 (java)](./0001.%20Two%20Sum/solution2.java)" in index_output
+
+
+def test_clean_problem_title_strips_annotations() -> None:
+    assert clean_problem_title("Same Tree (DFS)") == "Same Tree"
+    assert clean_problem_title("Word Search (Backtracking)") == "Word Search"
