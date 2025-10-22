@@ -27,15 +27,6 @@ def _stub_lookup_problem(title: str) -> ProblemLink:
     return ProblemLink(title=title, slug=slug, frontend_id="123")
 
 
-def test_solution_link_labels_formatting() -> None:
-    assert solutions.solution_link_labels(["solution.py"]) == [("Solution", "solution.py")]
-    assert solutions.solution_link_labels(["custom.py"]) == [("Solution (py)", "custom.py")]
-    assert solutions.solution_link_labels(["solution1.py", "solution2.java"]) == [
-        ("Solution 1 (py)", "solution1.py"),
-        ("Solution 2 (java)", "solution2.java"),
-    ]
-
-
 def test_sync_creates_language_specific_files(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
     profile = _profile(tmp_path)
     profile.problems_dir.mkdir(parents=True, exist_ok=True)

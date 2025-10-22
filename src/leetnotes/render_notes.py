@@ -124,7 +124,7 @@ def build_notes_markdown(
     extra_fields = [field for field in fieldnames if field not in preferred_order]
     ordered_fields = preferred_order + extra_fields
 
-    category_entries: dict[str, list[tuple[str, list[str]]]] = {}
+    category_entries: dict[str, dict[str, tuple[str, list[str]]]] = {}
 
     for row in rows:
         problem = (row.get("Problem") or "Untitled Problem").strip() or "Untitled Problem"
@@ -132,17 +132,16 @@ def build_notes_markdown(
         folder_name = problem_meta.folder_name if problem_meta else folder_name_from_title(problem)
         link = problem_meta.link if problem_meta else None
         solution_filenames = list(problem_meta.solutions) if problem_meta and problem_meta.solutions else []
-        solution_links: list[str] = []
         solution_count = len(solution_filenames) if solution_filenames else 1
         solution_label = "Solutions" if solution_count != 1 else "Solution"
         solution_rel_path = _relative_solution_url(
             profile.notes_output_path.parent,
             profile.problems_dir / folder_name,
         )
-        solution_links.append(f"[{solution_label}]({solution_rel_path})")
-        link_entries: list[str] = solution_links
+        solution_link = f"[{solution_label}]({solution_rel_path})"
+        link_entries: list[str] = [solution_link]
         if link:
-            link_entries = [f"[Problem]({link.url})", *solution_links]
+            link_entries = [f"[Problem]({link.url})", solution_link]
         links_text = f"*({' | '.join(link_entries)})*"
         problem_title = normalize.escape_ordered_list_prefix(problem)
         heading_text = f"**{problem_title}**"
@@ -186,7 +185,20 @@ def build_notes_markdown(
 
         for category in categories:
             canonical = config.CATEGORY_ALIASES.get(category, category) or config.DEFAULT_CATEGORY
-            category_entries.setdefault(canonical, []).append((problem_line, section_lines.copy()))
+            bucket = category_entries.setdefault(canonical, {})
+            existing = bucket.get(folder_name)
+            if existing:
+                existing_line, existing_details = existing
+                replace_entry = False
+                if len(section_lines) > len(existing_details):
+                    replace_entry = True
+                elif len(section_lines) == len(existing_details):
+                    if "[Problem]" in problem_line and "[Problem]" not in existing_line:
+                        replace_entry = True
+                if replace_entry:
+                    bucket[folder_name] = (problem_line, section_lines.copy())
+            else:
+                bucket[folder_name] = (problem_line, section_lines.copy())
 
     if not category_entries:
         return "\n".join(lines)
@@ -207,7 +219,11 @@ def build_notes_markdown(
     for category in ordered_categories:
         lines.append(f"## {category}")
         lines.append("")
-        for problem_line, detail_lines in category_entries[category]:
+        entries = sorted(
+            category_entries[category].values(),
+            key=lambda item: item[0].lower(),
+        )
+        for problem_line, detail_lines in entries:
             lines.append(problem_line)
             lines.extend(detail_lines)
             lines.append("")

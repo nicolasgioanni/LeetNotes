@@ -58,31 +58,6 @@ _LANGUAGE_EXTENSIONS = {
 _EMPTY_TOKENS = {"", "na", "n/a", "none", "-", "--", "todo", "tbd"}
 
 
-def solution_link_labels(filenames: Sequence[str]) -> list[tuple[str, str]]:
-    """Return label/filename pairs for Markdown solution links."""
-
-    if not filenames:
-        return [("Solution", "solution.py")]
-
-    if len(filenames) == 1:
-        filename = filenames[0]
-        if filename == "solution.py":
-            return [("Solution", filename)]
-        extension = Path(filename).suffix.lstrip(".").lower()
-        label = f"Solution ({extension})" if extension else "Solution"
-        return [(label, filename)]
-
-    labels: list[tuple[str, str]] = []
-    for index, filename in enumerate(filenames, start=1):
-        extension = Path(filename).suffix.lstrip(".").lower()
-        if extension:
-            label = f"Solution {index} ({extension})"
-        else:
-            label = f"Solution {index}"
-        labels.append((label, filename))
-    return labels
-
-
 def sync_solutions_from_rows(
     fieldnames: Sequence[str],
     rows: Iterable[dict[str, str]],
@@ -155,6 +130,18 @@ def sync_solutions_from_rows(
             repo.write_if_changed(folder / filename, code_body)
             filenames.append(filename)
 
+        placeholder_path = folder / "solution.py"
+        if placeholder_path.exists():
+            try:
+                contents = placeholder_path.read_text(encoding="utf-8")
+            except OSError:
+                contents = ""
+            if contents.strip().startswith("# TODO") or not contents.strip():
+                try:
+                    placeholder_path.unlink()
+                except OSError:
+                    pass
+
         metadata[sanitized_problem] = replace(
             problem_meta,
             solutions=tuple(filenames),
@@ -164,6 +151,14 @@ def sync_solutions_from_rows(
     for problem, meta in list(metadata.items()):
         folder = profile.problems_dir / meta.folder_name
         filenames = repo.list_solution_files(folder)
+        placeholder_path = folder / "solution.py"
+        if "solution.py" in filenames and len(filenames) > 1:
+            if placeholder_path.exists():
+                try:
+                    placeholder_path.unlink()
+                except OSError:
+                    pass
+            filenames = [name for name in filenames if name != "solution.py"]
         if not filenames:
             filenames = ["solution.py"]
         metadata[problem] = replace(meta, solutions=tuple(filenames))
@@ -252,4 +247,4 @@ def _ensure_trailing_newline(text: str) -> str:
     return text if text.endswith("\n") else f"{text}\n"
 
 
-__all__ = ["solution_link_labels", "sync_solutions_from_rows"]
+__all__ = ["sync_solutions_from_rows"]

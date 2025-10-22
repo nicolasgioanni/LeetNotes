@@ -5,7 +5,6 @@ from __future__ import annotations
 import os
 import re
 
-from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
 from urllib.parse import quote
@@ -42,7 +41,7 @@ def build_problem_index(
         "",
     ]
 
-    category_map: dict[str, list[tuple[str, ProblemLink | None, list[str]]]] = defaultdict(list)
+    category_map: dict[str, dict[str, dict[str, object]]] = {}
 
     for row in rows:
         problem = (row.get("Problem") or "Untitled Problem").strip() or "Untitled Problem"
@@ -51,21 +50,30 @@ def build_problem_index(
         link = problem_meta.link if problem_meta else None
         display_name = problem_display_name(problem, link, folder_name)
         solution_filenames = list(problem_meta.solutions) if problem_meta and problem_meta.solutions else []
-        solution_links: list[str] = []
         solution_count = len(solution_filenames) if solution_filenames else 1
         solution_label = "Solutions" if solution_count != 1 else "Solution"
         solution_rel = _relative_solution_url(
             profile.problems_index_path.parent,
             profile.problems_dir / folder_name,
         )
-        solution_links.append(f"[{solution_label}]({solution_rel})")
+        solution_link = f"[{solution_label}]({solution_rel})"
         category_raw = (row.get("Category") or "").strip()
         categories = normalize.split_categories(category_raw)
         if not categories:
             categories = [config.DEFAULT_CATEGORY]
         for category in categories:
             canonical = config.CATEGORY_ALIASES.get(category, category) or config.DEFAULT_CATEGORY
-            category_map[canonical].append((display_name, link, solution_links))
+            bucket = category_map.setdefault(canonical, {})
+            existing = bucket.get(folder_name)
+            if existing:
+                if not existing["link"] and link:
+                    existing["link"] = link
+                continue
+            bucket[folder_name] = {
+                "display": display_name,
+                "link": link,
+                "solution_link": solution_link,
+            }
 
     ordered_categories = config.CATEGORY_ORDER + [
         category
@@ -74,29 +82,43 @@ def build_problem_index(
     ]
 
     for category in ordered_categories:
-        problems = category_map.get(category, [])
-        if not problems:
+        bucket = category_map.get(category)
+        if not bucket:
             continue
         lines.append(f"## {category}")
-        for display_name, link_obj, solution_link_entries in sorted(problems, key=lambda item: item[0].lower()):
+        entries = sorted(
+            bucket.values(),
+            key=lambda item: item["display"].lower(),
+        )
+        for entry in entries:
+            display_name = entry["display"]
+            link_obj = entry["link"]
+            solution_link = entry["solution_link"]
             title_text = normalize.escape_ordered_list_prefix(display_name)
             links: list[str] = []
             if link_obj:
                 links.append(f"[Problem]({link_obj.url})")
-            links.extend(solution_link_entries)
+            links.append(solution_link)
             links_text = " | ".join(links)
             lines.append(f"- {title_text} ({links_text})")
         lines.append("")
 
-    uncategorized = category_map.get(config.DEFAULT_CATEGORY, [])
-    if uncategorized:
+    uncategorized_bucket = category_map.get(config.DEFAULT_CATEGORY, {})
+    uncategorized_entries = sorted(
+        uncategorized_bucket.values(),
+        key=lambda item: item["display"].lower(),
+    )
+    if uncategorized_entries:
         lines.append(f"## {config.DEFAULT_CATEGORY}")
-        for display_name, link_obj, solution_link_entries in sorted(uncategorized, key=lambda item: item[0].lower()):
+        for entry in uncategorized_entries:
+            display_name = entry["display"]
+            link_obj = entry["link"]
+            solution_link = entry["solution_link"]
             title_text = normalize.escape_ordered_list_prefix(display_name)
             links: list[str] = []
             if link_obj:
                 links.append(f"[Problem]({link_obj.url})")
-            links.extend(solution_link_entries)
+            links.append(solution_link)
             links_text = " | ".join(links)
             lines.append(f"- {title_text} ({links_text})")
         lines.append("")

@@ -102,6 +102,33 @@ def test_renderers_include_multiple_solution_links() -> None:
     assert "[Solutions](./0001.%20Two%20Sum)" in index_output
 
 
+def test_problem_index_deduplicates_duplicate_rows() -> None:
+    rows = [
+        {"Problem": "Two Sum", "Category": "Array & Hashing"},
+        {"Problem": "Two Sum ", "Category": "Array & Hashing"},
+    ]
+    metadata = {
+        "Two Sum": ProblemMetadata(folder_name="0001. Two Sum", link=None, solutions=("solution.py",)),
+    }
+
+    result = build_problem_index(rows, metadata, BLIND75)
+    assert result.count("./0001.%20Two%20Sum") == 1
+
+
+def test_notes_markdown_deduplicates_duplicate_rows() -> None:
+    fieldnames = ["Problem", "Category"]
+    rows = [
+        {"Problem": "Two Sum", "Category": "Array & Hashing"},
+        {"Problem": "Two Sum", "Category": "Array & Hashing"},
+    ]
+    metadata = {
+        "Two Sum": ProblemMetadata(folder_name="0001. Two Sum", link=None, solutions=("solution.py",)),
+    }
+
+    result = build_notes_markdown(fieldnames, rows, "https://example.com", metadata, BLIND75)
+    assert result.count("**Two Sum**") == 1
+
+
 def test_clean_problem_title_strips_annotations() -> None:
     assert clean_problem_title("Same Tree (DFS)") == "Same Tree"
     assert clean_problem_title("Word Search (Backtracking)") == "Word Search"
