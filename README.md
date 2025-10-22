@@ -29,9 +29,9 @@ A structured workspace for solving LeetCode problems and maintaining high-qualit
 
 ## How the Sync Works
 
-1. **Two CSV inputs per list**:  
-   - **Notes Sheet (CSV)** — problem title, category, approach, time/space complexity, and study notes.  
-   - **Solutions Sheet (CSV)** — problem title and **solution code** in a `solution` column (plain text).  
+1. Two CSV inputs per list:  
+   - Notes Sheet (CSV) — problem title, category, approach, time/space complexity, and study notes.  
+   - Solutions Sheet (CSV) — problem title and **solution code** in a `solution` column (plain text).  
 2. The CLI resolves each **problem title** to the official LeetCode slug/URL and **normalizes the repository layout** so every problem has a dedicated folder.  
 3. The CLI **writes `solution.py`** using the code found in the **Solutions Sheet** for that problem. If multiple variants are provided (e.g., “Two Pointers”, “Heap”), files are suffixed accordingly.  
 4. The CLI generates the notes file under `Notes/` (for example `Notes/blind75.md`) from the **Notes Sheet**.  
