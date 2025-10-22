@@ -1,7 +1,7 @@
 # My Solved LeetCode Problem Index
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-10-22 06:18 UTC*
+*Last updated: 2025-10-22 06:26 UTC*
 
 This index lists every problem I've solved, organized by category, with links to the problem and my solutions.
 
@@ -103,7 +103,7 @@ This index lists every problem I've solved, organized by category, with links to
 - 200\. Number of Islands ([Problem](https://leetcode.com/problems/number-of-islands/) | [Solution](./0200.%20Number%20of%20Islands))
 - 207\. Course Schedule ([Problem](https://leetcode.com/problems/course-schedule/) | [Solution](./0207.%20Course%20Schedule))
 - 210\. Course Schedule II ([Problem](https://leetcode.com/problems/course-schedule-ii/) | [Solution](./0210.%20Course%20Schedule%20II))
-- 261\. Graph Valid Tree ([Problem](https://leetcode.com/problems/graph-valid-tree/) | [Solutions](./0261.%20Graph%20Valid%20Tree))
+- 261\. Graph Valid Tree ([Problem](https://leetcode.com/problems/graph-valid-tree/) | [Solution](./0261.%20Graph%20Valid%20Tree))
 - 286\. Walls And Gates ([Problem](https://leetcode.com/problems/walls-and-gates/) | [Solution](./0286.%20Walls%20And%20Gates))
 - 323\. Number of Connected Components In An Undirected Graph ([Problem](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) | [Solutions](./0323.%20Number%20of%20Connected%20Components%20In%20An%20Undirected%20Graph))
 - 417\. Pacific Atlantic Water Flow ([Problem](https://leetcode.com/problems/pacific-atlantic-water-flow/) | [Solution](./0417.%20Pacific%20Atlantic%20Water%20Flow))
