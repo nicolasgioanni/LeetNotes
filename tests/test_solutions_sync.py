@@ -151,3 +151,84 @@ def test_sync_detects_javascript_extension(monkeypatch: pytest.MonkeyPatch, tmp_
     problem_folder = profile.problems_dir / "0123. Two Sum"
     assert (problem_folder / "solution1.js").exists()
     assert metadata["Two Sum"].solutions == ("solution1.js",)
+
+
+def test_sync_removes_all_solutions_when_csv_empty(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    profile = _profile(tmp_path)
+    profile.problems_dir.mkdir(parents=True, exist_ok=True)
+    monkeypatch.setattr(repo, "lookup_problem", _stub_lookup_problem)
+
+    rows = [{"Problem": "Binary Tree", "Category": "Trees"}]
+    metadata: MetadataMap = repo.ensure_problem_folders(rows, profile)
+
+    solution_fieldnames = ["Problems", "Category", "Solution 1", "Solution 2"]
+    solution_rows = [
+        {
+            "Problems": "Binary Tree",
+            "Category": "Trees",
+            "Solution 1": "def foo():\n    return 1",
+            "Solution 2": "public class Solution {\n    int foo() { return 1; }\n}",
+        }
+    ]
+
+    solutions.sync_solutions_from_rows(solution_fieldnames, solution_rows, metadata, profile)
+    problem_folder = profile.problems_dir / "0123. Binary Tree"
+    assert (problem_folder / "solution1.py").exists()
+    assert (problem_folder / "solution2.java").exists()
+
+    empty_rows = [
+        {
+            "Problems": "Binary Tree",
+            "Category": "Trees",
+            "Solution 1": "",
+            "Solution 2": "   ",
+        }
+    ]
+
+    solutions.sync_solutions_from_rows(solution_fieldnames, empty_rows, metadata, profile)
+
+    assert not any(
+        file.name.startswith("solution") and file.name != "solution.py"
+        for file in problem_folder.glob("solution*")
+    )
+    assert (problem_folder / "solution.py").exists()
+    assert metadata["Binary Tree"].solutions == ("solution.py",)
+
+
+def test_sync_updates_partial_solution_set(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    profile = _profile(tmp_path)
+    profile.problems_dir.mkdir(parents=True, exist_ok=True)
+    monkeypatch.setattr(repo, "lookup_problem", _stub_lookup_problem)
+
+    rows = [{"Problem": "Queue Reconstruction", "Category": "Greedy"}]
+    metadata: MetadataMap = repo.ensure_problem_folders(rows, profile)
+
+    solution_fieldnames = ["Problems", "Category", "Solution 1", "Solution 2"]
+    solution_rows = [
+        {
+            "Problems": "Queue Reconstruction",
+            "Category": "Greedy",
+            "Solution 1": "def solve():\n    return []",
+            "Solution 2": "console.log('foo');",
+        }
+    ]
+    solutions.sync_solutions_from_rows(solution_fieldnames, solution_rows, metadata, profile)
+
+    folder = profile.problems_dir / "0123. Queue Reconstruction"
+    assert (folder / "solution1.py").exists()
+    assert (folder / "solution2.js").exists()
+
+    # Remove the second solution, keep the first.
+    updated_rows = [
+        {
+            "Problems": "Queue Reconstruction",
+            "Category": "Greedy",
+            "Solution 1": "def solve():\n    return []",
+            "Solution 2": "",
+        }
+    ]
+    solutions.sync_solutions_from_rows(solution_fieldnames, updated_rows, metadata, profile)
+
+    assert (folder / "solution1.py").exists()
+    assert not (folder / "solution2.js").exists()
+    assert metadata["Queue Reconstruction"].solutions == ("solution1.py",)

@@ -106,6 +106,7 @@ def sync_solutions_from_rows(
         if problem_meta is None:
             continue
         folder = profile.problems_dir / problem_meta.folder_name
+        existing_filenames = repo.list_solution_files(folder)
 
         parsed_solutions: list[tuple[str, str]] = []
         for column in solution_columns:
@@ -119,33 +120,44 @@ def sync_solutions_from_rows(
             extension = _LANGUAGE_EXTENSIONS.get(language, ".py")
             parsed_solutions.append((extension, _ensure_trailing_newline(code_body)))
 
-        if not parsed_solutions:
-            # Leave existing solution files untouched.
-            continue
+        if parsed_solutions:
+            repo.clear_solution_files(folder)
+            filenames: list[str] = []
+            for index, (extension, code_body) in enumerate(parsed_solutions, start=1):
+                filename = f"solution{index}{extension}"
+                repo.write_if_changed(folder / filename, code_body)
+                filenames.append(filename)
 
-        repo.clear_solution_files(folder)
-        filenames: list[str] = []
-        for index, (extension, code_body) in enumerate(parsed_solutions, start=1):
-            filename = f"solution{index}{extension}"
-            repo.write_if_changed(folder / filename, code_body)
-            filenames.append(filename)
-
-        placeholder_path = folder / "solution.py"
-        if placeholder_path.exists():
-            try:
-                contents = placeholder_path.read_text(encoding="utf-8")
-            except OSError:
-                contents = ""
-            if contents.strip().startswith("# TODO") or not contents.strip():
+            placeholder_path = folder / "solution.py"
+            if placeholder_path.exists():
                 try:
-                    placeholder_path.unlink()
+                    contents = placeholder_path.read_text(encoding="utf-8")
                 except OSError:
-                    pass
+                    contents = ""
+                if contents.strip().startswith("# TODO") or not contents.strip():
+                    try:
+                        placeholder_path.unlink()
+                    except OSError:
+                        pass
 
-        metadata[sanitized_problem] = replace(
-            problem_meta,
-            solutions=tuple(filenames),
-        )
+            metadata[sanitized_problem] = replace(
+                problem_meta,
+                solutions=tuple(filenames),
+            )
+        else:
+            if any(name != "solution.py" for name in existing_filenames):
+                repo.clear_solution_files(folder)
+                placeholder_path = folder / "solution.py"
+                placeholder = f"# TODO: implement solution for {sanitized_problem}\n"
+                repo.write_if_changed(placeholder_path, placeholder)
+                metadata[sanitized_problem] = replace(
+                    problem_meta,
+                    solutions=("solution.py",),
+                )
+            elif not existing_filenames and not (folder / "solution.py").exists():
+                placeholder_path = folder / "solution.py"
+                placeholder = f"# TODO: implement solution for {sanitized_problem}\n"
+                repo.write_if_changed(placeholder_path, placeholder)
 
     # Ensure metadata for all problems has an up-to-date solution file listing.
     for problem, meta in list(metadata.items()):
@@ -160,6 +172,8 @@ def sync_solutions_from_rows(
                     pass
             filenames = [name for name in filenames if name != "solution.py"]
         if not filenames:
+            placeholder = f"# TODO: implement solution for {problem}\n"
+            repo.write_if_changed(placeholder_path, placeholder)
             filenames = ["solution.py"]
         metadata[problem] = replace(meta, solutions=tuple(filenames))
 
