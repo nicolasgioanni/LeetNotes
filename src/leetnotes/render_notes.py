@@ -216,19 +216,28 @@ def build_notes_markdown(
     if config.DEFAULT_CATEGORY in category_entries:
         ordered_categories.append(config.DEFAULT_CATEGORY)
 
-    for category in ordered_categories:
-        lines.append(f"## {category}")
-        lines.append("")
-        entries = sorted(
-            category_entries[category].values(),
-            key=lambda item: item[0].lower(),
-        )
-        for problem_line, detail_lines in entries:
-            lines.append(problem_line)
-            lines.extend(detail_lines)
-            lines.append("")
+    rendered_folders: set[str] = set()
 
-    if lines and lines[-1] == "":
+    for category in ordered_categories:
+        bucket = category_entries.get(category, {})
+        entries = sorted(
+            bucket.items(),
+            key=lambda item: item[1][0].lower(),
+        )
+        category_lines: list[str] = []
+        for folder_name, (problem_line, detail_lines) in entries:
+            if folder_name in rendered_folders:
+                continue
+            rendered_folders.add(folder_name)
+            category_lines.append(problem_line)
+            category_lines.extend(detail_lines)
+            category_lines.append("")
+        if category_lines:
+            lines.append(f"## {category}")
+            lines.append("")
+            lines.extend(category_lines)
+
+    while lines and lines[-1] == "":
         lines.pop()
 
     return "\n".join(lines)

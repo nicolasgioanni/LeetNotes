@@ -73,6 +73,7 @@ def build_problem_index(
                 "display": display_name,
                 "link": link,
                 "solution_link": solution_link,
+                "folder": folder_name,
             }
 
     ordered_categories = config.CATEGORY_ORDER + [
@@ -81,16 +82,22 @@ def build_problem_index(
         if category not in config.CATEGORY_ORDER and category != config.DEFAULT_CATEGORY
     ]
 
+    rendered_folders: set[str] = set()
+
     for category in ordered_categories:
         bucket = category_map.get(category)
         if not bucket:
             continue
-        lines.append(f"## {category}")
         entries = sorted(
             bucket.values(),
             key=lambda item: item["display"].lower(),
         )
+        category_lines: list[str] = []
         for entry in entries:
+            folder_name = entry["folder"]
+            if folder_name in rendered_folders:
+                continue
+            rendered_folders.add(folder_name)
             display_name = entry["display"]
             link_obj = entry["link"]
             solution_link = entry["solution_link"]
@@ -100,27 +107,36 @@ def build_problem_index(
                 links.append(f"[Problem]({link_obj.url})")
             links.append(solution_link)
             links_text = " | ".join(links)
-            lines.append(f"- {title_text} ({links_text})")
-        lines.append("")
+            category_lines.append(f"- {title_text} ({links_text})")
+        if category_lines:
+            lines.append(f"## {category}")
+            lines.extend(category_lines)
+            lines.append("")
 
     uncategorized_bucket = category_map.get(config.DEFAULT_CATEGORY, {})
     uncategorized_entries = sorted(
         uncategorized_bucket.values(),
         key=lambda item: item["display"].lower(),
     )
-    if uncategorized_entries:
+    uncategorized_lines: list[str] = []
+    for entry in uncategorized_entries:
+        folder_name = entry["folder"]
+        if folder_name in rendered_folders:
+            continue
+        rendered_folders.add(folder_name)
+        display_name = entry["display"]
+        link_obj = entry["link"]
+        solution_link = entry["solution_link"]
+        title_text = normalize.escape_ordered_list_prefix(display_name)
+        links: list[str] = []
+        if link_obj:
+            links.append(f"[Problem]({link_obj.url})")
+        links.append(solution_link)
+        links_text = " | ".join(links)
+        uncategorized_lines.append(f"- {title_text} ({links_text})")
+    if uncategorized_lines:
         lines.append(f"## {config.DEFAULT_CATEGORY}")
-        for entry in uncategorized_entries:
-            display_name = entry["display"]
-            link_obj = entry["link"]
-            solution_link = entry["solution_link"]
-            title_text = normalize.escape_ordered_list_prefix(display_name)
-            links: list[str] = []
-            if link_obj:
-                links.append(f"[Problem]({link_obj.url})")
-            links.append(solution_link)
-            links_text = " | ".join(links)
-            lines.append(f"- {title_text} ({links_text})")
+        lines.extend(uncategorized_lines)
         lines.append("")
 
     if len(lines) == 7:
