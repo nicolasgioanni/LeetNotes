@@ -1,7 +1,7 @@
 # My Solved LeetCode Problem Index
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-10-22 05:44 UTC*
+*Last updated: 2025-10-22 05:57 UTC*
 
 This index lists every problem I've solved, organized by category, with links to the problem and my solutions.
 
@@ -65,20 +65,20 @@ This index lists every problem I've solved, organized by category, with links to
 
 ## Trees
 - 100\. Same Tree ([Problem](https://leetcode.com/problems/same-tree/) | [Solution](./0100.%20Same%20Tree))
-- 102\. Binary Tree Level Order Traversal ([Problem](https://leetcode.com/problems/binary-tree-level-order-traversal/) | [Solutions](./0102.%20Binary%20Tree%20Level%20Order%20Traversal))
+- 102\. Binary Tree Level Order Traversal ([Problem](https://leetcode.com/problems/binary-tree-level-order-traversal/) | [Solution](./0102.%20Binary%20Tree%20Level%20Order%20Traversal))
 - 104\. Maximum Depth of Binary Tree ([Problem](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | [Solution](./0104.%20Maximum%20Depth%20of%20Binary%20Tree))
-- 105\. Construct Binary Tree From Preorder And Inorder Traversal ([Problem](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | [Solutions](./0105.%20Construct%20Binary%20Tree%20From%20Preorder%20And%20Inorder%20Traversal))
+- 105\. Construct Binary Tree From Preorder And Inorder Traversal ([Problem](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | [Solution](./0105.%20Construct%20Binary%20Tree%20From%20Preorder%20And%20Inorder%20Traversal))
 - 110\. Balanced Binary Tree ([Problem](https://leetcode.com/problems/balanced-binary-tree/) | [Solution](./0110.%20Balanced%20Binary%20Tree))
-- 124\. Binary Tree Maximum Path Sum ([Problem](https://leetcode.com/problems/binary-tree-maximum-path-sum/) | [Solutions](./0124.%20Binary%20Tree%20Maximum%20Path%20Sum))
+- 124\. Binary Tree Maximum Path Sum ([Problem](https://leetcode.com/problems/binary-tree-maximum-path-sum/) | [Solution](./0124.%20Binary%20Tree%20Maximum%20Path%20Sum))
 - 1448\. Count Good Nodes In Binary Tree ([Problem](https://leetcode.com/problems/count-good-nodes-in-binary-tree/) | [Solution](./1448.%20Count%20Good%20Nodes%20In%20Binary%20Tree))
 - 199\. Binary Tree Right Side View ([Problem](https://leetcode.com/problems/binary-tree-right-side-view/) | [Solution](./0199.%20Binary%20Tree%20Right%20Side%20View))
 - 226\. Invert Binary Tree ([Problem](https://leetcode.com/problems/invert-binary-tree/) | [Solution](./0226.%20Invert%20Binary%20Tree))
-- 230\. Kth Smallest Element In a Bst ([Problem](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | [Solutions](./0230.%20Kth%20Smallest%20Element%20In%20a%20Bst))
+- 230\. Kth Smallest Element In a Bst ([Problem](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | [Solution](./0230.%20Kth%20Smallest%20Element%20In%20a%20Bst))
 - 235\. Lowest Common Ancestor of a Binary Search Tree ([Problem](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) | [Solution](./0235.%20Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree))
 - 297\. Serialize And Deserialize Binary Tree ([Problem](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) | [Solution](./0297.%20Serialize%20And%20Deserialize%20Binary%20Tree))
 - 543\. Diameter of Binary Tree ([Problem](https://leetcode.com/problems/diameter-of-binary-tree/) | [Solution](./0543.%20Diameter%20of%20Binary%20Tree))
-- 572\. Subtree of Another Tree ([Problem](https://leetcode.com/problems/subtree-of-another-tree/) | [Solutions](./0572.%20Subtree%20of%20Another%20Tree))
-- 98\. Validate Binary Search Tree ([Problem](https://leetcode.com/problems/validate-binary-search-tree/) | [Solutions](./0098.%20Validate%20Binary%20Search%20Tree))
+- 572\. Subtree of Another Tree ([Problem](https://leetcode.com/problems/subtree-of-another-tree/) | [Solution](./0572.%20Subtree%20of%20Another%20Tree))
+- 98\. Validate Binary Search Tree ([Problem](https://leetcode.com/problems/validate-binary-search-tree/) | [Solution](./0098.%20Validate%20Binary%20Search%20Tree))
 
 ## Backtracking
 - 131\. Palindrome Partitioning ([Problem](https://leetcode.com/problems/palindrome-partitioning/) | [Solution](./0131.%20Palindrome%20Partitioning))
@@ -100,13 +100,13 @@ This index lists every problem I've solved, organized by category, with links to
 - 127\. Word Ladder ([Problem](https://leetcode.com/problems/word-ladder/) | [Solution](./0127.%20Word%20Ladder))
 - 130\. Surrounded Regions ([Problem](https://leetcode.com/problems/surrounded-regions/) | [Solution](./0130.%20Surrounded%20Regions))
 - 133\. Clone Graph ([Problem](https://leetcode.com/problems/clone-graph/) | [Solution](./0133.%20Clone%20Graph))
-- 200\. Number of Islands ([Problem](https://leetcode.com/problems/number-of-islands/) | [Solutions](./0200.%20Number%20of%20Islands))
-- 207\. Course Schedule ([Problem](https://leetcode.com/problems/course-schedule/) | [Solutions](./0207.%20Course%20Schedule))
+- 200\. Number of Islands ([Problem](https://leetcode.com/problems/number-of-islands/) | [Solution](./0200.%20Number%20of%20Islands))
+- 207\. Course Schedule ([Problem](https://leetcode.com/problems/course-schedule/) | [Solution](./0207.%20Course%20Schedule))
 - 210\. Course Schedule II ([Problem](https://leetcode.com/problems/course-schedule-ii/) | [Solution](./0210.%20Course%20Schedule%20II))
-- 261\. Graph Valid Tree ([Problem](https://leetcode.com/problems/graph-valid-tree/) | [Solutions](./0261.%20Graph%20Valid%20Tree))
+- 261\. Graph Valid Tree ([Problem](https://leetcode.com/problems/graph-valid-tree/) | [Solution](./0261.%20Graph%20Valid%20Tree))
 - 286\. Walls And Gates ([Problem](https://leetcode.com/problems/walls-and-gates/) | [Solution](./0286.%20Walls%20And%20Gates))
 - 323\. Number of Connected Components In An Undirected Graph ([Problem](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) | [Solutions](./0323.%20Number%20of%20Connected%20Components%20In%20An%20Undirected%20Graph))
-- 417\. Pacific Atlantic Water Flow ([Problem](https://leetcode.com/problems/pacific-atlantic-water-flow/) | [Solutions](./0417.%20Pacific%20Atlantic%20Water%20Flow))
+- 417\. Pacific Atlantic Water Flow ([Problem](https://leetcode.com/problems/pacific-atlantic-water-flow/) | [Solution](./0417.%20Pacific%20Atlantic%20Water%20Flow))
 - 684\. Redundant Connection ([Problem](https://leetcode.com/problems/redundant-connection/) | [Solution](./0684.%20Redundant%20Connection))
 - 695\. Max Area of Island ([Problem](https://leetcode.com/problems/max-area-of-island/) | [Solution](./0695.%20Max%20Area%20of%20Island))
 - 994\. Rotting Oranges ([Problem](https://leetcode.com/problems/rotting-oranges/) | [Solution](./0994.%20Rotting%20Oranges))

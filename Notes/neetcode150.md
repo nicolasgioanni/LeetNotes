@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-10-22 05:44 UTC*
+*Last updated: 2025-10-22 05:57 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -466,7 +466,7 @@
 **Balanced Binary Tree** *([Problem](https://leetcode.com/problems/balanced-binary-tree/) | [Solution](../Problems/0110.%20Balanced%20Binary%20Tree))*
 - _No details provided._
 
-**Binary Tree Level Order Traversal** *([Problem](https://leetcode.com/problems/binary-tree-level-order-traversal/) | [Solutions](../Problems/0102.%20Binary%20Tree%20Level%20Order%20Traversal))*
+**Binary Tree Level Order Traversal** *([Problem](https://leetcode.com/problems/binary-tree-level-order-traversal/) | [Solution](../Problems/0102.%20Binary%20Tree%20Level%20Order%20Traversal))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
@@ -480,13 +480,13 @@
     </li>
   </ul>
 
-**Binary Tree Maximum Path Sum** *([Problem](https://leetcode.com/problems/binary-tree-maximum-path-sum/) | [Solutions](../Problems/0124.%20Binary%20Tree%20Maximum%20Path%20Sum))*
+**Binary Tree Maximum Path Sum** *([Problem](https://leetcode.com/problems/binary-tree-maximum-path-sum/) | [Solution](../Problems/0124.%20Binary%20Tree%20Maximum%20Path%20Sum))*
 - _No details provided._
 
 **Binary Tree Right Side View** *([Problem](https://leetcode.com/problems/binary-tree-right-side-view/) | [Solution](../Problems/0199.%20Binary%20Tree%20Right%20Side%20View))*
 - _No details provided._
 
-**Construct Binary Tree From Preorder And Inorder Traversal** *([Problem](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | [Solutions](../Problems/0105.%20Construct%20Binary%20Tree%20From%20Preorder%20And%20Inorder%20Traversal))*
+**Construct Binary Tree From Preorder And Inorder Traversal** *([Problem](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | [Solution](../Problems/0105.%20Construct%20Binary%20Tree%20From%20Preorder%20And%20Inorder%20Traversal))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
@@ -534,7 +534,7 @@
 - **Space Complexity:** O(n)
 - **Notes:** 1) Edge case, 2) swap left and right nodes, 3) Recursively call on both left and right nodes (the ones we changed)
 
-**Kth Smallest Element In a Bst** *([Problem](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | [Solutions](../Problems/0230.%20Kth%20Smallest%20Element%20In%20a%20Bst))*
+**Kth Smallest Element In a Bst** *([Problem](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | [Solution](../Problems/0230.%20Kth%20Smallest%20Element%20In%20a%20Bst))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
@@ -582,7 +582,7 @@
 **Serialize And Deserialize Binary Tree** *([Problem](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) | [Solution](../Problems/0297.%20Serialize%20And%20Deserialize%20Binary%20Tree))*
 - _No details provided._
 
-**Subtree of Another Tree** *([Problem](https://leetcode.com/problems/subtree-of-another-tree/) | [Solutions](../Problems/0572.%20Subtree%20of%20Another%20Tree))*
+**Subtree of Another Tree** *([Problem](https://leetcode.com/problems/subtree-of-another-tree/) | [Solution](../Problems/0572.%20Subtree%20of%20Another%20Tree))*
 - **Time Complexity:** O(nm)
 - **Space Complexity:** O(n + m)
 - **Notes:**
@@ -594,7 +594,7 @@
     </li>
   </ul>
 
-**Validate Binary Search Tree** *([Problem](https://leetcode.com/problems/validate-binary-search-tree/) | [Solutions](../Problems/0098.%20Validate%20Binary%20Search%20Tree))*
+**Validate Binary Search Tree** *([Problem](https://leetcode.com/problems/validate-binary-search-tree/) | [Solution](../Problems/0098.%20Validate%20Binary%20Search%20Tree))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
@@ -660,10 +660,10 @@
 **Course Schedule II** *([Problem](https://leetcode.com/problems/course-schedule-ii/) | [Solution](../Problems/0210.%20Course%20Schedule%20II))*
 - _No details provided._
 
-**Course Schedule** *([Problem](https://leetcode.com/problems/course-schedule/) | [Solutions](../Problems/0207.%20Course%20Schedule))*
+**Course Schedule** *([Problem](https://leetcode.com/problems/course-schedule/) | [Solution](../Problems/0207.%20Course%20Schedule))*
 - _No details provided._
 
-**Graph Valid Tree** *([Problem](https://leetcode.com/problems/graph-valid-tree/) | [Solutions](../Problems/0261.%20Graph%20Valid%20Tree))*
+**Graph Valid Tree** *([Problem](https://leetcode.com/problems/graph-valid-tree/) | [Solution](../Problems/0261.%20Graph%20Valid%20Tree))*
 - _No details provided._
 
 **Max Area of Island** *([Problem](https://leetcode.com/problems/max-area-of-island/) | [Solution](../Problems/0695.%20Max%20Area%20of%20Island))*
@@ -672,10 +672,10 @@
 **Number of Connected Components In An Undirected Graph** *([Problem](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) | [Solutions](../Problems/0323.%20Number%20of%20Connected%20Components%20In%20An%20Undirected%20Graph))*
 - _No details provided._
 
-**Number of Islands** *([Problem](https://leetcode.com/problems/number-of-islands/) | [Solutions](../Problems/0200.%20Number%20of%20Islands))*
+**Number of Islands** *([Problem](https://leetcode.com/problems/number-of-islands/) | [Solution](../Problems/0200.%20Number%20of%20Islands))*
 - _No details provided._
 
-**Pacific Atlantic Water Flow** *([Problem](https://leetcode.com/problems/pacific-atlantic-water-flow/) | [Solutions](../Problems/0417.%20Pacific%20Atlantic%20Water%20Flow))*
+**Pacific Atlantic Water Flow** *([Problem](https://leetcode.com/problems/pacific-atlantic-water-flow/) | [Solution](../Problems/0417.%20Pacific%20Atlantic%20Water%20Flow))*
 - _No details provided._
 
 **Redundant Connection** *([Problem](https://leetcode.com/problems/redundant-connection/) | [Solution](../Problems/0684.%20Redundant%20Connection))*
