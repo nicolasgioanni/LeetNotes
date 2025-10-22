@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-10-22 05:57 UTC*
+*Last updated: 2025-10-22 06:03 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -663,7 +663,7 @@
 **Course Schedule** *([Problem](https://leetcode.com/problems/course-schedule/) | [Solution](../Problems/0207.%20Course%20Schedule))*
 - _No details provided._
 
-**Graph Valid Tree** *([Problem](https://leetcode.com/problems/graph-valid-tree/) | [Solution](../Problems/0261.%20Graph%20Valid%20Tree))*
+**Graph Valid Tree** *([Problem](https://leetcode.com/problems/graph-valid-tree/) | [Solutions](../Problems/0261.%20Graph%20Valid%20Tree))*
 - _No details provided._
 
 **Max Area of Island** *([Problem](https://leetcode.com/problems/max-area-of-island/) | [Solution](../Problems/0695.%20Max%20Area%20of%20Island))*
