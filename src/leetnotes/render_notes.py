@@ -11,7 +11,6 @@ from urllib.parse import quote
 from . import config, normalize
 from .models import MetadataMap, NotesProfile
 from .repo import folder_name_from_title
-from .solutions import solution_link_labels
 
 def _relative_solution_url(from_dir: Path, solution_path: Path) -> str:
     """Return a percent-encoded relative path from from_dir to solution_path."""
@@ -134,18 +133,13 @@ def build_notes_markdown(
         link = problem_meta.link if problem_meta else None
         solution_filenames = list(problem_meta.solutions) if problem_meta and problem_meta.solutions else []
         solution_links: list[str] = []
-        for label, filename in solution_link_labels(solution_filenames):
-            solution_rel_path = _relative_solution_url(
-                profile.notes_output_path.parent,
-                profile.problems_dir / folder_name / filename,
-            )
-            solution_links.append(f"[{label}]({solution_rel_path})")
-        if not solution_links:
-            solution_rel_path = _relative_solution_url(
-                profile.notes_output_path.parent,
-                profile.problems_dir / folder_name / "solution.py",
-            )
-            solution_links.append(f"[Solution]({solution_rel_path})")
+        solution_count = len(solution_filenames) if solution_filenames else 1
+        solution_label = "Solutions" if solution_count != 1 else "Solution"
+        solution_rel_path = _relative_solution_url(
+            profile.notes_output_path.parent,
+            profile.problems_dir / folder_name,
+        )
+        solution_links.append(f"[{solution_label}]({solution_rel_path})")
         link_entries: list[str] = solution_links
         if link:
             link_entries = [f"[Problem]({link.url})", *solution_links]

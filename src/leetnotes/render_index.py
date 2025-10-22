@@ -13,7 +13,6 @@ from urllib.parse import quote
 from . import config, normalize
 from .models import MetadataMap, NotesProfile, ProblemLink
 from .repo import folder_name_from_title
-from .solutions import solution_link_labels
 
 def _relative_solution_url(from_dir: Path, solution_path: Path) -> str:
     """Return a percent-encoded relative path from from_dir to solution_path."""
@@ -53,18 +52,13 @@ def build_problem_index(
         display_name = problem_display_name(problem, link, folder_name)
         solution_filenames = list(problem_meta.solutions) if problem_meta and problem_meta.solutions else []
         solution_links: list[str] = []
-        for label, filename in solution_link_labels(solution_filenames):
-            solution_rel = _relative_solution_url(
-                profile.problems_index_path.parent,
-                profile.problems_dir / folder_name / filename,
-            )
-            solution_links.append(f"[{label}]({solution_rel})")
-        if not solution_links:
-            solution_rel = _relative_solution_url(
-                profile.problems_index_path.parent,
-                profile.problems_dir / folder_name / "solution.py",
-            )
-            solution_links.append(f"[Solution]({solution_rel})")
+        solution_count = len(solution_filenames) if solution_filenames else 1
+        solution_label = "Solutions" if solution_count != 1 else "Solution"
+        solution_rel = _relative_solution_url(
+            profile.problems_index_path.parent,
+            profile.problems_dir / folder_name,
+        )
+        solution_links.append(f"[{solution_label}]({solution_rel})")
         category_raw = (row.get("Category") or "").strip()
         categories = normalize.split_categories(category_raw)
         if not categories:

@@ -6,8 +6,25 @@ import os
 import sys
 
 from . import catalog, config, csv_source, repo, solutions
+from .models import MetadataMap, NotesProfile, ProblemMetadata
 from .render_index import build_problem_index
 from .render_notes import build_notes_markdown
+
+
+def _sync_solutions_from_url(
+    metadata: MetadataMap,
+    profile: NotesProfile,
+    url: str,
+) -> list[dict[str, str]]:
+    raw_solutions_csv, solutions_charset = csv_source.fetch_csv(url)
+    solutions_text = csv_source.decode_csv(raw_solutions_csv, solutions_charset)
+    solution_fieldnames, solution_rows = csv_source.parse_csv(solutions_text)
+    return solutions.sync_solutions_from_rows(
+        solution_fieldnames,
+        solution_rows,
+        metadata,
+        profile,
+    )
 
 
 def run(
@@ -46,19 +63,10 @@ def run(
 
     if solutions_url:
         try:
-            raw_solutions_csv, solutions_charset = csv_source.fetch_csv(solutions_url)
+            solution_rows_for_catalog = _sync_solutions_from_url(metadata, profile, solutions_url)
         except Exception as exc:  # pragma: no cover - runtime failure path
             print(f"Failed to download solutions CSV: {exc}", file=sys.stderr)
             return 1
-
-        solutions_text = csv_source.decode_csv(raw_solutions_csv, solutions_charset)
-        solution_fieldnames, solution_rows = csv_source.parse_csv(solutions_text)
-        solution_rows_for_catalog = solutions.sync_solutions_from_rows(
-            solution_fieldnames,
-            solution_rows,
-            metadata,
-            profile,
-        )
 
     notes_markdown = build_notes_markdown(fieldnames, rows, url, metadata, profile)
     repo.write_if_changed(profile.notes_output_path, notes_markdown)
@@ -90,4 +98,66 @@ def run(
     return 0
 
 
-__all__ = ["run"]
+def sync_solutions(
+    profile_slug: str | None = None,
+    csv_url: str | None = None,
+) -> int:
+    """Synchronise solution files and problem index without regenerating notes."""
+
+    try:
+        profile = config.get_profile(profile_slug)
+    except ValueError as exc:  # pragma: no cover - defensive path
+        print(str(exc), file=sys.stderr)
+        return 2
+
+    url = csv_url or (
+        os.environ.get(profile.solutions_env_var) if profile.solutions_env_var else None
+    )
+    if not url:
+        if profile.solutions_env_var:
+            print(f"Environment variable {profile.solutions_env_var} is not set.", file=sys.stderr)
+        else:
+            print("No solutions CSV URL configured for this profile.", file=sys.stderr)
+        return 1
+
+    problem_catalog = catalog.load_catalog(config.PROBLEMS_CATALOG_PATH)
+
+    existing_rows: dict[str, dict[str, str]] = {}
+    metadata: MetadataMap = {}
+
+    for problem, entry in problem_catalog.items():
+        if profile.slug in entry.sources:
+            existing_rows[problem] = {
+                "Problem": problem,
+                "Category": ", ".join(entry.categories),
+            }
+            metadata[problem] = ProblemMetadata(folder_name=entry.folder_name, link=entry.link)
+
+    try:
+        solution_rows = _sync_solutions_from_url(metadata, profile, url)
+    except Exception as exc:  # pragma: no cover - runtime failure path
+        print(f"Failed to download solutions CSV: {exc}", file=sys.stderr)
+        return 1
+
+    for row in solution_rows:
+        problem_name = (row.get("Problem") or "").strip()
+        if not problem_name:
+            continue
+        category = (row.get("Category") or "").strip()
+        current = existing_rows.get(problem_name)
+        if current and not category:
+            row["Category"] = current.get("Category", "")
+        existing_rows[problem_name] = row
+
+    combined_rows = list(existing_rows.values())
+
+    catalog.update_catalog(problem_catalog, combined_rows, metadata, profile.slug)
+    catalog.save_catalog(config.PROBLEMS_CATALOG_PATH, problem_catalog)
+
+    aggregated_rows, aggregated_metadata = catalog.catalog_rows_and_metadata(problem_catalog)
+    index_markdown = build_problem_index(aggregated_rows, aggregated_metadata, config.DEFAULT_PROFILE)
+    repo.write_if_changed(config.PROBLEMS_INDEX_PATH, index_markdown)
+    return 0
+
+
+__all__ = ["run", "sync_solutions"]

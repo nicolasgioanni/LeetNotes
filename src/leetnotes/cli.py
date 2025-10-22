@@ -7,7 +7,7 @@ import sys
 from typing import Sequence
 
 from . import config
-from .service import run
+from .service import run, sync_solutions
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -28,7 +28,18 @@ def main(argv: Sequence[str] | None = None) -> int:
         "--solutions-csv-url",
         help="Override the configured solutions environment variable with an explicit CSV URL.",
     )
+    parser.add_argument(
+        "--solutions-only",
+        action="store_true",
+        help="Only sync solutions from the solutions spreadsheet without regenerating notes.",
+    )
     args = parser.parse_args(list(argv) if argv is not None else None)
+
+    if args.solutions_only:
+        return sync_solutions(
+            profile_slug=args.profile,
+            csv_url=args.solutions_csv_url,
+        )
 
     return run(
         profile_slug=args.profile,

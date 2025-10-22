@@ -31,7 +31,7 @@ def test_build_notes_markdown_includes_problem_links() -> None:
 
     assert "**Two Sum**" in result
     assert "[Problem](https://leetcode.com/problems/two-sum/)" in result
-    assert "[Solution](../Problems/0001.%20Two%20Sum/solution.py)" in result
+    assert "[Solution](../Problems/0001.%20Two%20Sum)" in result
     assert "Remember to use a hash map." in result
 
 
@@ -55,8 +55,8 @@ def test_build_problem_index_groups_by_category() -> None:
 
     assert "## Array & Hashing" in result
     assert "## Binary Search" in result
-    assert "./0001.%20Two%20Sum/solution.py" in result
-    assert "./0704.%20Binary%20Search/solution.py" in result
+    assert "./0001.%20Two%20Sum" in result
+    assert "./0704.%20Binary%20Search" in result
 
 
 def test_alternate_profile_updates_solution_links() -> None:
@@ -74,8 +74,8 @@ def test_alternate_profile_updates_solution_links() -> None:
     notes_output = build_notes_markdown(fieldnames, rows, "https://example.com", metadata, NEETCODE150)
     index_output = build_problem_index(rows, metadata, NEETCODE150)
 
-    assert "../Problems/NeetCode150/0146.%20LRU%20Cache/solution.py" in notes_output
-    assert "./NeetCode150/0146.%20LRU%20Cache/solution.py" in index_output
+    assert "../Problems/NeetCode150/0146.%20LRU%20Cache" in notes_output
+    assert "./NeetCode150/0146.%20LRU%20Cache" in index_output
     assert "# NeetCode 150 Notes" in notes_output
     assert "# My Solved LeetCode Problem Index" in index_output
 
@@ -98,10 +98,8 @@ def test_renderers_include_multiple_solution_links() -> None:
     notes_output = build_notes_markdown(["Problem", "Category"], rows, "https://example.com", metadata, BLIND75)
     index_output = build_problem_index(rows, metadata, BLIND75)
 
-    assert "[Solution 1 (py)](../Problems/0001.%20Two%20Sum/solution1.py)" in notes_output
-    assert "[Solution 2 (java)](../Problems/0001.%20Two%20Sum/solution2.java)" in notes_output
-    assert "[Solution 1 (py)](./0001.%20Two%20Sum/solution1.py)" in index_output
-    assert "[Solution 2 (java)](./0001.%20Two%20Sum/solution2.java)" in index_output
+    assert "[Solutions](../Problems/0001.%20Two%20Sum)" in notes_output
+    assert "[Solutions](./0001.%20Two%20Sum)" in index_output
 
 
 def test_clean_problem_title_strips_annotations() -> None:

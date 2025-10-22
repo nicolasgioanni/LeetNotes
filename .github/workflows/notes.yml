@@ -26,6 +26,11 @@ jobs:
       - name: Upgrade pip
         run: python -m pip install --upgrade pip
 
+      - name: Sync solutions from spreadsheet
+        env:
+          SOLUTIONS_CSV_URL: ${{ secrets.SOLUTIONS_CSV_URL }}
+        run: python -m leetnotes.cli --solutions-only
+
       - name: Regenerate Blind 75 notes
         run: python -m leetnotes.cli
 
