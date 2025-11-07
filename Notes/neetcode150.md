@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-11-06 13:27 UTC*
+*Last updated: 2025-11-07 13:24 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -655,28 +655,162 @@
 ## Graphs
 
 **Clone Graph** *([Problem](https://leetcode.com/problems/clone-graph/) | [Solution](../Problems/0133.%20Clone%20Graph))*
-- _No details provided._
+- **Time Complexity:** O(V * E)
+- **Space Complexity:** O(V)
+- **Notes:**
+  <ul>
+    <li>Idea: Recursively clone each node using the old node and returning the cloned node (whether it's already cloned or not):
+      <ol type="1">
+        <li>If the old node is already in the map, return its clone (because our recursive call takes in the old node)</li>
+        <li>Otherwise, create the clone and update our hashmap (old : new) that the node has been copied.</li>
+        <li>For each neighbor of the old node, get the neighbor’s clone by recursion and append it to the current clone’s neighbors</li>
+      </ol>
+    </li>
+    <li>Question: Why the hashmap?</li>
+    <li>Answer: It is both the visited check and the way to fetch the exact clone needed to wire edges (when we are updating neighbors of already cloned nodes)</li>
+  </ul>
 
 **Course Schedule II** *([Problem](https://leetcode.com/problems/course-schedule-ii/) | [Solution](../Problems/0210.%20Course%20Schedule%20II))*
 - _No details provided._
 
 **Course Schedule** *([Problem](https://leetcode.com/problems/course-schedule/) | [Solution](../Problems/0207.%20Course%20Schedule))*
-- _No details provided._
+- **Time Complexity:** O(V * E)
+- **Space Complexity:** O(V * E)
+- **Notes:**
+  <ul>
+    <li>Idea: Map course to its prerequisites, and run dfs on each prerequiste keeping track of the path
+      <ol type="1">
+        <li>Data structures: adjacency map (course to prerequisites); path set (path in our DFS process)</li>
+        <li>Iteration: Run DFS on every course; If any returns false, return false.</li>
+        <li>DFS:
+          <ul>
+            <li>Base case 1) If a course is already on our path (cycle), return false</li>
+            <li>Base case 2) If a course has no prerequsites (completed), return true</li>
+            <li>Otherwise: Add the course to our path and DFS on all prerequisites and:
+              <ul>
+                <li>If any of the DFS on prerequistes return false, return false</li>
+                <li>Else memoize and remove all the prerequisites for that course</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </li>
+  </ul>
 
 **Graph Valid Tree** *([Problem](https://leetcode.com/problems/graph-valid-tree/) | [Solution](../Problems/0261.%20Graph%20Valid%20Tree))*
-- _No details provided._
+- **Time Complexity:** O(V * E)
+- **Space Complexity:** O(V * E)
+- **Notes:**
+  <ul>
+    <li>Base Check: If the number of edges isn’t equal to the number of nodes minus one, the graph can’t be a valid tree</li>
+    <li>Reason: After the first node, each added node needs exactly one new edge to connect them to be a valid tree
+      <ol type="1">
+        <li>Data Structures:
+          <ul>
+            <li>Adjacency List: Map nodes to neighbors and back</li>
+            <li>Visited Set: Store every node visited for iteration/recursion using dfs/bfs</li>
+          </ul>
+        </li>
+        <li>Run DFS on any node passing a current node and previous node as parameters:
+          <ul>
+            <li>Base case: Check if node is in visited</li>
+            <li>For every neighbor the current node has, i
+              <ul>
+                <li>If the neighbor is the previous node, skip it</li>
+                <li>If the DFS call on the neighbor nodes is false, return false (caught a cycle)</li>
+              </ul>
+            </li>
+            <li>If the for loop preformed without failing, return True</li>
+          </ul>
+        </li>
+        <li>Return the boolean result of both (and):
+          <ul>
+            <li>The DFS call</li>
+            <li>Whether or not the number of visited nodes equals the total number of nodes (n)</li>
+          </ul>
+        </li>
+      </ol>
+    </li>
+  </ul>
 
 **Max Area of Island** *([Problem](https://leetcode.com/problems/max-area-of-island/) | [Solution](../Problems/0695.%20Max%20Area%20of%20Island))*
 - _No details provided._
 
 **Number of Connected Components In An Undirected Graph** *([Problem](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) | [Solutions](../Problems/0323.%20Number%20of%20Connected%20Components%20In%20An%20Undirected%20Graph))*
-- _No details provided._
+- **Time Complexity:** O(V * E)
+- **Space Complexity:** O(V * E)
+- **Notes:**
+  <ol type="1">
+    <li>Data Structures:
+      <ul>
+        <li>Adjacency List: Map nodes to neighbors and back</li>
+        <li>Visited Set: Store every node visited for iteration/recursion dfs/bfs</li>
+        <li>Components Count: Store amount of components detected</li>
+      </ul>
+    </li>
+    <li>Linear Iteration:
+      <ul>
+        <li>For each node in the graph
+          <ul>
+            <li>If we have not visitied yet, mark it as visited, run DFS, and increment our components counter</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>DFS:
+      <ul>
+        <li>For every neighbor the passed node has
+          <ul>
+            <li>If the neighbor is not in visited, mark it as visited and run DFS</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ol>
 
 **Number of Islands** *([Problem](https://leetcode.com/problems/number-of-islands/) | [Solution](../Problems/0200.%20Number%20of%20Islands))*
-- _No details provided._
+- **Time Complexity:** O(n): O(row * col)
+- **Space Complexity:** O(n): O(row * col)
+- **Notes:**
+  <ul>
+    <li>Idea: Iterate through each coordinate (row and col) in grid/matrix and run bfs or dfs every time we see a unvisited island coordinate (not in set)</li>
+    <li>BFS or DFS: Logic works for both below but bfs pops left vs. dfs pops right
+      <ul>
+        <li>Add the first coordinate to our visited set and to our queue (collections.deque)</li>
+        <li>While loop as long as we have valid coordinates in our queue</li>
+        <li>For loop to check all directions (left/right/up/down) of our current coordinates, if any of those coordinates:
+          <ul>
+            <li>Are within our row and col bounds (0 to the length of 0-indexed range)</li>
+            <li>Is an island in our grid (grid[row][col] == "x")</li>
+            <li>And is not in our visited set</li>
+          </ul>
+        </li>
+        <li>Means: we found another valid coordinate a part of this island, and we update our visited set and queue with those coordinates to reiterate</li>
+        <li>Otherwise: we do nothing until the queue is empty</li>
+      </ul>
+    </li>
+  </ul>
 
 **Pacific Atlantic Water Flow** *([Problem](https://leetcode.com/problems/pacific-atlantic-water-flow/) | [Solution](../Problems/0417.%20Pacific%20Atlantic%20Water%20Flow))*
-- _No details provided._
+- **Time Complexity:** O(n): O(row * col)
+- **Space Complexity:** O(n): O(row * col)
+- **Notes:**
+  <ul>
+    <li>Idea: Iterate through top/bottom, left/right sides and recursively dfs go inward storing valid coordinates in sets (coordinates that are in a path to ocean)
+      <ol type="1">
+        <li>Top/Bottom: Iterate through cols and recursive dfs on every coordinate on the top and bottom row (0, rows -1)</li>
+        <li>Left/Right: Iterate through rows and recursive dfs on every coordinate on the left and right cols (0, cols - 1)</li>
+        <li>DFS: If the row/col is within bounds, the coordinate has a equal or greater height than our old, and is not already marked reachable:
+          <ul>
+            <li>Mark it as reachable for that respective ocean</li>
+            <li>Recursively check all 4 directions</li>
+          </ul>
+        </li>
+        <li>Result: Iterate over one ocean’s reachable set and add any cell that also appears in the other ocean’s set to the result</li>
+      </ol>
+    </li>
+  </ul>
 
 **Redundant Connection** *([Problem](https://leetcode.com/problems/redundant-connection/) | [Solution](../Problems/0684.%20Redundant%20Connection))*
 - _No details provided._
@@ -688,7 +822,18 @@
 - _No details provided._
 
 **Walls And Gates** *([Problem](https://leetcode.com/problems/walls-and-gates/) | [Solution](../Problems/0286.%20Walls%20And%20Gates))*
-- _No details provided._
+- **Time Complexity:** O(n * m)
+- **Space Complexity:** O(n * m)
+- **Notes:**
+  <ul>
+    <li>Idea: Start from all gates and BFS outward, filling valid cells with shortest distances
+      <ol type="1">
+        <li>Data Structures: Queue</li>
+        <li>Loop through every cell and add the gate coordinates to the queue</li>
+        <li>Loop while queue, start from gates and bfs outward marking shortest distances</li>
+      </ol>
+    </li>
+  </ul>
 
 **Word Ladder** *([Problem](https://leetcode.com/problems/word-ladder/) | [Solution](../Problems/0127.%20Word%20Ladder))*
 - _No details provided._
