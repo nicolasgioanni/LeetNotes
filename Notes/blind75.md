@@ -1,7 +1,7 @@
 # Blind 75 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-12-01 13:31 UTC*
+*Last updated: 2025-12-02 13:32 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?output=csv
 )
@@ -35,6 +35,7 @@
   <ul>
     <li>Loop through strings storing list of counts as the key and string as value (defaultdict(list))</li>
     <li>ASCII values for count</li>
+    <li>Read-only view over the dict’s values: result.values()</li>
   </ul>
 
 **Longest Consecutive Sequence** *([Problem](https://leetcode.com/problems/longest-consecutive-sequence/) | [Solution](../Problems/0128.%20Longest%20Consecutive%20Sequence))*
