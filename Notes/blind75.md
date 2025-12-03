@@ -1,7 +1,7 @@
 # Blind 75 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-12-02 13:32 UTC*
+*Last updated: 2025-12-03 13:31 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?output=csv
 )
@@ -105,7 +105,7 @@
 
 ## Two Pointers
 
-**Container With Most Water** *([Problem](https://leetcode.com/problems/container-with-most-water/) | [Solution](../Problems/0011.%20Container%20With%20Most%20Water))*
+**Container With Most Water** *([Problem](https://leetcode.com/problems/container-with-most-water/) | [Solutions](../Problems/0011.%20Container%20With%20Most%20Water))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(1)
 - **Notes:**
