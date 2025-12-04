@@ -1,4 +1,4 @@
-# C++ Solution
+// C++
 class Solution {
 public:
     int maxArea(vector<int>& heights) {
