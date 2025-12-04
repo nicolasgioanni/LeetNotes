@@ -1,7 +1,7 @@
 # My Solved LeetCode Problem Index
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-12-02 13:33 UTC*
+*Last updated: 2025-12-04 13:32 UTC*
 
 This index lists every problem I've solved, organized by category, with links to the problem and my solutions.
 
@@ -18,14 +18,14 @@ This index lists every problem I've solved, organized by category, with links to
 - 49\. Group Anagrams ([Problem](https://leetcode.com/problems/group-anagrams/) | [Solution](./0049.%20Group%20Anagrams))
 
 ## Two Pointers
-- 11\. Container With Most Water ([Problem](https://leetcode.com/problems/container-with-most-water/) | [Solution](./0011.%20Container%20With%20Most%20Water))
+- 11\. Container With Most Water ([Problem](https://leetcode.com/problems/container-with-most-water/) | [Solutions](./0011.%20Container%20With%20Most%20Water))
 - 125\. Valid Palindrome ([Problem](https://leetcode.com/problems/valid-palindrome/) | [Solution](./0125.%20Valid%20Palindrome))
-- 15\. Three Sum ([Problem](https://leetcode.com/problems/3sum/) | [Solution](./0015.%20Three%20Sum))
+- 15\. Three Sum ([Problem](https://leetcode.com/problems/3sum/) | [Solutions](./0015.%20Three%20Sum))
 - 167\. Two Sum II Input Array Is Sorted ([Problem](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) | [Solution](./0167.%20Two%20Sum%20II%20Input%20Array%20Is%20Sorted))
 - 42\. Trapping Rain Water ([Problem](https://leetcode.com/problems/trapping-rain-water/) | [Solution](./0042.%20Trapping%20Rain%20Water))
 
 ## Sliding Window
-- 121\. Best Time to Buy and Sell Stock ([Problem](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) | [Solution](./0121.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock))
+- 121\. Best Time to Buy and Sell Stock ([Problem](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) | [Solutions](./0121.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock))
 - 239\. Sliding Window Maximum ([Problem](https://leetcode.com/problems/sliding-window-maximum/) | [Solution](./0239.%20Sliding%20Window%20Maximum))
 - 3\. Longest Substring Without Repeating Characters ([Problem](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | [Solution](./0003.%20Longest%20Substring%20Without%20Repeating%20Characters))
 - 424\. Longest Repeating Character Replacement ([Problem](https://leetcode.com/problems/longest-repeating-character-replacement/) | [Solution](./0424.%20Longest%20Repeating%20Character%20Replacement))

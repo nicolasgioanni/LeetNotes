@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-12-02 13:33 UTC*
+*Last updated: 2025-12-04 13:32 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -122,7 +122,7 @@
 
 ## Two Pointers
 
-**Container With Most Water** *([Problem](https://leetcode.com/problems/container-with-most-water/) | [Solution](../Problems/0011.%20Container%20With%20Most%20Water))*
+**Container With Most Water** *([Problem](https://leetcode.com/problems/container-with-most-water/) | [Solutions](../Problems/0011.%20Container%20With%20Most%20Water))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(1)
 - **Notes:**
@@ -133,7 +133,7 @@
     <li>Update pointers based on which value is smaller</li>
   </ul>
 
-**Three Sum** *([Problem](https://leetcode.com/problems/3sum/) | [Solution](../Problems/0015.%20Three%20Sum))*
+**Three Sum** *([Problem](https://leetcode.com/problems/3sum/) | [Solutions](../Problems/0015.%20Three%20Sum))*
 - **Time Complexity:** O(n^2)
 - **Space Complexity:** O(1) or O(n)
 - **Notes:**
@@ -184,7 +184,7 @@
 
 ## Sliding Window
 
-**Best Time to Buy and Sell Stock** *([Problem](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) | [Solution](../Problems/0121.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock))*
+**Best Time to Buy and Sell Stock** *([Problem](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) | [Solutions](../Problems/0121.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(1)
 - **Notes:**
