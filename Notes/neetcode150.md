@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-12-04 13:32 UTC*
+*Last updated: 2025-12-05 05:00 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -246,8 +246,36 @@
     </li>
   </ul>
 
-**Permutation In String** *([Problem](https://leetcode.com/problems/permutation-in-string/) | [Solution](../Problems/0567.%20Permutation%20In%20String))*
-- _No details provided._
+**Permutation In String** *([Problem](https://leetcode.com/problems/permutation-in-string/) | [Solutions](../Problems/0567.%20Permutation%20In%20String))*
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
+- **Notes:**
+  <ul>
+    <li>DSA: Frequency counters for both string, matches for every unique char
+      <ul>
+        <li>Populate both frequency counters with char counts for the length of the first string</li>
+        <li>Check each char count in both frequency counters:
+          <ul>
+            <li>+1 matches if they're equal</li>
+            <li>+0 if not</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>Fixed Sliding Window Algorithm:
+      <ul>
+        <li>Loop over the second string starting at the length of the first string</li>
+        <li>Base case: return True if matches ever equals 26 (all char counts are equal in the fixed window)</li>
+        <li>Increment the right pointer char count and decerment the left pointer char count in s2</li>
+        <li>For both pointers:
+          <ul>
+            <li>Check if the chars count in s2 matches s1's (increment matches +1)</li>
+            <li>Check if the chars count is s2 went over or under the count in s1's (decrement matches - 1)</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
 
 **Sliding Window Maximum** *([Problem](https://leetcode.com/problems/sliding-window-maximum/) | [Solution](../Problems/0239.%20Sliding%20Window%20Maximum))*
 - _No details provided._

@@ -1,4 +1,4 @@
-# Python Dynamic Programming
+# Dynamic programming
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         result = 0
