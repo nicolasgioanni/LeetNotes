@@ -7,7 +7,7 @@ from dataclasses import replace
 from pathlib import Path
 from typing import Iterable, Sequence
 
-from . import repo
+from . import languages, repo
 from .models import MetadataMap, NotesProfile
 
 _CODE_FENCE_RE = re.compile(r"^\s*```(?P<lang>[A-Za-z0-9+#-]*)\s*\n(?P<body>.*)\n```\s*$", re.DOTALL)
@@ -15,45 +15,6 @@ _BRACKET_LANG_RE = re.compile(r"^\s*\[(?P<lang>[^\]]+)\]\s*$")
 _PREFIX_LANG_RE = re.compile(r"^\s*(?:language\s*[:=]\s*)?(?P<lang>[A-Za-z0-9+#]+)\s*$", re.IGNORECASE)
 _SOLUTION_HEADER_PREFIX = re.compile(r"^\s*solution", re.IGNORECASE)
 _SOLUTION_COLUMN_INDEX = re.compile(r"(\d+)")
-
-_LANGUAGE_ALIASES = {
-    "py": "python",
-    "python": "python",
-    "python3": "python",
-    "java": "java",
-    "cpp": "cpp",
-    "c++": "cpp",
-    "c": "c",
-    "js": "javascript",
-    "javascript": "javascript",
-    "ts": "typescript",
-    "typescript": "typescript",
-    "go": "go",
-    "golang": "go",
-    "rust": "rust",
-    "swift": "swift",
-    "kotlin": "kotlin",
-    "scala": "scala",
-    "ruby": "ruby",
-    "c#": "csharp",
-    "csharp": "csharp",
-}
-
-_LANGUAGE_EXTENSIONS = {
-    "python": ".py",
-    "java": ".java",
-    "cpp": ".cpp",
-    "c": ".c",
-    "javascript": ".js",
-    "typescript": ".ts",
-    "go": ".go",
-    "rust": ".rs",
-    "swift": ".swift",
-    "kotlin": ".kt",
-    "scala": ".scala",
-    "ruby": ".rb",
-    "csharp": ".cs",
-}
 
 _EMPTY_TOKENS = {"", "na", "n/a", "none", "-", "--", "todo", "tbd"}
 
@@ -116,8 +77,8 @@ def sync_solutions_from_rows(
             code_body, lang_hint = _parse_solution_cell(raw_value)
             if not code_body.strip():
                 continue
-            language = _detect_language(code_body, lang_hint)
-            extension = _LANGUAGE_EXTENSIONS.get(language, ".py")
+            language = languages.detect_language(code_body, lang_hint)
+            extension = languages.extension_for_language(language)
             parsed_solutions.append((extension, _ensure_trailing_newline(code_body)))
 
         if parsed_solutions:
@@ -228,62 +189,6 @@ def _parse_solution_cell(raw_value: str) -> tuple[str, str | None]:
             return "\n".join(lines[1:]).strip("\n"), prefix_match.group("lang")
 
     return text.strip("\n"), None
-
-
-def _detect_language(code_body: str, hint: str | None) -> str:
-    if hint:
-        normalised = _LANGUAGE_ALIASES.get(hint.strip().lower(), hint.strip().lower())
-        if normalised in _LANGUAGE_EXTENSIONS:
-            return normalised
-
-    snippet = code_body.strip()
-    lowered = snippet.lower()
-
-    if (
-        "using system" in lowered
-        or ("namespace " in lowered and "namespace std" not in lowered)
-        or "console.write" in lowered
-        or "ilist<" in lowered
-        or "ienumerable<" in lowered
-    ):
-        return "csharp"
-    if (
-        "import java" in lowered
-        or "public class" in snippet
-        or "system.out" in lowered
-        or "public static void main" in lowered
-    ):
-        return "java"
-    if "#include" in lowered or "std::" in snippet or "using namespace std" in lowered:
-        return "cpp"
-    if "#include <stdio" in lowered or "printf(" in snippet:
-        return "c"
-    if (
-        lowered.startswith("package ")
-        or "package main" in lowered
-        or ("func " in lowered and "fmt." in lowered)
-    ):
-        return "go"
-    if lowered.startswith("def ") or lowered.startswith("class ") or "def " in lowered:
-        return "python"
-    if "fun main(" in lowered or "val " in lowered:
-        return "kotlin"
-    if "func " in lowered and "->" in snippet:
-        return "swift"
-    if (
-        "console.log" in lowered
-        or lowered.startswith("function ")
-        or lowered.startswith("const ")
-        or lowered.startswith("let ")
-        or lowered.startswith("var ")
-        or " => " in snippet
-        or "=>{" in snippet
-        or "module.exports" in lowered
-        or "export default" in lowered
-    ):
-        return "javascript"
-
-    return "python"
 
 
 def _ensure_trailing_newline(text: str) -> str:

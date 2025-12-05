@@ -153,6 +153,126 @@ def test_sync_detects_javascript_extension(monkeypatch: pytest.MonkeyPatch, tmp_
     assert metadata["Two Sum"].solutions == ("solution1.js",)
 
 
+def test_sync_detects_c_extension(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    profile = _profile(tmp_path)
+    profile.problems_dir.mkdir(parents=True, exist_ok=True)
+    monkeypatch.setattr(repo, "lookup_problem", _stub_lookup_problem)
+
+    rows = [{"Problem": "Bit Counter", "Category": "Bit"}]
+    metadata: MetadataMap = repo.ensure_problem_folders(rows, profile)
+
+    c_code = "#include <stdio.h>\nint countBits(int n){ return 0; }"
+
+    solution_fieldnames = ["Problems", "Category", "Solution 1"]
+    solution_rows = [
+        {"Problems": "Bit Counter", "Category": "Bit", "Solution 1": c_code},
+    ]
+
+    solutions.sync_solutions_from_rows(
+        solution_fieldnames,
+        solution_rows,
+        metadata,
+        profile,
+    )
+
+    problem_folder = profile.problems_dir / "0123. Bit Counter"
+    assert (problem_folder / "solution1.c").exists()
+    assert metadata["Bit Counter"].solutions == ("solution1.c",)
+
+
+def test_sync_detects_typescript_extension(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    profile = _profile(tmp_path)
+    profile.problems_dir.mkdir(parents=True, exist_ok=True)
+    monkeypatch.setattr(repo, "lookup_problem", _stub_lookup_problem)
+
+    rows = [{"Problem": "Shortest Path", "Category": "Graphs"}]
+    metadata: MetadataMap = repo.ensure_problem_folders(rows, profile)
+
+    ts_code = (
+        "function shortestPath(edges: number[][], n: number): number[] {\n"
+        "  const dist: number[] = new Array(n).fill(Infinity);\n"
+        "  return dist;\n"
+        "}"
+    )
+
+    solution_fieldnames = ["Problems", "Category", "Solution 1"]
+    solution_rows = [
+        {"Problems": "Shortest Path", "Category": "Graphs", "Solution 1": ts_code},
+    ]
+
+    solutions.sync_solutions_from_rows(
+        solution_fieldnames,
+        solution_rows,
+        metadata,
+        profile,
+    )
+
+    problem_folder = profile.problems_dir / "0123. Shortest Path"
+    assert (problem_folder / "solution1.ts").exists()
+    assert metadata["Shortest Path"].solutions == ("solution1.ts",)
+
+
+def test_sync_detects_csharp_extension(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    profile = _profile(tmp_path)
+    profile.problems_dir.mkdir(parents=True, exist_ok=True)
+    monkeypatch.setattr(repo, "lookup_problem", _stub_lookup_problem)
+
+    rows = [{"Problem": "Validate Tree", "Category": "Trees"}]
+    metadata: MetadataMap = repo.ensure_problem_folders(rows, profile)
+
+    csharp_code = (
+        "using System;\n"
+        "public class Solution {\n"
+        "    public bool Validate(int[] nums) {\n"
+        "        return nums.Length > 0;\n"
+        "    }\n"
+        "}"
+    )
+
+    solution_fieldnames = ["Problems", "Category", "Solution 1"]
+    solution_rows = [
+        {"Problems": "Validate Tree", "Category": "Trees", "Solution 1": csharp_code},
+    ]
+
+    solutions.sync_solutions_from_rows(
+        solution_fieldnames,
+        solution_rows,
+        metadata,
+        profile,
+    )
+
+    problem_folder = profile.problems_dir / "0123. Validate Tree"
+    assert (problem_folder / "solution1.cs").exists()
+    assert metadata["Validate Tree"].solutions == ("solution1.cs",)
+
+
+def test_sync_respects_language_hint(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    profile = _profile(tmp_path)
+    profile.problems_dir.mkdir(parents=True, exist_ok=True)
+    monkeypatch.setattr(repo, "lookup_problem", _stub_lookup_problem)
+
+    rows = [{"Problem": "Ambiguous", "Category": "Misc"}]
+    metadata: MetadataMap = repo.ensure_problem_folders(rows, profile)
+
+    hinted_code = "Language: java\nprint('looks python')"
+
+    solution_fieldnames = ["Problems", "Category", "Solution 1"]
+    solution_rows = [
+        {"Problems": "Ambiguous", "Category": "Misc", "Solution 1": hinted_code},
+    ]
+
+    solutions.sync_solutions_from_rows(
+        solution_fieldnames,
+        solution_rows,
+        metadata,
+        profile,
+    )
+
+    problem_folder = profile.problems_dir / "0123. Ambiguous"
+    assert (problem_folder / "solution1.java").exists()
+    assert metadata["Ambiguous"].solutions == ("solution1.java",)
+
+
 def test_sync_removes_all_solutions_when_csv_empty(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
     profile = _profile(tmp_path)
     profile.problems_dir.mkdir(parents=True, exist_ok=True)
