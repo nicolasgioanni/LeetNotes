@@ -1,4 +1,3 @@
-# Python
 class Solution:
     def trap(self, height: List[int]) -> int:
         result = 0

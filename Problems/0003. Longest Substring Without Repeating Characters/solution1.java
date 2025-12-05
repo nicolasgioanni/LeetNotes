@@ -1,4 +1,3 @@
-# Python
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         if not s or s == "":

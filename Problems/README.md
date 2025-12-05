@@ -1,7 +1,7 @@
 # My Solved LeetCode Problem Index
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-12-04 13:32 UTC*
+*Last updated: 2025-12-05 05:00 UTC*
 
 This index lists every problem I've solved, organized by category, with links to the problem and my solutions.
 
@@ -29,7 +29,7 @@ This index lists every problem I've solved, organized by category, with links to
 - 239\. Sliding Window Maximum ([Problem](https://leetcode.com/problems/sliding-window-maximum/) | [Solution](./0239.%20Sliding%20Window%20Maximum))
 - 3\. Longest Substring Without Repeating Characters ([Problem](https://leetcode.com/problems/longest-substring-without-repeating-characters/) | [Solution](./0003.%20Longest%20Substring%20Without%20Repeating%20Characters))
 - 424\. Longest Repeating Character Replacement ([Problem](https://leetcode.com/problems/longest-repeating-character-replacement/) | [Solution](./0424.%20Longest%20Repeating%20Character%20Replacement))
-- 567\. Permutation In String ([Problem](https://leetcode.com/problems/permutation-in-string/) | [Solution](./0567.%20Permutation%20In%20String))
+- 567\. Permutation In String ([Problem](https://leetcode.com/problems/permutation-in-string/) | [Solutions](./0567.%20Permutation%20In%20String))
 - 76\. Minimum Window Substring ([Problem](https://leetcode.com/problems/minimum-window-substring/) | [Solution](./0076.%20Minimum%20Window%20Substring))
 
 ## Stack
