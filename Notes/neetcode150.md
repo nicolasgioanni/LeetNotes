@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-12-08 13:31 UTC*
+*Last updated: 2025-12-09 13:32 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -400,7 +400,8 @@
   </ul>
 
 **Time Based Key Value Store** *([Problem](https://leetcode.com/problems/time-based-key-value-store/) | [Solution](../Problems/0981.%20Time%20Based%20Key%20Value%20Store))*
-- _No details provided._
+- **Time Complexity:** O(1): set O(logn): get
+- **Space Complexity:** O(n)
 
 ## Linked List
 
@@ -779,7 +780,18 @@
   </ul>
 
 **Max Area of Island** *([Problem](https://leetcode.com/problems/max-area-of-island/) | [Solution](../Problems/0695.%20Max%20Area%20of%20Island))*
-- _No details provided._
+- **Time Complexity:** O(n): O(row * col)
+- **Space Complexity:** O(n): O(row * col)
+- **Notes:**
+  <ul>
+    <li>Idea: Iterate through each coordinate and if the coordinate is part of a island + not already seen, bfs/dfs the island + count</li>
+    <li>Data Structures: Set for seen and int for maxArea
+      <ul>
+        <li>Iterate through each coordinate and if we find a part of a island we haven't seen, update our max island area with either our old value or dfs of that island</li>
+        <li>DFS or BFS: Area starts at 1, add for every island cooridnate we find after, return area</li>
+      </ul>
+    </li>
+  </ul>
 
 **Number of Connected Components In An Undirected Graph** *([Problem](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) | [Solutions](../Problems/0323.%20Number%20of%20Connected%20Components%20In%20An%20Undirected%20Graph))*
 - **Time Complexity:** O(V * E)
@@ -860,10 +872,27 @@
 - _No details provided._
 
 **Rotting Oranges** *([Problem](https://leetcode.com/problems/rotting-oranges/) | [Solution](../Problems/0994.%20Rotting%20Oranges))*
-- _No details provided._
+- **Time Complexity:** O(n * m)
+- **Space Complexity:** O(n * m)
+- **Notes:**
+  <ul>
+    <li>Idea: Iterate through every coordinate, storing fresh fruit counts and rotten fruit coordinates. Bfs or dfs from every rotten fruit until the path is done, counting time at each level
+      <ol type="1">
+        <li>Data Structures: Queue or dfs</li>
+        <li>Loop through every cell and add rotten fruit coordinates to the queue or incrementing the amount of fresh fruits</li>
+        <li>For every rotten fruit, pop it from the queue, check all 4 directions, and change fresh fruits to rotten fruits + adding new rotten fruits to the queue
+          <ul>
+            <li>For every level, increment that processes time by 1. Each level is the length of the queue before you move onto the next set of rotten fruits</li>
+            <li>For every rotten fruit infected (every coordinate popped), decrement the amount of fresh fruits</li>
+          </ul>
+        </li>
+        <li>Return the time if there are no fresh fruits left (freshFruits == 0)</li>
+      </ol>
+    </li>
+  </ul>
 
 **Surrounded Regions** *([Problem](https://leetcode.com/problems/surrounded-regions/) | [Solution](../Problems/0130.%20Surrounded%20Regions))*
-- _No details provided._
+- **Notes:** Idea: Start from the edges
 
 **Walls And Gates** *([Problem](https://leetcode.com/problems/walls-and-gates/) | [Solution](../Problems/0286.%20Walls%20And%20Gates))*
 - **Time Complexity:** O(n * m)
