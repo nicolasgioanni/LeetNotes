@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-12-09 13:32 UTC*
+*Last updated: 2025-12-10 13:33 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -718,7 +718,7 @@
 **Course Schedule II** *([Problem](https://leetcode.com/problems/course-schedule-ii/) | [Solution](../Problems/0210.%20Course%20Schedule%20II))*
 - _No details provided._
 
-**Course Schedule** *([Problem](https://leetcode.com/problems/course-schedule/) | [Solution](../Problems/0207.%20Course%20Schedule))*
+**Course Schedule** *([Problem](https://leetcode.com/problems/course-schedule/) | [Solutions](../Problems/0207.%20Course%20Schedule))*
 - **Time Complexity:** O(V * E)
 - **Space Complexity:** O(V * E)
 - **Notes:**
@@ -743,7 +743,7 @@
     </li>
   </ul>
 
-**Graph Valid Tree** *([Problem](https://leetcode.com/problems/graph-valid-tree/) | [Solution](../Problems/0261.%20Graph%20Valid%20Tree))*
+**Graph Valid Tree** *([Problem](https://leetcode.com/problems/graph-valid-tree/) | [Solutions](../Problems/0261.%20Graph%20Valid%20Tree))*
 - **Time Complexity:** O(V * E)
 - **Space Complexity:** O(V * E)
 - **Notes:**
@@ -869,7 +869,31 @@
   </ul>
 
 **Redundant Connection** *([Problem](https://leetcode.com/problems/redundant-connection/) | [Solution](../Problems/0684.%20Redundant%20Connection))*
-- _No details provided._
+- **Time Complexity:** O(n) or O(V * E)
+- **Space Complexity:** O(n) or O(V * E)
+- **Notes:**
+  <ol type="1">
+    <li>Data Structues:</li>
+  </ol>
+  <ul>
+    <li>Adjacency List: Map nodes to neighbors and back</li>
+    <li>Queue: Keep track of the current path and use to determine nodes that are part of the cycle</li>
+    <li>Set: Keep track of the current path and use to check in constant time (optimal) if current path is a cycle + nodes in the cycle</li>
+    <li>Note: You could also use a dict/hashmap instead of a queue or set. Use popleft() = del, iterate by list(dict.keys())</li>
+  </ul>
+  <ol type="1">
+    <li>DFS:</li>
+  </ol>
+  <ul>
+    <li>Base case: If the node is already in our path set (cycle detected):
+      <ul>
+        <li>While the front of the queue is not this new node that made our path into a cycle, remove it from the queue and our path set and return True</li>
+      </ul>
+    </li>
+    <li>Otherwise, add the node to our queue and path set, and iterate over its neighbors. If the dfs of the neighbor returns True, return True</li>
+    <li>If that path is valid (never returned True meaning no cycle detected), pop that node and remove it from our path set</li>
+    <li>Note: Make sure to not create a infinite loop by not iterating over the node that we came from (parent/prevNode)</li>
+  </ul>
 
 **Rotting Oranges** *([Problem](https://leetcode.com/problems/rotting-oranges/) | [Solution](../Problems/0994.%20Rotting%20Oranges))*
 - **Time Complexity:** O(n * m)
@@ -892,7 +916,7 @@
   </ul>
 
 **Surrounded Regions** *([Problem](https://leetcode.com/problems/surrounded-regions/) | [Solution](../Problems/0130.%20Surrounded%20Regions))*
-- **Notes:** Idea: Start from the edges
+- **Notes:** Idea: Iterate the boundaries, start from all edge "O" cells, use BFS/DFS to mark them as "T" (safe), then scan the whole board to flip remaining "O" to "X" and convert "T" back to "O".
 
 **Walls And Gates** *([Problem](https://leetcode.com/problems/walls-and-gates/) | [Solution](../Problems/0286.%20Walls%20And%20Gates))*
 - **Time Complexity:** O(n * m)
