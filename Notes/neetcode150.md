@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-12-10 13:33 UTC*
+*Last updated: 2025-12-11 13:34 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -933,7 +933,25 @@
   </ul>
 
 **Word Ladder** *([Problem](https://leetcode.com/problems/word-ladder/) | [Solution](../Problems/0127.%20Word%20Ladder))*
-- _No details provided._
+- **Time Complexity:** O(N * M²)
+- **Space Complexity:** O(N * M²)
+- **Notes:**
+  <ol type="1">
+    <li>Idea: Create a adjaceny map, mapping patterns (*ot, h*t, ho* : hot) to words then start at the beginning word and bfs over all its patterns until you find the end word</li>
+    <li>Data Structures: AdjList (defaultdict(list)), queue (bfs), set (to track visited nodes/patterns)</li>
+    <li>BFS:</li>
+  </ol>
+  <ul>
+    <li>Iterate over each level and increment the result by 1 for each level</li>
+    <li>Base case: The current word we are looking at is the target word</li>
+    <li>Otherwise, append to the queue, all other words that have a similar pattern
+      <ul>
+        <li>For every char in the word that is replaced with a *, for every other word that we haven't already checked that has that same pattern, traverse it</li>
+      </ul>
+    </li>
+    <li>If we don't find the target word, return 0 or whatever means fail</li>
+    <li>Note: You could also solve it without a pattern map. Start at the beginning word, for every char, try every other char, and if that word is in the wordList, add that to the queue</li>
+  </ul>
 
 ## Advanced Graphs
 
