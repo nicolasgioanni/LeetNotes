@@ -1,7 +1,7 @@
 # My Solved LeetCode Problem Index
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-12-14 13:23 UTC*
+*Last updated: 2025-12-15 13:36 UTC*
 
 This index lists every problem I've solved, organized by category, with links to the problem and my solutions.
 
@@ -129,7 +129,7 @@ This index lists every problem I've solved, organized by category, with links to
 - 416\. Partition Equal Subset Sum ([Problem](https://leetcode.com/problems/partition-equal-subset-sum/) | [Solution](./0416.%20Partition%20Equal%20Subset%20Sum))
 - 5\. Longest Palindromic Substring ([Problem](https://leetcode.com/problems/longest-palindromic-substring/) | [Solution](./0005.%20Longest%20Palindromic%20Substring))
 - 647\. Palindromic Substrings ([Problem](https://leetcode.com/problems/palindromic-substrings/) | [Solution](./0647.%20Palindromic%20Substrings))
-- 70\. Climbing Stairs ([Problem](https://leetcode.com/problems/climbing-stairs/) | [Solution](./0070.%20Climbing%20Stairs))
+- 70\. Climbing Stairs ([Problem](https://leetcode.com/problems/climbing-stairs/) | [Solutions](./0070.%20Climbing%20Stairs))
 - 746\. Min Cost Climbing Stairs ([Problem](https://leetcode.com/problems/min-cost-climbing-stairs/) | [Solution](./0746.%20Min%20Cost%20Climbing%20Stairs))
 - 91\. Decode Ways ([Problem](https://leetcode.com/problems/decode-ways/) | [Solution](./0091.%20Decode%20Ways))
 
