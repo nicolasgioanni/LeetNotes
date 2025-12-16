@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-12-14 13:23 UTC*
+*Last updated: 2025-12-16 13:34 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -975,7 +975,7 @@
 
 ## 1-D Dynamic Programming
 
-**Climbing Stairs** *([Problem](https://leetcode.com/problems/climbing-stairs/) | [Solution](../Problems/0070.%20Climbing%20Stairs))*
+**Climbing Stairs** *([Problem](https://leetcode.com/problems/climbing-stairs/) | [Solutions](../Problems/0070.%20Climbing%20Stairs))*
 - _No details provided._
 
 **Coin Change** *([Problem](https://leetcode.com/problems/coin-change/) | [Solution](../Problems/0322.%20Coin%20Change))*
@@ -985,9 +985,9 @@
 - _No details provided._
 
 **House Robber II** *([Problem](https://leetcode.com/problems/house-robber-ii/) | [Solution](../Problems/0213.%20House%20Robber%20II))*
-- _No details provided._
+- **Notes:** Idea: Same as House Robber I but on the list either elimitating the first or the last element.
 
-**House Robber** *([Problem](https://leetcode.com/problems/house-robber/) | [Solution](../Problems/0198.%20House%20Robber))*
+**House Robber** *([Problem](https://leetcode.com/problems/house-robber/) | [Solutions](../Problems/0198.%20House%20Robber))*
 - _No details provided._
 
 **Longest Increasing Subsequence** *([Problem](https://leetcode.com/problems/longest-increasing-subsequence/) | [Solution](../Problems/0300.%20Longest%20Increasing%20Subsequence))*
