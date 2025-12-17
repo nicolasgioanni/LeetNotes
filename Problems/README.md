@@ -1,7 +1,7 @@
 # My Solved LeetCode Problem Index
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-12-16 13:34 UTC*
+*Last updated: 2025-12-17 13:30 UTC*
 
 This index lists every problem I've solved, organized by category, with links to the problem and my solutions.
 
@@ -123,7 +123,7 @@ This index lists every problem I've solved, organized by category, with links to
 - 139\. Word Break ([Problem](https://leetcode.com/problems/word-break/) | [Solution](./0139.%20Word%20Break))
 - 152\. Maximum Product Subarray ([Problem](https://leetcode.com/problems/maximum-product-subarray/) | [Solution](./0152.%20Maximum%20Product%20Subarray))
 - 198\. House Robber ([Problem](https://leetcode.com/problems/house-robber/) | [Solutions](./0198.%20House%20Robber))
-- 213\. House Robber II ([Problem](https://leetcode.com/problems/house-robber-ii/) | [Solution](./0213.%20House%20Robber%20II))
+- 213\. House Robber II ([Problem](https://leetcode.com/problems/house-robber-ii/) | [Solutions](./0213.%20House%20Robber%20II))
 - 300\. Longest Increasing Subsequence ([Problem](https://leetcode.com/problems/longest-increasing-subsequence/) | [Solution](./0300.%20Longest%20Increasing%20Subsequence))
 - 322\. Coin Change ([Problem](https://leetcode.com/problems/coin-change/) | [Solution](./0322.%20Coin%20Change))
 - 416\. Partition Equal Subset Sum ([Problem](https://leetcode.com/problems/partition-equal-subset-sum/) | [Solution](./0416.%20Partition%20Equal%20Subset%20Sum))
