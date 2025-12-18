@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-12-17 13:30 UTC*
+*Last updated: 2025-12-18 13:32 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -993,7 +993,7 @@
 **Longest Increasing Subsequence** *([Problem](https://leetcode.com/problems/longest-increasing-subsequence/) | [Solution](../Problems/0300.%20Longest%20Increasing%20Subsequence))*
 - _No details provided._
 
-**Longest Palindromic Substring** *([Problem](https://leetcode.com/problems/longest-palindromic-substring/) | [Solution](../Problems/0005.%20Longest%20Palindromic%20Substring))*
+**Longest Palindromic Substring** *([Problem](https://leetcode.com/problems/longest-palindromic-substring/) | [Solutions](../Problems/0005.%20Longest%20Palindromic%20Substring))*
 - _No details provided._
 
 **Maximum Product Subarray** *([Problem](https://leetcode.com/problems/maximum-product-subarray/) | [Solution](../Problems/0152.%20Maximum%20Product%20Subarray))*
