@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-12-18 13:32 UTC*
+*Last updated: 2025-12-20 13:22 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -1002,7 +1002,7 @@
 **Min Cost Climbing Stairs** *([Problem](https://leetcode.com/problems/min-cost-climbing-stairs/) | [Solution](../Problems/0746.%20Min%20Cost%20Climbing%20Stairs))*
 - _No details provided._
 
-**Palindromic Substrings** *([Problem](https://leetcode.com/problems/palindromic-substrings/) | [Solution](../Problems/0647.%20Palindromic%20Substrings))*
+**Palindromic Substrings** *([Problem](https://leetcode.com/problems/palindromic-substrings/) | [Solutions](../Problems/0647.%20Palindromic%20Substrings))*
 - _No details provided._
 
 **Partition Equal Subset Sum** *([Problem](https://leetcode.com/problems/partition-equal-subset-sum/) | [Solution](../Problems/0416.%20Partition%20Equal%20Subset%20Sum))*
