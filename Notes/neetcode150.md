@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-12-21 13:23 UTC*
+*Last updated: 2025-12-22 13:30 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -981,7 +981,7 @@
 **Coin Change** *([Problem](https://leetcode.com/problems/coin-change/) | [Solution](../Problems/0322.%20Coin%20Change))*
 - _No details provided._
 
-**Decode Ways** *([Problem](https://leetcode.com/problems/decode-ways/) | [Solution](../Problems/0091.%20Decode%20Ways))*
+**Decode Ways** *([Problem](https://leetcode.com/problems/decode-ways/) | [Solutions](../Problems/0091.%20Decode%20Ways))*
 - _No details provided._
 
 **House Robber II** *([Problem](https://leetcode.com/problems/house-robber-ii/) | [Solutions](../Problems/0213.%20House%20Robber%20II))*
