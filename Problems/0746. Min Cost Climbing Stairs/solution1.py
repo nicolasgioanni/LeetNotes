@@ -1,8 +1,10 @@
+# Brute Force
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
-        cost.append(0)
+        
+        def dfs(index):
+            if index >= len(cost):
+                return 0
+            return cost[index] + min(dfs(index + 1), dfs(index + 2))
 
-        for i in range(len(cost) - 3, -1, -1):
-            cost[i] += min(cost[i + 1], cost[i + 2])
-
-        return min(cost[0], cost[1])
+        return min(dfs(0), dfs(1))
