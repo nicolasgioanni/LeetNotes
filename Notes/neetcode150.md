@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-12-22 13:30 UTC*
+*Last updated: 2025-12-24 13:28 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -978,7 +978,7 @@
 **Climbing Stairs** *([Problem](https://leetcode.com/problems/climbing-stairs/) | [Solutions](../Problems/0070.%20Climbing%20Stairs))*
 - _No details provided._
 
-**Coin Change** *([Problem](https://leetcode.com/problems/coin-change/) | [Solution](../Problems/0322.%20Coin%20Change))*
+**Coin Change** *([Problem](https://leetcode.com/problems/coin-change/) | [Solutions](../Problems/0322.%20Coin%20Change))*
 - _No details provided._
 
 **Decode Ways** *([Problem](https://leetcode.com/problems/decode-ways/) | [Solutions](../Problems/0091.%20Decode%20Ways))*
@@ -996,10 +996,10 @@
 **Longest Palindromic Substring** *([Problem](https://leetcode.com/problems/longest-palindromic-substring/) | [Solutions](../Problems/0005.%20Longest%20Palindromic%20Substring))*
 - _No details provided._
 
-**Maximum Product Subarray** *([Problem](https://leetcode.com/problems/maximum-product-subarray/) | [Solution](../Problems/0152.%20Maximum%20Product%20Subarray))*
+**Maximum Product Subarray** *([Problem](https://leetcode.com/problems/maximum-product-subarray/) | [Solutions](../Problems/0152.%20Maximum%20Product%20Subarray))*
 - _No details provided._
 
-**Min Cost Climbing Stairs** *([Problem](https://leetcode.com/problems/min-cost-climbing-stairs/) | [Solution](../Problems/0746.%20Min%20Cost%20Climbing%20Stairs))*
+**Min Cost Climbing Stairs** *([Problem](https://leetcode.com/problems/min-cost-climbing-stairs/) | [Solutions](../Problems/0746.%20Min%20Cost%20Climbing%20Stairs))*
 - _No details provided._
 
 **Palindromic Substrings** *([Problem](https://leetcode.com/problems/palindromic-substrings/) | [Solutions](../Problems/0647.%20Palindromic%20Substrings))*
@@ -1008,7 +1008,7 @@
 **Partition Equal Subset Sum** *([Problem](https://leetcode.com/problems/partition-equal-subset-sum/) | [Solution](../Problems/0416.%20Partition%20Equal%20Subset%20Sum))*
 - _No details provided._
 
-**Word Break** *([Problem](https://leetcode.com/problems/word-break/) | [Solution](../Problems/0139.%20Word%20Break))*
+**Word Break** *([Problem](https://leetcode.com/problems/word-break/) | [Solutions](../Problems/0139.%20Word%20Break))*
 - _No details provided._
 
 ## 2-D Dynamic Programming
