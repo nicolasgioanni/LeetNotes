@@ -1,7 +1,7 @@
 # My Solved LeetCode Problem Index
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-12-23 13:33 UTC*
+*Last updated: 2025-12-24 13:28 UTC*
 
 This index lists every problem I've solved, organized by category, with links to the problem and my solutions.
 
@@ -120,12 +120,12 @@ This index lists every problem I've solved, organized by category, with links to
 - 787\. Cheapest Flights Within K Stops ([Problem](https://leetcode.com/problems/cheapest-flights-within-k-stops/) | [Solution](./0787.%20Cheapest%20Flights%20Within%20K%20Stops))
 
 ## 1-D Dynamic Programming
-- 139\. Word Break ([Problem](https://leetcode.com/problems/word-break/) | [Solution](./0139.%20Word%20Break))
-- 152\. Maximum Product Subarray ([Problem](https://leetcode.com/problems/maximum-product-subarray/) | [Solution](./0152.%20Maximum%20Product%20Subarray))
+- 139\. Word Break ([Problem](https://leetcode.com/problems/word-break/) | [Solutions](./0139.%20Word%20Break))
+- 152\. Maximum Product Subarray ([Problem](https://leetcode.com/problems/maximum-product-subarray/) | [Solutions](./0152.%20Maximum%20Product%20Subarray))
 - 198\. House Robber ([Problem](https://leetcode.com/problems/house-robber/) | [Solutions](./0198.%20House%20Robber))
 - 213\. House Robber II ([Problem](https://leetcode.com/problems/house-robber-ii/) | [Solutions](./0213.%20House%20Robber%20II))
 - 300\. Longest Increasing Subsequence ([Problem](https://leetcode.com/problems/longest-increasing-subsequence/) | [Solution](./0300.%20Longest%20Increasing%20Subsequence))
-- 322\. Coin Change ([Problem](https://leetcode.com/problems/coin-change/) | [Solution](./0322.%20Coin%20Change))
+- 322\. Coin Change ([Problem](https://leetcode.com/problems/coin-change/) | [Solutions](./0322.%20Coin%20Change))
 - 416\. Partition Equal Subset Sum ([Problem](https://leetcode.com/problems/partition-equal-subset-sum/) | [Solution](./0416.%20Partition%20Equal%20Subset%20Sum))
 - 5\. Longest Palindromic Substring ([Problem](https://leetcode.com/problems/longest-palindromic-substring/) | [Solutions](./0005.%20Longest%20Palindromic%20Substring))
 - 647\. Palindromic Substrings ([Problem](https://leetcode.com/problems/palindromic-substrings/) | [Solutions](./0647.%20Palindromic%20Substrings))
