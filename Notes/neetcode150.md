@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-12-24 13:28 UTC*
+*Last updated: 2025-12-25 13:28 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -990,7 +990,7 @@
 **House Robber** *([Problem](https://leetcode.com/problems/house-robber/) | [Solutions](../Problems/0198.%20House%20Robber))*
 - _No details provided._
 
-**Longest Increasing Subsequence** *([Problem](https://leetcode.com/problems/longest-increasing-subsequence/) | [Solution](../Problems/0300.%20Longest%20Increasing%20Subsequence))*
+**Longest Increasing Subsequence** *([Problem](https://leetcode.com/problems/longest-increasing-subsequence/) | [Solutions](../Problems/0300.%20Longest%20Increasing%20Subsequence))*
 - _No details provided._
 
 **Longest Palindromic Substring** *([Problem](https://leetcode.com/problems/longest-palindromic-substring/) | [Solutions](../Problems/0005.%20Longest%20Palindromic%20Substring))*
