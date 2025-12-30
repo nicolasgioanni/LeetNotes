@@ -1,7 +1,7 @@
 # Blind 75 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-12-27 13:24 UTC*
+*Last updated: 2025-12-30 13:31 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?output=csv
 )
@@ -782,10 +782,10 @@
 
 ## 2-D Dynamic Programming
 
-**Longest Common Subsequence** *([Problem](https://leetcode.com/problems/longest-common-subsequence/) | [Solution](../Problems/1143.%20Longest%20Common%20Subsequence))*
+**Longest Common Subsequence** *([Problem](https://leetcode.com/problems/longest-common-subsequence/) | [Solutions](../Problems/1143.%20Longest%20Common%20Subsequence))*
 - _No details provided._
 
-**Unique Paths** *([Problem](https://leetcode.com/problems/unique-paths/) | [Solution](../Problems/0062.%20Unique%20Paths))*
+**Unique Paths** *([Problem](https://leetcode.com/problems/unique-paths/) | [Solutions](../Problems/0062.%20Unique%20Paths))*
 - _No details provided._
 
 ## Greedy

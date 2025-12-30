@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2025-12-27 13:26 UTC*
+*Last updated: 2025-12-30 13:32 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -1031,7 +1031,7 @@
 **Interleaving String** *([Problem](https://leetcode.com/problems/interleaving-string/) | [Solution](../Problems/0097.%20Interleaving%20String))*
 - _No details provided._
 
-**Longest Common Subsequence** *([Problem](https://leetcode.com/problems/longest-common-subsequence/) | [Solution](../Problems/1143.%20Longest%20Common%20Subsequence))*
+**Longest Common Subsequence** *([Problem](https://leetcode.com/problems/longest-common-subsequence/) | [Solutions](../Problems/1143.%20Longest%20Common%20Subsequence))*
 - _No details provided._
 
 **Longest Increasing Path In a Matrix** *([Problem](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/) | [Solution](../Problems/0329.%20Longest%20Increasing%20Path%20In%20a%20Matrix))*
@@ -1043,7 +1043,7 @@
 **Target Sum** *([Problem](https://leetcode.com/problems/target-sum/) | [Solution](../Problems/0494.%20Target%20Sum))*
 - _No details provided._
 
-**Unique Paths** *([Problem](https://leetcode.com/problems/unique-paths/) | [Solution](../Problems/0062.%20Unique%20Paths))*
+**Unique Paths** *([Problem](https://leetcode.com/problems/unique-paths/) | [Solutions](../Problems/0062.%20Unique%20Paths))*
 - _No details provided._
 
 ## Greedy
