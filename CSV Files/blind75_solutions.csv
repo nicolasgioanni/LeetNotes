@@ -1,0 +1,1965 @@
+Problems,Column 5,Solution 1,Solution 2,Solution 3
+Contains Duplicate,Arrays & Hashing,"class Solution:
+    def hasDuplicate(self, nums: List[int]) -> bool:
+        seen = set()
+
+        for num in nums:
+            if num in seen:
+                return True
+            else:
+                seen.add(num)
+
+        return False",,
+Valid Anagram,Arrays & Hashing,"class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+        
+        count = [0] * 26
+
+        for char in range(len(s)):
+            count[ord(s[char]) - ord('a')] += 1
+            count[ord(t[char]) - ord('a')] -= 1
+
+        for charCount in range(len(count)):
+            if count[charCount] != 0:
+                return False
+
+        else: 
+            return True",,
+Two Sum,Arrays & Hashing,"class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        seen = {}
+
+        for key, num in enumerate(nums):
+            difference = target - num
+            if difference in seen:
+                return [seen[difference], key]
+            seen[num] = key",,
+Group Anagrams,Arrays & Hashing,"class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        result = defaultdict(list)
+
+        for s in strs:
+            count = [0] * 26
+            for c in range(len(s)):
+                count[ord(s[c]) - ord('a')] += 1
+            result[tuple(count)].append(s)
+
+        return list(result.values())",,
+Top K Frequent Elements,Arrays & Hashing,"class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        frequency = [[] for i in range(len(nums) + 1)]
+        counts = defaultdict(int)
+
+        for num in nums:
+            counts[num] += 1
+        
+        for num, count in counts.items():
+            frequency[count].append(num)
+
+        result = []
+
+        for i in range(len(frequency) - 1, -1, -1):
+            for num in frequency[i]:
+                result.append(num)
+
+                if len(result) == k:
+                    return result
+",,
+Encode and Decode Strings,Arrays & Hashing,"class Solution:
+
+    def encode(self, strs: List[str]) -> str:
+        result = """"
+
+        for s in strs:
+            result += str(len(s)) + ""!"" + s
+
+        return result
+
+    def decode(self, s: str) -> List[str]:
+        if s == None or s == """":
+            return []
+
+        result = []
+        l, r = 0, 0
+
+        while r < len(s):
+            while s[r] != ""!"" and r < len(s):
+                r += 1
+            length = int(s[l:r])
+
+            l = r + 1
+            r = l + length
+
+            result.append(s[l:r])
+            l = r
+            
+        return result",,
+Product of Array Except Self,Arrays & Hashing,"class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        result = [1] * len(nums)
+
+        prefix = 1
+        for i in range(len(nums)):
+            result[i] = prefix
+            prefix *= nums[i]
+
+        postfix = 1
+        for i in range(len(nums) - 1, -1, -1):
+            result[i] *= postfix
+            postfix *= nums[i]
+
+        return result",,
+Valid Sudoku,Arrays & Hashing,"class Solution:
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        rows = [set() for i in range(9)]
+        cols = [set() for i in range(9)]
+        boxes = [set() for i in range(9)]
+
+        for row in range(9):
+            for col in range(9):
+                value = board[row][col]
+                if value == ""."":
+                    continue
+                
+                boxID = (row // 3) + (col // 3) * 3
+                
+                if (value in rows[row] or
+                    value in cols[col] or 
+                    value in boxes[boxID]):
+                    return False
+
+                rows[row].add(value)
+                cols[col].add(value)
+                boxes[boxID].add(value)
+
+        return True",,
+Longest Consecutive Sequence,Arrays & Hashing,"class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        numSet = set(nums)
+        longest = 0
+
+        for num in numSet:
+            if (num - 1) not in numSet:
+                length = 1
+                
+                while (num + length) in numSet:
+                    length += 1
+                longest = max(length, longest)
+        
+        return longest
+
+
+",,
+Valid Palindrome,Two Pointers,"class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        if not s or s == """":
+            return True
+        
+        l, r = 0, len(s) - 1 
+
+        def isAlphaNum(char) -> bool:
+            return (ord('a') <= ord(char) <= ord('z') or
+                    ord('A') <= ord(char) <= ord('Z') or
+                    ord('0') <= ord(char) <= ord('9'))
+
+        while l < r:
+            while not isAlphaNum(s[l]) and l < r:
+                l += 1
+
+            while not isAlphaNum(s[r]) and l < r:
+                r -= 1
+
+            if s[l].lower() != s[r].lower():
+                return False
+            
+            l += 1
+            r -= 1
+        
+        return True
+
+        ",,
+Two Sum II Input Array Is Sorted,Two Pointers,"class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        l, r = 0, len(numbers) - 1
+
+        while l < r:
+            twoSum = numbers[l] + numbers[r]
+
+            if twoSum < target:
+                l += 1
+            elif twoSum > target:
+                r -= 1
+            else:
+                return [l + 1, r + 1]
+        return []",,
+Three Sum,Two Pointers,"class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        results = []
+        target = 0
+        nums.sort()
+
+        for i, n in enumerate(nums):
+            if n > target:
+                break
+            
+            if i > 0 and nums[i - 1] == n:
+                continue
+
+            l, r = i + 1, len(nums) - 1
+            
+            while l < r:
+                threeSum = n + nums[l] + nums[r]
+
+                if threeSum < target:
+                    l += 1
+                elif threeSum > target:
+                    r -= 1
+                else:
+                    results.append([n, nums[l], nums[r]])
+
+                    l += 1
+                    r -= 1
+                    while l < r and nums[l] == nums[l - 1]:
+                        l += 1
+                    while l < r and nums[r] == nums[r + 1]:
+                        r -= 1
+                
+        return results","class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        vector<vector<int>> result;
+        int target = 0;
+
+        for (int i = 0; i < nums.size(); i++) {
+            if (i > 0 && nums[i] == nums[i - 1]) continue;
+
+            if (nums[i] > target) break;
+
+            int l = i + 1;
+            int r = nums.size() - 1;
+
+            while (l < r) {
+                int threeSum = nums[i] + nums[l] + nums[r];
+
+                if (threeSum > target) {
+                    r--;
+                } else if (threeSum < target) {
+                    l++;
+                } else {
+                    result.push_back({nums[i], nums[l], nums[r]});
+                    
+                    l++;
+                    r--;
+                    while (l < r && nums[l] == nums[l - 1]) l++;
+                    while (l < r && nums[r] == nums[r + 1]) r--;
+                }
+            }
+        }
+        return result;
+    }
+};
+",
+Container With Most Water,Two Pointers,"class Solution:
+    def maxArea(self, heights: List[int]) -> int:
+        result = 0
+        l, r = 0, len(heights) - 1
+
+        while l < r:
+            area = min(heights[l], heights[r]) * (r - l)
+            result = max(result, area)
+
+            if heights[l] > heights[r]:
+                r -= 1
+            else:
+                l += 1
+        
+        return result","class Solution {
+public:
+    int maxArea(vector<int>& heights) {
+        int result = 0;
+        int l = 0;
+        int r = static_cast<int>(heights.size()) - 1;
+
+        while (l < r) {
+            int area = min(heights[l], heights[r]) * (r - l);
+            result = max(result, area);
+
+            if (heights[l] > heights[r]) {
+                r--;
+            } else {
+                l++;
+            }
+        }
+        return result;
+    }
+};
+",
+Trapping Rain Water,Two Pointers,"class Solution:
+    def trap(self, height: List[int]) -> int:
+        result = 0
+        l, r = 0, len(height) - 1
+        maxL, maxR = height[l], height[r]
+
+        while l < r:
+            if height[l] > height[r]:
+                r -= 1
+
+                if height[r] > maxR:
+                    maxR = height[r]
+                elif maxR - height[r] > 0:
+                    result += maxR - height[r]
+            else:
+                l += 1
+
+                if height[l] > maxL:
+                    maxL = height[l]
+                elif maxL - height[l] > 0:
+                    result += maxL - height[l]
+
+        return result
+
+            
+",,
+Best Time to Buy and Sell Stock,Sliding Window,"# Two-pointers
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        result = 0
+        l = 0
+
+        for r in range(1, len(prices), 1):
+            if prices[l] > prices[r]:
+                l = r
+            else:
+                result = max(result, prices[r] - prices[l])
+
+        return result","# Dynamic programming
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        result = 0
+        l = prices[0]
+
+        for r in range(1, len(prices), 1):
+            l = min(l, prices[r])
+            result = max(result, prices[r] - l)
+
+        return result",
+Longest Substring Without Repeating Characters,Sliding Window,"class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        if not s or s == """":
+            return 0
+        
+        longest = 0
+        charSet = set()
+
+        l, r = 0, 0
+
+        while r < len(s):
+            while s[r] in charSet:
+                charSet.remove(s[l])
+                l += 1
+            
+            charSet.add(s[r])
+            longest = max(longest, r - l + 1)
+
+            r += 1
+
+
+        return longest",,
+Longest Repeating Character Replacement,Sliding Window,"class Solution:
+    def characterReplacement(self, s: str, k: int) -> int:
+        count = [0] * 26
+        mostFrequent = 0
+        longest = 0
+
+        l = 0
+
+        for r in range(len(s)):
+            count[ord(s[r]) - ord(""A"")] += 1
+            
+            if count[ord(s[r]) - ord(""A"")] > mostFrequent:
+                mostFrequent = count[ord(s[r]) - ord(""A"")]
+
+            while mostFrequent + k < r - l + 1:
+                count[ord(s[l]) - ord(""A"")] -= 1
+                l += 1
+
+            longest = max(longest, r - l + 1)
+            
+        return longest
+
+
+",,
+Permutation In String,Sliding Window,"# Fixed sliding window
+class Solution:
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        if len(s1) > len(s2): return False
+
+        count1, count2 = [0] * 26, [0] * 26
+        matches = 0
+
+        for r in range(len(s1)):
+            count1[ord(s1[r]) - ord('a')] += 1
+            count2[ord(s2[r]) - ord('a')] += 1
+
+        for r in range(26):
+            matches += 1 if count1[r] == count2[r] else 0
+
+        l = 0
+        for r in range(len(s1), len(s2), 1):
+            if matches == 26: return True
+
+            count2[ord(s2[r]) - ord('a')] += 1
+            if count2[ord(s2[r]) - ord('a')] == count1[ord(s2[r]) - ord('a')]:
+                matches += 1
+            elif count2[ord(s2[r]) - ord('a')] - 1 == count1[ord(s2[r]) - ord('a')]:
+                matches -= 1
+
+            count2[ord(s2[l]) - ord('a')] -= 1
+            if count2[ord(s2[l]) - ord('a')] == count1[ord(s2[l]) - ord('a')]:
+                matches += 1
+            elif count2[ord(s2[l]) - ord('a')] + 1 == count1[ord(s2[l]) - ord('a')]:
+                matches -= 1
+
+            l += 1
+        return matches == 26","# Dynamic sliding window 
+class Solution:
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        if not s1 or s1 == """": return True
+        if not s2 or s2 == """" or len(s1) > len(s2): return False
+
+        s1Count = [0] * 26
+        s1UniqueCharCount = 0
+        s1UniqueCharSet = set()
+
+        for char in s1:
+            if char not in s1UniqueCharSet:
+                s1UniqueCharCount += 1
+                s1UniqueCharSet.add(char)
+            s1Count[ord(char) - ord(""a"")] += 1
+        
+        l, r = 0, 0
+        while r < len(s2):
+            l = r
+
+            if s2[r] in s1UniqueCharSet:
+                s2Count = [0] * 26
+                s2UniqueCharCount = 0
+                
+                while r < len(s2) and s2[r] in s1UniqueCharSet:
+
+                    s2Count[ord(s2[r]) - ord(""a"")] += 1
+                    if s2Count[ord(s2[r]) - ord(""a"")] == s1Count[ord(s2[r]) - ord(""a"")]:
+                        s2UniqueCharCount += 1
+                        
+                        if s2UniqueCharCount == s1UniqueCharCount:
+                            return True
+                    while s2Count[ord(s2[r]) - ord(""a"")] > s1Count[ord(s2[r]) - ord(""a"")]:
+                        if s2Count[ord(s2[l]) - ord(""a"")] == s1Count[ord(s2[l]) - ord(""a"")]:
+                            s2UniqueCharCount -= 1
+                        s2Count[ord(s2[l]) - ord(""a"")] -= 1
+                        l += 1
+
+                    r += 1
+
+            r += 1
+
+
+
+        return False
+
+",
+Minimum Window Substring,Sliding Window,"class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        if len(s) < len(t): return """"
+
+        countS, countT = defaultdict(int), defaultdict(int)
+        uniqueChar = 0
+        result = """"
+
+        for char in t:
+            if countT[char] == 0: uniqueChar += 1
+            countT[char] += 1
+
+        l = 0
+        for r in range(len(s)):
+            countS[s[r]] += 1
+
+            if countS[s[r]] == countT[s[r]]:
+                uniqueChar -= 1
+
+            while uniqueChar == 0:
+                if not result or r - l + 1 < len(result):
+                    result = s[l:r + 1]
+
+                countS[s[l]] -= 1
+                if countS[s[l]] < countT[s[l]]:
+                    uniqueChar += 1
+                
+                l += 1
+
+        return result",,
+Sliding Window Maximum,Sliding Window,,,
+Valid Parentheses,Stack,"class Solution:
+    def isValid(self, s: str) -> bool:
+        closeToOpen = {'}' : '{', ']' : '[', ')' : '('}
+        stack = []
+
+        for char in s:
+            if char in closeToOpen:
+                if not stack or stack.pop() != closeToOpen[char]:
+                    return False
+            else:
+                stack.append(char)
+        return not stack",,
+Min Stack,Stack,"class MinStack:
+
+    def __init__(self):
+        self.stack = []
+        self.minStack = []
+
+    def push(self, val: int) -> None:
+        self.stack.append(val)
+        self.minStack.append(min(val, self.minStack[-1] if self.minStack else val))
+
+    def pop(self) -> None:
+        self.stack.pop()
+        self.minStack.pop()
+
+    def top(self) -> int:
+        return self.stack[-1]
+
+    def getMin(self) -> int:
+        return self.minStack[-1]
+",,
+Evaluate Reverse Polish Notation,Stack,"class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        stack = []
+        operators = set(""+-/*"")
+
+        for token in tokens:
+            if token in operators:
+                if len(stack) < 2:
+                    return None
+
+                a, b = stack.pop(), stack.pop()
+                if token == ""+"":
+                    stack.append(b + a)
+                elif token == ""-"":
+                    stack.append(b - a)
+                elif token == ""/"":
+                    stack.append(int(b / a))
+                else:
+                    stack.append(b * a)
+            else:
+                stack.append(int(token))
+        
+        return stack[0]",,
+Daily Temperatures,Stack,"class Solution:
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        stack = []
+        result = [0] * len(temperatures)
+
+        for i, n in enumerate(temperatures):
+            while stack and stack[-1][1] < n:
+                oldI, oldN = stack.pop()
+                result[oldI] = (i - oldI)
+            stack.append([i, n])
+
+        return result",,
+Car Fleet,Stack,"class Solution:
+    def carFleet(self, target: int, position: List[int], speed: List[int]) -> int:
+        stack = []
+        
+        pair = [(p, s) for p, s in zip(position, speed)]
+
+        for p, s in sorted(pair, reverse=True):
+            if stack and stack[-1] >= ((target - p) / s):
+                continue
+            else:
+                stack.append((target - p) / s)
+        return len(stack)",,
+Largest Rectangle In Histogram,Stack,,,
+Binary Search,Binary Search,"class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        l, r = 0, len(nums) - 1
+
+        while l <= r:
+            m = ((r - l) // 2) + l
+            if nums[m] > target:
+                r = m - 1
+            elif nums[m] < target:
+                l = m + 1
+            else:
+                return m
+        return -1",,
+Search a 2D Matrix,Binary Search,"class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        rows, cols = len(matrix), len(matrix[0])
+
+        rowT, rowB, colL, colR = 0, rows - 1, 0, cols - 1
+
+        while rowT <= rowB:
+            rowM = rowT + (rowB - rowT) // 2
+
+            if matrix[rowM][colL] > target:
+                rowB = rowM - 1
+            elif matrix[rowM][colR] < target:
+                rowT = rowM + 1
+            else:
+                while colL <= colR:
+                    colM = colL + (colR - colL) // 2
+
+                    if matrix[rowM][colM] < target:
+                        colL = colM + 1
+                    elif matrix[rowM][colM] > target:
+                        colR = colM - 1
+                    else:
+                        return True
+        return False",,
+Koko Eating Bananas,Binary Search,"class Solution:
+    def minEatingSpeed(self, piles: List[int], h: int) -> int:
+        l, r = 1, max(piles)
+        result = r 
+
+        while l <= r:
+            m = l + (r - l) // 2
+            hours = 0
+
+            for b in piles:
+                hours += math.ceil(b / m)
+
+            if hours <= h:
+                r = m - 1
+                result = m
+            else:
+                l = m + 1 
+
+        return result
+
+",,
+Find Minimum In Rotated Sorted Array,Binary Search,"class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        l, r = 0, len(nums) - 1
+
+        while l <= r:
+            m = l + (r - l) // 2
+
+            if nums[m] < nums[r]:
+                r = m
+            else:
+                l = m + 1
+
+        return nums[r]
+",,
+Search In Rotated Sorted Array,Binary Search,"class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        l, r = 0, len(nums) - 1
+
+        while l <= r:
+            m = l + (r - l) // 2
+
+            if nums[m] == target:
+                return m
+
+            if nums[m] < nums[r]:
+                if nums[m] < target <= nums[r]:
+                    l = m + 1
+                else:
+                    r = m - 1
+            else:
+                if nums[m] > target >= nums[l]:
+                    r = m - 1
+                else:
+                    l = m + 1
+
+        return -1",,
+Time Based Key Value Store,Binary Search,,,
+Median of Two Sorted Arrays,Binary Search,,,
+Reverse Linked List,Linked List,,,
+Merge Two Sorted Lists,Linked List,,,
+Linked List Cycle,Linked List,,,
+Reorder List,Linked List,,,
+Remove Nth Node From End of List,Linked List,,,
+Copy List With Random Pointer,Linked List,,,
+Add Two Numbers,Linked List,,,
+Find The Duplicate Number,Linked List,,,
+LRU Cache,Linked List,,,
+Merge K Sorted Lists,Linked List,,,
+Reverse Nodes In K Group,Linked List,,,
+Invert Binary Tree,Trees,,,
+Maximum Depth of Binary Tree (DFS),Trees,,,
+Diameter of Binary Tree,,,,
+Balanced Binary Tree,,,,
+Same Tree (DFS),Trees,,,
+Subtree of Another Tree (DFS),Trees,"# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:   
+    def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
+        if not subRoot:
+            return True
+        elif not root:
+            return False
+        elif self.isSameTree(root, subRoot):
+            return True
+        else:
+            return self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
+
+    def isSameTree(self, node1, node2):
+        if not node2 and not node1:
+            return True
+        elif node1 and node2 and node1.val == node2.val:
+            return self.isSameTree(node1.left, node2.left) and self.isSameTree(node1.right, node2.right)
+        else:
+            return False
+        ",,
+Lowest Common Ancestor of a Binary Search Tree,Trees,,,
+Binary Tree Level Order Traversal,Trees,"# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        result = []
+
+        queue = collections.deque()
+        queue.append(root)
+
+        while queue:
+            levelList = []
+
+            for i in range(len(queue)):
+                node = queue.popleft()
+                if node:
+                    levelList.append(node.val)
+                    queue.append(node.left)
+                    queue.append(node.right)
+            if levelList:
+                result.append(levelList)
+        return result",,
+Binary Tree Right Side View,,,,
+Count Good Nodes In Binary Tree,,,,
+Validate Binary Search Tree,Trees,"# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        
+        def isValid(node, left, right):
+            if not node:
+                return True
+            elif left < node.val < right:
+                return isValid(node.left, left, node.val) and isValid(node.right, node.val, right)
+            else:
+                return False
+
+
+        return isValid(root, float(""-inf""), float(""inf""))",,
+Kth Smallest Element In a Bst,Trees,"# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        stack = []
+        current = root
+
+        while stack or current:
+            while current:
+                stack.append(current)
+                current = current.left
+
+            node = stack.pop()
+            k -= 1
+            if k == 0:
+                return node.val
+            
+            current = node.right ",,
+Construct Binary Tree From Preorder And Inorder Traversal,Trees,"# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+        inIndexMap = {value: index for index, value in enumerate(inorder)}
+
+        def recurse(preLeft, preRight, inLeft, inRight):
+            if preLeft > preRight or inLeft > inRight:
+                return None
+            else:
+                
+                rootVal = preorder[preLeft]
+                root = TreeNode(rootVal)
+                rootIndex = inIndexMap[rootVal]
+
+                leftHalf = rootIndex - inLeft
+
+                root.left = recurse(preLeft + 1, preLeft + leftHalf, inLeft, rootIndex - 1)
+                root.right = recurse(preLeft + 1 + leftHalf, preRight, rootIndex + 1, inRight)
+
+                return root
+
+        return recurse(0, len(preorder) - 1, 0, len(inorder) - 1)",,
+Binary Tree Maximum Path Sum,Trees,"# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def maxPathSum(self, root: Optional[TreeNode]) -> int:
+        
+        def recurse(node):
+            if not node:
+                return 0, float(""-inf"")
+            else:
+                leftDown, leftBest = recurse(node.left)
+                rightDown, rightBest = recurse(node.right)
+
+                leftDown = max(0, leftDown)
+                rightDown = max(0, rightDown)
+
+                down = node.val + max(leftDown, rightDown)
+                best = max(leftBest, rightBest, node.val + leftDown + rightDown)
+
+            return down, best
+
+        return recurse(root)[1]",,
+Serialize And Deserialize Binary Tree,Trees,,,
+Kth Largest Element In a Stream,Heap / Priority Queue,,,
+Last Stone Weight,Heap / Priority Queue,,,
+K Closest Points to Origin,Heap / Priority Queue,,,
+Kth Largest Element In An Array,Heap / Priority Queue,,,
+Task Scheduler,Heap / Priority Queue,,,
+Design Twitter,Heap / Priority Queue,,,
+Find Median From Data Stream,Heap / Priority Queue,,,
+Subsets,Backtracking,,,
+Combination Sum,Backtracking,,,
+Combination Sum II,Backtracking,,,
+Permutations,Backtracking,,,
+Subsets II,Backtracking,,,
+Generate Parentheses,Backtracking,,,
+Word Search,Backtracking,,,
+Palindrome Partitioning,Backtracking,,,
+Letter Combinations of a Phone Number,Backtracking,,,
+N Queens,Backtracking,,,
+Implement Trie Prefix Tree,Tries,,,
+Design Add And Search Words Data Structure,Tries,,,
+Word Search II,Tries,,,
+Number of Islands,Graphs,"class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        rows, cols = len(grid), len(grid[0])
+        directions = [[0, -1], [0, 1], [-1, 0], [1, 0]] # Move left, right, up, down
+        islands = 0
+        visited = set() # Row, Col
+
+        def bfs(row, col):
+            visited.add((row, col))
+            
+            queue = collections.deque()
+            queue.append((row, col))
+
+            while queue:
+                row, col = queue.popleft()
+
+                for dr, dc in directions:
+                    checkRow, checkCol = row + dr, col + dc
+
+                    if (0 <= checkRow < rows and
+                        0 <= checkCol < cols and
+                        grid[checkRow][checkCol] == ""1"" and
+                        (checkRow, checkCol) not in visited):
+                        visited.add((checkRow, checkCol))
+                        queue.append((checkRow, checkCol))
+        
+        for row in range(rows):
+            for col in range(cols):
+                if grid[row][col] == ""1"" and (row, col) not in visited:
+                    bfs(row, col)
+                    islands += 1
+
+        return islands
+",,
+Max Area of Island,Graphs,"class Solution:
+    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
+        rows, cols = len(grid), len(grid[0])
+        directions = [(0, 1), (0, -1), (-1, 0), (1, 0)]
+        seen = set()
+        islandArea = 0
+
+        def dfs(row, col) -> int:
+            seen.add((row, col))
+            area = 1
+            for dr, dc in directions:
+                checkRow, checkCol = row + dr, col + dc
+
+                if (0 <= checkRow < rows and
+                    0 <= checkCol < cols and
+                    (checkRow, checkCol) not in seen and
+                    grid[checkRow][checkCol] == 1):
+                    area += dfs(checkRow, checkCol)
+
+            return area
+
+        for row in range(rows):
+            for col in range(cols):
+                if (row, col) not in seen and grid[row][col] == 1:
+                    islandArea = max(islandArea, dfs(row, col))
+
+        return islandArea",,
+Clone Graph,Graphs,"""""""
+# Definition for a Node.
+class Node:
+    def __init__(self, val = 0, neighbors = None):
+        self.val = val
+        self.neighbors = neighbors if neighbors is not None else []
+""""""
+
+class Solution:
+    def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
+        if not node:
+            return None
+
+        oldToNew = {}
+
+        def dfs(node):
+            if node in oldToNew:
+                return oldToNew[node]
+            
+            newNode = Node(node.val)
+            oldToNew[node] = newNode
+            
+            for neighbor in node.neighbors:
+                newNode.neighbors.append(dfs(neighbor))
+
+            return newNode
+        
+        return dfs(node)",,
+Walls And Gates,Graphs,"class Solution:
+    def islandsAndTreasure(self, grid: List[List[int]]) -> None:
+        rows, cols = len(grid), len(grid[0])
+        directions = [(-1, 0), (1, 0), (0, 1), (0, -1)]
+        chestCoordinate = set()
+
+        for row in range(rows):
+            for col in range(cols):
+                if grid[row][col] == 0:
+                    chestCoordinate.add((row, col))
+
+        queue = collections.deque()
+        for treasureRow, treasureCol in chestCoordinate:
+            queue.append((treasureRow, treasureCol))
+
+        while queue:
+            currentRow, currentCol = queue.popleft()
+
+            for dr, dc in directions:
+                checkRow = dr + currentRow
+                checkCol = dc + currentCol
+
+                if (0 <= checkRow < rows and
+                    0 <= checkCol < cols and
+                    grid[checkRow][checkCol] == 2147483647):
+
+                    grid[checkRow][checkCol] = grid[currentRow][currentCol] + 1
+                    queue.append((checkRow, checkCol))
+
+            
+
+",,
+Rotting Oranges,Graphs,"class Solution:
+    def orangesRotting(self, grid: List[List[int]]) -> int:
+        rows, cols = len(grid), len(grid[0])
+        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+        
+        queue = collections.deque()
+        freshFruits = 0
+        totalTime = 0
+
+        for row in range(rows):
+            for col in range(cols):
+                if grid[row][col] == 2:
+                    queue.append((row, col, 0))
+                elif grid[row][col] == 1:
+                    freshFruits += 1
+
+        while queue:
+            row, col, time = queue.popleft()
+
+            for dr, dc in directions:
+                checkRow, checkCol = row + dr, col + dc
+
+                if (0 <= checkRow < rows and
+                    0 <= checkCol < cols and
+                    grid[checkRow][checkCol] == 1):
+                    freshFruits -= 1
+                    grid[checkRow][checkCol] = 2
+                    queue.append((checkRow, checkCol, time + 1))
+                    totalTime = max(totalTime, time + 1)
+
+        return totalTime if freshFruits == 0 else -1",,
+Pacific Atlantic Water Flow,Graphs,"class Solution:
+    def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
+        directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+        rows, cols = len(heights), len(heights[0])
+        results = []
+        pacific, atlantic = set(), set()
+
+        def dfs(row, col, oldHeight, visited):
+            if (0 <= row < rows and
+                0 <= col < cols and
+                heights[row][col] >= oldHeight and
+                (row, col) not in visited):
+                visited.add((row, col))
+
+                for dr, dc in directions:
+                    checkRow, checkCol = dr + row, dc + col
+                    dfs(checkRow, checkCol, heights[row][col], visited)
+
+        for row in range(rows):
+            dfs(row, 0, float(""-inf""), pacific)
+            dfs(row, cols - 1, float(""-inf""), atlantic)
+
+        for col in range(cols):
+            dfs(0, col, float(""-inf""), pacific)
+            dfs(rows - 1, col, float(""-inf""), atlantic)
+
+        for (row, col) in pacific:
+            if (row, col) in atlantic:
+                results.append([row, col])
+
+        return results
+        ",,
+Surrounded Regions,Graphs,,,
+Course Schedule,Graphs,"class Solution:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        courseToPrereq = {course:[] for course in range(numCourses)}
+        for course, prereq in prerequisites:
+            courseToPrereq[course].append(prereq)
+
+        path = set()
+
+        def dfs(course):
+            if course in path:
+                return False
+            elif not courseToPrereq[course]:
+                return True
+            else:
+                path.add(course)
+
+                for prereq in courseToPrereq[course]:
+                    if not dfs(prereq): return False
+                path.remove(course)
+                courseToPrereq[course] = []
+
+            return True
+
+        for course in range(numCourses):
+            if not dfs(course):
+                return False
+        
+        return True
+
+
+
+
+
+
+        ","class Solution:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        adjList = defaultdict(list)
+        visited = set()
+
+        for node, neighbor in prerequisites:
+            adjList[node].append(neighbor)
+
+        def dfs(node, path):
+            if node in visited or not adjList[node]:
+                return True
+            if node in path:
+                return False
+
+            path.add(node)
+
+            for neighbor in adjList[node]:
+                if not dfs(neighbor, path):
+                    return False
+            
+            path.remove(node)
+            visited.add(node)
+            return True
+
+        for n in range(numCourses):
+            if not dfs(n, set()):
+                return False
+        
+        return True",
+Course Schedule II,Graphs,"class Solution:
+    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
+        result = []
+        visited = set()
+        adjList = {}
+
+        for node, neighbor in prerequisites:
+            adjList.setdefault(node, []).append(neighbor)
+
+        def dfs(node, path):
+            if node in path:
+                return False
+            elif node in visited:
+                return True
+            else:
+                if node in adjList:
+                    path.add(node)
+                    for neighbor in adjList[node]:
+                        if not dfs(neighbor, path):
+                            return False
+                    path.remove(node)
+        
+                visited.add(node)
+                result.append(node)
+                return True
+
+        for n in range(numCourses):
+            if not dfs(n, set()):
+                return []
+
+        return result",,
+Graph Valid Tree,Graphs,"class Solution:
+    def validTree(self, n: int, edges: List[List[int]]) -> bool:
+        if len(edges) != n - 1:
+            return False
+        
+        adjacencyList = {node: set() for node in range(n)}
+
+        for node, neighbor in edges:
+            adjacencyList[node].add(neighbor)
+            adjacencyList[neighbor].add(node)
+
+        visited = set()
+
+        def dfs(node, prevNode):
+            if node in visited:
+                return False
+
+            visited.add(node)
+
+            for neighbor in adjacencyList[node]:
+                if prevNode == neighbor:
+                    continue
+                elif not dfs(neighbor, node):
+                    return False
+            return True
+            
+        return dfs(0, -1) and len(visited) == n      
+
+","class Solution:
+    def validTree(self, n: int, edges: List[List[int]]) -> bool:
+        adjList = defaultdict(list)
+        visited = set()
+
+        for node, neighbor in edges:
+            adjList[node].append(neighbor)
+            adjList[neighbor].append(node)
+
+        def dfs(node, prevNode, path):   
+            if node in path:
+                return False
+            
+            path.add(node)
+            
+            for neighbor in adjList[node]:
+                if neighbor != prevNode:
+                    if not dfs(neighbor, node, path):
+                        return False
+
+            return True
+        
+        return dfs(0, -1, visited) and len(visited) == n
+",
+Number of Connected Components In An Undirected Graph,Graphs,"# Recursive Depth First Search
+class Solution:
+    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+        adjacencyList = {node: set() for node in range(n)}
+        
+        for node, neighbor in edges:
+            adjacencyList[node].add(neighbor)
+            adjacencyList[neighbor].add(node)
+
+        visited = set()
+        components = 0
+
+        def dfs(node):
+            for neighbor in adjacencyList[node]:
+                if neighbor not in visited:
+                    visited.add(neighbor)
+                    dfs(neighbor)
+
+        for node in range(n):
+            if node not in visited:
+                components += 1
+                visited.add(node)
+                dfs(node)
+        
+        return components","# Iterative Breath First Search
+# Can swap easily to Iterative DFS changing popleft to pop
+class Solution:
+    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+        adjacencyMap = {node: set() for node in range(n)}
+        for node, neighbor in edges:
+            adjacencyMap[node].add(neighbor)
+            adjacencyMap[neighbor].add(node)
+
+        components = 0
+        visited = set()
+
+        def bfs(node):
+            queue = collections.deque()
+            queue.append(node)
+
+            while queue:
+                node = queue.popleft()
+                for neighbor in adjacencyMap[node]:
+                    if neighbor not in visited:
+                        queue.append(neighbor)
+                        visited.add(neighbor)
+
+        for node in range(n):
+            if node not in visited:
+                components += 1
+                visited.add(node)
+                bfs(node)
+
+
+        return components",
+Redundant Connection,Graphs,"class Solution:
+    def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
+        adjList, queue, path = defaultdict(list), collections.deque(), set()
+
+        for node, neighbor in edges:
+            adjList[node].append(neighbor)
+            adjList[neighbor].append(node)
+
+        def dfs(node, prevNode):
+            if node in path:
+                while queue[0] != node:
+                    pastNode = queue.popleft()
+                    path.remove(pastNode)
+                return True
+
+            path.add(node)
+            queue.append(node)
+
+            for neighbor in adjList[node]:
+                if neighbor != prevNode and dfs(neighbor, node):
+                    return True
+            
+            queue.pop()
+            path.remove(node)
+            return False
+
+        dfs(edges[0][0], -1)
+
+        for node, neighbor in edges[::-1]:
+            if node in path and neighbor in path:
+                return [node, neighbor]",,
+Word Ladder,Graphs,"class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        if endWord not in wordList:
+            return 0
+        
+        adjList = collections.defaultdict(list)
+
+        for word in wordList:
+            for char in range(len(word)):
+                pattern = word[:char] + ""*"" + word[char + 1:]
+                adjList[pattern].append(word)
+
+        queue = collections.deque([beginWord])
+        visited = set()
+        result = 1
+
+        while queue:
+            for i in range(len(queue)):
+                word = queue.popleft()
+                
+                if word == endWord:
+                    return result
+
+                for char in range(len(word)):
+                    pattern = word[:char] + ""*"" + word[char + 1:]
+                    for neighbor in adjList[pattern]:
+                        if neighbor not in visited:
+                            visited.add(neighbor)
+                            queue.append(neighbor)
+            result += 1
+
+        return 0",,
+Network Delay Time,Advanced Graphs,,,
+Reconstruct Itinerary,Advanced Graphs,,,
+Min Cost to Connect All Points,Advanced Graphs,,,
+Swim In Rising Water,Advanced Graphs,,,
+Alien Dictionary,Advanced Graphs,,,
+Cheapest Flights Within K Stops,Advanced Graphs,,,
+Climbing Stairs,1-D Dynamic Programming,"# Brute Force
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        def dfs(step):
+            if step > n:
+                return 0
+            elif step < n:
+                return dfs(step + 1) + dfs(step + 2)
+            else:
+                return 1
+
+        return dfs(0)","# Linear Time + Space
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        if n <= 2:
+            return n
+
+        ways = [0] * (n+1)
+
+        ways[n] = 1
+        ways[n - 1] = 1
+
+        for i in range(n - 2, -1, -1):
+            ways[i] = ways[i + 1] + ways[i + 2]
+
+        return ways[0]","# Linear Time + Constant Space:
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        waysOne, waysTwo = 1, 1
+
+        for i in range(n - 1):
+            temp = waysOne
+            waysOne = waysOne + waysTwo
+            waysTwo = temp
+
+        return waysOne"
+Min Cost Climbing Stairs,1-D Dynamic Programming,"# Brute Force
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        
+        def dfs(index):
+            if index >= len(cost):
+                return 0
+            return cost[index] + min(dfs(index + 1), dfs(index + 2))
+
+        return min(dfs(0), dfs(1))","# DP Bottom-Up/Linear Time + Space
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        dp = [0] * len(cost)
+        dp[0], dp[1] = cost[0], cost[1]
+        
+        for i in range(2, len(cost)):
+            dp[i] = cost[i] + min(dp[i - 1], dp[i - 2])
+
+        return min(dp[len(cost) - 1], dp[len(cost) - 2])","# DP Bottom-up/Linear Time + Constant Space
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        prev2, prev1 = cost[0], cost[1]
+        
+        for i in range(2, len(cost)):
+            prev1, prev2 = cost[i] + min(prev1, prev2), prev1
+
+        return min(prev1, prev2)"
+House Robber,1-D Dynamic Programming,"# Brute Force
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        
+        def dfs(house):
+            if house >= len(nums):
+                return 0
+            
+            return max(dfs(house + 1), nums[house] + dfs(house + 2))
+
+
+        return dfs(0)","# Linear Time + Space
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        if len(nums) <= 2:
+            return max(nums)
+        
+        cache = [0] * len(nums)
+        cache[0] = nums[0]
+        cache[1] = max(nums[0], nums[1])
+
+        for i in range(2, len(nums), 1):
+            cache[i] = max(cache[i - 2] + nums[i], cache[i - 1])
+
+        return cache[-1]
+
+
+        ","# Linear Time + Constant Space
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        # [prev2, prev1, n, n+1, n+2...]
+        prev2, prev1 = 0, 0
+
+        for n in nums:
+            temp = prev1
+            prev1 = max(prev1, prev2 + n)
+            prev2 = temp
+
+        return prev1
+
+
+        "
+House Robber II,1-D Dynamic Programming,"# Brute Force
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        
+        def dfs(house, houses):
+            if house >= len(houses):
+                return 0
+            elif house > len(houses):
+                return 0
+
+            return max(dfs(house + 1, houses), houses[house] + dfs(house + 2, houses))
+
+        option1, option2 = dfs(0, nums[1:]), dfs(0, nums[:-1])
+
+        return max(option1, option2)","# Linear Time + Space
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        if len(nums) <= 2:
+            return max(nums)
+        
+        def tryRob(house, numbers):
+            dp = [0] * len(numbers)
+            dp[0] = numbers[0]
+            dp[1] = max(numbers[0], numbers[1])
+
+            for i in range(2, len(numbers), 1):
+                dp[i] = max(dp[i - 1], dp[i - 2] + numbers[i])
+
+            return dp[-1]
+
+
+        return max(tryRob(0, nums[1:]), tryRob(0, nums[:-1]))
+            ","# Linear Time + Constant Space
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        if len(nums) == 1:
+            return nums[0]
+        
+        def tryRob(house, numbers):
+            prev2, prev1 = 0, 0
+
+            for i in range(len(numbers)):
+                temp = prev1
+                prev1 = max(prev2 + numbers[i], prev1)
+                prev2 = temp
+
+            return prev1
+
+
+        return max(tryRob(0, nums[1:]), tryRob(0, nums[:-1]))
+            "
+Longest Palindromic Substring,1-D Dynamic Programming,"# Brute Force O(n^3)
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        result = """"
+        
+        def isPalindrome(st):
+            l, r = 0, len(st) - 1
+
+            while l < r:
+                if st[l] != st[r]:
+                    return False
+                else:
+                    l, r = l + 1, r - 1   
+            
+            return True
+
+
+        for l in range(len(s)):
+            for r in range(l + 2, len(s) + 1):
+                if isPalindrome(s[l:r]) and r - l > len(result):
+                    result = s[l:r]
+
+
+        return s[0] if not result else result
+","# DP Solution
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        result = """"
+
+        dp = [[False] * len(s) for i in range(len(s))]
+
+        for i in range(len(s) - 1, -1, -1):
+            for j in range(i, len(s)):
+                if s[i] == s[j] and (j - i + 1 <= 2 or dp[i + 1][j - 1]):
+                    dp[i][j] = True
+                    if j - i + 1 > len(result):
+                        result = s[i:j + 1]
+        return result","# Optimal Space + Time O(n^3)/O(1) 
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        result = """"
+        
+        for i in range(len(s)):
+            l, r = i, i
+            while l >= 0 and r < len(s) and s[l] == s[r]:
+                if r - l + 1 > len(result):
+                    result = s[l:r + 1]
+                l, r = l - 1, r + 1
+
+            l, r = i, i + 1
+            while l >= 0 and r < len(s) and s[l] == s[r]:
+                if r - l + 1 > len(result):
+                    result = s[l:r + 1]
+                l, r = l - 1, r + 1
+
+        return result"
+Palindromic Substrings,1-D Dynamic Programming,"# Brute Force O(n^3)
+class Solution:
+    def countSubstrings(self, s: str) -> int:
+        result = 0
+
+        def isPalindrome(s2: str) -> bool:
+            l, r = 0, len(s2) - 1
+
+            while l < r:
+                while l < r and not s2[l].isalnum():
+                    l += 1
+                while l < r and not s2[r].isalnum():
+                    r -= 1
+
+                if s2[l] != s2[r]:
+                    return False
+                
+                l, r = l + 1, r - 1
+
+            return True
+
+        for l in range(len(s)):
+            for r in range(l, len(s)):
+                if isPalindrome(s[l:r + 1]):
+                    result += 1
+
+        return result ","# DP Solution
+class Solution:
+    def countSubstrings(self, s: str) -> int:
+        result = 0
+
+        dp = [[False] * len(s) for i in range(len(s))]
+
+        for row in range(len(s) - 1, -1, -1):
+            for col in range(row, len(s)):
+                if s[row] == s[col] and (col - row < 2 or dp[row + 1][col - 1]):
+                    dp[row][col] = True
+                    result += 1
+
+        return result","# Optimal Space + Time 
+class Solution:
+    def countSubstrings(self, s: str) -> int:
+        result = 0
+
+        for char in range(len(s)):
+            l, r = char, char
+            while l >= 0 and r < len(s) and s[l] == s[r]:
+                result += 1
+                l, r = l - 1, r + 1
+
+            l, r = char, char + 1
+            while l >= 0 and r < len(s) and s[l] == s[r]:
+                result += 1
+                l, r = l - 1, r + 1
+
+        return result "
+Decode Ways,1-D Dynamic Programming,"# Brute Force O(2^n)
+class Solution:
+    def numDecodings(self, s: str) -> int:
+
+        def dfs(i):
+            if i == len(s):
+                return 1
+            elif s[i] == ""0"":
+                return 0
+
+            result = dfs(i + 1)
+
+            if i + 1 < len(s) and (s[i] == ""1"" or (s[i] == ""2"" and s[i + 1] < ""7"")):
+                result += dfs(i + 2)
+
+            return result
+
+        return dfs(0) if s else 0
+            
+","# DP Solution
+class Solution:
+    def numDecodings(self, s: str) -> int:
+        dp = {len(s) : 1}
+
+        for i in range(len(s) - 1, -1, -1):
+            if s[i] == ""0"":
+                dp[i] = 0
+            else:
+                dp[i] = dp[i + 1]
+
+            if i + 1 < len(s) and (s[i] == ""1"" or (s[i] == ""2"" and s[i + 1] < ""7"")):
+                dp[i] += dp[i + 2]
+
+        
+        return dp[0]
+            
+","# Optimal Space + Time
+class Solution:
+    def numDecodings(self, s: str) -> int:
+        current, ways1, ways2 = 0, 1, 0
+
+        for i in range(len(s) - 1, -1, -1):
+            if s[i] == ""0"":
+                current = 0
+            else:
+                current = ways1
+
+            if i + 1 < len(s) and (s[i] == ""1"" or (s[i] == ""2"" and s[i + 1] < ""7"")):
+                current += ways2
+
+            current, ways1, ways2 = 0, current, ways1
+
+        
+        return ways1
+            
+"
+Coin Change,1-D Dynamic Programming,"# Brute Force
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
+        
+        def dfs(money):
+            if money == amount:
+                return 0
+            else:
+            
+                result = amount + 1
+                for coin in coins:
+                    if coin + money <= amount:
+                        result = min(1 + dfs(coin + money), result)
+                
+                return result
+
+        answer = dfs(0)
+        return -1 if answer == amount + 1 else answer","# DP Optimal Solution O(n * m), O(n)
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
+        dp = [amount + 1] * (amount + 1)
+        dp[0] = 0
+
+        for i in range(1, amount + 1):
+            for coin in coins:
+                if i - coin >= 0:
+                    dp[i] = min(1 + dp[i - coin], dp[i])
+
+        return dp[amount] if dp[amount] != amount + 1 else -1",
+Maximum Product Subarray,1-D Dynamic Programming,"# Brute Force
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        result = nums[0] if nums else -10
+
+        for l in range(len(nums)):
+            currentSum = 1
+            for r in range(l, len(nums)):
+                currentSum *= nums[r]
+                if currentSum > result:
+                    result = currentSum
+
+        return result
+","# DP Prefix/Suffix Linear Time + Constant Space
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        result, prefix, suffix = max(nums), 1, 1
+
+        for i in range(len(nums)):
+            prefix *= nums[i]
+            suffix *= nums[len(nums) - 1 - i]
+
+            result = max(prefix, suffix, result)
+
+            if prefix == 0: prefix = 1
+            if suffix == 0: suffix = 1
+
+        return result","# DP Kadane's Algorithm Linear Time + Constant Space
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        currentMax, currentMin, result = 1, 1, max(nums)
+
+        for i in range(len(nums)):
+            temp = currentMax * nums[i]
+            currentMax = max(temp, currentMin * nums[i], nums[i])
+            currentMin = min(temp, currentMin * nums[i], nums[i])
+
+            result = max(result, currentMax)
+
+        return result"
+Word Break,1-D Dynamic Programming,"# Brute Force
+class Solution:
+    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+        
+        def dfs(i):
+            if i == len(s):
+                return True
+
+            for word in wordDict:
+                r = 0
+                while i + r < len(s) and r < len(word) and s[i + r] == word[r]:
+                    r += 1
+                if r == len(word) and dfs(i + r):
+                    return True
+
+            return False
+
+        return dfs(0)","# DP Linearish: Check every word at every position, character by character
+class Solution:
+    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+        
+        dp = [False] * (len(s) + 1)
+        dp[len(s)] = True
+
+        for i in range(len(s) - 1, -1, -1):
+            for word in wordDict:
+                length = len(word)
+                if (i + length <= len(s) and 
+                    s[i:i + length] == word and
+                    dp[i + length]):
+                    dp[i] = True
+                    break
+
+        return dp[0]",
+Longest Increasing Subsequence,1-D Dynamic Programming,"# Brute Force
+class Solution:
+    def lengthOfLIS(self, nums: List[int]) -> int:
+
+        def dfs(prev, index):
+            if index == len(nums):
+                return 0
+            
+            skip = dfs(prev, index + 1)
+            take = 0
+
+            if prev == None or nums[prev] < nums[index]:
+                take = 1 + dfs(index, index + 1)
+
+            return max(skip, take)
+
+        return dfs(None, 0)","# DP Top-Down Exponential Time + Linear Space 
+class Solution:
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        dp = [1] * len(nums)
+        LIS = 1
+
+        for i in range(len(nums) - 1, -1, -1):
+            for j in range(i, len(nums)):
+                if nums[i] < nums[j]:
+                    dp[i] = max(dp[i], 1 + dp[j])
+            LIS = dp[i] if dp[i] > LIS else LIS
+        
+        return LIS
+
+        ",
+Partition Equal Subset Sum,1-D Dynamic Programming,,"class Solution:
+    def canPartition(self, nums: List[int]) -> bool:
+        if sum(nums) % 2 != 0:
+            return False
+
+        sumSet = set()
+        sumSet.add(0)
+        target = sum(nums) // 2
+        dp = [False] * (target + 1)
+        dp[0] = True
+
+        for n in nums:
+            iterateSet = set(sumSet)
+            for sums in iterateSet:
+                sumSet.add(sums + n)
+                if sums + n <= target: dp[sums + n] = dp[sums]
+
+        return dp[target]
+",
+Unique Paths,2-D Dynamic Programming,"# Brute Force
+class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+        directions = [(0, 1), (1, 0)]
+        
+        def dfs(row, col, path):
+            if row == m - 1 and col == n - 1:
+                return 1
+
+            path.add((row, col))
+            paths = 0
+            
+            for dr, dc in directions:
+                checkRow, checkCol = row + dr, col + dc
+
+                if (0 <= checkRow < m and
+                    0 <= checkCol < n and
+                    (checkRow, checkCol) not in path):
+                    paths += dfs(checkRow, checkCol, path)
+
+            path.remove((row, col))
+            return paths
+
+
+        return dfs(0, 0, set())","# DP Linear Time + Space
+class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+        dp = [[0] * n for i in range(m)]
+        dp[m - 1][n - 1] = 1
+
+        for row in range(m - 1, -1, -1):
+            for col in range(n - 1, -1 , -1):
+                dp[row][col] += dp[row + 1][col] if row + 1 < m else 0
+                dp[row][col] += dp[row][col + 1] if col + 1 < n else 0
+
+        return dp[0][0]","# DP Optimal Time + Space
+class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+        dp = [0] * n
+        dp[n - 1] = 1
+
+        for row in range(m - 1, -1, -1):
+            prev = 0
+            for col in range(n - 1, -1 , -1):
+                dp[col] += prev
+                prev = dp[col]
+
+        return dp[0]"
+Longest Common Subsequence,2-D Dynamic Programming,"# Brute Force
+class Solution:
+    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+        
+        def dfs(i, j):
+            if i == len(text1) or j == len(text2):
+                return 0
+            elif text1[i] == text2[j]:
+                return 1 + dfs(i + 1, j + 1)
+            else:
+                return max(dfs(i + 1, j), dfs(i, j + 1))
+
+        return dfs(0, 0)","# DP Linear Time + Space
+class Solution:
+    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+        dp = [[0] * (len(text2) + 1) for i in range(len(text1) + 1)]
+        
+        for row in range(len(text1) - 1, -1, -1):
+            for col in range(len(text2) - 1, -1, -1):
+                if text1[row] == text2[col]:
+                    dp[row][col] = 1 + dp[row + 1][col + 1]
+                else:
+                    dp[row][col] = max(dp[row + 1][col], dp[row][col + 1]) 
+
+        return dp[0][0]","# DP Optimal Time + Space
+class Solution:
+    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+        dp = [0] * (len(text2) + 1)
+        
+        for row in range(len(text1) - 1, -1, -1):
+            prevDiag = 0
+            for col in range(len(text2) - 1, -1, -1):
+                temp = dp[col]
+                if text1[row] == text2[col]:
+                    dp[col] = 1 + prevDiag
+                else:
+                    dp[col] = max(dp[col], dp[col + 1]) 
+                prevDiag = temp
+        return dp[0]"
+Best Time to Buy And Sell Stock With Cooldown,2-D Dynamic Programming,"# Brute Force
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        
+        def dfs(i, buy):
+            if i >= len(prices):
+                return 0
+
+            if buy:
+                profit = dfs(i + 1, False) - prices[i]
+                cooldown = dfs(i + 1, True)
+                return max(profit, cooldown)
+            else:
+                sell = prices[i] + dfs(i + 2, True)
+                cooldown = dfs(i + 1, False)
+                return max(sell, cooldown)
+
+        return dfs(0, True)","# DP Linear Time + Space
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        dp = {}
+        
+        def dfs(i, buy):
+            if i >= len(prices):
+                return 0
+            if (i, buy) in dp:
+                return dp[(i, buy)]
+
+            if buy:
+                profit = dfs(i + 1, False) - prices[i]
+                cooldown = dfs(i + 1, True)
+                dp[(i, buy)] = max(profit, cooldown)
+            else:
+                sell = prices[i] + dfs(i + 2, True)
+                cooldown = dfs(i + 1, False)
+                dp[(i, buy)] = max(sell, cooldown)
+                
+            return dp[(i, buy)]
+
+        return dfs(0, True)",
+Coin Change II,2-D Dynamic Programming,,,
+Target Sum,2-D Dynamic Programming,,,
+Interleaving String,2-D Dynamic Programming,,,
+Longest Increasing Path In a Matrix,2-D Dynamic Programming,,,
+Distinct Subsequences,2-D Dynamic Programming,,,
+Edit Distance,2-D Dynamic Programming,,,
+Burst Balloons,2-D Dynamic Programming,,,
+Regular Expression Matching,2-D Dynamic Programming,,,
+Maximum Subarray,Greedy,,,
+Jump Game,Greedy,,,
+Jump Game II,Greedy,,,
+Gas Station,Greedy,,,
+Hand of Straights,Greedy,,,
+Merge Triplets to Form Target Triplet,Greedy,,,
+Partition Labels,Greedy,,,
+Valid Parenthesis String,Greedy,,,
+Insert Interval,Intervals,,,
+Merge Intervals,Intervals,,,
+Non Overlapping Intervals,Intervals,,,
+Meeting Rooms,Intervals,,,
+Meeting Rooms II,Intervals,,,
+Minimum Interval to Include Each Query,Intervals,,,
+Rotate Image,Math & Geometry,,,
+Spiral Matrix,Math & Geometry,,,
+Set Matrix Zeroes,Math & Geometry,,,
+Happy Number,Math & Geometry,,,
+Plus One,Math & Geometry,,,
+"Pow(x, n)",Math & Geometry,,,
+Multiply Strings,Math & Geometry,,,
+Detect Squares,Math & Geometry,,,
+Single Number,Bit Manipulation,,,
+Number of 1 Bits,Bit Manipulation,,,
+Counting Bits,Bit Manipulation,,,
+Reverse Bits,Bit Manipulation,,,
+Missing Number,Bit Manipulation,,,
+Sum of Two Integers,Bit Manipulation,,,
+Reverse Integer,Bit Manipulation,,,

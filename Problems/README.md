@@ -1,7 +1,7 @@
 # My Solved LeetCode Problem Index
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2026-01-02 13:28 UTC*
+*Last updated: 2026-01-02 23:57 UTC*
 
 This index lists every problem I've solved, organized by category, with links to the problem and my solutions.
 
@@ -137,7 +137,7 @@ This index lists every problem I've solved, organized by category, with links to
 - 10\. Regular Expression Matching ([Problem](https://leetcode.com/problems/regular-expression-matching/) | [Solution](./0010.%20Regular%20Expression%20Matching))
 - 1143\. Longest Common Subsequence ([Problem](https://leetcode.com/problems/longest-common-subsequence/) | [Solutions](./1143.%20Longest%20Common%20Subsequence))
 - 115\. Distinct Subsequences ([Problem](https://leetcode.com/problems/distinct-subsequences/) | [Solution](./0115.%20Distinct%20Subsequences))
-- 309\. Best Time to Buy And Sell Stock With Cooldown ([Problem](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) | [Solution](./0309.%20Best%20Time%20to%20Buy%20And%20Sell%20Stock%20With%20Cooldown))
+- 309\. Best Time to Buy And Sell Stock With Cooldown ([Problem](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) | [Solutions](./0309.%20Best%20Time%20to%20Buy%20And%20Sell%20Stock%20With%20Cooldown))
 - 312\. Burst Balloons ([Problem](https://leetcode.com/problems/burst-balloons/) | [Solution](./0312.%20Burst%20Balloons))
 - 329\. Longest Increasing Path In a Matrix ([Problem](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/) | [Solution](./0329.%20Longest%20Increasing%20Path%20In%20a%20Matrix))
 - 494\. Target Sum ([Problem](https://leetcode.com/problems/target-sum/) | [Solution](./0494.%20Target%20Sum))
