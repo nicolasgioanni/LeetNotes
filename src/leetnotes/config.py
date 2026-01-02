@@ -11,6 +11,7 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 NOTES_DIR = REPO_ROOT / "Notes"
 PROBLEMS_DIR = REPO_ROOT / "Problems"
 CATALOG_DIR = REPO_ROOT / "var"
+CSV_CACHE_DIR = REPO_ROOT / "CSV Files"
 PROBLEMS_CATALOG_PATH = CATALOG_DIR / "catalog.json"
 
 STD_CATEGORY_ORDER = [
@@ -116,6 +117,7 @@ __all__ = [
     "BLIND75_PROFILE",
     "CATEGORY_ALIASES",
     "CATEGORY_ORDER",
+    "CSV_CACHE_DIR",
     "DEFAULT_CATEGORY",
     "DEFAULT_PROFILE",
     "ENV_SHEET_CSV_URL",

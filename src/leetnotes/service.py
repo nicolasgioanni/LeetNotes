@@ -10,13 +10,41 @@ from .models import MetadataMap, NotesProfile, ProblemMetadata
 from .render_index import build_problem_index
 from .render_notes import build_notes_markdown
 
+_CONNECT_TIMEOUT = 10
+_READ_TIMEOUT = 120
+_MAX_ATTEMPTS = 4  # initial try + 3 retries
+_BACKOFF_FACTOR = 2.0
+
+
+def _cache_csv_bytes(filename: str, content: bytes, label: str) -> None:
+    cache_path = config.CSV_CACHE_DIR / filename
+    try:
+        repo.write_bytes_if_changed(cache_path, content)
+    except Exception as exc:  # pragma: no cover - caching is best-effort
+        print(f"Warning: could not cache {label} to {cache_path}: {exc}", file=sys.stderr)
+
+
+def _download_csv_for_profile(url: str, profile: NotesProfile, kind: str) -> tuple[bytes, str]:
+    label = f"{profile.name} {kind} CSV"
+    cache_filename = f"{profile.slug}_{kind}.csv"
+    raw_csv, charset = csv_source.fetch_csv(
+        url,
+        label=label,
+        connect_timeout=_CONNECT_TIMEOUT,
+        read_timeout=_READ_TIMEOUT,
+        max_attempts=_MAX_ATTEMPTS,
+        backoff_factor=_BACKOFF_FACTOR,
+    )
+    _cache_csv_bytes(cache_filename, raw_csv, label)
+    return raw_csv, charset
+
 
 def _sync_solutions_from_url(
     metadata: MetadataMap,
     profile: NotesProfile,
     url: str,
 ) -> list[dict[str, str]]:
-    raw_solutions_csv, solutions_charset = csv_source.fetch_csv(url)
+    raw_solutions_csv, solutions_charset = _download_csv_for_profile(url, profile, "solutions")
     solutions_text = csv_source.decode_csv(raw_solutions_csv, solutions_charset)
     solution_fieldnames, solution_rows = csv_source.parse_csv(solutions_text)
     return solutions.sync_solutions_from_rows(
@@ -46,9 +74,9 @@ def run(
         return 1
 
     try:
-        raw_csv, charset = csv_source.fetch_csv(url)
+        raw_csv, charset = _download_csv_for_profile(url, profile, "notes")
     except Exception as exc:  # pragma: no cover - runtime failure path
-        print(f"Failed to download CSV: {exc}", file=sys.stderr)
+        print(f"Failed to download notes CSV for {profile.name}: {exc}", file=sys.stderr)
         return 1
 
     csv_text = csv_source.decode_csv(raw_csv, charset)
@@ -65,7 +93,7 @@ def run(
         try:
             solution_rows_for_catalog = _sync_solutions_from_url(metadata, profile, solutions_url)
         except Exception as exc:  # pragma: no cover - runtime failure path
-            print(f"Failed to download solutions CSV: {exc}", file=sys.stderr)
+            print(f"Failed to download solutions CSV for {profile.name}: {exc}", file=sys.stderr)
             return 1
 
     notes_markdown = build_notes_markdown(fieldnames, rows, url, metadata, profile)
@@ -136,7 +164,7 @@ def sync_solutions(
     try:
         solution_rows = _sync_solutions_from_url(metadata, profile, url)
     except Exception as exc:  # pragma: no cover - runtime failure path
-        print(f"Failed to download solutions CSV: {exc}", file=sys.stderr)
+        print(f"Failed to download solutions CSV for {profile.name}: {exc}", file=sys.stderr)
         return 1
 
     for row in solution_rows:
