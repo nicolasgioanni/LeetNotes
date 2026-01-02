@@ -1,0 +1,369 @@
+Problem,Category,Time Complexity,Space Complexity,Notes
+Contains Duplicate,Arrays & Hashing,O(n),O(n),"- Hashset, check if the value is in seen otherwise, add it to seen"
+Valid Anagram,Arrays & Hashing,O(n + m),O(1),"Two ways to solve this:
+- 1) Hashmaps to keep track of char count and then compare
+- 2) ASCII values list, adding count of 1 and subtracting count of 2, at the end, the list should have counts of all 0s"
+Two Sum,Arrays & Hashing,O(n),O(n),"Loop through every value
+- If our target - the value we are looking at is in our hashmap of seen values, return them
+- Otherwise, add it to our hashmap"
+Group Anagrams,Arrays & Hashing,O(nm),O(nm),"- Loop through strings storing list of counts as the key and string as value (defaultdict(list))
+- ASCII values for count"
+Top K Frequent Elements,Arrays & Hashing,O(n),O(n),"- Hashmap for count and dict of lists per number in input list storing count as key and number as values
+- Loop to get count of each number
+- Loop to store each number and its count in dict
+- Return the k most frequent numbers"
+Encode and Decode Strings,Arrays & Hashing,O(n),O(n + m),"Encode saving the new string as (length, unique char, string)
+Decode Looping until we hit our right bound, using pointers front, middle, and end
+- Front points to our first number for our string length
+- Middle points to our unique char
+- End points to the end of our string"
+Product of Array Except Self,Arrays & Hashing,O(n),O(1) or O(n),"- Result list
+- Prefix, equal first then multiply update
+- Postfix, multiply first then multiply update"
+Valid Sudoku,Arrays & Hashing,O(n) or O(r * c),O(n) or O(r * c),"Create a set for each row, col, and box (9 of each)
+Loop over every cell with valid digits:
+- Formula to find the correct box of the grid = (row//3) + (col//3) * 3
+- Base Case: If the cell value is already in that row, col or box set, return False
+  - Otherwise, add the digit to all 3 sets
+If all code run without hitting the base case, Return True"
+Longest Consecutive Sequence,Arrays & Hashing,O(n),O(n),"- Use a set to iterate quickly
+Loop over every unique number
+- Check if it is a start of a sequence
+- If it is, continue to check the numbers after if it is a sequence
+  - Then compare it to the length of the max"
+Valid Palindrome,Two Pointers,O(n),O(1),"Loop through Two pointers
+- Increment/decrement whether pointer value is within ascii values to avoid non numeric values
+- Compare characters at pointer values
+- Update pointers"
+Two Sum II Input Array Is Sorted,Two Pointers,O(n),O(1),"Loop 2 pointers
+- Calculate twoSum, and update pointers based on whether greater or less than target"
+Three Sum,Two Pointers,O(n^2),O(1) or O(n),"Result list and sort the input list
+- Enumerate though each value in the list
+- Check if the smallest value is greater than target
+- After the first iteration, check if prev value is the same as current value
+- Loop through pointers which are the ends after the value we enumerate
+- Calculate threeSum, and update pointers based on whether equal, greater or less than target
+   - When equal, update both pointers and duplicate check"
+Container With Most Water,Two Pointers,O(n),O(1),"- Two pointers
+- Loop through ends (pointers)
+- Calculate area
+- Update pointers based on which value is smaller"
+Trapping Rain Water,Two Pointers,,,
+Best Time to Buy and Sell Stock,Sliding Window,O(n),O(1),"Two pointers 
+- Loop until our sell pointer crosses input array bounds
+- If sell is greater than buy, get the max of our old and current profit
+- Otherwise, this means we have a new low buy, so update pointers accordingly"
+Longest Substring Without Repeating Characters,Sliding Window,O(n),O(m),"Hashmap to store char as key and its index as the value
+Two pointers
+- Loop through our right pointer, adding them to hashmap
+- If duplicate (already in seen) & last seen duplicate char index greater than our left pointer
+- Update left pointer to last seen duplicate char index + 1 (to skip it)"
+Longest Repeating Character Replacement,Sliding Window,O(n),O(m),"- Dictionary to store unique letters as keys and counts as values
+Two pointers, loop with right pointer, update counts and max length
+- While the most frequency letter plus k is less than the length of the string
+  - Update the letters count and left pointer"
+Permutation In String,Sliding Window,O(n),O(1),"DSA: Frequency counters for both string, matches for every unique char
+- Populate both frequency counters with char counts for the length of the first string
+- Check each char count in both frequency counters:
+  - +1 matches if they're equal
+  - +0 if not
+Fixed Sliding Window Algorithm:
+- Loop over the second string starting at the length of the first string
+- Base case: return True if matches ever equals 26 (all char counts are equal in the fixed window)
+- Increment the right pointer char count and decerment the left pointer char count in s2
+- For both pointers:
+  - Check if the chars count in s2 matches s1's (increment matches +1)
+  - Check if the chars count is s2 went over or under the count in s1's (decrement matches - 1)"
+Minimum Window Substring,Sliding Window,O(n + m),O(m),"- Check if are target substring is empty else continue
+- Hashmaps for window and target substring
+Two pointers, loop until our right pointer hits the right bound (end of input string)
+  - Continously add unique char and their count to our window
+  - If we have the count for all the unique letters we need save it if is it smaller than our old substring
+  - Update our left pointer and decrease the count until we don't have what we need anymore"
+Sliding Window Maximum,Sliding Window,,,
+Valid Parentheses,Stack,O(n),O(n),"Stack and Hashmap to map parentheses
+- Loop through every char and check if it is open or close, add opens as needed and check stack if looking at close
+- Return whether we have no more opens in our stack or if we run into the wrong close"
+Min Stack,Stack,,,
+Evaluate Reverse Polish Notation,Stack,,,
+Generate Parentheses,Stack,,,
+Daily Temperatures,Stack,,,
+Car Fleet,Stack,,,
+Largest Rectangle In Histogram,Stack,,,
+Binary Search,Binary Search,O(logn),O(1),"Two pointers and loop until they cross, it's okay if they're equal
+- If the middle pointer is less than target, update right pointer
+- Else means middle pointer is greater than target, update left pointer"
+Search a 2D Matrix,Binary Search,O(lognm),O(1),"Four pointers, 2 for rows top and bottom, 2 for columns left and right
+- Loop until the row pointers cross, it's okay if they're equal, get middle row
+- If the first value in the middle row is less than target, update bottom row
+- If the last value in the middle row is greater than target, update top row
+- Else, means target must be in row and perform traditional binary search"
+Koko Eating Bananas,Binary Search,O(lognm),O(1),"Two pointers, between values 1 and max rate per hour
+- Loop until pointers cross, it's okay if they're equal
+- Calculate total hours it takes to eat all bananas with middle rate (math.ceil(float(x) / m))
+- If valid, update right pointer
+- Else this means we didn't finish eating in time, update left (to eat more per hour)"
+Find Minimum In Rotated Sorted Array,Binary Search,O(log n),O(1),"Two pointers, loop until they cross
+- If our middle pointer is less than our right, its impossible to have a smaller number than middle
+- Else means it is greater and our right subarray has the smaller value than our middle
+- Last case, middle and left pointer will be the same, and if it's greater than our right, l = m + 1 = r, next iteration pointers cross"
+Search In Rotated Sorted Array,Binary Search,O(log n),O(1),"Two pointers and loop until they cross, it's okay if they're equal 
+- If our middle is the target, return, otherwise, two subcases
+- Elif middle is greater than our left pointer (left side is sorted)
+  - And If our target is greater than our middle pointer or less than our left pointer (meaning it's not in our sorted side), update left
+  - Else, our target is in our sorted side and update right
+- Else, meaning our right side is sorted
+  - And our target is less than our middle pointer but greater than our right pointer (meaning it's not in our sorted sid), update right
+  - Else, our target is in our sorted side and update left"
+Time Based Key Value Store,Binary Search,"O(1): set
+O(logn): get",O(n),
+Median of Two Sorted Arrays,Binary Search,,,
+Reverse Linked List,Linked List,O(n),O(1),"Think of creating a new List starting with None, and redirecting every node to point to that new list 1 by 1
+- Update our current nodes next to point to our previous
+- Change our prevous pointer to be our current node (to continue iterating)
+- Change our old current nodes next (before we changed it) to be our new current"
+Merge Two Sorted Lists,Linked List,O(n + m),O(1),"1) Edge case, 2) determine head node, 3) merge loop, 4) attach rest
+- Edge case if lists are None
+- Compare list.val and set as head and tail, move to next node in list we took node from
+- Loop while both lists have nodes, attaching smaller node to tail.next and updating tail to tail.next
+- Tail.next is the node that is not None"
+Linked List Cycle,Linked List,O(n),O(1),"Slow/fast pointers
+- Loop until fast and its next are None constantly checking if the pointers nodes are ever equal"
+Reorder List,Linked List,O(n),O(1),"Slow/fast pointers, reverse second half, merge lists:
+- Slow/fast pointers to find second half, slow.next is our start second half, fast to find our end bound
+- Then we need to reverse the links so we start at the end and point to the middle (second half points backwards)
+- While second, save next nodes, change the nodes our currents point to, update our current nodes to temps"
+Remove Nth Node From End of List,Linked List,O(n),O(1),"Slow/fast pointers, slow = head, fast = n
+- If n is the size of the list (meaning fast is None) return the next node after the head
+- Else we loop until the node after fast is None (because we want slow to point to the node before our nth end node)
+  - Then, redirect links"
+Copy List With Random Pointer,Linked List,,,
+Add Two Numbers,Linked List,,,
+Find The Duplicate Number,Linked List,,,
+LRU Cache,Linked List,,,
+Merge K Sorted Lists,Linked List,O(n log k),O(log k),"Two pointers, Divide and conquer (recursive)
+- Divide: Get the range of lists, divide until we only look at 1 which is sorted (pointers are same)
+- Two pointers/conquer: Used to look at two nodes from divide and begin merging sorted lists into 1 sorted list
+Key: Recursivly divide until we only have a list from both left and right halves, then slowly merge them until we have 1 resulting list"
+Reverse Nodes In K Group,Linked List,,,
+Invert Binary Tree,Trees,O(n),O(n),"1) Edge case, 2) swap left and right nodes, 3) Recursively call on both left and right nodes (the ones we changed)"
+Maximum Depth of Binary Tree (DFS),Trees,O(n),"O(h)
+- O(log n), O(n)","Case 1 (no node): if root is None, that side of the tree is empty, so depth = 0.
+Case 2 (node exists): return 1 (for the current node) plus the max depth of the left and right subtrees."
+Diameter of Binary Tree,Trees,,,
+Balanced Binary Tree,Trees,,,
+Same Tree (DFS),Trees,O(n),O(n),"Base case: return true if nodes are null
+- Then if both not null and equal, recursively return the comparision of the left and right nodes of both trees 
+- Otherwise, false"
+Subtree of Another Tree (DFS),Trees,O(nm),O(n + m),"Iterate the tree using a basic stack or recursive call
+- If found subtree, perform same tree check (either recursively with a seperate function or iteratively with a stack)"
+Lowest Common Ancestor of a Binary Search Tree,Trees,O(h),O(1),"Case 1: Both nodes are greater than our current node, we go right
+Case 2: Both nodes are less than our current node, we go left
+Case 3: This means a split occured (one node is to the left and the other is to the right) or one node equals our current, LCA found"
+Binary Tree Level Order Traversal,Trees,O(n),O(n),"Iterate the tree using a queue while loop
+- Get the amount of nodes at that depth (length of queue)
+- For every node at that depth, pop it (queue.popleft()), and add it to a temp list for that depth if not null
+- If the temp list is not null (meaning nodes were present at that depth, add the temp list to the result list"
+Binary Tree Right Side View,Trees,,,
+Count Good Nodes In Binary Tree,Trees,,,
+Validate Binary Search Tree (DFS),Trees,O(n),O(n),"Nested function with 3 parameters (node, left bound, right bound):
+- Our first root node can be in between negative infinity and infinity
+- As we iterate recursively, we must update our left and right bounds accordingly
+  - Going left, update right bound to previous nodes value
+  - Going right, update left bound to previous nodes value"
+Kth Smallest Element In a Bst (Inorder Traversal),Trees,O(n),O(n),"Inorder Traversal: Loop while stack or node we're looking at is not null
+- Go left as far as possible, pushing nodes onto a stack
+- Then, begin popping the smallest value, decrementing k, and going to that nodes's right child"
+Construct Binary Tree From Preorder And Inorder Traversal (DFS),Trees,O(n),O(n),"Idea: Preorder gives the root; Inorder tells us how to split into subtress
+- Make a Inorder index dictonary to map the inorder values to indices for O(1) loopups
+- Nested recursive function with four pointer parameters: preorder left and right, inorder left and right
+  - Base case: Make sure that our left pointers for both preorder and in order do not cross eachother (okay is equal)
+  - Root: Always build our root node with the preorder list index at our preorder left pointer
+  - Split: We find the index of that value in the preorder list, in the inorder list (rootIndex) using our dictionary
+  - Left Size (leftHalf): Compute how many nodes are in the left subtree by subtracting the inorder index (root Index) by our inorder left pointer
+Recurse Left:
+- preLeft: Move forward by 1 (skip over the root in preorder).
+- preRight: Move our pointer to our current preLeft + the number of nodes in the leftHalf
+- inLeft: Keep the same inLeft
+- inRight: Move our pointer to the middle (rootIndex) - 1 to exclude our current root node (everything to the left of the root in inorder)
+Recurse Right:
+- preLeft: Move the pointer over by 1 + our current preLeft + the length of the leftHalf
+- preRight: Keep the same preRight
+- inLeft: Move our pointer to the rootIndex + 1 (everything to the right of the root in inorder).
+- inRight: Keep the same inRight
+
+Note: Only compare or use index values together if they are part of the same list"
+Binary Tree Maximum Path Sum,Trees,,,
+Serialize And Deserialize Binary Tree,Trees,,,
+Kth Largest Element In a Stream,Heap / Priority Queue,,,
+Last Stone Weight,Heap / Priority Queue,,,
+K Closest Points to Origin,Heap / Priority Queue,,,
+Kth Largest Element In An Array,Heap / Priority Queue,,,
+Task Scheduler,Heap / Priority Queue,,,
+Design Twitter,Heap / Priority Queue,,,
+Find Median From Data Stream,Heap / Priority Queue,,,
+Subsets,Backtracking,,,
+Combination Sum,Backtracking,,,
+Combination Sum II,Backtracking,,,
+Permutations,Backtracking,,,
+Subsets II,Backtracking,,,
+Word Search,Backtracking,,,
+Palindrome Partitioning,Backtracking,,,
+Letter Combinations of a Phone Number,Backtracking,,,
+N Queens,Backtracking,,,
+Implement Trie Prefix Tree,Tries,,,
+Design Add And Search Words Data Structure,Tries,,,
+Word Search II,Tries,,,
+Number of Islands,Graphs,O(n): O(row * col),O(n): O(row * col),"Idea: Iterate through each coordinate (row and col) in grid/matrix and run bfs or dfs every time we see a unvisited island coordinate (not in set)
+BFS or DFS: Logic works for both below but bfs pops left vs. dfs pops right
+- Add the first coordinate to our visited set and to our queue (collections.deque)
+- While loop as long as we have valid coordinates in our queue
+- For loop to check all directions (left/right/up/down) of our current coordinates, if any of those coordinates:
+  - Are within our row and col bounds (0 to the length of 0-indexed range)
+  - Is an island in our grid (grid[row][col] == ""x"")
+  - And is not in our visited set
+- Means: we found another valid coordinate a part of this island, and we update our visited set and queue with those coordinates to reiterate
+- Otherwise: we do nothing until the queue is empty"
+Max Area of Island,Graphs,O(n): O(row * col),O(n): O(row * col),"Idea: Iterate through each coordinate and if the coordinate is part of a island + not already seen, bfs/dfs the island + count
+Data Structures: Set for seen and int for maxArea
+- Iterate through each coordinate and if we find a part of a island we haven't seen, update our max island area with either our old value or dfs of that island
+- DFS or BFS: Area starts at 1, add for every island cooridnate we find after, return area"
+Clone Graph,Graphs,O(V * E),O(V),"Idea: Recursively clone each node using the old node and returning the cloned node (whether it's already cloned or not):
+1) If the old node is already in the map, return its clone (because our recursive call takes in the old node)
+2) Otherwise, create the clone and update our hashmap (old : new) that the node has been copied.
+3) For each neighbor of the old node, get the neighbor’s clone by recursion and append it to the current clone’s neighbors
+Question: Why the hashmap? 
+Answer: It is both the visited check and the way to fetch the exact clone needed to wire edges (when we are updating neighbors of already cloned nodes)"
+Walls And Gates (BFS),Graphs,O(n * m),O(n * m),"Idea: Start from all gates and BFS outward, filling valid cells with shortest distances
+1) Data Structures: Queue
+2) Loop through every cell and add the gate coordinates to the queue
+3) Loop while queue, start from gates and bfs outward marking shortest distances"
+Rotting Oranges,Graphs,O(n * m),O(n * m),"Idea: Iterate through every coordinate, storing fresh fruit counts and rotten fruit coordinates. Bfs or dfs from every rotten fruit until the path is done, counting time at each level
+1) Data Structures: Queue or dfs
+2) Loop through every cell and add rotten fruit coordinates to the queue or incrementing the amount of fresh fruits
+3) For every rotten fruit, pop it from the queue, check all 4 directions, and change fresh fruits to rotten fruits + adding new rotten fruits to the queue
+  - For every level, increment that processes time by 1. Each level is the length of the queue before you move onto the next set of rotten fruits
+  - For every rotten fruit infected (every coordinate popped), decrement the amount of fresh fruits
+4) Return the time if there are no fresh fruits left (freshFruits == 0)"
+Pacific Atlantic Water Flow,Graphs,O(n): O(row * col),O(n): O(row * col),"Idea: Iterate through top/bottom, left/right sides and recursively dfs go inward storing valid coordinates in sets (coordinates that are in a path to ocean)
+1) Top/Bottom: Iterate through cols and recursive dfs on every coordinate on the top and bottom row (0, rows -1)
+2) Left/Right: Iterate through rows and recursive dfs on every coordinate on the left and right cols (0, cols - 1)
+3) DFS: If the row/col is within bounds, the coordinate has a equal or greater height than our old, and is not already marked reachable:
+  - Mark it as reachable for that respective ocean
+  - Recursively check all 4 directions
+4) Result: Iterate over one ocean’s reachable set and add any cell that also appears in the other ocean’s set to the result"
+Surrounded Regions,Graphs,,,"Idea: Iterate the boundaries, start from all edge ""O"" cells, use BFS/DFS to mark them as ""T"" (safe), then scan the whole board to flip remaining ""O"" to ""X"" and convert ""T"" back to ""O""."
+Course Schedule,Graphs,O(V * E),O(V * E),"Idea: Map course to its prerequisites, and run dfs on each prerequiste keeping track of the path
+1) Data structures: adjacency map (course to prerequisites); path set (path in our DFS process)
+2) Iteration: Run DFS on every course; If any returns false, return false.
+3) DFS:
+  - Base case 1) If a course is already on our path (cycle), return false
+  - Base case 2) If a course has no prerequsites (completed), return true
+  - Otherwise: Add the course to our path and DFS on all prerequisites and:
+    - If any of the DFS on prerequistes return false, return false
+    - Else memoize and remove all the prerequisites for that course"
+Course Schedule II,Graphs,,,
+Graph Valid Tree,Graphs,O(V * E),O(V * E),"Base Check: If the number of edges isn’t equal to the number of nodes minus one, the graph can’t be a valid tree
+Reason: After the first node, each added node needs exactly one new edge to connect them to be a valid tree
+1) Data Structures:
+  - Adjacency List: Map nodes to neighbors and back
+  - Visited Set: Store every node visited for iteration/recursion using dfs/bfs
+2) Run DFS on any node passing a current node and previous node as parameters:
+  - Base case: Check if node is in visited
+  - For every neighbor the current node has, i
+    - If the neighbor is the previous node, skip it
+    - If the DFS call on the neighbor nodes is false, return false (caught a cycle)
+  - If the for loop preformed without failing, return True
+3) Return the boolean result of both (and): 
+  - The DFS call
+  - Whether or not the number of visited nodes equals the total number of nodes (n)"
+Number of Connected Components In An Undirected Graph,Graphs,O(V * E),O(V * E),"1) Data Structures:
+  - Adjacency List: Map nodes to neighbors and back
+  - Visited Set: Store every node visited for iteration/recursion dfs/bfs
+  - Components Count: Store amount of components detected
+2) Linear Iteration:
+  - For each node in the graph
+    - If we have not visitied yet, mark it as visited, run DFS, and increment our components counter
+3) DFS:
+  - For every neighbor the passed node has
+    - If the neighbor is not in visited, mark it as visited and run DFS"
+Redundant Connection,Graphs,O(n) or O(V * E),O(n) or O(V * E),"1) Data Structues: 
+- Adjacency List: Map nodes to neighbors and back
+- Queue: Keep track of the current path and use to determine nodes that are part of the cycle
+- Set: Keep track of the current path and use to check in constant time (optimal) if current path is a cycle + nodes in the cycle
+- Note: You could also use a dict/hashmap instead of a queue or set. Use popleft() = del, iterate by list(dict.keys())
+2) DFS:
+- Base case: If the node is already in our path set (cycle detected):
+  - While the front of the queue is not this new node that made our path into a cycle, remove it from the queue and our path set and return True
+- Otherwise, add the node to our queue and path set, and iterate over its neighbors. If the dfs of the neighbor returns True, return True
+- If that path is valid (never returned True meaning no cycle detected), pop that node and remove it from our path set
+Note: Make sure to not create a infinite loop by not iterating over the node that we came from (parent/prevNode)"
+Word Ladder,Graphs,"O(N * M²)
+","O(N * M²)
+","1) Idea: Create a adjaceny map, mapping patterns (*ot, h*t, ho* : hot) to words then start at the beginning word and bfs over all its patterns until you find the end word
+2) Data Structures: AdjList (defaultdict(list)), queue (bfs), set (to track visited nodes/patterns)
+3) BFS:
+- Iterate over each level and increment the result by 1 for each level
+- Base case: The current word we are looking at is the target word
+- Otherwise, append to the queue, all other words that have a similar pattern
+  - For every char in the word that is replaced with a *, for every other word that we haven't already checked that has that same pattern, traverse it
+- If we don't find the target word, return 0 or whatever means fail
+Note: You could also solve it without a pattern map. Start at the beginning word, for every char, try every other char, and if that word is in the wordList, add that to the queue"
+Network Delay Time,Advanced Graphs,,,
+Reconstruct Itinerary,Advanced Graphs,,,
+Min Cost to Connect All Points,Advanced Graphs,,,
+Swim In Rising Water,Advanced Graphs,,,
+Alien Dictionary,Advanced Graphs,,,
+Cheapest Flights Within K Stops,Advanced Graphs,,,
+Climbing Stairs,1-D Dynamic Programming,,,
+Min Cost Climbing Stairs,1-D Dynamic Programming,,,
+House Robber,1-D Dynamic Programming,,,
+House Robber II,1-D Dynamic Programming,,,Idea: Same as House Robber I but on the list either elimitating the first or the last element.
+Longest Palindromic Substring,1-D Dynamic Programming,,,
+Palindromic Substrings,1-D Dynamic Programming,,,
+Decode Ways,1-D Dynamic Programming,,,
+Coin Change,1-D Dynamic Programming,,,
+Maximum Product Subarray,1-D Dynamic Programming,,,
+Word Break,1-D Dynamic Programming,,,
+Longest Increasing Subsequence,1-D Dynamic Programming,,,
+Partition Equal Subset Sum,1-D Dynamic Programming,,,
+Unique Paths,2-D Dynamic Programming,,,
+Longest Common Subsequence,2-D Dynamic Programming,,,
+Best Time to Buy And Sell Stock With Cooldown,2-D Dynamic Programming,,,
+Coin Change II,2-D Dynamic Programming,,,
+Target Sum,2-D Dynamic Programming,,,
+Interleaving String,2-D Dynamic Programming,,,
+Longest Increasing Path In a Matrix,2-D Dynamic Programming,,,
+Distinct Subsequences,2-D Dynamic Programming,,,
+Edit Distance,2-D Dynamic Programming,,,
+Burst Balloons,2-D Dynamic Programming,,,
+Regular Expression Matching,2-D Dynamic Programming,,,
+Maximum Subarray,Greedy,,,
+Jump Game,Greedy,,,
+Jump Game II,Greedy,,,
+Gas Station,Greedy,,,
+Hand of Straights,Greedy,,,
+Merge Triplets to Form Target Triplet,Greedy,,,
+Partition Labels,Greedy,,,
+Valid Parenthesis String,Greedy,,,
+Insert Interval,Intervals,,,
+Merge Intervals,Intervals,,,
+Non Overlapping Intervals,Intervals,,,
+Meeting Rooms,Intervals,,,
+Meeting Rooms II,Intervals,,,
+Minimum Interval to Include Each Query,Intervals,,,
+Rotate Image,Math & Geometry,,,
+Spiral Matrix,Math & Geometry,,,
+Set Matrix Zeroes,Math & Geometry,,,
+Happy Number,Math & Geometry,,,
+Plus One,Math & Geometry,,,
+"Pow(x, n)",Math & Geometry,,,
+Multiply Strings,Math & Geometry,,,
+Detect Squares,Math & Geometry,,,
+Single Number,Bit Manipulation,,,
+Number of 1 Bits,Bit Manipulation,,,
+Counting Bits,Bit Manipulation,,,
+Reverse Bits,Bit Manipulation,,,
+Missing Number,Bit Manipulation,,,
+Sum of Two Integers,Bit Manipulation,,,
+Reverse Integer,Bit Manipulation,,,
