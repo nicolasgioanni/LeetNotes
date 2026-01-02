@@ -156,6 +156,21 @@ def write_if_changed(path: Path, content: str) -> None:
     path.write_text(content, encoding="utf-8")
 
 
+def write_bytes_if_changed(path: Path, content: bytes) -> None:
+    """Write binary content to disk if it differs from the existing file."""
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    existing: bytes | None = None
+    if path.exists():
+        try:
+            existing = path.read_bytes()
+        except OSError:
+            existing = None
+    if existing is not None and existing == content:
+        return
+    path.write_bytes(content)
+
+
 __all__ = [
     "ensure_problem_folders",
     "clear_solution_files",
@@ -164,6 +179,7 @@ __all__ = [
     "migrate_folder_contents",
     "remove_directory",
     "write_if_changed",
+    "write_bytes_if_changed",
 ]
 _SOLUTION_FILE_RE = re.compile(r"^solutions?(?P<index>\d*)(?P<ext>\.[A-Za-z0-9_+#-]+)$", re.IGNORECASE)
 
