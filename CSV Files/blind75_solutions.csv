@@ -1926,10 +1926,165 @@ class Solution:
             return dp[(i, buy)]
 
         return dfs(0, True)",
-Coin Change II,2-D Dynamic Programming,,,
-Target Sum,2-D Dynamic Programming,,,
-Interleaving String,2-D Dynamic Programming,,,
-Longest Increasing Path In a Matrix,2-D Dynamic Programming,,,
+Coin Change II,2-D Dynamic Programming,"# Brute Force
+class Solution:
+    def change(self, amount: int, coins: List[int]) -> int:
+        
+        def dfs(moneyLeft, avaliableCoins):
+            if moneyLeft == 0:
+                return 1
+            
+            ways = 0
+            for i in range(len(avaliableCoins)):
+                if moneyLeft - avaliableCoins[i] >= 0:
+                    ways += dfs(moneyLeft - avaliableCoins[i], avaliableCoins[i:])
+            
+            return ways
+
+        return dfs(amount, coins)","# Pruned Brute Force
+class Solution:
+    def change(self, amount: int, coins: List[int]) -> int:
+        dp = {}
+        
+        def dfs(moneyLeft, index):
+            if moneyLeft == 0:
+                return 1
+            elif index == len(coins):
+                return 0
+            elif (moneyLeft, index) in dp:
+                return dp[(moneyLeft, index)]
+            
+            ways = 0
+            for i in range(index, len(coins)):
+                if moneyLeft - coins[i] >= 0:
+                    ways += dfs(moneyLeft - coins[i], i)
+            
+            dp[(moneyLeft, index)] = ways
+            return ways
+
+        return dfs(amount, 0)","# DP Optimal Time + Space
+class Solution:
+    def change(self, amount: int, coins: List[int]) -> int:
+        dp = [0] * (amount + 1)
+        dp[amount] = 1
+
+        for coin in coins:
+            for i in range(amount - 1, -1, -1):
+                dp[i] += dp[i + coin] if coin + i <= amount else 0
+        
+        return dp[0]"
+Target Sum,2-D Dynamic Programming,"# Brute Force
+class Solution:
+    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+
+        def dfs(currentSum, i):
+            if i == len(nums):
+                return 1 if currentSum == target else 0
+
+            return dfs(currentSum - nums[i], i + 1) + dfs(currentSum + nums[i], i + 1)
+
+        return dfs(0, 0)","# DP O(numbers * possible sums) Time + Space
+class Solution:
+    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+        dp = {}
+
+        def dfs(currentSum, i):
+            if (currentSum, i) in dp:
+                return dp[(currentSum, i)]
+            if i == len(nums):
+                return 1 if currentSum == target else 0
+
+            dp[(currentSum, i)] = dfs(currentSum - nums[i], i + 1) + dfs(currentSum + nums[i], i + 1)
+            return dp[(currentSum, i)]
+
+        return dfs(0, 0)","#DP Optimal Time + Space, O(n * s)/O(s)
+class Solution:
+    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+        row = defaultdict(int) # sums : counts
+        row[0] = 1
+
+        for n in nums:
+            currentRow = defaultdict(int)
+            for prevSum, count in row.items():
+                currentRow[prevSum + n] += count
+                currentRow[prevSum - n] += count
+            row = currentRow
+
+        return row[target]"
+Interleaving String,2-D Dynamic Programming,"# Brute Force
+class Solution:
+    def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
+        if len(s1) + len(s2) != len(s3):
+            return False
+        
+        def dfs(i, j):
+            if i + j == len(s3):
+                return True
+
+            if len(s1) > i and len(s2) > j and s1[i] == s3[i + j] and s2[j] == s3[i + j]:
+                return dfs(i + 1, j) or dfs(i, j + 1)
+            elif len(s1) > i and s1[i] == s3[i + j]:
+                return dfs(i + 1, j)
+            elif len(s2) > j and s2[j] == s3[i + j]:
+                return dfs(i, j + 1)
+
+            return False
+
+        return dfs(0, 0)","# DP Top-Down
+class Solution:
+    def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
+        if len(s1) + len(s2) != len(s3):
+            return False
+
+        dp = {}
+        
+        def dfs(i, j):
+            if (i, j) in dp:
+                return dp[(i, j)]
+            if i + j == len(s3):
+                return True
+
+            if len(s1) > i and len(s2) > j and s1[i] == s3[i + j] and s2[j] == s3[i + j]:
+                dp[(i, j)] = dfs(i + 1, j) or dfs(i, j + 1)
+            elif len(s1) > i and s1[i] == s3[i + j]:
+                dp[(i, j)] = dfs(i + 1, j)
+            elif len(s2) > j and s2[j] == s3[i + j]:
+                dp[(i, j)] = dfs(i, j + 1)
+            else:
+                dp[(i, j)] = False
+
+            return dp[(i, j)]
+
+        return dfs(0, 0)",
+Longest Increasing Path In a Matrix,2-D Dynamic Programming,,,"# DP Optimal Time + Space, O(r * c)
+class Solution:
+    def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
+        directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+        rows, cols = len(matrix), len(matrix[0])
+        longest = 0
+        dp = {}
+
+        def dfs(row, col):
+            if (row, col) in dp:
+                return dp[(row, col)]
+
+            dp[(row, col)] = 1
+            for dr, dc in directions:
+                checkRow, checkCol = row + dr, col + dc
+
+                if (0 <= checkRow < rows and
+                    0 <= checkCol < cols and
+                    matrix[checkRow][checkCol] > matrix[row][col]):
+                    dp[(row, col)] = max(dp[(row, col)], 1 + dfs(checkRow, checkCol))
+            
+            return dp[(row, col)]
+
+        for row in range(rows):
+            for col in range(cols):
+                longest = max(longest, dfs(row, col))
+
+        return longest
+"
 Distinct Subsequences,2-D Dynamic Programming,,,
 Edit Distance,2-D Dynamic Programming,,,
 Burst Balloons,2-D Dynamic Programming,,,
