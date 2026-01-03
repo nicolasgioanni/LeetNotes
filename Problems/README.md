@@ -1,7 +1,7 @@
 # My Solved LeetCode Problem Index
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2026-01-02 23:57 UTC*
+*Last updated: 2026-01-03 13:25 UTC*
 
 This index lists every problem I've solved, organized by category, with links to the problem and my solutions.
 
@@ -140,11 +140,11 @@ This index lists every problem I've solved, organized by category, with links to
 - 309\. Best Time to Buy And Sell Stock With Cooldown ([Problem](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) | [Solutions](./0309.%20Best%20Time%20to%20Buy%20And%20Sell%20Stock%20With%20Cooldown))
 - 312\. Burst Balloons ([Problem](https://leetcode.com/problems/burst-balloons/) | [Solution](./0312.%20Burst%20Balloons))
 - 329\. Longest Increasing Path In a Matrix ([Problem](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/) | [Solution](./0329.%20Longest%20Increasing%20Path%20In%20a%20Matrix))
-- 494\. Target Sum ([Problem](https://leetcode.com/problems/target-sum/) | [Solution](./0494.%20Target%20Sum))
-- 518\. Coin Change II ([Problem](https://leetcode.com/problems/coin-change-ii/) | [Solution](./0518.%20Coin%20Change%20II))
+- 494\. Target Sum ([Problem](https://leetcode.com/problems/target-sum/) | [Solutions](./0494.%20Target%20Sum))
+- 518\. Coin Change II ([Problem](https://leetcode.com/problems/coin-change-ii/) | [Solutions](./0518.%20Coin%20Change%20II))
 - 62\. Unique Paths ([Problem](https://leetcode.com/problems/unique-paths/) | [Solutions](./0062.%20Unique%20Paths))
 - 72\. Edit Distance ([Problem](https://leetcode.com/problems/edit-distance/) | [Solution](./0072.%20Edit%20Distance))
-- 97\. Interleaving String ([Problem](https://leetcode.com/problems/interleaving-string/) | [Solution](./0097.%20Interleaving%20String))
+- 97\. Interleaving String ([Problem](https://leetcode.com/problems/interleaving-string/) | [Solutions](./0097.%20Interleaving%20String))
 
 ## Greedy
 - 134\. Gas Station ([Problem](https://leetcode.com/problems/gas-station/) | [Solution](./0134.%20Gas%20Station))
