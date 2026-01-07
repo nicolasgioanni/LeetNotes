@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2026-01-05 13:35 UTC*
+*Last updated: 2026-01-07 13:34 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -1022,7 +1022,7 @@
 **Coin Change II** *([Problem](https://leetcode.com/problems/coin-change-ii/) | [Solutions](../Problems/0518.%20Coin%20Change%20II))*
 - _No details provided._
 
-**Distinct Subsequences** *([Problem](https://leetcode.com/problems/distinct-subsequences/) | [Solution](../Problems/0115.%20Distinct%20Subsequences))*
+**Distinct Subsequences** *([Problem](https://leetcode.com/problems/distinct-subsequences/) | [Solutions](../Problems/0115.%20Distinct%20Subsequences))*
 - _No details provided._
 
 **Edit Distance** *([Problem](https://leetcode.com/problems/edit-distance/) | [Solution](../Problems/0072.%20Edit%20Distance))*
