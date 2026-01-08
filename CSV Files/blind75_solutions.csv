@@ -1,4 +1,4 @@
-Problems,Column 5,Solution 1,Solution 2,Solution 3
+Problems,Column 5,Solution 1,Solution 2,Solution 3,Solution 4
 Contains Duplicate,Arrays & Hashing,"class Solution:
     def hasDuplicate(self, nums: List[int]) -> bool:
         seen = set()
@@ -9,7 +9,7 @@ Contains Duplicate,Arrays & Hashing,"class Solution:
             else:
                 seen.add(num)
 
-        return False",,
+        return False",,,
 Valid Anagram,Arrays & Hashing,"class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         if len(s) != len(t):
@@ -26,7 +26,7 @@ Valid Anagram,Arrays & Hashing,"class Solution:
                 return False
 
         else: 
-            return True",,
+            return True",,,
 Two Sum,Arrays & Hashing,"class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         seen = {}
@@ -35,7 +35,7 @@ Two Sum,Arrays & Hashing,"class Solution:
             difference = target - num
             if difference in seen:
                 return [seen[difference], key]
-            seen[num] = key",,
+            seen[num] = key",,,
 Group Anagrams,Arrays & Hashing,"class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         result = defaultdict(list)
@@ -46,7 +46,7 @@ Group Anagrams,Arrays & Hashing,"class Solution:
                 count[ord(s[c]) - ord('a')] += 1
             result[tuple(count)].append(s)
 
-        return list(result.values())",,
+        return list(result.values())",,,
 Top K Frequent Elements,Arrays & Hashing,"class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         frequency = [[] for i in range(len(nums) + 1)]
@@ -66,7 +66,7 @@ Top K Frequent Elements,Arrays & Hashing,"class Solution:
 
                 if len(result) == k:
                     return result
-",,
+",,,
 Encode and Decode Strings,Arrays & Hashing,"class Solution:
 
     def encode(self, strs: List[str]) -> str:
@@ -95,7 +95,7 @@ Encode and Decode Strings,Arrays & Hashing,"class Solution:
             result.append(s[l:r])
             l = r
             
-        return result",,
+        return result",,,
 Product of Array Except Self,Arrays & Hashing,"class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         result = [1] * len(nums)
@@ -110,7 +110,7 @@ Product of Array Except Self,Arrays & Hashing,"class Solution:
             result[i] *= postfix
             postfix *= nums[i]
 
-        return result",,
+        return result",,,
 Valid Sudoku,Arrays & Hashing,"class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         rows = [set() for i in range(9)]
@@ -134,7 +134,7 @@ Valid Sudoku,Arrays & Hashing,"class Solution:
                 cols[col].add(value)
                 boxes[boxID].add(value)
 
-        return True",,
+        return True",,,
 Longest Consecutive Sequence,Arrays & Hashing,"class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         numSet = set(nums)
@@ -151,7 +151,7 @@ Longest Consecutive Sequence,Arrays & Hashing,"class Solution:
         return longest
 
 
-",,
+",,,
 Valid Palindrome,Two Pointers,"class Solution:
     def isPalindrome(self, s: str) -> bool:
         if not s or s == """":
@@ -179,7 +179,7 @@ Valid Palindrome,Two Pointers,"class Solution:
         
         return True
 
-        ",,
+        ",,,
 Two Sum II Input Array Is Sorted,Two Pointers,"class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
         l, r = 0, len(numbers) - 1
@@ -193,7 +193,7 @@ Two Sum II Input Array Is Sorted,Two Pointers,"class Solution:
                 r -= 1
             else:
                 return [l + 1, r + 1]
-        return []",,
+        return []",,,
 Three Sum,Two Pointers,"class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         results = []
@@ -261,7 +261,7 @@ public:
         return result;
     }
 };
-",
+",,
 Container With Most Water,Two Pointers,"class Solution:
     def maxArea(self, heights: List[int]) -> int:
         result = 0
@@ -296,7 +296,7 @@ public:
         return result;
     }
 };
-",
+",,
 Trapping Rain Water,Two Pointers,"class Solution:
     def trap(self, height: List[int]) -> int:
         result = 0
@@ -322,7 +322,7 @@ Trapping Rain Water,Two Pointers,"class Solution:
         return result
 
             
-",,
+",,,
 Best Time to Buy and Sell Stock,Sliding Window,"# Two-pointers
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -345,7 +345,7 @@ class Solution:
             l = min(l, prices[r])
             result = max(result, prices[r] - l)
 
-        return result",
+        return result",,
 Longest Substring Without Repeating Characters,Sliding Window,"class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         if not s or s == """":
@@ -367,7 +367,7 @@ Longest Substring Without Repeating Characters,Sliding Window,"class Solution:
             r += 1
 
 
-        return longest",,
+        return longest",,,
 Longest Repeating Character Replacement,Sliding Window,"class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
         count = [0] * 26
@@ -391,7 +391,7 @@ Longest Repeating Character Replacement,Sliding Window,"class Solution:
         return longest
 
 
-",,
+",,,
 Permutation In String,Sliding Window,"# Fixed sliding window
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
@@ -470,7 +470,7 @@ class Solution:
 
         return False
 
-",
+",,
 Minimum Window Substring,Sliding Window,"class Solution:
     def minWindow(self, s: str, t: str) -> str:
         if len(s) < len(t): return """"
@@ -500,8 +500,8 @@ Minimum Window Substring,Sliding Window,"class Solution:
                 
                 l += 1
 
-        return result",,
-Sliding Window Maximum,Sliding Window,,,
+        return result",,,
+Sliding Window Maximum,Sliding Window,,,,
 Valid Parentheses,Stack,"class Solution:
     def isValid(self, s: str) -> bool:
         closeToOpen = {'}' : '{', ']' : '[', ')' : '('}
@@ -513,7 +513,7 @@ Valid Parentheses,Stack,"class Solution:
                     return False
             else:
                 stack.append(char)
-        return not stack",,
+        return not stack",,,
 Min Stack,Stack,"class MinStack:
 
     def __init__(self):
@@ -533,7 +533,7 @@ Min Stack,Stack,"class MinStack:
 
     def getMin(self) -> int:
         return self.minStack[-1]
-",,
+",,,
 Evaluate Reverse Polish Notation,Stack,"class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
         stack = []
@@ -556,7 +556,7 @@ Evaluate Reverse Polish Notation,Stack,"class Solution:
             else:
                 stack.append(int(token))
         
-        return stack[0]",,
+        return stack[0]",,,
 Daily Temperatures,Stack,"class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
         stack = []
@@ -568,7 +568,7 @@ Daily Temperatures,Stack,"class Solution:
                 result[oldI] = (i - oldI)
             stack.append([i, n])
 
-        return result",,
+        return result",,,
 Car Fleet,Stack,"class Solution:
     def carFleet(self, target: int, position: List[int], speed: List[int]) -> int:
         stack = []
@@ -580,8 +580,8 @@ Car Fleet,Stack,"class Solution:
                 continue
             else:
                 stack.append((target - p) / s)
-        return len(stack)",,
-Largest Rectangle In Histogram,Stack,,,
+        return len(stack)",,,
+Largest Rectangle In Histogram,Stack,,,,
 Binary Search,Binary Search,"class Solution:
     def search(self, nums: List[int], target: int) -> int:
         l, r = 0, len(nums) - 1
@@ -594,7 +594,7 @@ Binary Search,Binary Search,"class Solution:
                 l = m + 1
             else:
                 return m
-        return -1",,
+        return -1",,,
 Search a 2D Matrix,Binary Search,"class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         rows, cols = len(matrix), len(matrix[0])
@@ -618,7 +618,7 @@ Search a 2D Matrix,Binary Search,"class Solution:
                         colR = colM - 1
                     else:
                         return True
-        return False",,
+        return False",,,
 Koko Eating Bananas,Binary Search,"class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
         l, r = 1, max(piles)
@@ -639,7 +639,7 @@ Koko Eating Bananas,Binary Search,"class Solution:
 
         return result
 
-",,
+",,,
 Find Minimum In Rotated Sorted Array,Binary Search,"class Solution:
     def findMin(self, nums: List[int]) -> int:
         l, r = 0, len(nums) - 1
@@ -653,7 +653,7 @@ Find Minimum In Rotated Sorted Array,Binary Search,"class Solution:
                 l = m + 1
 
         return nums[r]
-",,
+",,,
 Search In Rotated Sorted Array,Binary Search,"class Solution:
     def search(self, nums: List[int], target: int) -> int:
         l, r = 0, len(nums) - 1
@@ -675,25 +675,25 @@ Search In Rotated Sorted Array,Binary Search,"class Solution:
                 else:
                     l = m + 1
 
-        return -1",,
-Time Based Key Value Store,Binary Search,,,
-Median of Two Sorted Arrays,Binary Search,,,
-Reverse Linked List,Linked List,,,
-Merge Two Sorted Lists,Linked List,,,
-Linked List Cycle,Linked List,,,
-Reorder List,Linked List,,,
-Remove Nth Node From End of List,Linked List,,,
-Copy List With Random Pointer,Linked List,,,
-Add Two Numbers,Linked List,,,
-Find The Duplicate Number,Linked List,,,
-LRU Cache,Linked List,,,
-Merge K Sorted Lists,Linked List,,,
-Reverse Nodes In K Group,Linked List,,,
-Invert Binary Tree,Trees,,,
-Maximum Depth of Binary Tree (DFS),Trees,,,
-Diameter of Binary Tree,,,,
-Balanced Binary Tree,,,,
-Same Tree (DFS),Trees,,,
+        return -1",,,
+Time Based Key Value Store,Binary Search,,,,
+Median of Two Sorted Arrays,Binary Search,,,,
+Reverse Linked List,Linked List,,,,
+Merge Two Sorted Lists,Linked List,,,,
+Linked List Cycle,Linked List,,,,
+Reorder List,Linked List,,,,
+Remove Nth Node From End of List,Linked List,,,,
+Copy List With Random Pointer,Linked List,,,,
+Add Two Numbers,Linked List,,,,
+Find The Duplicate Number,Linked List,,,,
+LRU Cache,Linked List,,,,
+Merge K Sorted Lists,Linked List,,,,
+Reverse Nodes In K Group,Linked List,,,,
+Invert Binary Tree,Trees,,,,
+Maximum Depth of Binary Tree (DFS),Trees,,,,
+Diameter of Binary Tree,,,,,
+Balanced Binary Tree,,,,,
+Same Tree (DFS),Trees,,,,
 Subtree of Another Tree (DFS),Trees,"# Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -719,8 +719,8 @@ class Solution:
             return self.isSameTree(node1.left, node2.left) and self.isSameTree(node1.right, node2.right)
         else:
             return False
-        ",,
-Lowest Common Ancestor of a Binary Search Tree,Trees,,,
+        ",,,
+Lowest Common Ancestor of a Binary Search Tree,Trees,,,,
 Binary Tree Level Order Traversal,Trees,"# Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -746,9 +746,9 @@ class Solution:
                     queue.append(node.right)
             if levelList:
                 result.append(levelList)
-        return result",,
-Binary Tree Right Side View,,,,
-Count Good Nodes In Binary Tree,,,,
+        return result",,,
+Binary Tree Right Side View,,,,,
+Count Good Nodes In Binary Tree,,,,,
 Validate Binary Search Tree,Trees,"# Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -768,7 +768,7 @@ class Solution:
                 return False
 
 
-        return isValid(root, float(""-inf""), float(""inf""))",,
+        return isValid(root, float(""-inf""), float(""inf""))",,,
 Kth Smallest Element In a Bst,Trees,"# Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -791,7 +791,7 @@ class Solution:
             if k == 0:
                 return node.val
             
-            current = node.right ",,
+            current = node.right ",,,
 Construct Binary Tree From Preorder And Inorder Traversal,Trees,"# Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -819,7 +819,7 @@ class Solution:
 
                 return root
 
-        return recurse(0, len(preorder) - 1, 0, len(inorder) - 1)",,
+        return recurse(0, len(preorder) - 1, 0, len(inorder) - 1)",,,
 Binary Tree Maximum Path Sum,Trees,"# Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -845,28 +845,28 @@ class Solution:
 
             return down, best
 
-        return recurse(root)[1]",,
-Serialize And Deserialize Binary Tree,Trees,,,
-Kth Largest Element In a Stream,Heap / Priority Queue,,,
-Last Stone Weight,Heap / Priority Queue,,,
-K Closest Points to Origin,Heap / Priority Queue,,,
-Kth Largest Element In An Array,Heap / Priority Queue,,,
-Task Scheduler,Heap / Priority Queue,,,
-Design Twitter,Heap / Priority Queue,,,
-Find Median From Data Stream,Heap / Priority Queue,,,
-Subsets,Backtracking,,,
-Combination Sum,Backtracking,,,
-Combination Sum II,Backtracking,,,
-Permutations,Backtracking,,,
-Subsets II,Backtracking,,,
-Generate Parentheses,Backtracking,,,
-Word Search,Backtracking,,,
-Palindrome Partitioning,Backtracking,,,
-Letter Combinations of a Phone Number,Backtracking,,,
-N Queens,Backtracking,,,
-Implement Trie Prefix Tree,Tries,,,
-Design Add And Search Words Data Structure,Tries,,,
-Word Search II,Tries,,,
+        return recurse(root)[1]",,,
+Serialize And Deserialize Binary Tree,Trees,,,,
+Kth Largest Element In a Stream,Heap / Priority Queue,,,,
+Last Stone Weight,Heap / Priority Queue,,,,
+K Closest Points to Origin,Heap / Priority Queue,,,,
+Kth Largest Element In An Array,Heap / Priority Queue,,,,
+Task Scheduler,Heap / Priority Queue,,,,
+Design Twitter,Heap / Priority Queue,,,,
+Find Median From Data Stream,Heap / Priority Queue,,,,
+Subsets,Backtracking,,,,
+Combination Sum,Backtracking,,,,
+Combination Sum II,Backtracking,,,,
+Permutations,Backtracking,,,,
+Subsets II,Backtracking,,,,
+Generate Parentheses,Backtracking,,,,
+Word Search,Backtracking,,,,
+Palindrome Partitioning,Backtracking,,,,
+Letter Combinations of a Phone Number,Backtracking,,,,
+N Queens,Backtracking,,,,
+Implement Trie Prefix Tree,Tries,,,,
+Design Add And Search Words Data Structure,Tries,,,,
+Word Search II,Tries,,,,
 Number of Islands,Graphs,"class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
         rows, cols = len(grid), len(grid[0])
@@ -900,7 +900,7 @@ Number of Islands,Graphs,"class Solution:
                     islands += 1
 
         return islands
-",,
+",,,
 Max Area of Island,Graphs,"class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
         rows, cols = len(grid), len(grid[0])
@@ -927,7 +927,7 @@ Max Area of Island,Graphs,"class Solution:
                 if (row, col) not in seen and grid[row][col] == 1:
                     islandArea = max(islandArea, dfs(row, col))
 
-        return islandArea",,
+        return islandArea",,,
 Clone Graph,Graphs,"""""""
 # Definition for a Node.
 class Node:
@@ -955,7 +955,7 @@ class Solution:
 
             return newNode
         
-        return dfs(node)",,
+        return dfs(node)",,,
 Walls And Gates,Graphs,"class Solution:
     def islandsAndTreasure(self, grid: List[List[int]]) -> None:
         rows, cols = len(grid), len(grid[0])
@@ -987,7 +987,7 @@ Walls And Gates,Graphs,"class Solution:
 
             
 
-",,
+",,,
 Rotting Oranges,Graphs,"class Solution:
     def orangesRotting(self, grid: List[List[int]]) -> int:
         rows, cols = len(grid), len(grid[0])
@@ -1018,7 +1018,7 @@ Rotting Oranges,Graphs,"class Solution:
                     queue.append((checkRow, checkCol, time + 1))
                     totalTime = max(totalTime, time + 1)
 
-        return totalTime if freshFruits == 0 else -1",,
+        return totalTime if freshFruits == 0 else -1",,,
 Pacific Atlantic Water Flow,Graphs,"class Solution:
     def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
         directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
@@ -1050,8 +1050,8 @@ Pacific Atlantic Water Flow,Graphs,"class Solution:
                 results.append([row, col])
 
         return results
-        ",,
-Surrounded Regions,Graphs,,,
+        ",,,
+Surrounded Regions,Graphs,,,,
 Course Schedule,Graphs,"class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         courseToPrereq = {course:[] for course in range(numCourses)}
@@ -1114,7 +1114,7 @@ Course Schedule,Graphs,"class Solution:
             if not dfs(n, set()):
                 return False
         
-        return True",
+        return True",,
 Course Schedule II,Graphs,"class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
         result = []
@@ -1145,7 +1145,7 @@ Course Schedule II,Graphs,"class Solution:
             if not dfs(n, set()):
                 return []
 
-        return result",,
+        return result",,,
 Graph Valid Tree,Graphs,"class Solution:
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
         if len(edges) != n - 1:
@@ -1197,7 +1197,7 @@ Graph Valid Tree,Graphs,"class Solution:
             return True
         
         return dfs(0, -1, visited) and len(visited) == n
-",
+",,
 Number of Connected Components In An Undirected Graph,Graphs,"# Recursive Depth First Search
 class Solution:
     def countComponents(self, n: int, edges: List[List[int]]) -> int:
@@ -1252,7 +1252,7 @@ class Solution:
                 bfs(node)
 
 
-        return components",
+        return components",,
 Redundant Connection,Graphs,"class Solution:
     def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
         adjList, queue, path = defaultdict(list), collections.deque(), set()
@@ -1283,7 +1283,7 @@ Redundant Connection,Graphs,"class Solution:
 
         for node, neighbor in edges[::-1]:
             if node in path and neighbor in path:
-                return [node, neighbor]",,
+                return [node, neighbor]",,,
 Word Ladder,Graphs,"class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
         if endWord not in wordList:
@@ -1315,13 +1315,13 @@ Word Ladder,Graphs,"class Solution:
                             queue.append(neighbor)
             result += 1
 
-        return 0",,
-Network Delay Time,Advanced Graphs,,,
-Reconstruct Itinerary,Advanced Graphs,,,
-Min Cost to Connect All Points,Advanced Graphs,,,
-Swim In Rising Water,Advanced Graphs,,,
-Alien Dictionary,Advanced Graphs,,,
-Cheapest Flights Within K Stops,Advanced Graphs,,,
+        return 0",,,
+Network Delay Time,Advanced Graphs,,,,
+Reconstruct Itinerary,Advanced Graphs,,,,
+Min Cost to Connect All Points,Advanced Graphs,,,,
+Swim In Rising Water,Advanced Graphs,,,,
+Alien Dictionary,Advanced Graphs,,,,
+Cheapest Flights Within K Stops,Advanced Graphs,,,,
 Climbing Stairs,1-D Dynamic Programming,"# Brute Force
 class Solution:
     def climbStairs(self, n: int) -> int:
@@ -1357,7 +1357,7 @@ class Solution:
             waysOne = waysOne + waysTwo
             waysTwo = temp
 
-        return waysOne"
+        return waysOne",
 Min Cost Climbing Stairs,1-D Dynamic Programming,"# Brute Force
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
@@ -1384,7 +1384,7 @@ class Solution:
         for i in range(2, len(cost)):
             prev1, prev2 = cost[i] + min(prev1, prev2), prev1
 
-        return min(prev1, prev2)"
+        return min(prev1, prev2)",
 House Robber,1-D Dynamic Programming,"# Brute Force
 class Solution:
     def rob(self, nums: List[int]) -> int:
@@ -1426,7 +1426,7 @@ class Solution:
         return prev1
 
 
-        "
+        ",
 House Robber II,1-D Dynamic Programming,"# Brute Force
 class Solution:
     def rob(self, nums: List[int]) -> int:
@@ -1477,7 +1477,7 @@ class Solution:
 
 
         return max(tryRob(0, nums[1:]), tryRob(0, nums[:-1]))
-            "
+            ",
 Longest Palindromic Substring,1-D Dynamic Programming,"# Brute Force O(n^3)
 class Solution:
     def longestPalindrome(self, s: str) -> str:
@@ -1533,7 +1533,7 @@ class Solution:
                     result = s[l:r + 1]
                 l, r = l - 1, r + 1
 
-        return result"
+        return result",
 Palindromic Substrings,1-D Dynamic Programming,"# Brute Force O(n^3)
 class Solution:
     def countSubstrings(self, s: str) -> int:
@@ -1589,7 +1589,7 @@ class Solution:
                 result += 1
                 l, r = l - 1, r + 1
 
-        return result "
+        return result ",
 Decode Ways,1-D Dynamic Programming,"# Brute Force O(2^n)
 class Solution:
     def numDecodings(self, s: str) -> int:
@@ -1645,7 +1645,7 @@ class Solution:
         
         return ways1
             
-"
+",
 Coin Change,1-D Dynamic Programming,"# Brute Force
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
@@ -1674,7 +1674,7 @@ class Solution:
                 if i - coin >= 0:
                     dp[i] = min(1 + dp[i - coin], dp[i])
 
-        return dp[amount] if dp[amount] != amount + 1 else -1",
+        return dp[amount] if dp[amount] != amount + 1 else -1",,
 Maximum Product Subarray,1-D Dynamic Programming,"# Brute Force
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
@@ -1714,7 +1714,7 @@ class Solution:
 
             result = max(result, currentMax)
 
-        return result"
+        return result",
 Word Break,1-D Dynamic Programming,"# Brute Force
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
@@ -1748,7 +1748,7 @@ class Solution:
                     dp[i] = True
                     break
 
-        return dp[0]",
+        return dp[0]",,
 Longest Increasing Subsequence,1-D Dynamic Programming,"# Brute Force
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
@@ -1779,7 +1779,7 @@ class Solution:
         
         return LIS
 
-        ",
+        ",,
 Partition Equal Subset Sum,1-D Dynamic Programming,,"class Solution:
     def canPartition(self, nums: List[int]) -> bool:
         if sum(nums) % 2 != 0:
@@ -1798,7 +1798,7 @@ Partition Equal Subset Sum,1-D Dynamic Programming,,"class Solution:
                 if sums + n <= target: dp[sums + n] = dp[sums]
 
         return dp[target]
-",
+",,
 Unique Paths,2-D Dynamic Programming,"# Brute Force
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
@@ -1846,7 +1846,7 @@ class Solution:
                 dp[col] += prev
                 prev = dp[col]
 
-        return dp[0]"
+        return dp[0]",
 Longest Common Subsequence,2-D Dynamic Programming,"# Brute Force
 class Solution:
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
@@ -1885,7 +1885,7 @@ class Solution:
                 else:
                     dp[col] = max(dp[col], dp[col + 1]) 
                 prevDiag = temp
-        return dp[0]"
+        return dp[0]",
 Best Time to Buy And Sell Stock With Cooldown,2-D Dynamic Programming,"# Brute Force
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -1925,7 +1925,7 @@ class Solution:
                 
             return dp[(i, buy)]
 
-        return dfs(0, True)",
+        return dfs(0, True)",,
 Coin Change II,2-D Dynamic Programming,"# Brute Force
 class Solution:
     def change(self, amount: int, coins: List[int]) -> int:
@@ -1972,7 +1972,7 @@ class Solution:
             for i in range(amount - 1, -1, -1):
                 dp[i] += dp[i + coin] if coin + i <= amount else 0
         
-        return dp[0]"
+        return dp[0]",
 Target Sum,2-D Dynamic Programming,"# Brute Force
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
@@ -2010,7 +2010,7 @@ class Solution:
                 currentRow[prevSum - n] += count
             row = currentRow
 
-        return row[target]"
+        return row[target]",
 Interleaving String,2-D Dynamic Programming,"# Brute Force
 class Solution:
     def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
@@ -2055,7 +2055,7 @@ class Solution:
 
             return dp[(i, j)]
 
-        return dfs(0, 0)",
+        return dfs(0, 0)",,
 Longest Increasing Path In a Matrix,2-D Dynamic Programming,,,"# DP Optimal Time + Space, O(r * c)
 class Solution:
     def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
@@ -2084,7 +2084,7 @@ class Solution:
                 longest = max(longest, dfs(row, col))
 
         return longest
-"
+",
 Distinct Subsequences,2-D Dynamic Programming,"# Brute Force
 class Solution:
     def numDistinct(self, s: str, t: str) -> int:
@@ -2118,36 +2118,143 @@ class Solution:
 
             return dp[(i, j)]
 
-        return dfs(0, 0)",
-Edit Distance,2-D Dynamic Programming,,,
-Burst Balloons,2-D Dynamic Programming,,,
-Regular Expression Matching,2-D Dynamic Programming,,,
-Maximum Subarray,Greedy,,,
-Jump Game,Greedy,,,
-Jump Game II,Greedy,,,
-Gas Station,Greedy,,,
-Hand of Straights,Greedy,,,
-Merge Triplets to Form Target Triplet,Greedy,,,
-Partition Labels,Greedy,,,
-Valid Parenthesis String,Greedy,,,
-Insert Interval,Intervals,,,
-Merge Intervals,Intervals,,,
-Non Overlapping Intervals,Intervals,,,
-Meeting Rooms,Intervals,,,
-Meeting Rooms II,Intervals,,,
-Minimum Interval to Include Each Query,Intervals,,,
-Rotate Image,Math & Geometry,,,
-Spiral Matrix,Math & Geometry,,,
-Set Matrix Zeroes,Math & Geometry,,,
-Happy Number,Math & Geometry,,,
-Plus One,Math & Geometry,,,
-"Pow(x, n)",Math & Geometry,,,
-Multiply Strings,Math & Geometry,,,
-Detect Squares,Math & Geometry,,,
-Single Number,Bit Manipulation,,,
-Number of 1 Bits,Bit Manipulation,,,
-Counting Bits,Bit Manipulation,,,
-Reverse Bits,Bit Manipulation,,,
-Missing Number,Bit Manipulation,,,
-Sum of Two Integers,Bit Manipulation,,,
-Reverse Integer,Bit Manipulation,,,
+        return dfs(0, 0)",,
+Edit Distance,2-D Dynamic Programming,"# Brute Force
+class Solution:
+    def minDistance(self, word1: str, word2: str) -> int:
+        
+        def dfs(i, j):
+            if i == len(word1):
+                return len(word2) - j
+            elif j == len(word2):
+                return len(word1) - i
+
+            if word1[i] == word2[j]:
+                return dfs(i + 1, j + 1)
+            else:
+                return 1 + min(dfs(i, j + 1), dfs(i + 1, j), dfs(i + 1, j + 1)) # insert, delete, replace
+
+        return dfs(0, 0)","# DP Top-Down
+class Solution:
+    def minDistance(self, word1: str, word2: str) -> int:
+        dp = {}
+
+        def dfs(i, j):
+            if (i, j) in dp:
+                return dp[(i, j)]
+            elif i == len(word1):
+                dp[(i, j)] = len(word2) - j
+            elif j == len(word2):
+                dp[(i, j)] = len(word1) - i
+            elif word1[i] == word2[j]:
+                dp[(i, j)] = dfs(i + 1, j + 1)
+            else:
+                dp[(i, j)] = 1 + min(dfs(i, j + 1), dfs(i + 1, j), dfs(i + 1, j + 1)) # insert, delete, replace
+
+            return dp[(i, j)]
+
+        return dfs(0, 0)","# DP Bottom-Up:
+class Solution:
+    def minDistance(self, word1: str, word2: str) -> int:
+        n, m = len(word1), len(word2)
+        dp = [[0] * (m + 1) for i in range(n + 1)]
+
+        for row in range(len(dp)):
+            dp[row][m] = n - row
+
+        for col in range(len(dp[0])):
+            dp[n][col] = m - col
+
+        for i in range(n - 1, -1, -1):
+            for j in range(m - 1, -1, -1):
+                if word1[i] == word2[j]:
+                    dp[i][j] = dp[i + 1][j + 1]
+                else:
+                    dp[i][j] = 1 + min(dp[i + 1][j], dp[i][j + 1], dp[i + 1][j + 1])
+
+        return dp[0][0]","# DP Optimal Time + Space
+class Solution:
+    def minDistance(self, word1: str, word2: str) -> int:
+        n, m = len(word1), len(word2)
+        dp = [0] * (m + 1)
+
+        for col in range(m + 1):
+            dp[col] = m - col
+
+        for i in range(n - 1, -1, -1):
+            diag = dp[m]
+            dp[m] = n - i
+            for j in range(m - 1, -1, -1):
+                nextDiag = dp[j]
+                if word1[i] == word2[j]:
+                    dp[j] = diag
+                else:
+                    dp[j] = 1 + min(dp[j], dp[j + 1], diag)
+                diag = nextDiag
+
+        return dp[0]"
+Burst Balloons,2-D Dynamic Programming,"# Brute Force
+class Solution:
+    def maxCoins(self, nums: List[int]) -> int:
+        nums = [1] + nums + [1]
+
+        def dfs(l, r):
+            if l > r:
+                return 0
+
+            coins = 0
+            for i in range(l, r + 1):
+                coins = max(coins, 
+                                (nums[l - 1] * nums[i] * nums[r + 1]) + dfs(l, i - 1) + dfs(i + 1, r))
+
+            return coins
+
+        return dfs(1, len(nums) - 2)","# DP Optimal Time + Space
+class Solution:
+    def maxCoins(self, nums: List[int]) -> int:
+        nums = [1] + nums + [1]
+        dp = {}
+
+        def dfs(l, r):
+            if (l, r) in dp:
+                return dp[(l, r)]
+            if l > r:
+                return 0
+
+            for i in range(l, r + 1):
+                dp[(l, r)] = max(dp.get((l, r), 0), 
+                                (nums[l - 1] * nums[i] * nums[r + 1]) + dfs(l, i - 1) + dfs(i + 1, r))
+
+            return dp[(l, r)]
+
+        return dfs(1, len(nums) - 2)",,
+Regular Expression Matching,2-D Dynamic Programming,,,,
+Maximum Subarray,Greedy,,,,
+Jump Game,Greedy,,,,
+Jump Game II,Greedy,,,,
+Gas Station,Greedy,,,,
+Hand of Straights,Greedy,,,,
+Merge Triplets to Form Target Triplet,Greedy,,,,
+Partition Labels,Greedy,,,,
+Valid Parenthesis String,Greedy,,,,
+Insert Interval,Intervals,,,,
+Merge Intervals,Intervals,,,,
+Non Overlapping Intervals,Intervals,,,,
+Meeting Rooms,Intervals,,,,
+Meeting Rooms II,Intervals,,,,
+Minimum Interval to Include Each Query,Intervals,,,,
+Rotate Image,Math & Geometry,,,,
+Spiral Matrix,Math & Geometry,,,,
+Set Matrix Zeroes,Math & Geometry,,,,
+Happy Number,Math & Geometry,,,,
+Plus One,Math & Geometry,,,,
+"Pow(x, n)",Math & Geometry,,,,
+Multiply Strings,Math & Geometry,,,,
+Detect Squares,Math & Geometry,,,,
+Single Number,Bit Manipulation,,,,
+Number of 1 Bits,Bit Manipulation,,,,
+Counting Bits,Bit Manipulation,,,,
+Reverse Bits,Bit Manipulation,,,,
+Missing Number,Bit Manipulation,,,,
+Sum of Two Integers,Bit Manipulation,,,,
+Reverse Integer,Bit Manipulation,,,,

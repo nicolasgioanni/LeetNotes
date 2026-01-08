@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2026-01-07 13:34 UTC*
+*Last updated: 2026-01-08 13:36 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -1016,7 +1016,7 @@
 **Best Time to Buy And Sell Stock With Cooldown** *([Problem](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) | [Solutions](../Problems/0309.%20Best%20Time%20to%20Buy%20And%20Sell%20Stock%20With%20Cooldown))*
 - _No details provided._
 
-**Burst Balloons** *([Problem](https://leetcode.com/problems/burst-balloons/) | [Solution](../Problems/0312.%20Burst%20Balloons))*
+**Burst Balloons** *([Problem](https://leetcode.com/problems/burst-balloons/) | [Solutions](../Problems/0312.%20Burst%20Balloons))*
 - _No details provided._
 
 **Coin Change II** *([Problem](https://leetcode.com/problems/coin-change-ii/) | [Solutions](../Problems/0518.%20Coin%20Change%20II))*
@@ -1025,7 +1025,7 @@
 **Distinct Subsequences** *([Problem](https://leetcode.com/problems/distinct-subsequences/) | [Solutions](../Problems/0115.%20Distinct%20Subsequences))*
 - _No details provided._
 
-**Edit Distance** *([Problem](https://leetcode.com/problems/edit-distance/) | [Solution](../Problems/0072.%20Edit%20Distance))*
+**Edit Distance** *([Problem](https://leetcode.com/problems/edit-distance/) | [Solutions](../Problems/0072.%20Edit%20Distance))*
 - _No details provided._
 
 **Interleaving String** *([Problem](https://leetcode.com/problems/interleaving-string/) | [Solutions](../Problems/0097.%20Interleaving%20String))*
