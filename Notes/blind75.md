@@ -1,7 +1,7 @@
 # Blind 75 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2026-01-08 13:36 UTC*
+*Last updated: 2026-01-09 13:34 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?output=csv
 )
@@ -790,10 +790,10 @@
 
 ## Greedy
 
-**Jump Game** *([Problem](https://leetcode.com/problems/jump-game/) | [Solution](../Problems/0055.%20Jump%20Game))*
+**Jump Game** *([Problem](https://leetcode.com/problems/jump-game/) | [Solutions](../Problems/0055.%20Jump%20Game))*
 - _No details provided._
 
-**Maximum Subarray** *([Problem](https://leetcode.com/problems/maximum-subarray/) | [Solution](../Problems/0053.%20Maximum%20Subarray))*
+**Maximum Subarray** *([Problem](https://leetcode.com/problems/maximum-subarray/) | [Solutions](../Problems/0053.%20Maximum%20Subarray))*
 - _No details provided._
 
 ## Intervals
