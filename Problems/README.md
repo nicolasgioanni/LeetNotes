@@ -1,7 +1,7 @@
 # My Solved LeetCode Problem Index
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2026-01-08 13:36 UTC*
+*Last updated: 2026-01-09 13:34 UTC*
 
 This index lists every problem I've solved, organized by category, with links to the problem and my solutions.
 
@@ -147,11 +147,11 @@ This index lists every problem I've solved, organized by category, with links to
 - 97\. Interleaving String ([Problem](https://leetcode.com/problems/interleaving-string/) | [Solutions](./0097.%20Interleaving%20String))
 
 ## Greedy
-- 134\. Gas Station ([Problem](https://leetcode.com/problems/gas-station/) | [Solution](./0134.%20Gas%20Station))
+- 134\. Gas Station ([Problem](https://leetcode.com/problems/gas-station/) | [Solutions](./0134.%20Gas%20Station))
 - 1899\. Merge Triplets to Form Target Triplet ([Problem](https://leetcode.com/problems/merge-triplets-to-form-target-triplet/) | [Solution](./1899.%20Merge%20Triplets%20to%20Form%20Target%20Triplet))
-- 45\. Jump Game II ([Problem](https://leetcode.com/problems/jump-game-ii/) | [Solution](./0045.%20Jump%20Game%20II))
-- 53\. Maximum Subarray ([Problem](https://leetcode.com/problems/maximum-subarray/) | [Solution](./0053.%20Maximum%20Subarray))
-- 55\. Jump Game ([Problem](https://leetcode.com/problems/jump-game/) | [Solution](./0055.%20Jump%20Game))
+- 45\. Jump Game II ([Problem](https://leetcode.com/problems/jump-game-ii/) | [Solutions](./0045.%20Jump%20Game%20II))
+- 53\. Maximum Subarray ([Problem](https://leetcode.com/problems/maximum-subarray/) | [Solutions](./0053.%20Maximum%20Subarray))
+- 55\. Jump Game ([Problem](https://leetcode.com/problems/jump-game/) | [Solutions](./0055.%20Jump%20Game))
 - 678\. Valid Parenthesis String ([Problem](https://leetcode.com/problems/valid-parenthesis-string/) | [Solution](./0678.%20Valid%20Parenthesis%20String))
 - 763\. Partition Labels ([Problem](https://leetcode.com/problems/partition-labels/) | [Solution](./0763.%20Partition%20Labels))
 - 846\. Hand of Straights ([Problem](https://leetcode.com/problems/hand-of-straights/) | [Solution](./0846.%20Hand%20of%20Straights))

@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2026-01-08 13:36 UTC*
+*Last updated: 2026-01-09 13:34 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -1048,19 +1048,19 @@
 
 ## Greedy
 
-**Gas Station** *([Problem](https://leetcode.com/problems/gas-station/) | [Solution](../Problems/0134.%20Gas%20Station))*
+**Gas Station** *([Problem](https://leetcode.com/problems/gas-station/) | [Solutions](../Problems/0134.%20Gas%20Station))*
 - _No details provided._
 
 **Hand of Straights** *([Problem](https://leetcode.com/problems/hand-of-straights/) | [Solution](../Problems/0846.%20Hand%20of%20Straights))*
 - _No details provided._
 
-**Jump Game II** *([Problem](https://leetcode.com/problems/jump-game-ii/) | [Solution](../Problems/0045.%20Jump%20Game%20II))*
+**Jump Game II** *([Problem](https://leetcode.com/problems/jump-game-ii/) | [Solutions](../Problems/0045.%20Jump%20Game%20II))*
 - _No details provided._
 
-**Jump Game** *([Problem](https://leetcode.com/problems/jump-game/) | [Solution](../Problems/0055.%20Jump%20Game))*
+**Jump Game** *([Problem](https://leetcode.com/problems/jump-game/) | [Solutions](../Problems/0055.%20Jump%20Game))*
 - _No details provided._
 
-**Maximum Subarray** *([Problem](https://leetcode.com/problems/maximum-subarray/) | [Solution](../Problems/0053.%20Maximum%20Subarray))*
+**Maximum Subarray** *([Problem](https://leetcode.com/problems/maximum-subarray/) | [Solutions](../Problems/0053.%20Maximum%20Subarray))*
 - _No details provided._
 
 **Merge Triplets to Form Target Triplet** *([Problem](https://leetcode.com/problems/merge-triplets-to-form-target-triplet/) | [Solution](../Problems/1899.%20Merge%20Triplets%20to%20Form%20Target%20Triplet))*

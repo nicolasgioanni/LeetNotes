@@ -2229,10 +2229,135 @@ class Solution:
 
         return dfs(1, len(nums) - 2)",,
 Regular Expression Matching,2-D Dynamic Programming,,,,
-Maximum Subarray,Greedy,,,,
-Jump Game,Greedy,,,,
-Jump Game II,Greedy,,,,
-Gas Station,Greedy,,,,
+Maximum Subarray,Greedy,"# Brute Force
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        result = float('-inf')
+
+        for i in range(len(nums)):
+            currSum = 0
+            for j in range(i, len(nums)):
+                currSum += nums[j]
+                result = max(result, currSum)
+
+        return result",,"# Kadane's Algorithm
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        largest, currSum = float('-inf'), 0
+
+        for i in range(len(nums)):
+            currSum = max(currSum + nums[i], nums[i])
+            largest = max(largest, currSum)
+
+        return largest
+",
+Jump Game,Greedy,,"# DP Brute Force
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        dp = [False] * (len(nums))
+        dp[len(nums) - 1] = True
+
+        for i in range(len(dp) - 2, -1, -1):
+            counter = 0
+            while counter < nums[i]:
+                if i + nums[i] - counter < len(dp):
+                    dp[i] = dp[i + nums[i] - counter] or dp[i]
+                counter += 1
+
+        return dp[0]","# Linear Time + Constant Space
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        goal = len(nums) - 1
+
+        for i in range(len(nums) - 2, -1, -1):
+            goal = i if nums[i] + i >= goal else goal
+        
+        return True if goal == 0 else False",
+Jump Game II,Greedy,"# Brute Force
+class Solution:
+    def jump(self, nums: List[int]) -> int:
+        
+        def dfs(i):
+            if i >= len(nums) - 1:
+                return 0
+
+            jumps = float('inf')
+            for j in range(i + 1, i + nums[i] + 1):
+                jumps = min(jumps, dfs(j))
+
+            return 1 + jumps
+
+        return dfs(0)
+           ","# BFS Exponential Time + Linear Space
+class Solution:
+    def jump(self, nums: List[int]) -> int:
+        if len(nums) < 2:
+            return 0
+        
+        queue = collections.deque()
+        queue.append((0, 0))
+        visited = set()
+        visited.add(0)
+
+        while queue:
+            for i in range(len(queue)):
+                index, jumps = queue.popleft()
+
+                for j in range(index + 1, index + nums[index] + 1):
+                    if j >= len(nums) - 1:
+                        return jumps + 1
+                    elif j not in visited:
+                        visited.add(j)
+                        queue.append((j, 1 + jumps))","# Linear Time + Constant Space
+class Solution:
+    def jump(self, nums: List[int]) -> int:
+        jumps = 0
+        l, r = 0, 0
+
+        while r < len(nums) - 1:
+            farthest = 0
+            for i in range(l, r + 1):
+                farthest = max(farthest, i + nums[i])
+
+            l, r = r + 1, farthest
+            jumps += 1
+        return jumps",
+Gas Station,Greedy,"# Brute Force
+class Solution:
+    def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
+        
+        for start in range(len(gas)):
+            total, tank = 0, gas[start]
+            current = start
+            
+            while total < len(gas):
+                total += 1
+                tank -= cost[current] 
+                current = 0 if current + 1 == len(gas) else current + 1
+                if tank < 0:
+                    break
+                tank += gas[current] if total < len(gas) else 0
+
+            if tank >= 0 and total == len(gas):
+                return start
+
+        return -1","# Linear Time + Constant Space
+class Solution:
+    def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
+        if sum(gas) < sum(cost):
+            return -1
+        
+        total, index = 0, -1
+
+        for i in range(len(gas)):
+            total += (gas[i] - cost[i])
+            
+            if total >= 0:
+                index = i if index == -1 else index
+            else:
+                total, index = 0, -1
+
+        return index",,
 Hand of Straights,Greedy,,,,
 Merge Triplets to Form Target Triplet,Greedy,,,,
 Partition Labels,Greedy,,,,
