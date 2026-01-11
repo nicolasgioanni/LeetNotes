@@ -680,14 +680,159 @@ Time Based Key Value Store,Binary Search,,,,
 Median of Two Sorted Arrays,Binary Search,,,,
 Reverse Linked List,Linked List,,,,
 Merge Two Sorted Lists,Linked List,,,,
-Linked List Cycle,Linked List,,,,
-Reorder List,Linked List,,,,
-Remove Nth Node From End of List,Linked List,,,,
-Copy List With Random Pointer,Linked List,,,,
+Linked List Cycle,Linked List,"# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        slow, fast = head, head
+
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+
+            if slow == fast:
+                return True
+        return False",,,
+Reorder List,Linked List,"# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def reorderList(self, head: Optional[ListNode]) -> None:
+        if not head or not head.next:
+            return
+
+        first, second = head, head.next
+
+        while second and second.next:
+            first = first.next
+            second = second.next.next
+
+        second = first.next
+        first.next = None
+        prev = None
+
+        while second:
+            temp = second.next
+            second.next = prev
+            prev = second
+            second = temp
+
+        first, second = head, prev
+
+        while second:
+            temp = first.next
+            first.next = second
+            first = temp
+            temp = second.next
+            second.next = first
+            second = temp
+
+        return
+",,,
+Remove Nth Node From End of List,Linked List,"# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        if not head or head == None:
+            return
+
+        length = 0
+        curr = head
+
+        while curr:
+            length += 1
+            curr = curr.next
+
+        if length - n == 0:
+            return head.next
+
+        curr = head
+        for i in range(1, length - n):
+            curr = curr.next
+        
+        curr.next = curr.next.next
+
+        return head",,,
+Copy List With Random Pointer,Linked List,"# Linear Time + Space
+""""""
+# Definition for a Node.
+class Node:
+    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
+        self.val = int(x)
+        self.next = next
+        self.random = random
+""""""
+
+class Solution:
+    def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
+        adjList = {}
+
+        def clone(node):
+            if not node:
+                return None
+            elif node in adjList:
+                return adjList[node]
+            
+            newNode = Node(node.val)
+            adjList[node] = newNode
+            newNode.next, newNode.random = clone(node.next), clone(node.random)
+            
+            return newNode
+
+        return clone(head)",,,
 Add Two Numbers,Linked List,,,,
 Find The Duplicate Number,Linked List,,,,
 LRU Cache,Linked List,,,,
-Merge K Sorted Lists,Linked List,,,,
+Merge K Sorted Lists,Linked List,"# Polynomial Time (n * m) + Constant Space
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:    
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        if not lists:
+            return
+        
+        start = 0
+        while not lists[start]:
+            start += 1
+        result = lists[start]
+
+        for i in range(start + 1, len(lists)):
+            l1, l2 = result, lists[i]
+
+            if l1.val > l2.val:
+                head = curr = l2
+                l2 = l2.next
+            else:
+                head = curr = l1
+                l1 = l1.next
+
+            while l1 and l2:
+                if l1.val > l2.val:
+                    curr.next = l2
+                    l2 = l2.next
+                else:
+                    curr.next = l1
+                    l1 = l1.next
+                curr = curr.next
+            curr.next = l1 if l1 else l2
+            result = head
+        return head
+",,,
 Reverse Nodes In K Group,Linked List,,,,
 Invert Binary Tree,Trees,,,,
 Maximum Depth of Binary Tree (DFS),Trees,,,,
