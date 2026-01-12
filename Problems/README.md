@@ -1,7 +1,7 @@
 # My Solved LeetCode Problem Index
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2026-01-11 13:26 UTC*
+*Last updated: 2026-01-12 13:38 UTC*
 
 This index lists every problem I've solved, organized by category, with links to the problem and my solutions.
 
@@ -54,14 +54,14 @@ This index lists every problem I've solved, organized by category, with links to
 - 138\. Copy List With Random Pointer ([Problem](https://leetcode.com/problems/copy-list-with-random-pointer/) | [Solution](./0138.%20Copy%20List%20With%20Random%20Pointer))
 - 141\. Linked List Cycle ([Problem](https://leetcode.com/problems/linked-list-cycle/) | [Solution](./0141.%20Linked%20List%20Cycle))
 - 143\. Reorder List ([Problem](https://leetcode.com/problems/reorder-list/) | [Solution](./0143.%20Reorder%20List))
-- 146\. LRU Cache ([Problem](https://leetcode.com/problems/lru-cache/) | [Solution](./0146.%20LRU%20Cache))
+- 146\. LRU Cache ([Problem](https://leetcode.com/problems/lru-cache/) | [Solutions](./0146.%20LRU%20Cache))
 - 19\. Remove Nth Node From End of List ([Problem](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) | [Solution](./0019.%20Remove%20Nth%20Node%20From%20End%20of%20List))
 - 2\. Add Two Numbers ([Problem](https://leetcode.com/problems/add-two-numbers/) | [Solution](./0002.%20Add%20Two%20Numbers))
 - 206\. Reverse Linked List ([Problem](https://leetcode.com/problems/reverse-linked-list/) | [Solution](./0206.%20Reverse%20Linked%20List))
 - 21\. Merge Two Sorted Lists ([Problem](https://leetcode.com/problems/merge-two-sorted-lists/) | [Solution](./0021.%20Merge%20Two%20Sorted%20Lists))
 - 23\. Merge K Sorted Lists ([Problem](https://leetcode.com/problems/merge-k-sorted-lists/) | [Solution](./0023.%20Merge%20K%20Sorted%20Lists))
 - 25\. Reverse Nodes In K Group ([Problem](https://leetcode.com/problems/reverse-nodes-in-k-group/) | [Solution](./0025.%20Reverse%20Nodes%20In%20K%20Group))
-- 287\. Find The Duplicate Number ([Problem](https://leetcode.com/problems/find-the-duplicate-number/) | [Solution](./0287.%20Find%20The%20Duplicate%20Number))
+- 287\. Find The Duplicate Number ([Problem](https://leetcode.com/problems/find-the-duplicate-number/) | [Solutions](./0287.%20Find%20The%20Duplicate%20Number))
 
 ## Trees
 - 100\. Same Tree ([Problem](https://leetcode.com/problems/same-tree/) | [Solution](./0100.%20Same%20Tree))
