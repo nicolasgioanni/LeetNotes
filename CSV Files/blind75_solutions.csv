@@ -764,7 +764,7 @@ class Solution:
         curr.next = curr.next.next
 
         return head",,,
-Copy List With Random Pointer,Linked List,"# Linear Time + Space
+Copy List With Random Pointer,Linked List,"# Recursion + Hash Map
 """"""
 # Definition for a Node.
 class Node:
@@ -791,9 +791,192 @@ class Solution:
             return newNode
 
         return clone(head)",,,
-Add Two Numbers,Linked List,,,,
-Find The Duplicate Number,Linked List,,,,
-LRU Cache,Linked List,,,,
+Add Two Numbers,Linked List,,"# Linear Time + Constant Space
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        if not l1:
+            return l2
+        elif not l2:
+            return l1
+
+        carry = 0
+        prev = head = ListNode(0)
+        while l1 or l2:
+            value1, value2 = l1.val if l1 else 0, l2.val if l2 else 0
+            nodeSum = value1 + value2 + carry
+            if nodeSum > 9:
+                carry, nodeSum = nodeSum // 10, nodeSum % 10
+            else:
+                carry = 0
+
+            newNode = ListNode(nodeSum)
+            prev.next = newNode
+            prev = prev.next
+            if l1: l1 = l1.next
+            if l2: l2 = l2.next
+
+        prev.next = ListNode(carry) if carry == 1 else None
+
+        return head.next",,
+Find The Duplicate Number,Linked List,"# Hash Set
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+        numSet = set()
+
+        for n in nums:
+            if n in numSet:
+                return n
+            else:
+                numSet.add(n)","# Linear Time + Constant Space
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+        slow, fast = 0, 0
+
+        while True:
+            slow = nums[slow]
+            fast = nums[nums[fast]]
+            if slow == fast:
+                break
+
+        slow2 = 0
+
+        while slow != slow2:
+            slow = nums[slow]
+            slow2 = nums[slow2]
+
+        return slow",,
+LRU Cache,Linked List,,"# Constant Time + Linear Space without Helpers
+class LRUCache:
+
+    def __init__(self, capacity: int):
+        self.maxC, self.currC = capacity, 0
+        self.listMap = {} 
+        self.head = self.tail = None
+
+    def get(self, key: int) -> int:
+        if key in self.listMap:
+            self.reorder(key)
+            return self.listMap[key][0]
+        else:
+            return -1
+
+    def put(self, key: int, value: int) -> None:
+        if key in self.listMap: 
+            self.reorder(key, value)
+        else:
+            if not self.head:
+                self.head, self.tail = key, key
+                self.listMap[key] = [value, None, None] 
+            else:
+                self.listMap[key] = [value, self.tail, None] 
+                if self.tail: self.listMap[self.tail][2] = key
+                self.tail = key
+
+            if self.currC + 1 > self.maxC and self.head:
+                nextHead = self.listMap[self.head][2]
+                if nextHead: self.listMap[nextHead][1] = None
+                del self.listMap[self.head] 
+                self.head = nextHead
+            else:
+                self.currC += 1
+
+    def reorder(self, key: int, value: int = -1) -> None:
+        prevN, nextN = self.listMap[key][1:3]
+        if prevN: 
+            self.listMap[prevN][2] = nextN
+        else:
+            self.head = nextN
+        if nextN: 
+            self.listMap[nextN][1] = prevN
+        else:
+            self.tail = prevN
+
+        if value != -1: self.listMap[key][0] = value
+
+        if self.tail:
+            self.listMap[key][1:3] = [self.tail, None]
+            self.listMap[self.tail][2] = key
+            self.tail = key
+        else:
+            self.head = self.tail = key
+        
+
+            
+
+        
+","# Constant Time + Linear Space with Helpers
+class LRUCache:
+
+    def __init__(self, capacity: int):
+        self.maxC, self.currC = capacity, 0
+        self.listMap = {} 
+        self.head = self.tail = None
+
+    def get(self, key: int) -> int:
+        if key in self.listMap:
+            self.reorder(key)
+            self.update(key)
+
+            return self.listMap[key][0]
+        else:
+            return -1
+
+    def put(self, key: int, value: int) -> None:
+        if key in self.listMap: 
+            self.reorder(key)
+            self.update(key, value)
+        else:
+            self.append(key, value)
+            if len(self.listMap) > self.maxC and self.head is not None: 
+                self.remove()
+
+    def reorder(self, key: int) -> None:
+        prevN, nextN = self.listMap[key][1:3]
+        if prevN is not None: 
+            self.listMap[prevN][2] = nextN
+        else:
+            self.head = nextN
+        if nextN is not None: 
+            self.listMap[nextN][1] = prevN
+        else:
+            self.tail = prevN
+
+    def update(self, key: int, value: int = -1) -> None:
+        if value != -1: self.listMap[key][0] = value
+
+        if self.tail is not None and self.tail != key:
+            self.listMap[key][1:3] = [self.tail, None]
+            self.listMap[self.tail][2] = key
+            self.tail = key
+        else:
+            self.head = self.tail = key
+            self.listMap[key][1:3] = [None, None]
+
+    def append(self, key: int, value: int) -> None:
+        if self.head == None:
+            self.head, self.tail = key, key
+            self.listMap[key] = [value, None, None] 
+        else:
+            self.listMap[key] = [value, self.tail, None] 
+            self.listMap[self.tail][2] = key
+            self.tail = key
+
+    def remove(self) -> None:
+        nextHead = self.listMap[self.head][2]
+        if nextHead is not None: self.listMap[nextHead][1] = None
+        del self.listMap[self.head] 
+        self.head = nextHead
+
+# Your LRUCache object will be instantiated and called as such:
+# obj = LRUCache(capacity)
+# param_1 = obj.get(key)
+# obj.put(key,value)",
 Merge K Sorted Lists,Linked List,"# Polynomial Time (n * m) + Constant Space
 # Definition for singly-linked list.
 # class ListNode:

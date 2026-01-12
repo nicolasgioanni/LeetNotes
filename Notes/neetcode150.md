@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2026-01-11 13:26 UTC*
+*Last updated: 2026-01-12 13:38 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -411,7 +411,7 @@
 **Copy List With Random Pointer** *([Problem](https://leetcode.com/problems/copy-list-with-random-pointer/) | [Solution](../Problems/0138.%20Copy%20List%20With%20Random%20Pointer))*
 - _No details provided._
 
-**Find The Duplicate Number** *([Problem](https://leetcode.com/problems/find-the-duplicate-number/) | [Solution](../Problems/0287.%20Find%20The%20Duplicate%20Number))*
+**Find The Duplicate Number** *([Problem](https://leetcode.com/problems/find-the-duplicate-number/) | [Solutions](../Problems/0287.%20Find%20The%20Duplicate%20Number))*
 - _No details provided._
 
 **Linked List Cycle** *([Problem](https://leetcode.com/problems/linked-list-cycle/) | [Solution](../Problems/0141.%20Linked%20List%20Cycle))*
@@ -426,7 +426,7 @@
     </li>
   </ul>
 
-**LRU Cache** *([Problem](https://leetcode.com/problems/lru-cache/) | [Solution](../Problems/0146.%20LRU%20Cache))*
+**LRU Cache** *([Problem](https://leetcode.com/problems/lru-cache/) | [Solutions](../Problems/0146.%20LRU%20Cache))*
 - _No details provided._
 
 **Merge K Sorted Lists** *([Problem](https://leetcode.com/problems/merge-k-sorted-lists/) | [Solution](../Problems/0023.%20Merge%20K%20Sorted%20Lists))*
