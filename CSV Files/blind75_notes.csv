@@ -140,7 +140,7 @@ Kth Smallest Element In a Bst (Inorder Traversal),Trees,O(n),O(n),"Inorder Trave
 Construct Binary Tree From Preorder And Inorder Traversal (DFS),Trees,O(n),O(n),"Idea: Preorder gives the root; Inorder tells us how to split into subtress
 - Make a Inorder index dictonary to map the inorder values to indices for O(1) loopups
 - Nested recursive function with four pointer parameters: preorder left and right, inorder left and right
-  - Base case: Make sure that our left pointers for both preorder and in order do not cross eachother (okay is equal)
+  - Base case: Make sure that our left pointers for both preorder and in order do not cross eachother (okay if equal)
   - Root: Always build our root node with the preorder list index at our preorder left pointer
   - Split: We find the index of that value in the preorder list, in the inorder list (rootIndex) using our dictionary
   - Left Size (leftHalf): Compute how many nodes are in the left subtree by subtracting the inorder index (root Index) by our inorder left pointer
