@@ -1,7 +1,7 @@
 # NeetCode 150 Notes
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2026-01-12 13:38 UTC*
+*Last updated: 2026-01-13 13:37 UTC*
 
 [Source spreadsheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vRw_Ro70SyoCP4FIHwwfkDdwVhXWU_lKwfl6Rw3tXlD1nFD5gfPVk1B0SufuQATexITGzPiwNmeUav0/pub?gid=757254648&single=true&output=csv)
 
@@ -531,7 +531,7 @@
 **Binary Tree Right Side View** *([Problem](https://leetcode.com/problems/binary-tree-right-side-view/) | [Solution](../Problems/0199.%20Binary%20Tree%20Right%20Side%20View))*
 - _No details provided._
 
-**Construct Binary Tree From Preorder And Inorder Traversal** *([Problem](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | [Solution](../Problems/0105.%20Construct%20Binary%20Tree%20From%20Preorder%20And%20Inorder%20Traversal))*
+**Construct Binary Tree From Preorder And Inorder Traversal** *([Problem](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | [Solutions](../Problems/0105.%20Construct%20Binary%20Tree%20From%20Preorder%20And%20Inorder%20Traversal))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
@@ -579,7 +579,7 @@
 - **Space Complexity:** O(n)
 - **Notes:** 1) Edge case, 2) swap left and right nodes, 3) Recursively call on both left and right nodes (the ones we changed)
 
-**Kth Smallest Element In a Bst** *([Problem](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | [Solution](../Problems/0230.%20Kth%20Smallest%20Element%20In%20a%20Bst))*
+**Kth Smallest Element In a Bst** *([Problem](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) | [Solutions](../Problems/0230.%20Kth%20Smallest%20Element%20In%20a%20Bst))*
 - **Time Complexity:** O(n)
 - **Space Complexity:** O(n)
 - **Notes:**
@@ -592,7 +592,7 @@
     </li>
   </ul>
 
-**Lowest Common Ancestor of a Binary Search Tree** *([Problem](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) | [Solution](../Problems/0235.%20Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree))*
+**Lowest Common Ancestor of a Binary Search Tree** *([Problem](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) | [Solutions](../Problems/0235.%20Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree))*
 - **Time Complexity:** O(h)
 - **Space Complexity:** O(1)
 - **Notes:**
@@ -627,7 +627,7 @@
 **Serialize And Deserialize Binary Tree** *([Problem](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) | [Solution](../Problems/0297.%20Serialize%20And%20Deserialize%20Binary%20Tree))*
 - _No details provided._
 
-**Subtree of Another Tree** *([Problem](https://leetcode.com/problems/subtree-of-another-tree/) | [Solution](../Problems/0572.%20Subtree%20of%20Another%20Tree))*
+**Subtree of Another Tree** *([Problem](https://leetcode.com/problems/subtree-of-another-tree/) | [Solutions](../Problems/0572.%20Subtree%20of%20Another%20Tree))*
 - **Time Complexity:** O(nm)
 - **Space Complexity:** O(n + m)
 - **Notes:**

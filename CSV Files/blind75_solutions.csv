@@ -1017,11 +1017,107 @@ class Solution:
         return head
 ",,,
 Reverse Nodes In K Group,Linked List,,,,
-Invert Binary Tree,Trees,,,,
-Maximum Depth of Binary Tree (DFS),Trees,,,,
-Diameter of Binary Tree,,,,,
-Balanced Binary Tree,,,,,
-Same Tree (DFS),Trees,,,,
+Invert Binary Tree,Trees,"# DFS
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        
+        def dfs(node):
+            if node == None:
+                return
+            
+            node.left, node.right = dfs(node.right), dfs(node.left)
+            return node
+
+        return dfs(root)",,,
+Maximum Depth of Binary Tree (DFS),Trees,"# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+
+        def dfs(root):
+            if root == None:
+                return 0
+            
+            return 1 + max(dfs(root.left), dfs(root.right))
+
+        return dfs(root)",,,
+Diameter of Binary Tree,Trees,"# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+
+        # Calculate max diameter in nodes then adjust to edges
+        
+        def dfs(node):
+            if node == None:
+                return 0, 0
+
+            leftLength, leftMax = dfs(node.left)
+            rightLength, rightMax = dfs(node.right)
+
+            currLength = 1 + max(leftLength, rightLength)
+            currMax = max(leftLength + rightLength + 1, leftMax, rightMax)
+
+            return (currLength, currMax)
+
+        return dfs(root)[1] - 1",,,
+Balanced Binary Tree,Trees,"# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def isBalanced(self, root: Optional[TreeNode]) -> bool:
+        
+        def dfs(node):
+            if node == None:
+                return 0
+
+            leftDepth, rightDepth = dfs(node.left), dfs(node.right)
+            if leftDepth == -1 or rightDepth == -1 or abs(leftDepth - rightDepth) > 1:
+                return -1
+            else:
+                return 1 + max(leftDepth, rightDepth)
+
+        return dfs(root) != -1",,,
+Same Tree (DFS),Trees,"# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        
+        def dfs(pNode, qNode):
+            if pNode != None and qNode != None and pNode.val == qNode.val:
+                return dfs(pNode.left, qNode.left) and dfs(pNode.right, qNode.right)
+            elif pNode == qNode == None:
+                return True
+            else:
+                return False
+
+        return dfs(p, q) ",,,
 Subtree of Another Tree (DFS),Trees,"# Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -1047,8 +1143,77 @@ class Solution:
             return self.isSameTree(node1.left, node2.left) and self.isSameTree(node1.right, node2.right)
         else:
             return False
-        ",,,
-Lowest Common Ancestor of a Binary Search Tree,Trees,,,,
+        ","# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:   
+    def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
+        if not subRoot:
+            return True
+        elif not root:
+            return False
+        
+        def traverse(node):
+            subTree = False
+            if node == None:
+                return False
+            elif node.val == subRoot.val:
+                subTree = isSame(node.left, subRoot.left) and isSame(node.right, subRoot.right)
+            
+            return traverse(node.left) or traverse(node.right) or subTree
+
+        def isSame(node, subNode):
+            if not node and not subNode:
+                return True
+            elif node and subNode and node.val == subNode.val:
+                return isSame(node.left, subNode.left) and isSame(node.right, subNode.right)
+            else:
+                return False
+
+        return traverse(root)",,
+Lowest Common Ancestor of a Binary Search Tree,Trees,"# Recursion, Linear Time + Space (O(logn)/O(n)
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
+        
+        def dfs(node):
+            if node.val < p.val and node.val < q.val:
+                return dfs(node.right)
+            elif node.val > p.val and node.val > q.val:
+                return dfs(node.left)
+            else:
+                return node
+
+        return dfs(root)
+","# Linear Time + Constant Space
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
+        node = root
+        while True:
+            if node.val < p.val and node.val < q.val:
+                node = node.right
+            elif node.val > p.val and node.val > q.val:
+                node = node.left
+            else:
+                return node
+            ",,
 Binary Tree Level Order Traversal,Trees,"# Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -1075,8 +1240,52 @@ class Solution:
             if levelList:
                 result.append(levelList)
         return result",,,
-Binary Tree Right Side View,,,,,
-Count Good Nodes In Binary Tree,,,,,
+Binary Tree Right Side View,Trees,"# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+        result = []
+        
+        queue = collections.deque()
+        if root: queue.append(root)
+
+        while queue:
+            levelLength = len(queue)
+
+            for i in range(levelLength):
+                node = queue.popleft()
+                if node.left: queue.append(node.left)
+                if node.right: queue.append(node.right)
+                if i + 1 == levelLength: result.append(node.val)
+
+        return result",,,
+Count Good Nodes In Binary Tree,Trees,"# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def goodNodes(self, root: TreeNode) -> int:
+        if not root:
+            return 0
+
+        def dfs(node, pathMax):
+            if not node:
+                return 0  
+            
+            count = 1 if node.val >= pathMax else 0
+            newMax = node.val if node.val > pathMax else pathMax
+
+            return count + dfs(node.left, newMax) + dfs(node.right, newMax)
+
+        return dfs(root, float('-inf'))",,,
 Validate Binary Search Tree,Trees,"# Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -1097,7 +1306,8 @@ class Solution:
 
 
         return isValid(root, float(""-inf""), float(""inf""))",,,
-Kth Smallest Element In a Bst,Trees,"# Definition for a binary tree node.
+Kth Smallest Element In a Bst,Trees,"# BFS
+# Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
 #         self.val = val
@@ -1119,7 +1329,33 @@ class Solution:
             if k == 0:
                 return node.val
             
-            current = node.right ",,,
+            current = node.right ","# DFS
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        result = -1
+        
+        def inorder(node, count):
+            nonlocal result
+            if count == k: return count
+            elif not node: return count
+
+            count = inorder(node.left, count) + 1
+            if count == k:
+                result = node.val
+                return count
+
+            count = inorder(node.right, count)
+            return count
+
+        inorder(root, 0)
+        return result",,
 Construct Binary Tree From Preorder And Inorder Traversal,Trees,"# Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -1147,7 +1383,35 @@ class Solution:
 
                 return root
 
-        return recurse(0, len(preorder) - 1, 0, len(inorder) - 1)",,,
+        return recurse(0, len(preorder) - 1, 0, len(inorder) - 1)","# Same as solution 1 but a bit broken down
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+        inorderMap = {val: i for i, val in enumerate(inorder)}
+
+        def recurse(preL, preR, inL, inR):
+            if preL > preR or inL > inR:
+                return None
+
+            rootVal = preorder[preL]
+            root = TreeNode(rootVal)
+            inorderIndex = inorderMap[rootVal]
+
+            LeftHalf = inorderIndex - inL
+
+            root.left = recurse(preL + 1, preL + LeftHalf, inL, inorderIndex - 1)
+            root.right = recurse(preL + 1 + LeftHalf, preR, inorderIndex + 1, inR)
+
+            return root
+
+
+        return recurse(0, len(preorder) - 1, 0, len(inorder) - 1)",,
 Binary Tree Maximum Path Sum,Trees,"# Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
