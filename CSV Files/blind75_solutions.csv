@@ -1438,8 +1438,84 @@ class Solution:
             return down, best
 
         return recurse(root)[1]",,,
-Serialize And Deserialize Binary Tree,Trees,,,,
-Kth Largest Element In a Stream,Heap / Priority Queue,,,,
+Serialize And Deserialize Binary Tree,Trees,"# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Codec:
+    
+    # Encodes a tree to a single string.
+    def serialize(self, root: Optional[TreeNode]) -> str:
+        queue = collections.deque()
+        if root: queue.append(root)
+        result = []
+
+        while queue:
+            levelLength = len(queue)
+            for i in range(levelLength):
+                node = queue.popleft()
+                if node: 
+                    queue.append(node.left)
+                    queue.append(node.right)
+
+                result.append(str(node.val) if node else ""!"")
+
+        for i in range(len(result) - 1, -1, -1):
+            if result[i] == ""!"": result.pop()
+            else: break
+
+        return "","".join(result)
+        
+    # Decodes your encoded data to tree.
+    def deserialize(self, data: str) -> Optional[TreeNode]:
+        if len(data) > 0: tokens = data.split("","")
+        else: return None
+
+        root = TreeNode(int(tokens[0]))
+        queue = collections.deque()
+        queue.append(root)
+        
+        i = 1
+        while queue:
+            node = queue.popleft()
+
+            if i < len(tokens) and tokens[i] != ""!"":
+                node.left = TreeNode(int(tokens[i]))
+                queue.append(node.left)
+            i += 1
+
+            if i < len(tokens) and tokens[i] != ""!"":
+                node.right = TreeNode(int(tokens[i]))
+                queue.append(node.right)
+            i += 1
+
+        return root
+        
+        
+
+
+
+",,,
+Kth Largest Element In a Stream,Heap / Priority Queue,"class KthLargest:
+
+    def __init__(self, k: int, nums: List[int]):
+        self.numHeap = nums
+        self.k = k
+
+        heapq.heapify(self.numHeap)
+        while len(self.numHeap) > self.k:
+            heapq.heappop(self.numHeap)
+
+    def add(self, val: int) -> int:
+        if len(self.numHeap) == self.k:
+            heapq.heappushpop(self.numHeap, val)
+        else:
+            heapq.heappush(self.numHeap, val)
+
+        return self.numHeap[0]",,,
 Last Stone Weight,Heap / Priority Queue,,,,
 K Closest Points to Origin,Heap / Priority Queue,,,,
 Kth Largest Element In An Array,Heap / Priority Queue,,,,
