@@ -1502,28 +1502,191 @@ class Codec:
 Kth Largest Element In a Stream,Heap / Priority Queue,"class KthLargest:
 
     def __init__(self, k: int, nums: List[int]):
-        self.numHeap = nums
-        self.k = k
+        heapq.heapify(nums)
+        self.minHeap, self.k = nums, k
 
-        heapq.heapify(self.numHeap)
-        while len(self.numHeap) > self.k:
-            heapq.heappop(self.numHeap)
+        while len(self.minHeap) > k:
+            heapq.heappop(self.minHeap)
 
     def add(self, val: int) -> int:
-        if len(self.numHeap) == self.k:
-            heapq.heappushpop(self.numHeap, val)
+        if len(self.minHeap) == self.k:
+            heapq.heappushpop(self.minHeap, val)
         else:
-            heapq.heappush(self.numHeap, val)
+            heapq.heappush(self.minHeap, val)
+        
+        return self.minHeap[0]
+",,,
+Last Stone Weight,Heap / Priority Queue,"class Solution:
+    def lastStoneWeight(self, stones: List[int]) -> int:
+        maxHeap = [-n for n in stones]
+        heapq.heapify(maxHeap)
 
-        return self.numHeap[0]",,,
-Last Stone Weight,Heap / Priority Queue,,,,
-K Closest Points to Origin,Heap / Priority Queue,,,,
-Kth Largest Element In An Array,Heap / Priority Queue,,,,
-Task Scheduler,Heap / Priority Queue,,,,
+        while len(maxHeap) >= 2:
+            first = -maxHeap[0]
+            heapq.heappop(maxHeap)
+
+            second = -maxHeap[0]
+            heapq.heappop(maxHeap)
+
+            smashed = first - second
+            if smashed != 0:
+                heapq.heappush(maxHeap, -smashed)
+            
+        return -maxHeap[0] if len(maxHeap) > 0 else 0",,,
+K Closest Points to Origin,Heap / Priority Queue,"class Solution:
+    def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
+        
+        def euclidean(first, second):
+            x1, y1 = first
+            x2, y2 = second
+
+            distance = math.sqrt((x1 - x2)**2 + (y1 - y2)**2)
+            return distance
+        
+        target = (0, 0)
+
+        for i in range(len(points)):
+            points[i] = [euclidean(target, points[i])] + points[i]
+
+        heapq.heapify(points)
+
+        result = []
+        for i in range(k):
+            distance, x, y = points[0]
+            result.append([x, y])
+            heapq.heappop(points)
+
+        return result
+        
+        ",,,
+Kth Largest Element In An Array,Heap / Priority Queue,"class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        nums.sort()
+        
+        return nums[-k]        
+","class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        minHeap = []
+
+        for n in nums:
+            if len(minHeap) < k:
+                heapq.heappush(minHeap, n)
+            else:
+                heapq.heappushpop(minHeap, n)
+
+        return minHeap[0]        
+",,
+Task Scheduler,Heap / Priority Queue,"class Solution:
+    def leastInterval(self, tasks: List[str], n: int) -> int:
+        counts = [0] * 26
+
+        for char in tasks:
+            counts[ord(char) - ord('A')] += 1
+
+        fmax, cmax = 0, 0
+
+        for count in counts:
+            if count > fmax:
+                fmax, cmax = count, 1
+            elif count == fmax:
+                cmax += 1
+        
+        return max(((fmax - 1) * (n + 1)) + cmax, len(tasks))
+",,,
 Design Twitter,Heap / Priority Queue,,,,
 Find Median From Data Stream,Heap / Priority Queue,,,,
-Subsets,Backtracking,,,,
-Combination Sum,Backtracking,,,,
+Subsets,Backtracking,"# Linear * Exponential Time + Space
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        result = []
+        
+        def dfs(i, subset):
+            nonlocal result
+            if i == len(nums):
+                result.append(subset)
+                return
+            
+            skip = dfs(i + 1, list(subset))
+
+            newSet = list(subset)
+            newSet.append(nums[i])
+            take = dfs(i + 1, newSet)
+            return
+
+        dfs(0, [])
+        return result","# Linear * Exponential Time + Linear Space
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        result = []
+        
+        def dfs(i, subset):
+            nonlocal result
+            if i == len(nums):
+                result.append(list(subset))
+                return
+            
+            skip = dfs(i + 1, subset)
+
+            subset.append(nums[i])
+            take = dfs(i + 1, subset)
+            subset.pop()
+            return
+
+        dfs(0, [])
+        return result",,
+Combination Sum,Backtracking,"# Brute Force
+class Solution:
+    def combinationSum(self, nums: List[int], target: int) -> List[List[int]]:
+        result = []
+        combitations = set()
+        
+        def dfs(i, currSum, sumSet):
+            nonlocal result
+            nonlocal combitations
+            if currSum == target and i == len(nums) and tuple(sumSet) not in combitations:
+                combitations.add(tuple(sumSet))
+                result.append(list(sumSet))
+                return
+            elif currSum == target and tuple(sumSet) not in combitations:
+                combitations.add(tuple(sumSet))
+                result.append(list(sumSet))
+                return
+            elif i == len(nums):
+                return
+
+            dfs(i + 1, currSum, sumSet) # skip
+            
+            currSum += nums[i]
+            if currSum <= target:
+                sumSet.append(nums[i])
+                dfs(i, currSum, sumSet) # take
+                sumSet.pop()
+            return
+
+        dfs(0, 0, [])
+        return result
+","class Solution:
+    def combinationSum(self, nums: List[int], target: int) -> List[List[int]]:
+        nums.sort()
+        result = []
+
+        def dfs(i, currSum, subset):
+            if currSum == target:
+                result.append(list(subset))
+                return
+            elif currSum > target or i == len(nums):
+                return
+            
+            dfs(i + 1, currSum, subset)
+
+            subset.append(nums[i])
+            dfs(i, currSum + nums[i], subset)
+            subset.pop()
+
+            return
+
+        dfs(0, 0, [])
+        return result",,
 Combination Sum II,Backtracking,,,,
 Permutations,Backtracking,,,,
 Subsets II,Backtracking,,,,
