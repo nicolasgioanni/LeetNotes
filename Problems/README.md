@@ -1,7 +1,7 @@
 # My Solved LeetCode Problem Index
 
 <!-- AUTO-GENERATED FILE. DO NOT EDIT MANUALLY. -->
-*Last updated: 2026-01-14 13:36 UTC*
+*Last updated: 2026-01-25 13:28 UTC*
 
 This index lists every problem I've solved, organized by category, with links to the problem and my solutions.
 
@@ -83,11 +83,11 @@ This index lists every problem I've solved, organized by category, with links to
 ## Backtracking
 - 131\. Palindrome Partitioning ([Problem](https://leetcode.com/problems/palindrome-partitioning/) | [Solution](./0131.%20Palindrome%20Partitioning))
 - 17\. Letter Combinations of a Phone Number ([Problem](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) | [Solution](./0017.%20Letter%20Combinations%20of%20a%20Phone%20Number))
-- 39\. Combination Sum ([Problem](https://leetcode.com/problems/combination-sum/) | [Solution](./0039.%20Combination%20Sum))
+- 39\. Combination Sum ([Problem](https://leetcode.com/problems/combination-sum/) | [Solutions](./0039.%20Combination%20Sum))
 - 40\. Combination Sum II ([Problem](https://leetcode.com/problems/combination-sum-ii/) | [Solution](./0040.%20Combination%20Sum%20II))
 - 46\. Permutations ([Problem](https://leetcode.com/problems/permutations/) | [Solution](./0046.%20Permutations))
 - 51\. N Queens ([Problem](https://leetcode.com/problems/n-queens/) | [Solution](./0051.%20N%20Queens))
-- 78\. Subsets ([Problem](https://leetcode.com/problems/subsets/) | [Solution](./0078.%20Subsets))
+- 78\. Subsets ([Problem](https://leetcode.com/problems/subsets/) | [Solutions](./0078.%20Subsets))
 - 79\. Word Search ([Problem](https://leetcode.com/problems/word-search/) | [Solution](./0079.%20Word%20Search))
 - 90\. Subsets II ([Problem](https://leetcode.com/problems/subsets-ii/) | [Solution](./0090.%20Subsets%20II))
 
@@ -185,7 +185,7 @@ This index lists every problem I've solved, organized by category, with links to
 
 ## Heap
 - 1046\. Last Stone Weight ([Problem](https://leetcode.com/problems/last-stone-weight/) | [Solution](./1046.%20Last%20Stone%20Weight))
-- 215\. Kth Largest Element In An Array ([Problem](https://leetcode.com/problems/kth-largest-element-in-an-array/) | [Solution](./0215.%20Kth%20Largest%20Element%20In%20An%20Array))
+- 215\. Kth Largest Element In An Array ([Problem](https://leetcode.com/problems/kth-largest-element-in-an-array/) | [Solutions](./0215.%20Kth%20Largest%20Element%20In%20An%20Array))
 - 295\. Find Median From Data Stream ([Problem](https://leetcode.com/problems/find-median-from-data-stream/) | [Solution](./0295.%20Find%20Median%20From%20Data%20Stream))
 - 355\. Design Twitter ([Problem](https://leetcode.com/problems/design-twitter/) | [Solution](./0355.%20Design%20Twitter))
 - 621\. Task Scheduler ([Problem](https://leetcode.com/problems/task-scheduler/) | [Solution](./0621.%20Task%20Scheduler))
